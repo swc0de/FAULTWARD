@@ -180,6 +180,12 @@ class Game {
     this.audio.setVolumes(this.settings.get("volume"));
     this.menu = new Menu(this.root, this.settings, this.input, { onResume: () => this.resume(), onLeave: () => void this.leave(), onReload: () => location.reload(),
       canStop: () => !!this.welcome?.can_stop, onStop: () => void this.stopMatch(), info: () => this.menuInfo() }, gfx);
+    document.addEventListener("keydown", (e) => {
+      if (!this.menu.open || (e.code !== "Escape" && e.code !== "KeyB")) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      this.resume();
+    }, true);
     this.settings.onChange((k, v) => this.applySetting(k, v));
     this.applySetting("crosshair", this.settings.get("crosshair"));
     this.applyHudLayout();
@@ -1238,7 +1244,12 @@ class Game {
       this.overlay.classList.add("hidden");
       this.hud.showBuy(true, this.buyModel());
       this.buyKeyHandler = (e: KeyboardEvent) => {
-        if (e.code === "Escape" || e.code === this.input.binds.buy_menu) { e.preventDefault(); this.toggleBuy(false); return; }
+        if (e.code === "Escape" || e.code === "KeyB" || e.code === this.input.binds.buy_menu) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          this.toggleBuy(false);
+          return;
+        }
         const key = this.hud.buyKeys.get(e.code);
         if (key?.startsWith("specialist:")) { e.preventDefault(); void this.net.control("specialist", { item: key.slice(11) }); }
         else if (key) { e.preventDefault(); this.buyItem(key); }

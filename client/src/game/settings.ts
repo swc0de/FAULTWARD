@@ -281,7 +281,7 @@ export class Menu {
       out.textContent = fmt(v);
       input.style.setProperty("--fill", `${((v - o.min) / (o.max - o.min)) * 100}%`);
     };
-    input.addEventListener("input", () => { const v = parseFloat(input.value); paint(v); o.set(v); });
+    input.addEventListener("input", () => { const v = parseFloat(input.value); paint(v); o.set(v); this.refresh(); });
     // double-click the value to type one in
     out.title = "Double-click to type a value";
     out.addEventListener("dblclick", () => {
@@ -565,6 +565,30 @@ export class Menu {
     });
 
     const ctl = h("div", "xh-controls", layout);
+    const presetGroup = this.group("Presets", ctl);
+    h("p", "help", presetGroup, "Choose a starting crosshair, then adjust any setting below.");
+    const presetBar = h("div", "ctl seg", presetGroup);
+    const presets = [
+      ["classic", "Classic", { style: "classic", size: 8, gap: 4, thickness: 2, color: "#7dff7d", dot: false, outline: true, opacity: 1, dynamic: true }],
+      ["compact", "Compact", { style: "classic", size: 5, gap: 2, thickness: 1, color: "#00e5ff", dot: false, outline: true, opacity: 1, dynamic: false }],
+      ["t", "T-shape", { style: "t", size: 8, gap: 3, thickness: 2, color: "#ffe14d", dot: false, outline: true, opacity: 1, dynamic: false }],
+      ["dot", "Dot", { style: "dot", size: 4, gap: 0, thickness: 2, color: "#ffffff", dot: false, outline: true, opacity: 1, dynamic: false }],
+    ] as const;
+    const presetButtons = presets.map(([id, label, values]) => {
+      const b = h("button", "", presetBar, label);
+      b.type = "button";
+      b.addEventListener("click", () => { this.settings.set("crosshair", { ...this.xh(), ...values }); this.refresh(); });
+      return [id, values, b] as const;
+    });
+    const syncPresets = () => {
+      const current = this.xh();
+      for (const [, values, button] of presetButtons) {
+        const selected = Object.entries(values).every(([key, value]) => current[key] === value);
+        button.classList.toggle("on", selected);
+      }
+    };
+    this.refreshers.push(syncPresets);
+    syncPresets();
     const shape = this.group("Shape", ctl);
     this.choice(shape, "Style", { desc: "Classic four lines, a T without the top line, a dot only, or a circle." },
       [["classic", "Classic"], ["t", "T-shape"], ["dot", "Dot"], ["circle", "Circle"]], () => this.xh().style, (v) => this.setXh({ style: v }));
