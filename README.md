@@ -1,38 +1,108 @@
-# FAULTWARD
+<p align="center">
+  <img src="client/dist/assets/brand/faultward-logo.svg" alt="FAULTWARD" width="520">
+</p>
 
-A browser-based tactical 5v5 shooter with bots, multiplayer lobbies, destructible walls, gadgets, and three maps: Qalat Village, Sarai Bazaar, and Oil Camp.
+<p align="center">
+  A tactical 5v5 browser FPS built around teamwork, information, and destruction.
+</p>
 
-## Play
+<p align="center">
+  <strong>Windows x64</strong> · <strong>Portable</strong> · <strong>No installation required</strong> · <strong>Playable offline with bots</strong>
+</p>
 
-1. Extract the entire ZIP on a Windows x64 PC.
-2. Open `START_GAME.cmd`. The game opens in your browser.
-3. Create an account, then choose Play.
+## Play now
 
-The required runtime and game files are included. No installation or build is needed. Keep the launcher window open while playing; close it or press Ctrl+C to stop the game. If the browser does not open, use the address printed in that window.
+1. [Download the V03.0 ZIP](https://github.com/swc0de/FPS-V2/archive/refs/heads/V03.0.zip).
+2. Extract the complete ZIP to a new folder.
+3. Double-click **`START_GAME.cmd`**.
+4. Create a local account in the browser, then select **Play**.
+
+The package includes the game, server, assets, dependencies, and Node.js runtime. You do not need to install Node.js or run a build. Keep the launcher window open while playing; close it or press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the server.
+
+If the browser does not open automatically, use the local address printed in the launcher window. It normally starts at **http://127.0.0.1:5000/** and selects another free port when necessary.
+
+## What is FAULTWARD?
+
+FAULTWARD is a round-based tactical shooter with an authoritative 64 Hz server and a Three.js browser client. Attackers plant a charge; defenders protect the sites or defuse it. Each round gives every decision weight through one-life combat and a persistent match economy.
+
+- 5v5 matches with human players, bots, or a mixture of both
+- Quick bot matches, private lobby codes, public servers, and ranked 1v1 duels
+- Destructible soft walls and hatches, reinforcements, leaning, drones, and cameras
+- Specialist gadgets, grenades, breach charges, and 17 distinct weapons
+- Client-side movement prediction with server-authoritative simulation
+- Full graphics, audio, mouse, crosshair, HUD, action, and key-binding settings
+- Local SQLite accounts and match history
+
+## Maps
+
+<table>
+  <tr>
+    <td align="center"><img src="client/dist/assets/brand/qalat.webp" alt="Qalat Village" width="300"></td>
+    <td align="center"><img src="client/dist/assets/brand/bazaar.webp" alt="Sarai Bazaar" width="300"></td>
+    <td align="center"><img src="client/dist/assets/brand/oilcamp.webp" alt="Oil Camp" width="300"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Qalat Village</strong><br>A mountain village built around a fortified qala and caravanserai.</td>
+    <td align="center"><strong>Sarai Bazaar</strong><br>A dense market district with a fuel station and hotel compound.</td>
+    <td align="center"><strong>Oil Camp</strong><br>An industrial desert site of rigs, pipe racks, and processing equipment.</td>
+  </tr>
+</table>
 
 ## Controls
 
-| Key | Action |
+All controls can be changed from **Settings**.
+
+| Input | Action |
 | --- | --- |
-| WASD / mouse | Move / look |
-| Left / right mouse | Fire / aim |
-| R | Reload |
-| Space / C / Shift | Jump / crouch / walk |
-| Q / E | Lean |
-| F | Use, pick up, defuse |
-| B | Buy |
-| X | Specialist gadget |
-| Tab | Scoreboard |
-| Esc | Menu and settings |
+| <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> / mouse | Move / look |
+| Left mouse / right mouse | Fire / aim down sights |
+| <kbd>Shift</kbd> / <kbd>C</kbd> / <kbd>Space</kbd> | Walk / crouch / jump |
+| <kbd>Q</kbd> / <kbd>E</kbd> | Lean left / right |
+| <kbd>R</kbd> | Reload |
+| <kbd>F</kbd> | Use, pick up, reinforce, or defuse |
+| <kbd>1</kbd>–<kbd>6</kbd> | Weapons, equipment, drones, and cameras |
+| <kbd>B</kbd> | Buy menu |
+| <kbd>X</kbd> / <kbd>V</kbd> | Specialist gadget / wall charge |
+| <kbd>G</kbd> / middle mouse | Drop weapon / team ping |
+| <kbd>Tab</kbd> | Scoreboard |
+| <kbd>Enter</kbd> / <kbd>U</kbd> | All chat / team chat |
+| <kbd>Esc</kbd> | Menu and settings |
 
-Open Settings to adjust graphics, sound, mouse sensitivity, and key bindings.
+## Game data
 
-## Saved accounts and settings
+Accounts, preferences, match history, and generated caches are stored in the **`user/`** folder beside the launcher. This folder is created on first run and is ignored by Git.
 
-The game creates a `user` folder beside the launcher. To transfer your accounts and settings, close both copies of the game and copy that folder to the new game folder. Keep a backup before replacing an existing `user` folder.
+To move an existing account to a new copy:
 
-Optional server settings are in `.env.example`; copy it to `.env` to change them. The default address is `http://127.0.0.1:5000`. The launcher chooses another port if needed.
+1. Close both game servers.
+2. Back up the destination `user/` folder if it exists.
+3. Copy the old `user/` folder into the new FAULTWARD folder.
 
-## Package
+## Optional configuration
 
-This repository contains the ready-to-run Windows game. The compiled client, server, game assets, and required dependencies are included. Development tools and tests are omitted. Third-party licenses are included with the runtime and dependencies; see `THIRD_PARTY_NOTICES.txt`.
+Local play works without configuration. To change the server defaults, copy **`.env.example`** to **`.env`** and edit the values:
+
+| Setting | Default | Purpose |
+| --- | ---: | --- |
+| `HOST` | `127.0.0.1` | Address the server listens on |
+| `PORT` | `5000` | Preferred local port |
+| `MAX_MATCHES` | `4` | Maximum simultaneous matches |
+
+## Repository contents
+
+This branch is the ready-to-run **V03.0 Windows release**. It intentionally excludes source code, tests, visual test captures, asset generators, and build tooling.
+
+| Path | Contents |
+| --- | --- |
+| `START_GAME.cmd` | Windows launcher |
+| `client/dist/` | Compiled browser client and game assets |
+| `server/dist/` | Compiled game and web server |
+| `data/` | Runtime maps and server data |
+| `node_modules/` | Runtime server dependencies |
+| `runtime/` | Bundled Node.js Windows runtime |
+
+Third-party notices and licenses are retained in **`THIRD_PARTY_NOTICES.txt`**, **`runtime/LICENSE.txt`**, and the relevant runtime dependency folders.
+
+## Release
+
+**V03.0** is the portable, cleaned runtime distribution of FAULTWARD. The branch contains only what is needed to launch and play the game, plus the documentation and license files needed for distribution on GitHub.
