@@ -1,0 +1,58 @@
+{
+  "_settings-DS-a2qq_.css": {
+    "file": "assets/settings-DS-a2qq_.css",
+    "src": "_settings-DS-a2qq_.css"
+  },
+  "_settings-DoPMYiQH.js": {
+    "file": "assets/settings-DoPMYiQH.js",
+    "name": "settings",
+    "css": [
+      "assets/settings-DS-a2qq_.css"
+    ]
+  },
+  "_socket-BGKucvMv.css": {
+    "file": "assets/socket-BGKucvMv.css",
+    "src": "_socket-BGKucvMv.css"
+  },
+  "_socket-BKus8Xzf.js": {
+    "file": "assets/socket-BKus8Xzf.js",
+    "name": "socket",
+    "css": [
+      "assets/socket-BGKucvMv.css"
+    ]
+  },
+  "src/game/main.ts": {
+    "file": "assets/game-RtEZUF5m.js",
+    "name": "game",
+    "src": "src/game/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_socket-BKus8Xzf.js",
+      "_settings-DoPMYiQH.js"
+    ]
+  },
+  "src/site/main.ts": {
+    "file": "assets/site-CQifKT9O.js",
+    "name": "site",
+    "src": "src/site/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_socket-BKus8Xzf.js"
+    ],
+    "dynamicImports": [
+      "src/site/settings.ts"
+    ]
+  },
+  "src/site/settings.ts": {
+    "file": "assets/settings-DPYz_HkR.js",
+    "name": "settings",
+    "src": "src/site/settings.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_settings-DoPMYiQH.js"
+    ],
+    "css": [
+      "assets/settings-CWQxuXp5.css"
+    ]
+  }
+}

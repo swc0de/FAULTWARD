@@ -1,39 +1,10 @@
 {
-  "name": "cold-sector",
+  "name": "faultward",
   "version": "1.0.0",
   "private": true,
-  "description": "COLD SECTOR: a tactical 5v5 shooter in the browser",
+  "description": "FAULTWARD portable Windows game",
   "type": "module",
-  "workspaces": [
-    "shared",
-    "server",
-    "client"
-  ],
-  "engines": {
-    "node": ">=22"
-  },
   "scripts": {
-    "start": "tsx scripts/start.ts",
-    "build": "tsx scripts/build.ts --force",
-    "dev": "tsx scripts/dev.ts",
-    "typecheck": "tsc -p shared && tsc -p server && tsc -p client",
-    "fetch-assets": "tsx scripts/fetch-assets.ts",
-    "check-maps": "tsx scripts/maps/check.ts data/maps/qalat.json data/maps/bazaar.json && tsx scripts/maps/overlaps.ts data/maps/qalat.json data/maps/bazaar.json && tsx scripts/assets/soldier_check.ts"
-  },
-  "devDependencies": {
-    "@types/better-sqlite3": "7.6.13",
-    "@types/node": "22.20.5",
-    "@types/pg": "8.15.6",
-    "@types/three": "0.169.0",
-    "@types/ws": "8.18.1",
-    "esbuild": "0.25.10",
-    "jpeg-js": "0.4.4",
-    "tsx": "4.20.6",
-    "typescript": "5.9.3",
-    "vite": "6.4.3"
-  },
-  "allowScripts": {
-    "esbuild@0.25.10": true,
-    "better-sqlite3@12.4.1": true
+    "start": "runtime\\node.exe server/dist/main.mjs"
   }
 }

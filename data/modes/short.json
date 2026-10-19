@@ -1,4 +1,0 @@
-{
- "_comment": "Short match (web bot lobbies, public servers): overrides data/match.json. MR12: halftime after 6, first to 7.",
- "rounds": {"max_rounds": 12, "halftime_after": 6, "win_score": 7}
-}

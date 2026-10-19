@@ -1,0 +1,77 @@
+'use strict'
+
+const getPluginName = require('./lib/getPluginName')
+const toCamelCase = require('./lib/toCamelCase')
+
+const kSkipOverride = Symbol.for('skip-override')
+const kDisplayName = Symbol.for('fastify.display-name')
+const kPluginMeta = Symbol.for('plugin-meta')
+
+let count = 0
+
+function plugin (fn, options = {}) {
+  let autoName = false
+
+  if (fn?.default !== undefined) {
+    // Support for 'export default' behaviour in transpiled ECMAScript module
+    fn = fn.default
+  }
+
+  if (typeof fn !== 'function') {
+    throw new TypeError(
+      `fastify-plugin expects a function, instead got a '${typeof fn}'`
+    )
+  }
+
+  if (typeof options === 'string') {
+    options = {
+      fastify: options
+    }
+  }
+
+  if (
+    typeof options !== 'object' ||
+    Array.isArray(options) ||
+    options === null
+  ) {
+    throw new TypeError('The options object should be an object')
+  }
+
+  if (options.fastify !== undefined && typeof options.fastify !== 'string') {
+    throw new TypeError(`fastify-plugin expects a version string, instead got '${typeof options.fastify}'`)
+  }
+
+  if (options.name && typeof options.name !== 'string') {
+    throw new TypeError(`fastify-plugin expects a name string, instead got '${typeof options.name}'`)
+  }
+
+  if (!options.name) {
+    autoName = true
+    options = { ...options, name: getPluginName(fn) + '-auto-' + count++ }
+  }
+
+  fn[kSkipOverride] = options.encapsulate !== true
+  fn[kDisplayName] = options.name
+  fn[kPluginMeta] = options
+
+  // Faux modules support
+  if (!fn.default) {
+    fn.default = fn
+  }
+
+  // TypeScript support for named imports
+  // See https://github.com/fastify/fastify/issues/2404 for more details
+  // The type definitions would have to be update to match this.
+  if (!autoName) {
+    const camelCase = toCamelCase(options.name)
+    if (!fn[camelCase]) {
+      fn[camelCase] = fn
+    }
+  }
+
+  return fn
+}
+
+module.exports = plugin
+module.exports.default = plugin
+module.exports.fastifyPlugin = plugin

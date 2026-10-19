@@ -1,341 +1,7092 @@
 {
  "name": "Qalat Village",
  "description": "Mountain village in a dry Afghan valley: the wadi and its tank wreck, a bazaar lane, a walled qala (A), a caravanserai (B) and the malik's compound.",
- "environment": {"hdri": "kloofendal_48d_partly_cloudy_puresky", "hdri_candidates": ["syferfontein_1d_clear_puresky", "kloppenheim_06_puresky", "industrial_sunset_puresky"], "sun_dir": [0.5, -0.36, 0.78], "sun_intensity": 4.1, "sun_color": [1.0, 0.87, 0.7], "sky_target": 0.9, "ground": [0.27, 0.21, 0.15], "sun_clamp": 12.0, "ibl_diffuse": 1.0, "ibl_specular": 0.9, "exposure": 1.0, "ambient_floor": [0.005, 0.0045, 0.004], "fog": {"density": 0.0045, "height_falloff": 0.05, "base_height": 0.0, "max_opacity": 0.55, "sun_scatter": 0.55}, "post": {"bloom": {"intensity": 0.4, "threshold": 1.3, "knee": 0.6, "scatter": 0.7}, "grading": {"saturation": 0.9, "contrast": 1.07, "temperature": 0.22, "tint": 0.02, "lift": [0.006, 0.005, 0.004], "gamma": [1.0, 1.0, 1.0], "gain": [1.04, 1.0, 0.95]}, "vignette": {"strength": 0.3, "start": 0.45}, "auto_exposure": {"strength": 0.55, "min_ev": -1.0, "max_ev": 1.25, "reference": -1.6, "speed_up": 3.0, "speed_down": 1.1}}},
- "bounds": [[-63, -67, -1.0], [63, 67, 16]],
- "skyvis_spacing": [1.5, 1.5, 1.0],
- "briefing": {"region": "Central highlands, Afghanistan (fictional village)", "attack": "Come up the dry wadi past the old T-55 and plant the charge in the qala or the caravanserai.", "defend": "Hold the malik's compound and rotate through the orchard (A) or the threshing yard (B).", "A": "The qala: a walled mud fort with four round towers, a south gate, an east door, a north door and a weak patched wall to blow.", "B": "The caravanserai: a courtyard behind a tall iwan gate, domed rooms on the north side with a roof you can climb to."},
- "pieces": [
-  {"type": "floor", "min": [-63, -67], "max": [63, 67], "z": 0.0, "thickness": 0.5, "mat": "dust"},
-  {"type": "terrain", "inner": [[-63, -67], [63, 67]], "extent": 640, "step": 10, "start": 4, "ramp": 230, "height": 150, "seed": 23, "mat": "rock"},
-  {"type": "rock_wall", "p0": [-59, -63], "p1": [59, -63], "height": 9.5, "seed": 31},
-  {"type": "rock_wall", "p0": [59, -63], "p1": [59, 63], "height": 9.5, "seed": 32},
-  {"type": "rock_wall", "p0": [59, 63], "p1": [-59, 63], "height": 9.5, "seed": 33},
-  {"type": "rock_wall", "p0": [-59, 63], "p1": [-59, -63], "height": 9.5, "seed": 34},
-  {"type": "floor", "min": [-57.5, -61], "max": [57.5, -43], "z": 0.02, "thickness": 0.06, "mat": "gravel", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-46.5, -38], "max": [-40, -6.5], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-5, -38], "max": [5, 14], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [40, -38], "max": [47, -2], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-24, -6.5], "max": [-5, -2], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [5, -6.5], "max": [29, -2], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-56, -6], "max": [-24, 14], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-10, -2], "max": [14, 33], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [26, -6], "max": [56, 13], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-25.4, 13.6], "max": [-20.2, 44], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [22.4, 11], "max": [25.4, 40], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "floor", "min": [-19.5, 34.5], "max": [21.5, 47.8], "z": 0.02, "thickness": 0.06, "mat": "dirt", "occlude": false, "collide": false},
-  {"type": "vehicle", "kind": "t55", "base": [-17, -50, 0.0], "heading": 72, "turret": 150, "gun_pitch": -7, "seed": 4},
-  {"type": "vehicle", "kind": "btr", "base": [25, -53.5, 0.0], "heading": -96, "seed": 9},
-  {"type": "vehicle", "kind": "hilux", "base": [-47, -55, 0.0], "heading": 30, "wreck": true},
-  {"type": "rocks", "base": [-37, -51, 0], "size": 1.7, "count": 5, "spread": 2.2, "seed": 3},
-  {"type": "rocks", "base": [7, -46.5, 0], "size": 1.2, "count": 4, "spread": 2.2, "seed": 4},
-  {"type": "rocks", "base": [40, -51, 0], "size": 1.6, "count": 5, "spread": 2.2, "seed": 5},
-  {"type": "rocks", "base": [-52, -45.5, 0], "size": 1.3, "count": 3, "spread": 2.2, "seed": 6},
-  {"type": "rocks", "base": [52, -57, 0], "size": 1.9, "count": 4, "spread": 2.2, "seed": 7},
-  {"type": "rocks", "base": [-8, -60, 0], "size": 1.4, "count": 3, "spread": 2.2, "seed": 8},
-  {"type": "rocks", "base": [16, -60, 0], "size": 1.2, "count": 3, "spread": 2.2, "seed": 9},
-  {"type": "rocks", "base": [-28, -57, 0], "size": 1.0, "count": 3, "spread": 2.2, "seed": 10},
-  {"type": "rocks", "base": [31, -45.5, 0], "size": 1.0, "count": 3, "spread": 2.2, "seed": 11},
-  {"type": "tree", "kind": "poplar", "base": [-56, -41.2, 0], "height": 11},
-  {"type": "tree", "kind": "poplar", "base": [-52.5, -41.2, 0], "height": 11.5},
-  {"type": "tree", "kind": "poplar", "base": [-32, -41.2, 0], "height": 11},
-  {"type": "tree", "kind": "poplar", "base": [-27.5, -41.2, 0], "height": 12.5},
-  {"type": "tree", "kind": "poplar", "base": [22, -41.2, 0], "height": 11},
-  {"type": "tree", "kind": "poplar", "base": [27, -41.2, 0], "height": 10},
-  {"type": "tree", "kind": "poplar", "base": [33, -41.2, 0], "height": 10},
-  {"type": "tree", "kind": "poplar", "base": [52.5, -41.2, 0], "height": 11.5},
-  {"type": "tree", "kind": "poplar", "base": [56, -41.2, 0], "height": 12},
-  {"type": "spawn", "team": "attack", "pos": [-4, -56, 0.1], "heading": 0},
-  {"type": "spawn", "team": "attack", "pos": [-2, -56.8, 0.1], "heading": 0},
-  {"type": "spawn", "team": "attack", "pos": [0, -57.6, 0.1], "heading": 0},
-  {"type": "spawn", "team": "attack", "pos": [2, -56.8, 0.1], "heading": 0},
-  {"type": "spawn", "team": "attack", "pos": [4, -56, 0.1], "heading": 0},
-  {"type": "zone", "name": "Attack buy zone", "kind": "buyzone", "team": "attack", "min": [-57, -61, -1], "max": [57, -39, 5]},
-  {"type": "qala_wall", "p0": [-57.6, -38], "p1": [-46.5, -38], "height": 3.4, "thickness": 0.7, "damage": 2, "seed": 1},
-  {"type": "qala_wall", "p0": [-40, -38], "p1": [40, -38], "height": 3.6, "thickness": 0.7, "damage": 7, "buttress": 8, "buttress_sides": [1], "seed": 2, "openings": [{"at": 40, "width": 4.0, "top": 3.0, "gate": true, "mat": "metal_blue"}]},
-  {"type": "qala_wall", "p0": [47, -38], "p1": [57.6, -38], "height": 3.4, "thickness": 0.7, "damage": 2, "seed": 3},
-  {"type": "rocks", "base": [-47.6, -39.3, 0], "size": 0.7, "count": 3, "spread": 0.8, "mat": "mud_plinth", "seed": 13},
-  {"type": "rocks", "base": [-39.0, -39.3, 0], "size": 0.7, "count": 3, "spread": 0.8, "mat": "mud_plinth", "seed": 21},
-  {"type": "rocks", "base": [39.0, -39.3, 0], "size": 0.7, "count": 3, "spread": 0.8, "mat": "mud_plinth", "seed": 99},
-  {"type": "rocks", "base": [48.1, -39.3, 0], "size": 0.7, "count": 3, "spread": 0.8, "mat": "mud_plinth", "seed": 108},
-  {"type": "mud_house", "min": [-56.5, -35], "max": [-47, -26], "height": 3.0, "openings": {"n": [{"x": -52, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -29.5, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": -32.5, "width": 1.1, "bottom": 1.0, "top": 2.0}]}, "roof_items": [{"kind": "tank", "x": -50.5, "y": -33}], "seed": 11},
-  {"type": "light", "pos": [-51.75, -30.5, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "charpoy", "base": [-54.5, -31, 0.02], "heading": 0},
-  {"type": "prop", "kind": "water_jars", "base": [-52, -34.2, 0.02], "heading": 0},
-  {"type": "prop", "kind": "firewood", "base": [-53, -23.5, 0.02], "heading": 90},
-  {"type": "prop", "kind": "cart", "base": [-49.5, -23.2, 0.02], "heading": -70},
-  {"type": "mud_house", "min": [-56.5, -21], "max": [-47, -7], "height": 3.0, "openings": {"n": [{"x": -52.5, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -18, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": -9.5, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": -14, "width": 1.1, "bottom": 1.0, "top": 2.0}]}, "roof_items": [{"kind": "laundry", "x": -52, "y": -10, "length": 4}], "seed": 12},
-  {"type": "wall", "soft": true, "name": "w3_inner", "p0": [-56.05, -13.5], "p1": [-47.45, -13.5], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 6.0, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-51.8, -17.3, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-51.8, -10.2, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "mud_house", "min": [-40, -35.5], "max": [-29, -25], "height": 3.2, "openings": {"n": [{"x": -33, "width": 1.2, "bottom": 0.0, "top": 2.15}], "e": [{"y": -31, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": -28, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "parapet": 0.35, "domes": [{"x": -37.25, "y": -30.25, "r": 1.9}, {"x": -31.75, "y": -30.25, "r": 1.9}], "seed": 13},
-  {"type": "wall", "soft": true, "name": "domes_w", "p0": [-34.5, -35.05], "p1": [-34.5, -25.45], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 6.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-37.2, -30.2, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-31.8, -30.2, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "mud_house", "min": [-40, -19], "max": [-29, -6.5], "height": 3.0, "openings": {"n": [{"x": -36, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": -32, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -11, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": -16, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": -13, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "roof_items": [{"kind": "wood", "x": -33, "y": -16}], "seed": 14},
-  {"type": "wall", "soft": true, "name": "passage", "p0": [-34.5, -18.55], "p1": [-34.5, -6.95], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 6.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-37.3, -12.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-31.7, -12.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "charpoy", "base": [-38.2, -16.5, 0.02], "heading": 0},
-  {"type": "prop", "kind": "sacks", "base": [-31.5, -8, 0.02], "heading": 0, "count": 6},
-  {"type": "tree", "kind": "apricot", "base": [-26.5, -32, 0]},
-  {"type": "mud_house", "min": [-24, -37.3], "max": [-7.6, -25.5], "height": 3.2, "openings": {"n": [{"x": -18, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": -12, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -27.5, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -31, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "roof_items": [{"kind": "tank", "x": -20, "y": -34}, {"kind": "dish", "x": -11, "y": -28}], "seed": 15},
-  {"type": "wall", "soft": true, "name": "mid_w1", "p0": [-16, -36.85], "p1": [-16, -25.95], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 3.85, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-20, -31.4, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-11.8, -31.4, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "shop", "style": "container", "base": [-6.3, -33.6, 0.02], "heading": 90, "goods": "fruit", "mat": "container_blue", "sign": "MEWA"},
-  {"type": "mud_house", "min": [-24, -21], "max": [-7.6, -6.5], "height": 3.0, "openings": {"n": [{"x": -19, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": -14, "width": 1.2, "bottom": 0.0, "top": 2.15}], "e": [{"y": -9, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -11, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 16},
-  {"type": "wall", "soft": true, "name": "mid_w2", "p0": [-15.5, -20.55], "p1": [-15.5, -6.95], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.0, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-19.8, -13.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-11.6, -13.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "shop", "style": "container", "base": [-6.3, -15.5, 0.02], "heading": 90, "goods": "rugs", "mat": "container_red", "sign": "QALEEN"},
-  {"type": "mud_house", "min": [7.6, -37.3], "max": [24, -25.5], "height": 3.0, "openings": {"n": [{"x": 12, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": 19, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -30, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -27.5, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "roof_items": [{"kind": "antenna", "x": 20, "y": -30}], "seed": 17},
-  {"type": "wall", "soft": true, "name": "mid_e1", "p0": [15.5, -36.85], "p1": [15.5, -25.95], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 3.85, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [11.5, -31.4, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [19.7, -31.4, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "shop", "style": "mud", "base": [6.0, -35, 0.02], "heading": -90, "goods": "tires", "awning": 1.2},
-  {"type": "shop", "style": "mud", "base": [6.0, -31, 0.02], "heading": -90, "goods": "cans", "awning": 1.2, "sign": "DUKAN"},
-  {"type": "mud_house", "min": [7.6, -21], "max": [24, -6.5], "height": 3.2, "openings": {"n": [{"x": 14, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": 20, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -12, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -19, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "domes": [{"x": 20, "y": -13.75, "r": 2.0}], "seed": 18},
-  {"type": "wall", "soft": true, "name": "mid_e2", "p0": [16, -20.55], "p1": [16, -6.95], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 3.0, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [11.8, -13.7, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [20, -13.7, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "shop", "style": "container", "base": [6.3, -12.5, 0.02], "heading": -90, "goods": "cloth", "mat": "container_green"},
-  {"type": "vehicle", "kind": "jingle", "base": [1.2, -21, 0.0], "heading": 4, "seed": 5, "load": "sacks"},
-  {"type": "vehicle", "kind": "motorbike", "base": [-3.6, -28, 0.0], "heading": 10, "mat": "jingle_red"},
-  {"type": "vehicle", "kind": "motorbike", "base": [3.6, -3.5, 0.0], "heading": 170, "mat": "jingle_blue", "lean": -8},
-  {"type": "prop", "kind": "cart", "base": [-3.2, -9.5, 0.02], "heading": 15},
-  {"type": "prop", "kind": "jerrycans", "base": [3.8, -27, 0.02], "heading": 90, "count": 6},
-  {"type": "bunting", "p0": [-5.2, -30], "p1": [5.2, -28], "z": 4.0, "sag": 0.5, "seed": 30},
-  {"type": "bunting", "p0": [-5.2, -18.5], "p1": [5.2, -19.5], "z": 4.2, "sag": 0.5, "seed": 18},
-  {"type": "bunting", "p0": [-5.2, -7], "p1": [5.2, -8.5], "z": 3.9, "sag": 0.5, "seed": 7},
-  {"type": "power_line", "points": [[-5.4, -37], [-5.4, -22.5], [-5.4, -5], [-9.5, 12], [-9.5, 30]], "height": 7.0},
-  {"type": "mud_house", "min": [29, -35.5], "max": [40, -25], "height": 3.2, "openings": {"n": [{"x": 35, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -29, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -31, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "parapet": 0.35, "domes": [{"x": 31.75, "y": -30.25, "r": 1.9}, {"x": 37.25, "y": -30.25, "r": 1.9}], "seed": 19},
-  {"type": "wall", "soft": true, "name": "domes_e", "p0": [34.5, -35.05], "p1": [34.5, -25.45], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 6.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [31.8, -30.2, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [37.2, -30.2, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "mud_house", "min": [29, -19], "max": [40, -6.5], "height": 3.0, "openings": {"n": [{"x": 33, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": -12, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": -14, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 20, "roof_items": [{"kind": "laundry", "x": 34.5, "y": -10, "length": 5}]},
-  {"type": "wall", "soft": true, "name": "east_passage", "p0": [34.5, -18.55], "p1": [34.5, -6.95], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 6.0, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [31.7, -12.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [37.3, -12.7, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "mud_house", "min": [47.5, -35], "max": [56.5, -24], "height": 3.0, "openings": {"n": [{"x": 52, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": -29, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "roof_items": [{"kind": "tank", "x": 52, "y": -32}], "seed": 21},
-  {"type": "light", "pos": [52.0, -29.5, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "hay", "base": [52, -22, 0], "radius": 1.2},
-  {"type": "mud_house", "min": [47.5, -20], "max": [56.5, -6.5], "height": 3.2, "openings": {"w": [{"y": -16, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": -9, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 22},
-  {"type": "wall", "soft": true, "name": "east_inner", "p0": [47.95, -13.25], "p1": [56.05, -13.25], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [52, -16.6, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [52, -9.9, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "vehicle", "kind": "technical", "base": [43.8, -14, 0.0], "heading": 175, "mat": "vehicle_tan", "gun_heading": -30},
-  {"type": "rocks", "base": [44, -30, 0], "size": 0.9, "count": 2, "seed": 40},
-  {"type": "prop", "kind": "cart", "base": [45.6, -4.5, 0.02], "heading": 20},
-  {"type": "tree", "kind": "apricot", "base": [26.5, -32, 0]},
-  {"type": "mud_house", "min": [-22, -2], "max": [-10, 13.6], "height": 3.2, "openings": {"s": [{"x": -16, "width": 1.2, "bottom": 0.0, "top": 2.15}], "n": [{"x": -16, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 6, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": 2, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"y": 10, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": 4, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "parapet_gaps": [{"side": "e", "from": 10.7, "to": 12.3}], "roof_items": [{"kind": "laundry", "x": -16, "y": 3, "length": 5}], "seed": 23},
-  {"type": "wall", "soft": true, "name": "guest_inner", "p0": [-21.55, 7], "p1": [-10.45, 7], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 5.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-16, 2.5, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-16, 10.3, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "stairs", "base": [-6.04, 11.5, 0], "heading": 90, "steps": 11, "rise": 3.55, "run": 0.36, "width": 1.4, "mat": "mud_plinth", "solid": true},
-  {"type": "prop", "kind": "charpoy", "base": [-19, 11, 0.02], "heading": 90},
-  {"type": "prop", "kind": "hay", "base": [-55, 4, 0], "radius": 1.5},
-  {"type": "prop", "kind": "hay", "base": [-55.2, -1.5, 0], "radius": 1.2},
-  {"type": "prop", "kind": "charpoy", "base": [-35, 10.5, 0.02], "heading": 90},
-  {"type": "prop", "kind": "tandoor", "base": [-30.5, 0.5, 0.02]},
-  {"type": "prop", "kind": "well", "base": [-45, 4.5, 0.02]},
-  {"type": "prop", "kind": "cart", "base": [-49, 10, 0.02], "heading": 60},
-  {"type": "tree", "kind": "mulberry", "base": [-37, 3, 0], "height": 7.5},
-  {"type": "qala_wall", "p0": [-46, -1], "p1": [-38, -1], "height": 1.3, "thickness": 0.5, "footing": false, "seed": 50},
-  {"type": "qala_wall", "p0": [-34, 8], "p1": [-27, 8], "height": 1.2, "thickness": 0.5, "footing": false, "seed": 51},
-  {"type": "mud_house", "min": [-22, 16], "max": [-10.5, 27], "height": 3.2, "openings": {"n": [{"x": -16, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 21.5, "width": 1.6, "bottom": 0.0, "top": 2.4, "door": false}, {"y": 17.8, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"y": 25.2, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": 23.5, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 24, "floor_mat": "carpet_red"},
-  {"type": "light", "pos": [-16.2, 19, 2.9], "kind": "point", "fixture": "bulb", "kelvin": 2700, "intensity": 8, "range": 8, "shadows": true},
-  {"type": "light", "pos": [-16.2, 24.5, 2.9], "kind": "point", "fixture": "bulb", "kelvin": 2700, "intensity": 8, "range": 8, "shadows": true},
-  {"type": "prop", "kind": "samovar", "base": [-20.6, 21.5, 0.02], "heading": 90},
-  {"type": "prop", "kind": "bench", "base": [-17.5, 17.3, 0.02], "heading": 0, "length": 2.6},
-  {"type": "prop", "kind": "bench", "base": [-14, 17.3, 0.02], "heading": 0, "length": 2.6},
-  {"type": "prop", "kind": "bench", "base": [-17.5, 25.7, 0.02], "heading": 0, "length": 2.6},
-  {"type": "prop", "kind": "bench", "base": [-14, 25.7, 0.02], "heading": 0, "length": 2.6},
-  {"type": "awning", "min": [-10.2, 16.5], "max": [-6.5, 26.5], "height": 2.8, "mat": "awning_stripe", "spacing": 3.3},
-  {"type": "prop", "kind": "bench", "base": [-8.3, 18.2, 0.02], "heading": 90, "length": 2.4},
-  {"type": "prop", "kind": "bench", "base": [-8.3, 24.8, 0.02], "heading": 90, "length": 2.4},
-  {"type": "sign", "text": "CHAI KHANA", "pos": [-10.35, 21.5, 3.0], "heading": 90, "scale": 0.32, "color": [0.9, 0.82, 0.6, 1]},
-  {"type": "tree", "kind": "mulberry", "base": [1, 20, 0], "height": 8.5},
-  {"type": "prop", "kind": "charpoy", "base": [-2.5, 22.5, 0.02], "heading": 20},
-  {"type": "prop", "kind": "charpoy", "base": [4.2, 17.5, 0.02], "heading": -70},
-  {"type": "prop", "kind": "well", "base": [-5, 9.5, 0.02]},
-  {"type": "vehicle", "kind": "jingle", "base": [6.5, 5, 0.0], "heading": 100, "seed": 11, "load": "tarp"},
-  {"type": "vehicle", "kind": "hilux", "base": [-6, 27, 0.0], "heading": -40, "mat": "vehicle_white", "cargo": "sacks"},
-  {"type": "vehicle", "kind": "taxi", "base": [9.5, 27.5, 0.0], "heading": 75},
-  {"type": "vehicle", "kind": "motorbike", "base": [11, 14, 0.0], "heading": -30, "mat": "jingle_green"},
-  {"type": "bunting", "p0": [-9.9, 12.8], "p1": [1, 20], "z": 3.2, "z1": 5.5, "sag": 0.4, "seed": 7},
-  {"type": "bunting", "p0": [13.9, 9.5], "p1": [1, 20], "z": 3.0, "z1": 5.5, "sag": 0.4, "seed": 8},
-  {"type": "mud_house", "min": [14, -2], "max": [26, 11], "height": 3.0, "openings": {"s": [{"x": 20, "width": 1.2, "bottom": 0.0, "top": 2.15}], "n": [{"x": 19, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 6, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"y": 2, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": 4, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 25, "roof_items": [{"kind": "dish", "x": 23, "y": 1}]},
-  {"type": "wall", "soft": true, "name": "store_inner", "p0": [20, -1.55], "p1": [20, 10.55], "height": 3.0, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 7.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [17, 4.5, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "light", "pos": [23, 4.5, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "sacks", "base": [23, 9, 0.02], "heading": 0, "count": 9},
-  {"type": "prop", "kind": "jerrycans", "base": [16, 0, 0.02], "heading": 0, "count": 8},
-  {"type": "mud_house", "min": [15, 16], "max": [22.5, 25], "height": 3.0, "openings": {"n": [{"x": 18.7, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 22, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": 20.5, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 26},
-  {"type": "light", "pos": [18.75, 20.5, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "charpoy", "base": [19.5, 23.2, 0.02], "heading": 90},
-  {"type": "vehicle", "kind": "hilux", "base": [33, 1.5, 0.0], "heading": 100, "mat": "vehicle_white", "cargo": "cans"},
-  {"type": "prop", "kind": "sacks", "base": [49, 6, 0.02], "heading": 10, "count": 6},
-  {"type": "prop", "kind": "firewood", "base": [31, 9.5, 0.02], "heading": 0},
-  {"type": "prop", "kind": "hay", "base": [52.5, -1, 0], "radius": 1.5},
-  {"type": "tree", "kind": "apricot", "base": [54.5, 7, 0]},
-  {"type": "qala_wall", "p0": [36, 4], "p1": [44, 4], "height": 1.3, "thickness": 0.5, "footing": false, "seed": 52},
-  {"type": "power_line", "points": [[28, 11.6], [46, 11.6], [56.5, 11.6]], "height": 7.0},
-  {"type": "qala_wall", "p0": [-54, 16], "p1": [-26, 16], "height": 5.0, "thickness": 0.9, "merlons": true, "seed": 70, "openings": [{"at": 14, "width": 3.4, "top": 3.2, "gate": true, "mat": "wood_dark"}]},
-  {"type": "qala_wall", "p0": [-26, 16], "p1": [-26, 21.5], "height": 5.0, "thickness": 0.9, "merlons": true, "seed": 71},
-  {"type": "wall", "soft": true, "reinforce": true, "breach": true, "name": "qala_patch", "p0": [-26, 21.5], "p1": [-26, 26.5], "height": 3.0, "thickness": 0.4, "mat": "mud_brick"},
-  {"type": "wall", "p0": [-26, 21.5], "p1": [-26, 26.5], "z": 3.0, "height": 2.0, "thickness": 0.9, "mat": "mud_wall"},
-  {"type": "qala_wall", "p0": [-26, 26.5], "p1": [-26, 42], "height": 5.0, "thickness": 0.9, "merlons": true, "seed": 72, "openings": [{"at": 6.5, "width": 1.4, "top": 2.3, "gate": true, "mat": "door_blue"}]},
-  {"type": "qala_wall", "p0": [-26, 42], "p1": [-54, 42], "height": 5.0, "thickness": 0.9, "merlons": true, "seed": 73, "openings": [{"at": 4, "width": 1.6, "top": 2.3, "gate": true, "mat": "door_green"}]},
-  {"type": "qala_wall", "p0": [-54, 42], "p1": [-54, 16], "height": 5.0, "thickness": 0.9, "merlons": true, "buttress": 7, "buttress_sides": [1], "seed": 74},
-  {"type": "watchtower", "base": [-54, 16, 0], "size": 3.8, "height": 7.6, "round": true},
-  {"type": "watchtower", "base": [-26, 16, 0], "size": 3.8, "height": 7.6, "round": true},
-  {"type": "watchtower", "base": [-54, 42, 0], "size": 3.8, "height": 7.6, "round": true},
-  {"type": "watchtower", "base": [-26, 42, 0], "size": 3.8, "height": 7.6, "round": true},
-  {"type": "mud_house", "min": [-52.6, 34.6], "max": [-36, 41.0], "height": 3.2, "openings": {"s": [{"x": -48, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": -40, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": -45, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": -51.5, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 37.8, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "parapet_gaps": [{"side": "s", "from": -38.8, "to": -37.2}], "roof_items": [{"kind": "wood", "x": -47, "y": 38.5}], "door_mat": "wood_dark", "seed": 27},
-  {"type": "wall", "soft": true, "name": "qala_room", "p0": [-44, 35.05], "p1": [-44, 40.55], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.0, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": true, "breach": false},
-  {"type": "light", "pos": [-48.3, 37.8, 2.9], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 9, "range": 9, "shadows": true},
-  {"type": "light", "pos": [-40, 37.8, 2.9], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 9, "range": 9, "shadows": true},
-  {"type": "stairs", "base": [-38, 30.64, 0], "heading": 0, "steps": 11, "rise": 3.55, "run": 0.36, "width": 1.4, "mat": "mud_plinth", "solid": true},
-  {"type": "awning", "min": [-53, 19], "max": [-49.5, 29], "height": 2.8, "mat": "corrugated_rust", "spacing": 3.4},
-  {"type": "prop", "kind": "hay", "base": [-51.5, 21.8, 0], "radius": 1.1},
-  {"type": "prop", "kind": "hay", "base": [-51.3, 26.5, 0], "radius": 1.0, "squash": 1.0},
-  {"type": "prop", "kind": "well", "base": [-44, 25, 0.02]},
-  {"type": "vehicle", "kind": "technical", "base": [-32, 22, 0.0], "heading": 15, "mat": "vehicle_white", "gun_heading": 160},
-  {"type": "prop", "kind": "sacks", "base": [-47, 30.5, 0.02], "heading": 0, "count": 6},
-  {"type": "prop", "kind": "firewood", "base": [-29, 38, 0.02], "heading": 90},
-  {"type": "prop", "kind": "jerrycans", "base": [-35.5, 18, 0.02], "heading": 0, "count": 6},
-  {"type": "prop", "kind": "cart", "base": [-47.5, 19.6, 0.02], "heading": 100},
-  {"type": "tree", "kind": "apricot", "base": [-30.5, 31.5, 0]},
-  {"type": "zone", "name": "A", "kind": "bombsite", "min": [-53.1, 16.9, -0.5], "max": [-26.9, 41.1, 5.5]},
-  {"type": "sign", "text": "A", "pos": [-43.5, 15.38, 3.6], "heading": 0, "scale": 1.4, "color": [0.6, 0.1, 0.06, 1]},
-  {"type": "qala_wall", "p0": [26, 14], "p1": [54, 14], "height": 4.4, "thickness": 0.8, "seed": 80, "openings": [{"at": 14, "width": 4.0, "top": 3.6, "gate": true, "mat": "metal_blue"}]},
-  {"type": "box", "base": [36.5, 13.55, 0], "size": [1.6, 1.3, 6.4], "mat": "mud_brick"},
-  {"type": "box", "base": [43.5, 13.55, 0], "size": [1.6, 1.3, 6.4], "mat": "mud_brick"},
-  {"type": "box", "base": [40, 13.55, 3.75], "size": [5.4, 1.3, 2.65], "mat": "mud_brick"},
-  {"type": "box", "base": [40, 12.88, 3.75], "size": [4.6, 0.04, 2.4], "mat": "mud_wall", "collide": false, "occlude": false},
-  {"type": "qala_wall", "p0": [26, 40], "p1": [26, 14], "height": 4.4, "thickness": 0.8, "seed": 81, "openings": [{"at": 12, "width": 1.6, "top": 2.3, "gate": true}]},
-  {"type": "qala_wall", "p0": [54, 40], "p1": [26, 40], "height": 4.4, "thickness": 0.8, "seed": 82, "openings": [{"at": 6, "width": 1.6, "top": 2.3, "gate": true}]},
-  {"type": "qala_wall", "p0": [54, 14], "p1": [54, 40], "height": 4.4, "thickness": 0.8, "buttress": 6, "buttress_sides": [1], "seed": 83},
-  {"type": "watchtower", "base": [26, 14, 0], "size": 3.0, "height": 6.2, "round": false, "taper": 0.4},
-  {"type": "watchtower", "base": [54, 14, 0], "size": 3.0, "height": 6.2, "round": false, "taper": 0.4},
-  {"type": "watchtower", "base": [26, 40, 0], "size": 3.0, "height": 6.2, "round": false, "taper": 0.4},
-  {"type": "watchtower", "base": [54, 40, 0], "size": 3.0, "height": 6.2, "round": false, "taper": 0.4},
-  {"type": "mud_house", "min": [27.6, 32.5], "max": [46, 39.4], "height": 3.2, "openings": {"s": [{"x": 30.6, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": 36.8, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": 43, "width": 1.2, "bottom": 0.0, "top": 2.15}, {"x": 32.300000000000004, "width": 1.1, "bottom": 1.0, "top": 2.0}]}, "parapet": 0.3, "domes": [{"x": 30.6, "y": 35.95, "r": 1.7}, {"x": 36.8, "y": 35.95, "r": 1.7}, {"x": 43, "y": 35.95, "r": 1.7}], "parapet_gaps": [{"side": "s", "from": 44.2, "to": 45.8}], "seed": 28},
-  {"type": "wall", "soft": true, "name": "serai_room", "p0": [33.7, 32.95], "p1": [33.7, 38.95], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": true, "breach": false},
-  {"type": "wall", "soft": true, "name": "serai_room", "p0": [39.9, 32.95], "p1": [39.9, 38.95], "height": 3.2, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [30.6, 35.9, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 7, "range": 8, "shadows": false},
-  {"type": "light", "pos": [36.8, 35.9, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 7, "range": 8, "shadows": false},
-  {"type": "light", "pos": [43, 35.9, 2.95], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 7, "range": 8, "shadows": false},
-  {"type": "stairs", "base": [45, 28.54, 0], "heading": 0, "steps": 11, "rise": 3.55, "run": 0.36, "width": 1.4, "mat": "mud_plinth", "solid": true},
-  {"type": "awning", "min": [49, 17], "max": [53.1, 30], "height": 2.8, "mat": "tarp_blue", "spacing": 3.3},
-  {"type": "prop", "kind": "sacks", "base": [51.2, 19.5, 0.02], "heading": 90, "count": 9},
-  {"type": "prop", "kind": "sacks", "base": [51.2, 26, 0.02], "heading": 90, "count": 6},
-  {"type": "vehicle", "kind": "jingle", "base": [37, 22, 0.0], "heading": 95, "seed": 23, "load": "sacks"},
-  {"type": "prop", "kind": "well", "base": [46, 24.5, 0.02]},
-  {"type": "prop", "kind": "cart", "base": [31, 19.5, 0.02], "heading": -20},
-  {"type": "prop", "kind": "water_jars", "base": [29, 30, 0.02], "heading": 90},
-  {"type": "prop", "kind": "charpoy", "base": [49.5, 33.5, 0.02], "heading": 90},
-  {"type": "zone", "name": "B", "kind": "bombsite", "min": [26.9, 14.9, -0.5], "max": [53.1, 39.5, 5.5]},
-  {"type": "sign", "text": "B", "pos": [47.5, 13.38, 3.2], "heading": 0, "scale": 1.4, "color": [0.6, 0.1, 0.06, 1]},
-  {"type": "light", "pos": [40, 26, 4.2], "kind": "point", "fixture": "bulb", "kelvin": 3000, "intensity": 12, "range": 13, "shadows": true},
-  {"type": "qala_wall", "p0": [-20, 34], "p1": [22, 34], "height": 3.4, "thickness": 0.6, "seed": 90, "damage": 2, "openings": [{"at": 21, "width": 3.2, "top": 2.8, "gate": true, "mat": "metal_green"}]},
-  {"type": "qala_wall", "p0": [-20, 61.6], "p1": [-20, 34], "height": 3.4, "thickness": 0.6, "seed": 91, "openings": [{"at": 21.6, "width": 2.4, "top": 2.4, "gate": true}]},
-  {"type": "qala_wall", "p0": [22, 34], "p1": [22, 61.6], "height": 3.4, "thickness": 0.6, "seed": 92, "openings": [{"at": 6, "width": 2.4, "top": 2.4, "gate": true}]},
-  {"type": "mud_house", "min": [-12, 48], "max": [14, 58.5], "height": 3.4, "openings": {"s": [{"x": 1, "width": 2.0, "bottom": 0.0, "top": 2.4, "door": false}, {"x": -8, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": -4, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": 6, "width": 1.1, "bottom": 1.0, "top": 2.0}, {"x": 10, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 53, "width": 1.2, "bottom": 0.0, "top": 2.15}], "w": [{"y": 53, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "parapet": 0.6, "roof_items": [{"kind": "dish", "x": -9, "y": 56}, {"kind": "tank", "x": 10, "y": 56}], "door_mat": "metal_green", "seed": 29},
-  {"type": "wall", "soft": true, "name": "malik_hall", "p0": [-11.55, 52.5], "p1": [13.55, 52.5], "height": 3.4, "thickness": 0.2, "mat": "mud_wall_light", "openings": [{"at": 4.5, "width": 1.0}, {"at": 13, "width": 1.0}, {"at": 21.5, "width": 1.0}], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "wall", "soft": true, "name": "malik_room", "p0": [-3, 52.575], "p1": [-3, 58.05], "height": 3.4, "thickness": 0.2, "mat": "mud_wall_light", "openings": [], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "wall", "soft": true, "name": "malik_room", "p0": [5, 52.575], "p1": [5, 58.05], "height": 3.4, "thickness": 0.2, "mat": "mud_wall_light", "openings": [], "frame_mat": "wood_dark", "reinforce": false, "breach": false},
-  {"type": "light", "pos": [-6, 50.2, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 3000, "intensity": 8, "range": 8, "shadows": false},
-  {"type": "light", "pos": [1, 50.2, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 3000, "intensity": 8, "range": 8, "shadows": false},
-  {"type": "light", "pos": [8, 50.2, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 3000, "intensity": 8, "range": 8, "shadows": false},
-  {"type": "light", "pos": [-7.5, 55.3, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 5, "range": 8, "shadows": false},
-  {"type": "light", "pos": [1, 55.3, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 5, "range": 8, "shadows": false},
-  {"type": "light", "pos": [9.5, 55.3, 3.15], "kind": "point", "fixture": "bulb", "kelvin": 2800, "intensity": 5, "range": 8, "shadows": false},
-  {"type": "vehicle", "kind": "hilux", "base": [-15.5, 43, 0.0], "heading": 0, "mat": "vehicle_tan", "bullbar": true, "cargo": "none"},
-  {"type": "vehicle", "kind": "sedan", "base": [17.5, 44, 0.0], "heading": 180, "mat": "vehicle_white", "mat2": "vehicle_white", "taxi": false},
-  {"type": "tree", "kind": "poplar", "base": [-18.3, 47.5, 0], "height": 11},
-  {"type": "tree", "kind": "poplar", "base": [20.3, 47.5, 0], "height": 11},
-  {"type": "prop", "kind": "charpoy", "base": [-9, 46.5, 0.02], "heading": 90},
-  {"type": "prop", "kind": "charpoy", "base": [11, 46.5, 0.02], "heading": 90},
-  {"type": "spawn", "team": "defend", "pos": [-4, 40, 0.1], "heading": 180},
-  {"type": "spawn", "team": "defend", "pos": [-2, 40.6, 0.1], "heading": 180},
-  {"type": "spawn", "team": "defend", "pos": [0, 41.2, 0.1], "heading": 180},
-  {"type": "spawn", "team": "defend", "pos": [2, 40.6, 0.1], "heading": 180},
-  {"type": "spawn", "team": "defend", "pos": [4, 40, 0.1], "heading": 180},
-  {"type": "zone", "name": "Defend buy zone", "kind": "buyzone", "team": "defend", "min": [-19.5, 34.5, -1], "max": [21.5, 47.8, 5]},
-  {"type": "mud_house", "min": [-56.5, 51], "max": [-46.5, 60.5], "height": 3.0, "openings": {"s": [{"x": -51.5, "width": 1.1, "bottom": 1.0, "top": 2.0}], "e": [{"y": 55.5, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 30},
-  {"type": "light", "pos": [-51.5, 55.75, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "tree", "kind": "apricot", "base": [-42.1, 45.5, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-42.7, 50.5, 0], "height": 5.0},
-  {"type": "tree", "kind": "apricot", "base": [-43.0, 56, 0], "height": 5.0},
-  {"type": "tree", "kind": "apricot", "base": [-43.0, 60, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-36.6, 45.5, 0], "height": 5.0},
-  {"type": "tree", "kind": "apricot", "base": [-37.2, 50.5, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-37.5, 56, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-37.5, 60, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-31.1, 45.5, 0], "height": 4.6000000000000005},
-  {"type": "tree", "kind": "apricot", "base": [-31.7, 50.5, 0], "height": 5.0},
-  {"type": "tree", "kind": "apricot", "base": [-32.0, 56, 0], "height": 4.6000000000000005},
-  {"type": "tree", "kind": "apricot", "base": [-32.0, 60, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-26.2, 50.5, 0], "height": 4.2},
-  {"type": "tree", "kind": "apricot", "base": [-26.5, 56, 0], "height": 5.0},
-  {"type": "tree", "kind": "apricot", "base": [-26.5, 60, 0], "height": 4.2},
-  {"type": "qala_wall", "p0": [-45, 48], "p1": [-29, 48], "height": 1.2, "thickness": 0.5, "footing": false, "seed": 53, "openings": [{"at": 8, "width": 1.6, "top": 1.4}]},
-  {"type": "qala_wall", "p0": [-45, 53.5], "p1": [-24, 53.5], "height": 1.2, "thickness": 0.5, "footing": false, "seed": 54, "openings": [{"at": 13, "width": 1.6, "top": 1.4}]},
-  {"type": "mud_house", "min": [47.5, 50], "max": [56.5, 60.5], "height": 3.0, "openings": {"s": [{"x": 52, "width": 1.1, "bottom": 1.0, "top": 2.0}], "w": [{"y": 55, "width": 1.2, "bottom": 0.0, "top": 2.15}]}, "seed": 31, "roof_items": [{"kind": "wood", "x": 52, "y": 57}]},
-  {"type": "light", "pos": [52.0, 55.25, 2.75], "kind": "point", "fixture": "bulb", "kelvin": 2900, "intensity": 6, "range": 8, "shadows": false},
-  {"type": "prop", "kind": "hay", "base": [31, 50, 0], "radius": 1.6},
-  {"type": "prop", "kind": "hay", "base": [36, 55.5, 0], "radius": 1.4},
-  {"type": "prop", "kind": "hay", "base": [40.5, 48.5, 0], "radius": 1.3},
-  {"type": "prop", "kind": "hay", "base": [29, 56, 0], "radius": 1.2},
-  {"type": "prop", "kind": "charpoy", "base": [44, 58.5, 0.02], "heading": 0},
-  {"type": "prop", "kind": "cart", "base": [42, 53, 0.02], "heading": 120},
-  {"type": "tree", "kind": "mulberry", "base": [27, 59, 0], "height": 7},
-  {"type": "qala_wall", "p0": [32, 44.5], "p1": [44, 44.5], "height": 1.2, "thickness": 0.5, "footing": false, "seed": 55},
-  {"type": "qala_wall", "p0": [44, 44.5], "p1": [44, 51], "height": 1.2, "thickness": 0.5, "footing": false, "seed": 56},
-  {"type": "camera", "name": "Qala gate", "pos": [-36.5, 15.3, 4.3], "heading": 180, "pitch": -18},
-  {"type": "camera", "name": "A courtyard", "pos": [-27.6, 40.4, 4.4], "heading": 135, "pitch": -22},
-  {"type": "camera", "name": "B courtyard", "pos": [52.9, 38.9, 3.9], "heading": 135, "pitch": -22},
-  {"type": "camera", "name": "Iwan", "pos": [44.5, 12.8, 3.6], "heading": 180, "pitch": -14},
-  {"type": "camera", "name": "Square", "pos": [-9.75, 12.9, 3.0], "heading": -90, "pitch": -12},
-  {"type": "camera", "name": "Bazaar", "pos": [-7.4, -7.1, 3.0], "heading": 180, "pitch": -8},
-  {"type": "callout", "name": "T Spawn", "min": [-57.6, -61.6], "max": [57.6, -38]},
-  {"type": "callout", "name": "A Long", "min": [-47, -38], "max": [-40, -6.5]},
-  {"type": "callout", "name": "West Houses", "min": [-57.6, -37.4], "max": [-47, -6.5]},
-  {"type": "callout", "name": "Back Alley", "min": [-29, -37.4], "max": [-24, -6.5]},
-  {"type": "callout", "name": "Twin Domes", "min": [-40, -37.4], "max": [-29, -19]},
-  {"type": "callout", "name": "Passage", "min": [-40, -19], "max": [-29, -6.5]},
-  {"type": "callout", "name": "Mid Gate", "min": [-5, -40], "max": [5, -30]},
-  {"type": "callout", "name": "Bazaar", "min": [-5, -30], "max": [5, -2]},
-  {"type": "callout", "name": "Mid West", "min": [-24, -37.4], "max": [-7.6, -6.5]},
-  {"type": "callout", "name": "Mid East", "min": [7.6, -37.4], "max": [24, -6.5]},
-  {"type": "callout", "name": "A Connector", "min": [-24, -6.5], "max": [-5, -2]},
-  {"type": "callout", "name": "B Connector", "min": [5, -6.5], "max": [29, -2]},
-  {"type": "callout", "name": "West Yard", "min": [-57.6, -6.5], "max": [-22, 15.4]},
-  {"type": "callout", "name": "Guest House", "min": [-22, -2], "max": [-10, 13.6]},
-  {"type": "callout", "name": "Square", "min": [-10, -2], "max": [14, 34]},
-  {"type": "callout", "name": "Chaikhana", "min": [-22, 16], "max": [-10.5, 27]},
-  {"type": "callout", "name": "A Alley", "min": [-25.4, 13.6], "max": [-20, 44]},
-  {"type": "callout", "name": "A Site", "min": [-53.1, 16.9], "max": [-26.9, 41.1]},
-  {"type": "callout", "name": "A Back", "min": [-57.6, 14], "max": [-54, 42]},
-  {"type": "callout", "name": "Store", "min": [14, -2], "max": [26, 11]},
-  {"type": "callout", "name": "Dukan", "min": [15, 16], "max": [22.5, 25]},
-  {"type": "callout", "name": "B Alley", "min": [22.5, 11], "max": [25.4, 40]},
-  {"type": "callout", "name": "East Back Alley", "min": [24, -37.4], "max": [29, -6.5]},
-  {"type": "callout", "name": "Domes East", "min": [29, -37.4], "max": [40, -6.5]},
-  {"type": "callout", "name": "B Lane", "min": [40, -38], "max": [47, -2]},
-  {"type": "callout", "name": "East Houses", "min": [47, -37.4], "max": [57.6, -6.5]},
-  {"type": "callout", "name": "East Yard", "min": [26, -6.5], "max": [57.6, 13.4]},
-  {"type": "callout", "name": "B Site", "min": [26.9, 14.9], "max": [53.1, 39.6]},
-  {"type": "callout", "name": "B Back", "min": [54, 12], "max": [57.6, 40.4]},
-  {"type": "callout", "name": "CT Spawn", "min": [-20, 34], "max": [22, 48]},
-  {"type": "callout", "name": "Malik House", "min": [-12, 48], "max": [14, 58.5]},
-  {"type": "callout", "name": "Orchard", "min": [-57.6, 42.4], "max": [-20, 61.6]},
-  {"type": "callout", "name": "Threshing Yard", "min": [22, 40.4], "max": [57.6, 61.6]}
+ "environment": {
+  "hdri": "kloofendal_48d_partly_cloudy_puresky",
+  "hdri_candidates": [
+   "syferfontein_1d_clear_puresky",
+   "kloppenheim_06_puresky",
+   "industrial_sunset_puresky"
+  ],
+  "sun_clamp": 1.6,
+  "sky_target": 0.77,
+  "ibl_specular": 0.9,
+  "ambient_floor": [
+   0.005,
+   0.0045,
+   0.004
+  ],
+  "post": {
+   "bloom": {
+    "intensity": 0.2,
+    "threshold": 1.6,
+    "knee": 0.6,
+    "scatter": 0.75
+   },
+   "vignette": {
+    "strength": 0.32,
+    "start": 0.42
+   },
+   "auto_exposure": {
+    "strength": 0.55,
+    "min_ev": -1.0,
+    "max_ev": 1.25,
+    "reference": -1.6,
+    "speed_up": 3.0,
+    "speed_down": 1.1
+   },
+   "sharpen": 1.0,
+   "grain": 0.03,
+   "grading": {
+    "saturation": 0.86,
+    "vibrance": 0.65,
+    "contrast": 1.12,
+    "toe": 0.14,
+    "lift": [
+     0.004,
+     0.004,
+     0.007
+    ],
+    "gain": [
+     1.07,
+     1.0,
+     0.9
+    ],
+    "split_tone": 1.0,
+    "shadow_tint": [
+     0.92,
+     0.98,
+     1.1
+    ],
+    "highlight_tint": [
+     1.1,
+     1.0,
+     0.85
+    ]
+   }
+  },
+  "sun_dir": [
+   -0.72,
+   -0.4,
+   0.5
+  ],
+  "sun_intensity": 4.0,
+  "sun_color": [
+   1.0,
+   0.7,
+   0.42
+  ],
+  "sky": {
+   "turbidity": 5.0,
+   "rayleigh": 2.6,
+   "mie": 0.006,
+   "mie_g": 0.86
+  },
+  "sky_exposure": 0.42,
+  "clouds": {
+   "coverage": 0.46,
+   "softness": 0.24,
+   "scale": 1.0,
+   "color": [
+    1.0,
+    0.86,
+    0.72
+   ],
+   "shade": [
+    0.5,
+    0.45,
+    0.5
+   ],
+   "streak": 0.45,
+   "brightness": 1.15
+  },
+  "fog": {
+   "density": 0.0034,
+   "height_falloff": 0.045,
+   "base_height": 0.0,
+   "max_opacity": 0.52,
+   "sun_scatter": 0.5,
+   "color": [
+    0.78,
+    0.62,
+    0.47
+   ]
+  },
+  "ground": [
+   0.3,
+   0.22,
+   0.14
+  ],
+  "bounce_ground": 0.6,
+  "bounce_sun": 0.8,
+  "bounce": 0.07,
+  "ibl_diffuse": 1.0,
+  "exposure": 0.9,
+  "dust_color": [
+   0.6,
+   0.49,
+   0.37
+  ],
+  "macro_variation": 1.0,
+  "snow_line": 112.0,
+  "snow_color": [
+   0.86,
+   0.85,
+   0.88
+  ],
+  "dressing": {
+   "puddles": 0,
+   "oil": 0.15,
+   "tracks": 0.35,
+   "graffiti": 0.04,
+   "posters": 0.05,
+   "paths": 0.85,
+   "drifts": 0.8,
+   "litter": 0.4,
+   "hazard": 0,
+   "stencils": 0.1,
+   "paint": [
+    0.82,
+    0.8,
+    0.74
+   ]
+  }
+ },
+ "bounds": [
+  [
+   -63,
+   -67,
+   -1.0
+  ],
+  [
+   63,
+   67,
+   16
+  ]
  ],
- "camera_shots": [{"name": "overview", "pos": [-30, -50, 30], "hpr": [-30, -32, 0]}, {"name": "t_spawn", "pos": [0, -58, 1.75], "hpr": [0, 2, 0]}, {"name": "bazaar", "pos": [0, -36, 1.75], "hpr": [0, 1, 0]}, {"name": "square", "pos": [-4, 2, 1.75], "hpr": [-20, 3, 0]}, {"name": "a_site", "pos": [-30, 18.5, 1.75], "hpr": [60, 2, 0]}, {"name": "b_site", "pos": [40, 15.5, 1.75], "hpr": [0, 2, 0]}, {"name": "wadi", "pos": [-30, -46, 1.75], "hpr": [-70, 0, 0]}, {"name": "ct", "pos": [1, 36, 1.75], "hpr": [0, 2, 0]}],
- "test_routes": [{"name": "A long", "start": [-43, -44, 0.1, 0], "waypoints": [[-43, -36], [-43, -20], [-43, -8], [-47.5, -3], [-47.5, 2], [-42, 9], [-40, 13], [-40, 18], [-40, 26, 0.02]]}, {"name": "A via domes", "start": [-43, -46, 0.1, 0], "waypoints": [[-43, -36], [-43, -22], [-35, -22], [-26.5, -22], [-26.5, -10], [-26.5, -4], [-30, 4], [-38, 11.5], [-40, 14], [-40, 18], [-41, 23, 0.02]]}, {"name": "A alley", "start": [0, -50, 0.1, 0], "waypoints": [[0, -37], [-2.5, -30], [-2.5, -12], [-3, -4], [-15, -4], [-23, -4], [-23.5, 0], [-23.5, 13], [-23, 20], [-23, 33], [-25, 33], [-28, 33], [-32, 30, 0.02]]}, {"name": "A north door", "start": [-2, -52, 0.1, 0], "waypoints": [[0, -37], [-2.5, -30], [-2.5, -12], [-2, 0], [-1, 12], [-8, 29], [-18, 30.5], [-23, 31], [-23, 38], [-23, 44], [-30, 44], [-30, 41], [-30, 38, 0.02]]}, {"name": "B lane", "start": [43, -44, 0.1, 0], "waypoints": [[43, -36], [41, -20], [41, -8], [46, 1], [45.5, 8], [40, 11], [40, 16], [40, 27, 0.02]]}, {"name": "B connector", "start": [3, -50, 0.1, 0], "waypoints": [[1, -37], [3, -28], [3, -12], [2, -5], [15, -4], [28, -4], [32, 5], [38, 10], [40, 13], [40, 18], [44, 28, 0.02]]}, {"name": "B alley", "start": [0, -50, 0.1, 0], "waypoints": [[0, -37], [-2.5, -30], [-2.5, -12], [-1.5, -1], [6, 11], [14, 13], [24, 14], [24, 28], [28, 28], [33, 28, 0.02]]}, {"name": "B via domes", "start": [43, -46, 0.1, 0], "waypoints": [[43, -36], [43, -22], [35, -22], [26.5, -22], [26.5, -4], [30, 3], [37, 9], [40, 13], [39, 18], [34, 26, 0.02]]}, {"name": "CT to A", "start": [-2, 40, 0.1, 90], "waypoints": [[-12, 40], [-19, 40], [-23, 40], [-23, 36], [-23, 33], [-28, 33], [-34, 30, 0.02]]}, {"name": "CT to B", "start": [2, 40, 0.1, -90], "waypoints": [[12, 40], [21, 40], [24, 40], [24, 30], [24, 28], [28, 28], [34, 28, 0.02]]}, {"name": "CT to B north", "start": [3, 41, 0.1, -90], "waypoints": [[16, 40.5], [24, 41.5], [30, 42.5], [46, 42.5], [48, 41], [48, 38], [48, 32, 0.02]]}],
- "practice_positions": {"defend": [[-35, 24, 0.02, 200, 0], [-30, 38.5, 0.02, 200, 1], [-48.5, 31.5, 0.02, 170, 0], [-44, 38.5, 3.57, 180, 0], [-28.5, 18, 0.02, 230, 1], [44, 30, 0.02, 180, 0], [32, 25, 0.02, 150, 1], [50.5, 22.5, 0.02, 170, 0], [36.8, 34, 0.02, 180, 0], [45.3, 33.4, 3.57, 180, 0], [1, 32, 0.02, 180, 1], [-12, 30, 0.02, 180, 0], [18, 28, 0.02, 200, 0]], "attack": [[-43, -10, 0.02, 0, 0], [-26.5, -12, 0.02, 0, 0], [0, -10, 0.02, 0, 1], [-15, -4, 0.02, 90, 0], [18, -4, 0.02, -90, 0], [43, -10, 0.02, 0, 0], [26.5, -12, 0.02, 0, 1], [-36, 7, 0.02, 0, 0], [38, 7, 0.02, 0, 0], [-1, 2, 0.02, 0, 0]]},
- "modes": {"duel": {"_comment": "1v1 duels: site A only (the qala); a player-clip wall along x = 6.5 closes the east half (bazaar east side, B).", "sites": ["A"], "spawns": [{"team": "attack", "pos": [-3, -56, 0.1], "heading": 0}, {"team": "defend", "pos": [-3, 40, 0.1], "heading": 180}], "clips": [{"center": [6.5, 0.0, 6.0], "size": [0.4, 128.0, 20.0]}]}}
+ "skyvis_spacing": [
+  1.5,
+  1.5,
+  1.0
+ ],
+ "briefing": {
+  "region": "Central highlands, Afghanistan (fictional village)",
+  "attack": "Come up the dry wadi past the old T-55 and plant the charge in the qala or the caravanserai.",
+  "defend": "Hold the malik's compound and rotate through the orchard (A) or the threshing yard (B).",
+  "A": "The qala: a walled mud fort with four round towers, a south gate, an east door, a north door and a weak patched wall to blow.",
+  "B": "The caravanserai: a courtyard behind a tall iwan gate, domed rooms on the north side with a roof you can climb to."
+ },
+ "pieces": [
+  {
+   "type": "floor",
+   "min": [
+    -63,
+    -67
+   ],
+   "max": [
+    63,
+    67
+   ],
+   "z": 0.0,
+   "thickness": 0.5,
+   "mat": "dust"
+  },
+  {
+   "type": "terrain",
+   "inner": [
+    [
+     -63,
+     -67
+    ],
+    [
+     63,
+     67
+    ]
+   ],
+   "extent": 640,
+   "step": 10,
+   "start": 4,
+   "ramp": 230,
+   "height": 150,
+   "seed": 23,
+   "mat": "rock"
+  },
+  {
+   "type": "rock_wall",
+   "p0": [
+    -59,
+    -63
+   ],
+   "p1": [
+    59,
+    -63
+   ],
+   "height": 9.5,
+   "seed": 31
+  },
+  {
+   "type": "rock_wall",
+   "p0": [
+    59,
+    -63
+   ],
+   "p1": [
+    59,
+    63
+   ],
+   "height": 9.5,
+   "seed": 32
+  },
+  {
+   "type": "rock_wall",
+   "p0": [
+    59,
+    63
+   ],
+   "p1": [
+    -59,
+    63
+   ],
+   "height": 9.5,
+   "seed": 33
+  },
+  {
+   "type": "rock_wall",
+   "p0": [
+    -59,
+    63
+   ],
+   "p1": [
+    -59,
+    -63
+   ],
+   "height": 9.5,
+   "seed": 34
+  },
+  {
+   "type": "floor",
+   "min": [
+    -57.5,
+    -61
+   ],
+   "max": [
+    57.5,
+    -43
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "gravel",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -46.5,
+    -38
+   ],
+   "max": [
+    -40,
+    -6.5
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -5,
+    -38
+   ],
+   "max": [
+    5,
+    14
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    40,
+    -38
+   ],
+   "max": [
+    47,
+    -2
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -24,
+    -6.5
+   ],
+   "max": [
+    -5,
+    -2
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    5,
+    -6.5
+   ],
+   "max": [
+    29,
+    -2
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -56,
+    -6
+   ],
+   "max": [
+    -24,
+    14
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -10,
+    -2
+   ],
+   "max": [
+    14,
+    33
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    26,
+    -6
+   ],
+   "max": [
+    56,
+    13
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -25.4,
+    13.6
+   ],
+   "max": [
+    -20.2,
+    44
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    22.4,
+    11
+   ],
+   "max": [
+    25.4,
+    40
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "floor",
+   "min": [
+    -19.5,
+    34.5
+   ],
+   "max": [
+    21.5,
+    47.8
+   ],
+   "z": 0.02,
+   "thickness": 0.06,
+   "mat": "dirt",
+   "occlude": false,
+   "collide": false
+  },
+  {
+   "type": "vehicle",
+   "kind": "t55",
+   "base": [
+    -17,
+    -50,
+    0.0
+   ],
+   "heading": 72,
+   "turret": 0,
+   "gun_pitch": 0,
+   "seed": 4
+  },
+  {
+   "type": "vehicle",
+   "kind": "btr",
+   "base": [
+    25,
+    -53.5,
+    0.0
+   ],
+   "heading": -96,
+   "seed": 9
+  },
+  {
+   "type": "vehicle",
+   "kind": "hilux",
+   "base": [
+    -47,
+    -55,
+    0.0
+   ],
+   "heading": 30,
+   "wreck": true
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -37,
+    -51,
+    0
+   ],
+   "size": 1.7,
+   "count": 5,
+   "spread": 2.2,
+   "seed": 3
+  },
+  {
+   "type": "rocks",
+   "base": [
+    7,
+    -46.5,
+    0
+   ],
+   "size": 1.2,
+   "count": 4,
+   "spread": 2.2,
+   "seed": 4
+  },
+  {
+   "type": "rocks",
+   "base": [
+    40,
+    -51,
+    0
+   ],
+   "size": 1.6,
+   "count": 5,
+   "spread": 2.2,
+   "seed": 5
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -52,
+    -45.5,
+    0
+   ],
+   "size": 1.3,
+   "count": 3,
+   "spread": 2.2,
+   "seed": 6
+  },
+  {
+   "type": "rocks",
+   "base": [
+    52,
+    -57,
+    0
+   ],
+   "size": 1.9,
+   "count": 4,
+   "spread": 2.2,
+   "seed": 7
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -8,
+    -60,
+    0
+   ],
+   "size": 1.4,
+   "count": 3,
+   "spread": 2.2,
+   "seed": 8
+  },
+  {
+   "type": "rocks",
+   "base": [
+    16,
+    -60,
+    0
+   ],
+   "size": 1.2,
+   "count": 3,
+   "spread": 2.2,
+   "seed": 9
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -28,
+    -57,
+    0
+   ],
+   "size": 1.0,
+   "count": 3,
+   "spread": 2.2,
+   "seed": 10
+  },
+  {
+   "type": "rocks",
+   "base": [
+    31,
+    -45.5,
+    0
+   ],
+   "size": 1.0,
+   "count": 3,
+   "spread": 2.2,
+   "seed": 11
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    -56,
+    -41.2,
+    0
+   ],
+   "height": 11
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    -52.5,
+    -41.2,
+    0
+   ],
+   "height": 11.5
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    -32,
+    -41.2,
+    0
+   ],
+   "height": 11
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    -27.5,
+    -41.2,
+    0
+   ],
+   "height": 12.5
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    22,
+    -41.2,
+    0
+   ],
+   "height": 11
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    27,
+    -41.2,
+    0
+   ],
+   "height": 10
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    33,
+    -41.2,
+    0
+   ],
+   "height": 10
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    52.5,
+    -41.2,
+    0
+   ],
+   "height": 11.5
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    56,
+    -41.2,
+    0
+   ],
+   "height": 12
+  },
+  {
+   "type": "spawn",
+   "team": "attack",
+   "pos": [
+    -4,
+    -56,
+    0.1
+   ],
+   "heading": 0
+  },
+  {
+   "type": "spawn",
+   "team": "attack",
+   "pos": [
+    -2,
+    -56.8,
+    0.1
+   ],
+   "heading": 0
+  },
+  {
+   "type": "spawn",
+   "team": "attack",
+   "pos": [
+    0,
+    -57.6,
+    0.1
+   ],
+   "heading": 0
+  },
+  {
+   "type": "spawn",
+   "team": "attack",
+   "pos": [
+    2,
+    -56.8,
+    0.1
+   ],
+   "heading": 0
+  },
+  {
+   "type": "spawn",
+   "team": "attack",
+   "pos": [
+    4,
+    -56,
+    0.1
+   ],
+   "heading": 0
+  },
+  {
+   "type": "zone",
+   "name": "Attack buy zone",
+   "kind": "buyzone",
+   "team": "attack",
+   "min": [
+    -57,
+    -61,
+    -1
+   ],
+   "max": [
+    57,
+    -39,
+    5
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -57.6,
+    -38
+   ],
+   "p1": [
+    -46.5,
+    -38
+   ],
+   "height": 3.4,
+   "thickness": 0.7,
+   "damage": 2,
+   "seed": 1
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -40,
+    -38
+   ],
+   "p1": [
+    40,
+    -38
+   ],
+   "height": 3.6,
+   "thickness": 0.7,
+   "damage": 7,
+   "buttress": 8,
+   "buttress_sides": [
+    1
+   ],
+   "seed": 2,
+   "openings": [
+    {
+     "at": 40,
+     "width": 4.0,
+     "top": 3.0,
+     "gate": true,
+     "mat": "metal_blue"
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    47,
+    -38
+   ],
+   "p1": [
+    57.6,
+    -38
+   ],
+   "height": 3.4,
+   "thickness": 0.7,
+   "damage": 2,
+   "seed": 3
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -47.6,
+    -39.3,
+    0
+   ],
+   "size": 0.7,
+   "count": 3,
+   "spread": 0.8,
+   "mat": "mud_plinth",
+   "seed": 13
+  },
+  {
+   "type": "rocks",
+   "base": [
+    -39.0,
+    -39.3,
+    0
+   ],
+   "size": 0.7,
+   "count": 3,
+   "spread": 0.8,
+   "mat": "mud_plinth",
+   "seed": 21
+  },
+  {
+   "type": "rocks",
+   "base": [
+    39.0,
+    -39.3,
+    0
+   ],
+   "size": 0.7,
+   "count": 3,
+   "spread": 0.8,
+   "mat": "mud_plinth",
+   "seed": 99
+  },
+  {
+   "type": "rocks",
+   "base": [
+    48.1,
+    -39.3,
+    0
+   ],
+   "size": 0.7,
+   "count": 3,
+   "spread": 0.8,
+   "mat": "mud_plinth",
+   "seed": 108
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -56.5,
+    -35
+   ],
+   "max": [
+    -47,
+    -26
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": -52,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -29.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": -32.5,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "tank",
+     "x": -50.5,
+     "y": -33
+    }
+   ],
+   "seed": 11,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     0.9126841014190057,
+     -2.009050169755213,
+     0
+    ]
+   },
+   "parapet": 0.32,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "light",
+   "pos": [
+    -51.75,
+    -30.5,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     0.9126841014190057,
+     -2.009050169755213,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -54.5,
+    -31,
+    0.02
+   ],
+   "heading": 0,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     0.9126841014190057,
+     -2.009050169755213,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "water_jars",
+   "base": [
+    -52,
+    -34.2,
+    0.02
+   ],
+   "heading": 0,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     0.9126841014190057,
+     -2.009050169755213,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "firewood",
+   "base": [
+    -53,
+    -23.5,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    -49.5,
+    -23.2,
+    0.02
+   ],
+   "heading": -70
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -56.5,
+    -21
+   ],
+   "max": [
+    -47,
+    -7
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": -52.5,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -18,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": -9.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": -14,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "laundry",
+     "x": -52,
+     "y": -10,
+     "length": 4
+    }
+   ],
+   "seed": 12,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.2310794887916236,
+     1.4394864145096502,
+     0
+    ]
+   },
+   "parapet": 0.65,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall_light"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "w3_inner",
+   "p0": [
+    -56.05,
+    -13.5
+   ],
+   "p1": [
+    -47.45,
+    -13.5
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 6.0,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.2310794887916236,
+     1.4394864145096502,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -51.8,
+    -17.3,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.2310794887916236,
+     1.4394864145096502,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -51.8,
+    -10.2,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.2310794887916236,
+     1.4394864145096502,
+     0
+    ]
+   }
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -40,
+    -35.5
+   ],
+   "max": [
+    -29,
+    -25
+   ],
+   "height": 3.2,
+   "openings": {
+    "n": [
+     {
+      "x": -33,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "e": [
+     {
+      "y": -31,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": -28,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "parapet": 0.43,
+   "domes": [
+    {
+     "x": -37.25,
+     "y": -30.25,
+     "r": 1.9
+    },
+    {
+     "x": -31.75,
+     "y": -30.25,
+     "r": 1.9
+    }
+   ],
+   "seed": 13,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.4743647007873403,
+     -0.6678864711095578,
+     0
+    ]
+   },
+   "roof_thickness": 0.4,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "domes_w",
+   "p0": [
+    -34.5,
+    -35.05
+   ],
+   "p1": [
+    -34.5,
+    -25.45
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 6.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.4743647007873403,
+     -0.6678864711095578,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -37.2,
+    -30.2,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.4743647007873403,
+     -0.6678864711095578,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -31.8,
+    -30.2,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.4743647007873403,
+     -0.6678864711095578,
+     0
+    ]
+   }
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -40,
+    -19
+   ],
+   "max": [
+    -29,
+    -6.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": -36,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": -32,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -11,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": -16,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": -13,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "wood",
+     "x": -33,
+     "y": -16
+    }
+   ],
+   "seed": 14,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   },
+   "parapet": 0.78,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "passage",
+   "p0": [
+    -34.5,
+    -18.55
+   ],
+   "p1": [
+    -34.5,
+    -6.95
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 6.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -37.3,
+    -12.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -31.7,
+    -12.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -38.2,
+    -16.5,
+    0.02
+   ],
+   "heading": 0,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    -31.5,
+    -8,
+    0.02
+   ],
+   "heading": 0,
+   "count": 6,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.32898354433394106,
+     1.4927336892727787,
+     0
+    ]
+   }
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -26.5,
+    -32,
+    0
+   ]
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -24,
+    -37.3
+   ],
+   "max": [
+    -7.6,
+    -25.5
+   ],
+   "height": 3.2,
+   "openings": {
+    "n": [
+     {
+      "x": -18,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": -12,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -27.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -31,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "tank",
+     "x": -20,
+     "y": -34
+    },
+    {
+     "kind": "dish",
+     "x": -11,
+     "y": -28
+    }
+   ],
+   "seed": 15,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.6599525833021552,
+     0.21754170325064948,
+     0
+    ]
+   },
+   "parapet": 0.5,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "mid_w1",
+   "p0": [
+    -16,
+    -36.85
+   ],
+   "p1": [
+    -16,
+    -25.95
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 3.85,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.6599525833021552,
+     0.21754170325064948,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -20,
+    -31.4,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.6599525833021552,
+     0.21754170325064948,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -11.8,
+    -31.4,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.6599525833021552,
+     0.21754170325064948,
+     0
+    ]
+   }
+  },
+  {
+   "type": "shop",
+   "style": "container",
+   "base": [
+    -6.3,
+    -33.6,
+    0.02
+   ],
+   "heading": 90,
+   "goods": "fruit",
+   "mat": "container_blue",
+   "sign": "MEWA",
+   "awning": 1.15,
+   "awning_mat": "canvas",
+   "height": 2.51
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -24,
+    -21
+   ],
+   "max": [
+    -7.6,
+    -6.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": -19,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": -14,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "e": [
+     {
+      "y": -9,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -11,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 16,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.6041015911028241,
+     -0.5030747884056179,
+     0
+    ]
+   },
+   "parapet": 0.32,
+   "roof_thickness": 0.4,
+   "mat": "mud_wall_light"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "mid_w2",
+   "p0": [
+    -15.5,
+    -20.55
+   ],
+   "p1": [
+    -15.5,
+    -6.95
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.0,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.6041015911028241,
+     -0.5030747884056179,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -19.8,
+    -13.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.6041015911028241,
+     -0.5030747884056179,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -11.6,
+    -13.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.6041015911028241,
+     -0.5030747884056179,
+     0
+    ]
+   }
+  },
+  {
+   "type": "shop",
+   "style": "container",
+   "base": [
+    -6.3,
+    -15.5,
+    0.02
+   ],
+   "heading": 90,
+   "goods": "rugs",
+   "mat": "container_red",
+   "sign": "QALEEN",
+   "awning": 1.7,
+   "awning_mat": "awning_stripe",
+   "height": 2.71
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    7.6,
+    -37.3
+   ],
+   "max": [
+    24,
+    -25.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": 12,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": 19,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -30,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -27.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "antenna",
+     "x": 20,
+     "y": -30
+    }
+   ],
+   "seed": 17,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     1.1170231260603114,
+     0.5833829588763209,
+     0
+    ]
+   },
+   "parapet": 0.65,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "mid_e1",
+   "p0": [
+    15.5,
+    -36.85
+   ],
+   "p1": [
+    15.5,
+    -25.95
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 3.85,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     1.1170231260603114,
+     0.5833829588763209,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    11.5,
+    -31.4,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     1.1170231260603114,
+     0.5833829588763209,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    19.7,
+    -31.4,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     1.1170231260603114,
+     0.5833829588763209,
+     0
+    ]
+   }
+  },
+  {
+   "type": "shop",
+   "style": "mud",
+   "base": [
+    6.0,
+    -35,
+    0.02
+   ],
+   "heading": -90,
+   "goods": "tires",
+   "awning": 1.4,
+   "awning_mat": "tarp_blue",
+   "height": 3.03
+  },
+  {
+   "type": "shop",
+   "style": "mud",
+   "base": [
+    6.0,
+    -31,
+    0.02
+   ],
+   "heading": -90,
+   "goods": "cans",
+   "awning": 1.9,
+   "sign": "DUKAN",
+   "awning_mat": "cloth_green",
+   "height": 2.8
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    7.6,
+    -21
+   ],
+   "max": [
+    24,
+    -6.5
+   ],
+   "height": 3.2,
+   "openings": {
+    "n": [
+     {
+      "x": 14,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": 20,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -12,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -19,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "domes": [
+    {
+     "x": 20,
+     "y": -13.75,
+     "r": 2.0
+    }
+   ],
+   "seed": 18,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.11776235008667008,
+     -0.4465228100275169,
+     0
+    ]
+   },
+   "parapet": 0.43,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "mid_e2",
+   "p0": [
+    16,
+    -20.55
+   ],
+   "p1": [
+    16,
+    -6.95
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 3.0,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.11776235008667008,
+     -0.4465228100275169,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    11.8,
+    -13.7,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.11776235008667008,
+     -0.4465228100275169,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    20,
+    -13.7,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     -0.11776235008667008,
+     -0.4465228100275169,
+     0
+    ]
+   }
+  },
+  {
+   "type": "shop",
+   "style": "container",
+   "base": [
+    6.3,
+    -12.5,
+    0.02
+   ],
+   "heading": -90,
+   "goods": "cloth",
+   "mat": "container_green",
+   "awning": 1.15,
+   "awning_mat": "carpet_red",
+   "height": 2.51
+  },
+  {
+   "type": "vehicle",
+   "kind": "jingle",
+   "base": [
+    1.2,
+    -21,
+    0.0
+   ],
+   "heading": 4,
+   "seed": 5,
+   "load": "sacks"
+  },
+  {
+   "type": "vehicle",
+   "kind": "motorbike",
+   "base": [
+    -3.6,
+    -28,
+    0.0
+   ],
+   "heading": 10,
+   "mat": "jingle_red"
+  },
+  {
+   "type": "vehicle",
+   "kind": "motorbike",
+   "base": [
+    3.6,
+    -3.5,
+    0.0
+   ],
+   "heading": 170,
+   "mat": "jingle_blue",
+   "lean": -8
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    -3.2,
+    -9.5,
+    0.02
+   ],
+   "heading": 15
+  },
+  {
+   "type": "prop",
+   "kind": "jerrycans",
+   "base": [
+    3.8,
+    -27,
+    0.02
+   ],
+   "heading": 90,
+   "count": 6
+  },
+  {
+   "type": "bunting",
+   "p0": [
+    -5.2,
+    -30
+   ],
+   "p1": [
+    5.2,
+    -28
+   ],
+   "z": 4.0,
+   "sag": 0.5,
+   "seed": 30
+  },
+  {
+   "type": "bunting",
+   "p0": [
+    -5.2,
+    -18.5
+   ],
+   "p1": [
+    5.2,
+    -19.5
+   ],
+   "z": 4.2,
+   "sag": 0.5,
+   "seed": 18
+  },
+  {
+   "type": "bunting",
+   "p0": [
+    -5.2,
+    -7
+   ],
+   "p1": [
+    5.2,
+    -8.5
+   ],
+   "z": 3.9,
+   "sag": 0.5,
+   "seed": 7
+  },
+  {
+   "type": "power_line",
+   "points": [
+    [
+     -5.4,
+     -37
+    ],
+    [
+     -5.4,
+     -22.5
+    ],
+    [
+     -5.4,
+     -5
+    ],
+    [
+     -9.5,
+     12
+    ],
+    [
+     -9.5,
+     30
+    ]
+   ],
+   "height": 7.0
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    29,
+    -35.5
+   ],
+   "max": [
+    40,
+    -25
+   ],
+   "height": 3.2,
+   "openings": {
+    "n": [
+     {
+      "x": 35,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -29,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -31,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "parapet": 0.78,
+   "domes": [
+    {
+     "x": 31.75,
+     "y": -30.25,
+     "r": 1.9
+    },
+    {
+     "x": 37.25,
+     "y": -30.25,
+     "r": 1.9
+    }
+   ],
+   "seed": 19,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.3670805643938848,
+     0.6567370544690299,
+     0
+    ]
+   },
+   "roof_thickness": 0.4,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "domes_e",
+   "p0": [
+    34.5,
+    -35.05
+   ],
+   "p1": [
+    34.5,
+    -25.45
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 6.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.3670805643938848,
+     0.6567370544690299,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    31.8,
+    -30.2,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.3670805643938848,
+     0.6567370544690299,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    37.2,
+    -30.2,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     0.3670805643938848,
+     0.6567370544690299,
+     0
+    ]
+   }
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    29,
+    -19
+   ],
+   "max": [
+    40,
+    -6.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": 33,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": -12,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": -14,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 20,
+   "roof_items": [
+    {
+     "kind": "laundry",
+     "x": 34.5,
+     "y": -10,
+     "length": 5
+    }
+   ],
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.34331083348212704,
+     -1.5170040389354043,
+     0
+    ]
+   },
+   "parapet": 0.5,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall_light"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "east_passage",
+   "p0": [
+    34.5,
+    -18.55
+   ],
+   "p1": [
+    34.5,
+    -6.95
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 6.0,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.34331083348212704,
+     -1.5170040389354043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    31.7,
+    -12.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.34331083348212704,
+     -1.5170040389354043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    37.3,
+    -12.7,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     -0.34331083348212704,
+     -1.5170040389354043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    47.5,
+    -35
+   ],
+   "max": [
+    56.5,
+    -24
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": 52,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": -29,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "roof_items": [
+    {
+     "kind": "tank",
+     "x": 52,
+     "y": -32
+    }
+   ],
+   "seed": 21,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.5068155684886086,
+     -0.7289089193610785,
+     0
+    ]
+   },
+   "parapet": 0.32,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "light",
+   "pos": [
+    52.0,
+    -29.5,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     -0.5068155684886086,
+     -0.7289089193610785,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    52,
+    -22,
+    0
+   ],
+   "radius": 1.2
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    47.5,
+    -20
+   ],
+   "max": [
+    56.5,
+    -6.5
+   ],
+   "height": 3.2,
+   "openings": {
+    "w": [
+     {
+      "y": -16,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": -9,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 22,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.7018514187671558,
+     1.6268213969086158,
+     0
+    ]
+   },
+   "parapet": 0.65,
+   "roof_thickness": 0.4,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "east_inner",
+   "p0": [
+    47.95,
+    -13.25
+   ],
+   "p1": [
+    56.05,
+    -13.25
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.7018514187671558,
+     1.6268213969086158,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    52,
+    -16.6,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.7018514187671558,
+     1.6268213969086158,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    52,
+    -9.9,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     0.7018514187671558,
+     1.6268213969086158,
+     0
+    ]
+   }
+  },
+  {
+   "type": "vehicle",
+   "kind": "technical",
+   "base": [
+    43.8,
+    -14,
+    0.0
+   ],
+   "heading": 175,
+   "mat": "vehicle_tan",
+   "gun_heading": -30
+  },
+  {
+   "type": "rocks",
+   "base": [
+    44,
+    -30,
+    0
+   ],
+   "size": 0.9,
+   "count": 2,
+   "seed": 40
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    45.6,
+    -4.5,
+    0.02
+   ],
+   "heading": 20
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    26.5,
+    -32,
+    0
+   ]
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -22,
+    -2
+   ],
+   "max": [
+    -10,
+    13.6
+   ],
+   "height": 3.2,
+   "openings": {
+    "s": [
+     {
+      "x": -16,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "n": [
+     {
+      "x": -16,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 6,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": 2,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "y": 10,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": 4,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "parapet_gaps": [
+    {
+     "side": "e",
+     "from": 10.7,
+     "to": 12.3
+    }
+   ],
+   "roof_items": [
+    {
+     "kind": "laundry",
+     "x": -16,
+     "y": 3,
+     "length": 5
+    }
+   ],
+   "seed": 23,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -0.4544426301376773,
+     -0.6099298605819214,
+     0
+    ]
+   },
+   "parapet": 0.43,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "guest_inner",
+   "p0": [
+    -21.55,
+    7
+   ],
+   "p1": [
+    -10.45,
+    7
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 5.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -0.4544426301376773,
+     -0.6099298605819214,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -16,
+    2.5,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -0.4544426301376773,
+     -0.6099298605819214,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -16,
+    10.3,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -0.4544426301376773,
+     -0.6099298605819214,
+     0
+    ]
+   }
+  },
+  {
+   "type": "stairs",
+   "base": [
+    -6.04,
+    11.5,
+    0
+   ],
+   "heading": 90,
+   "steps": 11,
+   "rise": 3.55,
+   "run": 0.36,
+   "width": 1.4,
+   "mat": "mud_plinth",
+   "solid": true
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -19,
+    11,
+    0.02
+   ],
+   "heading": 90,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -0.4544426301376773,
+     -0.6099298605819214,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    -55,
+    4,
+    0
+   ],
+   "radius": 1.5
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    -55.2,
+    -1.5,
+    0
+   ],
+   "radius": 1.2
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -35,
+    10.5,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "prop",
+   "kind": "tandoor",
+   "base": [
+    -30.5,
+    0.5,
+    0.02
+   ]
+  },
+  {
+   "type": "prop",
+   "kind": "well",
+   "base": [
+    -45,
+    4.5,
+    0.02
+   ]
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    -49,
+    10,
+    0.02
+   ],
+   "heading": 60
+  },
+  {
+   "type": "tree",
+   "kind": "mulberry",
+   "base": [
+    -37,
+    3,
+    0
+   ],
+   "height": 7.5
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -46,
+    -1
+   ],
+   "p1": [
+    -38,
+    -1
+   ],
+   "height": 1.3,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 50
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -34,
+    8
+   ],
+   "p1": [
+    -27,
+    8
+   ],
+   "height": 1.2,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 51
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -22,
+    16
+   ],
+   "max": [
+    -10.5,
+    27
+   ],
+   "height": 3.2,
+   "openings": {
+    "n": [
+     {
+      "x": -16,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 21.5,
+      "width": 1.6,
+      "bottom": 0.0,
+      "top": 2.4,
+      "door": false
+     },
+     {
+      "y": 17.8,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "y": 25.2,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": 23.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 24,
+   "floor_mat": "carpet_red",
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   },
+   "parapet": 0.78,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall_light"
+  },
+  {
+   "type": "light",
+   "pos": [
+    -16.2,
+    19,
+    2.9
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2700,
+   "intensity": 8,
+   "range": 8,
+   "shadows": true,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -16.2,
+    24.5,
+    2.9
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2700,
+   "intensity": 8,
+   "range": 8,
+   "shadows": true,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "samovar",
+   "base": [
+    -20.6,
+    21.5,
+    0.02
+   ],
+   "heading": 90,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -17.5,
+    17.3,
+    0.02
+   ],
+   "heading": 0,
+   "length": 2.6,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -14,
+    17.3,
+    0.02
+   ],
+   "heading": 0,
+   "length": 2.6,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -17.5,
+    25.7,
+    0.02
+   ],
+   "heading": 0,
+   "length": 2.6,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -14,
+    25.7,
+    0.02
+   ],
+   "heading": 0,
+   "length": 2.6,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "awning",
+   "min": [
+    -10.2,
+    16.5
+   ],
+   "max": [
+    -6.5,
+    26.5
+   ],
+   "height": 2.8,
+   "mat": "awning_stripe",
+   "spacing": 3.3
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -8.3,
+    18.2,
+    0.02
+   ],
+   "heading": 90,
+   "length": 2.4
+  },
+  {
+   "type": "prop",
+   "kind": "bench",
+   "base": [
+    -8.3,
+    24.8,
+    0.02
+   ],
+   "heading": 90,
+   "length": 2.4
+  },
+  {
+   "type": "sign",
+   "text": "CHAI KHANA",
+   "pos": [
+    -10.35,
+    21.5,
+    3.0
+   ],
+   "heading": 90,
+   "scale": 0.32,
+   "color": [
+    0.9,
+    0.82,
+    0.6,
+    1
+   ],
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     0.7739796019624874,
+     0.46210915589037427,
+     0
+    ]
+   }
+  },
+  {
+   "type": "tree",
+   "kind": "mulberry",
+   "base": [
+    1,
+    20,
+    0
+   ],
+   "height": 8.5
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -2.5,
+    22.5,
+    0.02
+   ],
+   "heading": 20
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    4.2,
+    17.5,
+    0.02
+   ],
+   "heading": -70
+  },
+  {
+   "type": "prop",
+   "kind": "well",
+   "base": [
+    -5,
+    9.5,
+    0.02
+   ]
+  },
+  {
+   "type": "vehicle",
+   "kind": "jingle",
+   "base": [
+    6.5,
+    5,
+    0.0
+   ],
+   "heading": 100,
+   "seed": 11,
+   "load": "tarp"
+  },
+  {
+   "type": "vehicle",
+   "kind": "hilux",
+   "base": [
+    -4,
+    29,
+    0.0
+   ],
+   "heading": -40,
+   "mat": "vehicle_white",
+   "cargo": "sacks"
+  },
+  {
+   "type": "vehicle",
+   "kind": "taxi",
+   "base": [
+    9.5,
+    27.5,
+    0.0
+   ],
+   "heading": 75
+  },
+  {
+   "type": "vehicle",
+   "kind": "motorbike",
+   "base": [
+    11,
+    14,
+    0.0
+   ],
+   "heading": -30,
+   "mat": "jingle_green"
+  },
+  {
+   "type": "bunting",
+   "p0": [
+    -9.9,
+    12.8
+   ],
+   "p1": [
+    1,
+    20
+   ],
+   "z": 3.2,
+   "z1": 5.5,
+   "sag": 0.4,
+   "seed": 7
+  },
+  {
+   "type": "bunting",
+   "p0": [
+    13.9,
+    9.5
+   ],
+   "p1": [
+    1,
+    20
+   ],
+   "z": 3.0,
+   "z1": 5.5,
+   "sag": 0.4,
+   "seed": 8
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    14,
+    -2
+   ],
+   "max": [
+    26,
+    11
+   ],
+   "height": 3.0,
+   "openings": {
+    "s": [
+     {
+      "x": 20,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "n": [
+     {
+      "x": 19,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 6,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "y": 2,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": 4,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 25,
+   "roof_items": [
+    {
+     "kind": "dish",
+     "x": 23,
+     "y": 1
+    }
+   ],
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   },
+   "parapet": 0.5,
+   "roof_thickness": 0.4,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "store_inner",
+   "p0": [
+    20,
+    -1.55
+   ],
+   "p1": [
+    20,
+    10.55
+   ],
+   "height": 3.0,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 7.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    17,
+    4.5,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    23,
+    4.5,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    23,
+    9,
+    0.02
+   ],
+   "heading": 0,
+   "count": 9,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "jerrycans",
+   "base": [
+    16,
+    0,
+    0.02
+   ],
+   "heading": 0,
+   "count": 8,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -0.1827027332314879,
+     0.38477814344639416,
+     0
+    ]
+   }
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    15,
+    16
+   ],
+   "max": [
+    22.5,
+    25
+   ],
+   "height": 3.0,
+   "openings": {
+    "n": [
+     {
+      "x": 18.7,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 22,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": 20.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 26,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     1.1720432863295533,
+     -0.7983520555281345,
+     0
+    ]
+   },
+   "parapet": 0.32,
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "light",
+   "pos": [
+    18.75,
+    20.5,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     1.1720432863295533,
+     -0.7983520555281345,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    19.5,
+    23.2,
+    0.02
+   ],
+   "heading": 90,
+   "environment_transform": {
+    "heading": 2.5,
+    "offset": [
+     1.1720432863295533,
+     -0.7983520555281345,
+     0
+    ]
+   }
+  },
+  {
+   "type": "vehicle",
+   "kind": "hilux",
+   "base": [
+    33,
+    1.5,
+    0.0
+   ],
+   "heading": 100,
+   "mat": "vehicle_white",
+   "cargo": "cans"
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    49,
+    6,
+    0.02
+   ],
+   "heading": 10,
+   "count": 6
+  },
+  {
+   "type": "prop",
+   "kind": "firewood",
+   "base": [
+    31,
+    9.5,
+    0.02
+   ],
+   "heading": 0
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    52.5,
+    -1,
+    0
+   ],
+   "radius": 1.5
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    54.5,
+    7,
+    0
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    36,
+    4
+   ],
+   "p1": [
+    44,
+    4
+   ],
+   "height": 1.3,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 52
+  },
+  {
+   "type": "power_line",
+   "points": [
+    [
+     28,
+     11.6
+    ],
+    [
+     46,
+     11.6
+    ],
+    [
+     56.5,
+     11.6
+    ]
+   ],
+   "height": 7.0
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -54,
+    16
+   ],
+   "p1": [
+    -26,
+    16
+   ],
+   "height": 5.0,
+   "thickness": 0.9,
+   "merlons": true,
+   "seed": 70,
+   "openings": [
+    {
+     "at": 14,
+     "width": 3.4,
+     "top": 3.2,
+     "gate": true,
+     "mat": "wood_dark"
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -26,
+    16
+   ],
+   "p1": [
+    -26,
+    21.5
+   ],
+   "height": 5.0,
+   "thickness": 0.9,
+   "merlons": true,
+   "seed": 71
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "reinforce": true,
+   "breach": true,
+   "name": "qala_patch",
+   "p0": [
+    -26,
+    21.5
+   ],
+   "p1": [
+    -26,
+    26.5
+   ],
+   "height": 3.0,
+   "thickness": 0.4,
+   "mat": "mud_brick"
+  },
+  {
+   "type": "wall",
+   "p0": [
+    -26,
+    21.5
+   ],
+   "p1": [
+    -26,
+    26.5
+   ],
+   "z": 3.0,
+   "height": 2.0,
+   "thickness": 0.9,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -26,
+    26.5
+   ],
+   "p1": [
+    -26,
+    42
+   ],
+   "height": 5.0,
+   "thickness": 0.9,
+   "merlons": true,
+   "seed": 72,
+   "openings": [
+    {
+     "at": 6.5,
+     "width": 1.4,
+     "top": 2.3,
+     "gate": true,
+     "mat": "door_blue"
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -26,
+    42
+   ],
+   "p1": [
+    -54,
+    42
+   ],
+   "height": 5.0,
+   "thickness": 0.9,
+   "merlons": true,
+   "seed": 73,
+   "openings": [
+    {
+     "at": 4,
+     "width": 1.6,
+     "top": 2.3,
+     "gate": true,
+     "mat": "door_green"
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -54,
+    42
+   ],
+   "p1": [
+    -54,
+    16
+   ],
+   "height": 5.0,
+   "thickness": 0.9,
+   "merlons": true,
+   "buttress": 7,
+   "buttress_sides": [
+    1
+   ],
+   "seed": 74
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    -54,
+    16,
+    0
+   ],
+   "size": 3.8,
+   "height": 7.6,
+   "round": true
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    -26,
+    16,
+    0
+   ],
+   "size": 3.8,
+   "height": 7.6,
+   "round": true
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    -54,
+    42,
+    0
+   ],
+   "size": 3.8,
+   "height": 7.6,
+   "round": true
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    -26,
+    42,
+    0
+   ],
+   "size": 3.8,
+   "height": 7.6,
+   "round": true
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -52.6,
+    34.6
+   ],
+   "max": [
+    -36,
+    41.0
+   ],
+   "height": 3.2,
+   "openings": {
+    "s": [
+     {
+      "x": -48,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": -40,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": -45,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": -51.5,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 37.8,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "parapet_gaps": [
+    {
+     "side": "s",
+     "from": -38.8,
+     "to": -37.2
+    }
+   ],
+   "roof_items": [
+    {
+     "kind": "wood",
+     "x": -47,
+     "y": 38.5
+    }
+   ],
+   "door_mat": "wood_dark",
+   "seed": 27,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     0.303452230431871,
+     0.6222091814724351,
+     0
+    ]
+   },
+   "parapet": 0.65,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "qala_room",
+   "p0": [
+    -44,
+    35.05
+   ],
+   "p1": [
+    -44,
+    40.55
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.0,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": true,
+   "breach": false,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     0.303452230431871,
+     0.6222091814724351,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -48.3,
+    37.8,
+    2.9
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 9,
+   "range": 9,
+   "shadows": true,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     0.303452230431871,
+     0.6222091814724351,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -40,
+    37.8,
+    2.9
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 9,
+   "range": 9,
+   "shadows": true,
+   "environment_transform": {
+    "heading": 0.8,
+    "offset": [
+     0.303452230431871,
+     0.6222091814724351,
+     0
+    ]
+   }
+  },
+  {
+   "type": "stairs",
+   "base": [
+    -38,
+    30.64,
+    0
+   ],
+   "heading": 0,
+   "steps": 11,
+   "rise": 3.55,
+   "run": 0.36,
+   "width": 1.4,
+   "mat": "mud_plinth",
+   "solid": true
+  },
+  {
+   "type": "awning",
+   "min": [
+    -53,
+    19
+   ],
+   "max": [
+    -49.5,
+    29
+   ],
+   "height": 2.8,
+   "mat": "corrugated_rust",
+   "spacing": 3.4
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    -51.5,
+    21.8,
+    0
+   ],
+   "radius": 1.1
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    -51.3,
+    26.5,
+    0
+   ],
+   "radius": 1.0,
+   "squash": 1.0
+  },
+  {
+   "type": "prop",
+   "kind": "well",
+   "base": [
+    -44,
+    25,
+    0.02
+   ]
+  },
+  {
+   "type": "vehicle",
+   "kind": "technical",
+   "base": [
+    -32,
+    22,
+    0.0
+   ],
+   "heading": 15,
+   "mat": "vehicle_white",
+   "gun_heading": 160
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    -47,
+    30.5,
+    0.02
+   ],
+   "heading": 0,
+   "count": 6
+  },
+  {
+   "type": "prop",
+   "kind": "firewood",
+   "base": [
+    -29,
+    38,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "prop",
+   "kind": "jerrycans",
+   "base": [
+    -35.5,
+    18,
+    0.02
+   ],
+   "heading": 0,
+   "count": 6
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    -47.5,
+    19.6,
+    0.02
+   ],
+   "heading": 100
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -30.5,
+    31.5,
+    0
+   ]
+  },
+  {
+   "type": "zone",
+   "name": "A",
+   "kind": "bombsite",
+   "min": [
+    -53.1,
+    16.9,
+    -0.5
+   ],
+   "max": [
+    -26.9,
+    41.1,
+    5.5
+   ]
+  },
+  {
+   "type": "sign",
+   "text": "A",
+   "pos": [
+    -43.5,
+    15.38,
+    3.6
+   ],
+   "heading": 0,
+   "scale": 1.4,
+   "color": [
+    0.6,
+    0.1,
+    0.06,
+    1
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    26,
+    14
+   ],
+   "p1": [
+    54,
+    14
+   ],
+   "height": 4.4,
+   "thickness": 0.8,
+   "seed": 80,
+   "openings": [
+    {
+     "at": 14,
+     "width": 4.0,
+     "top": 3.6,
+     "gate": true,
+     "mat": "metal_blue"
+    }
+   ]
+  },
+  {
+   "type": "box",
+   "base": [
+    36.5,
+    13.55,
+    0
+   ],
+   "size": [
+    1.6,
+    1.3,
+    6.4
+   ],
+   "mat": "mud_brick"
+  },
+  {
+   "type": "box",
+   "base": [
+    43.5,
+    13.55,
+    0
+   ],
+   "size": [
+    1.6,
+    1.3,
+    6.4
+   ],
+   "mat": "mud_brick"
+  },
+  {
+   "type": "box",
+   "base": [
+    40,
+    13.55,
+    3.75
+   ],
+   "size": [
+    5.4,
+    1.3,
+    2.65
+   ],
+   "mat": "mud_brick"
+  },
+  {
+   "type": "box",
+   "base": [
+    40,
+    12.88,
+    3.75
+   ],
+   "size": [
+    4.6,
+    0.04,
+    2.4
+   ],
+   "mat": "mud_wall",
+   "collide": false,
+   "occlude": false
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    26,
+    40
+   ],
+   "p1": [
+    26,
+    14
+   ],
+   "height": 4.4,
+   "thickness": 0.8,
+   "seed": 81,
+   "openings": [
+    {
+     "at": 12,
+     "width": 1.6,
+     "top": 2.3,
+     "gate": true
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    54,
+    40
+   ],
+   "p1": [
+    26,
+    40
+   ],
+   "height": 4.4,
+   "thickness": 0.8,
+   "seed": 82,
+   "openings": [
+    {
+     "at": 6,
+     "width": 1.6,
+     "top": 2.3,
+     "gate": true
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    54,
+    14
+   ],
+   "p1": [
+    54,
+    40
+   ],
+   "height": 4.4,
+   "thickness": 0.8,
+   "buttress": 6,
+   "buttress_sides": [
+    1
+   ],
+   "seed": 83
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    26,
+    14,
+    0
+   ],
+   "size": 3.0,
+   "height": 6.2,
+   "round": false,
+   "taper": 0.4
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    54,
+    14,
+    0
+   ],
+   "size": 3.0,
+   "height": 6.2,
+   "round": false,
+   "taper": 0.4
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    26,
+    40,
+    0
+   ],
+   "size": 3.0,
+   "height": 6.2,
+   "round": false,
+   "taper": 0.4
+  },
+  {
+   "type": "watchtower",
+   "base": [
+    54,
+    40,
+    0
+   ],
+   "size": 3.0,
+   "height": 6.2,
+   "round": false,
+   "taper": 0.4
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    27.6,
+    32.5
+   ],
+   "max": [
+    46,
+    39.4
+   ],
+   "height": 3.2,
+   "openings": {
+    "s": [
+     {
+      "x": 30.6,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": 36.8,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": 43,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     },
+     {
+      "x": 32.300000000000004,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ]
+   },
+   "parapet": 0.43,
+   "domes": [
+    {
+     "x": 30.6,
+     "y": 35.95,
+     "r": 1.7
+    },
+    {
+     "x": 36.8,
+     "y": 35.95,
+     "r": 1.7
+    },
+    {
+     "x": 43,
+     "y": 35.95,
+     "r": 1.7
+    }
+   ],
+   "parapet_gaps": [
+    {
+     "side": "s",
+     "from": 44.2,
+     "to": 45.8
+    }
+   ],
+   "seed": 28,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   },
+   "roof_thickness": 0.4,
+   "mat": "mud_wall_light"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "serai_room",
+   "p0": [
+    33.7,
+    32.95
+   ],
+   "p1": [
+    33.7,
+    38.95
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": true,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   }
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "serai_room",
+   "p0": [
+    39.9,
+    32.95
+   ],
+   "p1": [
+    39.9,
+    38.95
+   ],
+   "height": 3.2,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    30.6,
+    35.9,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 7,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    36.8,
+    35.9,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 7,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    43,
+    35.9,
+    2.95
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 7,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.8,
+    "offset": [
+     -0.9310582103176361,
+     1.1736550889270703,
+     0
+    ]
+   }
+  },
+  {
+   "type": "stairs",
+   "base": [
+    45,
+    28.54,
+    0
+   ],
+   "heading": 0,
+   "steps": 11,
+   "rise": 3.55,
+   "run": 0.36,
+   "width": 1.4,
+   "mat": "mud_plinth",
+   "solid": true
+  },
+  {
+   "type": "awning",
+   "min": [
+    49,
+    17
+   ],
+   "max": [
+    53.1,
+    30
+   ],
+   "height": 2.8,
+   "mat": "tarp_blue",
+   "spacing": 3.3
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    51.2,
+    19.5,
+    0.02
+   ],
+   "heading": 90,
+   "count": 9
+  },
+  {
+   "type": "prop",
+   "kind": "sacks",
+   "base": [
+    51.2,
+    26,
+    0.02
+   ],
+   "heading": 90,
+   "count": 6
+  },
+  {
+   "type": "vehicle",
+   "kind": "jingle",
+   "base": [
+    37,
+    22,
+    0.0
+   ],
+   "heading": 95,
+   "seed": 23,
+   "load": "sacks"
+  },
+  {
+   "type": "prop",
+   "kind": "well",
+   "base": [
+    46,
+    24.5,
+    0.02
+   ]
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    31,
+    19.5,
+    0.02
+   ],
+   "heading": -20
+  },
+  {
+   "type": "prop",
+   "kind": "water_jars",
+   "base": [
+    29,
+    30,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    49.5,
+    33.5,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "zone",
+   "name": "B",
+   "kind": "bombsite",
+   "min": [
+    26.9,
+    14.9,
+    -0.5
+   ],
+   "max": [
+    53.1,
+    39.5,
+    5.5
+   ]
+  },
+  {
+   "type": "sign",
+   "text": "B",
+   "pos": [
+    47.5,
+    13.38,
+    3.2
+   ],
+   "heading": 0,
+   "scale": 1.4,
+   "color": [
+    0.6,
+    0.1,
+    0.06,
+    1
+   ]
+  },
+  {
+   "type": "light",
+   "pos": [
+    40,
+    26,
+    4.2
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 3000,
+   "intensity": 12,
+   "range": 13,
+   "shadows": true
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -20,
+    34
+   ],
+   "p1": [
+    22,
+    34
+   ],
+   "height": 3.4,
+   "thickness": 0.6,
+   "seed": 90,
+   "damage": 2,
+   "openings": [
+    {
+     "at": 21,
+     "width": 3.2,
+     "top": 2.8,
+     "gate": true,
+     "mat": "metal_green"
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -20,
+    61.6
+   ],
+   "p1": [
+    -20,
+    34
+   ],
+   "height": 3.4,
+   "thickness": 0.6,
+   "seed": 91,
+   "openings": [
+    {
+     "at": 21.6,
+     "width": 2.4,
+     "top": 2.4,
+     "gate": true
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    22,
+    34
+   ],
+   "p1": [
+    22,
+    61.6
+   ],
+   "height": 3.4,
+   "thickness": 0.6,
+   "seed": 92,
+   "openings": [
+    {
+     "at": 6,
+     "width": 2.4,
+     "top": 2.4,
+     "gate": true
+    }
+   ]
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -12,
+    48
+   ],
+   "max": [
+    14,
+    58.5
+   ],
+   "height": 3.4,
+   "openings": {
+    "s": [
+     {
+      "x": 1,
+      "width": 2.0,
+      "bottom": 0.0,
+      "top": 2.4,
+      "door": false
+     },
+     {
+      "x": -8,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": -4,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": 6,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     },
+     {
+      "x": 10,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 53,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ],
+    "w": [
+     {
+      "y": 53,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "parapet": 0.78,
+   "roof_items": [
+    {
+     "kind": "dish",
+     "x": -9,
+     "y": 56
+    },
+    {
+     "kind": "tank",
+     "x": 10,
+     "y": 56
+    }
+   ],
+   "door_mat": "metal_green",
+   "seed": 29,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   },
+   "roof_thickness": 0.29,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "malik_hall",
+   "p0": [
+    -11.55,
+    52.5
+   ],
+   "p1": [
+    13.55,
+    52.5
+   ],
+   "height": 3.4,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [
+    {
+     "at": 4.5,
+     "width": 1.0
+    },
+    {
+     "at": 13,
+     "width": 1.0
+    },
+    {
+     "at": 21.5,
+     "width": 1.0
+    }
+   ],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "malik_room",
+   "p0": [
+    -3,
+    52.575
+   ],
+   "p1": [
+    -3,
+    58.05
+   ],
+   "height": 3.4,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "wall",
+   "soft": true,
+   "name": "malik_room",
+   "p0": [
+    5,
+    52.575
+   ],
+   "p1": [
+    5,
+    58.05
+   ],
+   "height": 3.4,
+   "thickness": 0.2,
+   "mat": "mud_wall_light",
+   "openings": [],
+   "frame_mat": "wood_dark",
+   "reinforce": false,
+   "breach": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -6,
+    50.2,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 3000,
+   "intensity": 8,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    1,
+    50.2,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 3000,
+   "intensity": 8,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    8,
+    50.2,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 3000,
+   "intensity": 8,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    -7.5,
+    55.3,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 5,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    1,
+    55.3,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 5,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "light",
+   "pos": [
+    9.5,
+    55.3,
+    3.15
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2800,
+   "intensity": 5,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -2.2,
+    "offset": [
+     -2.143413750321058,
+     0.07763751022194043,
+     0
+    ]
+   }
+  },
+  {
+   "type": "vehicle",
+   "kind": "hilux",
+   "base": [
+    -15.5,
+    43,
+    0.0
+   ],
+   "heading": 0,
+   "mat": "vehicle_tan",
+   "bullbar": true,
+   "cargo": "none"
+  },
+  {
+   "type": "vehicle",
+   "kind": "sedan",
+   "base": [
+    17.5,
+    44,
+    0.0
+   ],
+   "heading": 180,
+   "mat": "vehicle_white",
+   "mat2": "vehicle_white",
+   "taxi": false
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    -18.3,
+    47.5,
+    0
+   ],
+   "height": 11
+  },
+  {
+   "type": "tree",
+   "kind": "poplar",
+   "base": [
+    20.3,
+    47.5,
+    0
+   ],
+   "height": 11
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    -9,
+    46.5,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    11,
+    46.5,
+    0.02
+   ],
+   "heading": 90
+  },
+  {
+   "type": "spawn",
+   "team": "defend",
+   "pos": [
+    -4,
+    40,
+    0.1
+   ],
+   "heading": 180
+  },
+  {
+   "type": "spawn",
+   "team": "defend",
+   "pos": [
+    -2,
+    40.6,
+    0.1
+   ],
+   "heading": 180
+  },
+  {
+   "type": "spawn",
+   "team": "defend",
+   "pos": [
+    0,
+    41.2,
+    0.1
+   ],
+   "heading": 180
+  },
+  {
+   "type": "spawn",
+   "team": "defend",
+   "pos": [
+    2,
+    40.6,
+    0.1
+   ],
+   "heading": 180
+  },
+  {
+   "type": "spawn",
+   "team": "defend",
+   "pos": [
+    4,
+    40,
+    0.1
+   ],
+   "heading": 180
+  },
+  {
+   "type": "zone",
+   "name": "Defend buy zone",
+   "kind": "buyzone",
+   "team": "defend",
+   "min": [
+    -19.5,
+    34.5,
+    -1
+   ],
+   "max": [
+    21.5,
+    47.8,
+    5
+   ]
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    -56.5,
+    51
+   ],
+   "max": [
+    -46.5,
+    60.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "s": [
+     {
+      "x": -51.5,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "e": [
+     {
+      "y": 55.5,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 30,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     1.7965522834172172,
+     1.4597004807640417,
+     0
+    ]
+   },
+   "parapet": 0.5,
+   "roof_thickness": 0.36,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "light",
+   "pos": [
+    -51.5,
+    55.75,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": 1.6,
+    "offset": [
+     1.7965522834172172,
+     1.4597004807640417,
+     0
+    ]
+   }
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -42.1,
+    45.5,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -42.7,
+    50.5,
+    0
+   ],
+   "height": 5.0
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -43.0,
+    56,
+    0
+   ],
+   "height": 5.0
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -43.0,
+    60,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -36.6,
+    45.5,
+    0
+   ],
+   "height": 5.0
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -37.2,
+    50.5,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -37.5,
+    56,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -37.5,
+    60,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -31.1,
+    45.5,
+    0
+   ],
+   "height": 4.6000000000000005
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -31.7,
+    50.5,
+    0
+   ],
+   "height": 5.0
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -32.0,
+    56,
+    0
+   ],
+   "height": 4.6000000000000005
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -32.0,
+    60,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -26.2,
+    50.5,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -26.5,
+    56,
+    0
+   ],
+   "height": 5.0
+  },
+  {
+   "type": "tree",
+   "kind": "apricot",
+   "base": [
+    -26.5,
+    60,
+    0
+   ],
+   "height": 4.2
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -45,
+    48
+   ],
+   "p1": [
+    -29,
+    48
+   ],
+   "height": 1.2,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 53,
+   "openings": [
+    {
+     "at": 8,
+     "width": 1.6,
+     "top": 1.4
+    }
+   ]
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    -45,
+    53.5
+   ],
+   "p1": [
+    -24,
+    53.5
+   ],
+   "height": 1.2,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 54,
+   "openings": [
+    {
+     "at": 13,
+     "width": 1.6,
+     "top": 1.4
+    }
+   ]
+  },
+  {
+   "type": "mud_house",
+   "min": [
+    47.5,
+    50
+   ],
+   "max": [
+    56.5,
+    60.5
+   ],
+   "height": 3.0,
+   "openings": {
+    "s": [
+     {
+      "x": 52,
+      "width": 1.1,
+      "bottom": 1.0,
+      "top": 2.0
+     }
+    ],
+    "w": [
+     {
+      "y": 55,
+      "width": 1.2,
+      "bottom": 0.0,
+      "top": 2.15
+     }
+    ]
+   },
+   "seed": 31,
+   "roof_items": [
+    {
+     "kind": "wood",
+     "x": 52,
+     "y": 57
+    }
+   ],
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -1.2710757229083571,
+     1.0084489100630165,
+     0
+    ]
+   },
+   "parapet": 0.32,
+   "roof_thickness": 0.4,
+   "mat": "mud_wall"
+  },
+  {
+   "type": "light",
+   "pos": [
+    52.0,
+    55.25,
+    2.75
+   ],
+   "kind": "point",
+   "fixture": "bulb",
+   "kelvin": 2900,
+   "intensity": 6,
+   "range": 8,
+   "shadows": false,
+   "environment_transform": {
+    "heading": -1.1,
+    "offset": [
+     -1.2710757229083571,
+     1.0084489100630165,
+     0
+    ]
+   }
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    31,
+    50,
+    0
+   ],
+   "radius": 1.6
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    36,
+    55.5,
+    0
+   ],
+   "radius": 1.4
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    40.5,
+    48.5,
+    0
+   ],
+   "radius": 1.3
+  },
+  {
+   "type": "prop",
+   "kind": "hay",
+   "base": [
+    29,
+    56,
+    0
+   ],
+   "radius": 1.2
+  },
+  {
+   "type": "prop",
+   "kind": "charpoy",
+   "base": [
+    44,
+    58.5,
+    0.02
+   ],
+   "heading": 0
+  },
+  {
+   "type": "prop",
+   "kind": "cart",
+   "base": [
+    42,
+    53,
+    0.02
+   ],
+   "heading": 120
+  },
+  {
+   "type": "tree",
+   "kind": "mulberry",
+   "base": [
+    27,
+    59,
+    0
+   ],
+   "height": 7
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    32,
+    44.5
+   ],
+   "p1": [
+    44,
+    44.5
+   ],
+   "height": 1.2,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 55
+  },
+  {
+   "type": "qala_wall",
+   "p0": [
+    44,
+    44.5
+   ],
+   "p1": [
+    44,
+    51
+   ],
+   "height": 1.2,
+   "thickness": 0.5,
+   "footing": false,
+   "seed": 56
+  },
+  {
+   "type": "camera",
+   "name": "Qala gate",
+   "pos": [
+    -36.5,
+    15.3,
+    4.3
+   ],
+   "heading": 180,
+   "pitch": -18
+  },
+  {
+   "type": "camera",
+   "name": "A courtyard",
+   "pos": [
+    -27.6,
+    40.4,
+    4.4
+   ],
+   "heading": 135,
+   "pitch": -22
+  },
+  {
+   "type": "camera",
+   "name": "B courtyard",
+   "pos": [
+    52.9,
+    38.9,
+    3.9
+   ],
+   "heading": 135,
+   "pitch": -22
+  },
+  {
+   "type": "camera",
+   "name": "Iwan",
+   "pos": [
+    44.5,
+    12.8,
+    3.6
+   ],
+   "heading": 180,
+   "pitch": -14
+  },
+  {
+   "type": "camera",
+   "name": "Square",
+   "pos": [
+    -9.75,
+    12.9,
+    3.0
+   ],
+   "heading": -90,
+   "pitch": -12
+  },
+  {
+   "type": "camera",
+   "name": "Bazaar",
+   "pos": [
+    -7.4,
+    -7.1,
+    3.0
+   ],
+   "heading": 180,
+   "pitch": -8
+  },
+  {
+   "type": "callout",
+   "name": "T Spawn",
+   "min": [
+    -57.6,
+    -61.6
+   ],
+   "max": [
+    57.6,
+    -38
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "A Long",
+   "min": [
+    -47,
+    -38
+   ],
+   "max": [
+    -40,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "West Houses",
+   "min": [
+    -57.6,
+    -37.4
+   ],
+   "max": [
+    -47,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Back Alley",
+   "min": [
+    -29,
+    -37.4
+   ],
+   "max": [
+    -24,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Twin Domes",
+   "min": [
+    -40,
+    -37.4
+   ],
+   "max": [
+    -29,
+    -19
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Passage",
+   "min": [
+    -40,
+    -19
+   ],
+   "max": [
+    -29,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Mid Gate",
+   "min": [
+    -5,
+    -40
+   ],
+   "max": [
+    5,
+    -30
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Bazaar",
+   "min": [
+    -5,
+    -30
+   ],
+   "max": [
+    5,
+    -2
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Mid West",
+   "min": [
+    -24,
+    -37.4
+   ],
+   "max": [
+    -7.6,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Mid East",
+   "min": [
+    7.6,
+    -37.4
+   ],
+   "max": [
+    24,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "A Connector",
+   "min": [
+    -24,
+    -6.5
+   ],
+   "max": [
+    -5,
+    -2
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "B Connector",
+   "min": [
+    5,
+    -6.5
+   ],
+   "max": [
+    29,
+    -2
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "West Yard",
+   "min": [
+    -57.6,
+    -6.5
+   ],
+   "max": [
+    -22,
+    15.4
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Guest House",
+   "min": [
+    -22,
+    -2
+   ],
+   "max": [
+    -10,
+    13.6
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Square",
+   "min": [
+    -10,
+    -2
+   ],
+   "max": [
+    14,
+    34
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Chaikhana",
+   "min": [
+    -22,
+    16
+   ],
+   "max": [
+    -10.5,
+    27
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "A Alley",
+   "min": [
+    -25.4,
+    13.6
+   ],
+   "max": [
+    -20,
+    44
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "A Site",
+   "min": [
+    -53.1,
+    16.9
+   ],
+   "max": [
+    -26.9,
+    41.1
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "A Back",
+   "min": [
+    -57.6,
+    14
+   ],
+   "max": [
+    -54,
+    42
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Store",
+   "min": [
+    14,
+    -2
+   ],
+   "max": [
+    26,
+    11
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Dukan",
+   "min": [
+    15,
+    16
+   ],
+   "max": [
+    22.5,
+    25
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "B Alley",
+   "min": [
+    22.5,
+    11
+   ],
+   "max": [
+    25.4,
+    40
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "East Back Alley",
+   "min": [
+    24,
+    -37.4
+   ],
+   "max": [
+    29,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Domes East",
+   "min": [
+    29,
+    -37.4
+   ],
+   "max": [
+    40,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "B Lane",
+   "min": [
+    40,
+    -38
+   ],
+   "max": [
+    47,
+    -2
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "East Houses",
+   "min": [
+    47,
+    -37.4
+   ],
+   "max": [
+    57.6,
+    -6.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "East Yard",
+   "min": [
+    26,
+    -6.5
+   ],
+   "max": [
+    57.6,
+    13.4
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "B Site",
+   "min": [
+    26.9,
+    14.9
+   ],
+   "max": [
+    53.1,
+    39.6
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "B Back",
+   "min": [
+    54,
+    12
+   ],
+   "max": [
+    57.6,
+    40.4
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "CT Spawn",
+   "min": [
+    -20,
+    34
+   ],
+   "max": [
+    22,
+    48
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Malik House",
+   "min": [
+    -12,
+    48
+   ],
+   "max": [
+    14,
+    58.5
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Orchard",
+   "min": [
+    -57.6,
+    42.4
+   ],
+   "max": [
+    -20,
+    61.6
+   ]
+  },
+  {
+   "type": "callout",
+   "name": "Threshing Yard",
+   "min": [
+    22,
+    40.4
+   ],
+   "max": [
+    57.6,
+    61.6
+   ]
+  }
+ ],
+ "camera_shots": [
+  {
+   "name": "overview",
+   "pos": [
+    -30,
+    -50,
+    30
+   ],
+   "hpr": [
+    -30,
+    -32,
+    0
+   ]
+  },
+  {
+   "name": "t_spawn",
+   "pos": [
+    0,
+    -58,
+    1.75
+   ],
+   "hpr": [
+    0,
+    2,
+    0
+   ]
+  },
+  {
+   "name": "bazaar",
+   "pos": [
+    0,
+    -36,
+    1.75
+   ],
+   "hpr": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "name": "square",
+   "pos": [
+    -4,
+    2,
+    1.75
+   ],
+   "hpr": [
+    -20,
+    3,
+    0
+   ]
+  },
+  {
+   "name": "a_site",
+   "pos": [
+    -30,
+    18.5,
+    1.75
+   ],
+   "hpr": [
+    60,
+    2,
+    0
+   ]
+  },
+  {
+   "name": "b_site",
+   "pos": [
+    40,
+    15.5,
+    1.75
+   ],
+   "hpr": [
+    0,
+    2,
+    0
+   ]
+  },
+  {
+   "name": "wadi",
+   "pos": [
+    -30,
+    -46,
+    1.75
+   ],
+   "hpr": [
+    -70,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "ct",
+   "pos": [
+    1,
+    36,
+    1.75
+   ],
+   "hpr": [
+    0,
+    2,
+    0
+   ]
+  }
+ ],
+ "test_routes": [
+  {
+   "name": "A long",
+   "start": [
+    -43,
+    -44,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     -43,
+     -36
+    ],
+    [
+     -43,
+     -20
+    ],
+    [
+     -43,
+     -8
+    ],
+    [
+     -47.5,
+     -3
+    ],
+    [
+     -47.5,
+     2
+    ],
+    [
+     -42,
+     9
+    ],
+    [
+     -40,
+     13
+    ],
+    [
+     -40,
+     18
+    ],
+    [
+     -40,
+     26,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "A via domes",
+   "start": [
+    -43,
+    -46,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     -43,
+     -36
+    ],
+    [
+     -43,
+     -22
+    ],
+    [
+     -35,
+     -22
+    ],
+    [
+     -26.5,
+     -22
+    ],
+    [
+     -26.5,
+     -10
+    ],
+    [
+     -26.5,
+     -4
+    ],
+    [
+     -30,
+     4
+    ],
+    [
+     -38,
+     11.5
+    ],
+    [
+     -40,
+     14
+    ],
+    [
+     -40,
+     18
+    ],
+    [
+     -41,
+     23,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "A alley",
+   "start": [
+    0,
+    -50,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     0,
+     -37
+    ],
+    [
+     -2.5,
+     -30
+    ],
+    [
+     -2.5,
+     -12
+    ],
+    [
+     -3,
+     -4
+    ],
+    [
+     -15,
+     -4
+    ],
+    [
+     -23,
+     -4
+    ],
+    [
+     -23.5,
+     0
+    ],
+    [
+     -23.5,
+     13
+    ],
+    [
+     -23,
+     20
+    ],
+    [
+     -23,
+     33
+    ],
+    [
+     -25,
+     33
+    ],
+    [
+     -28,
+     33
+    ],
+    [
+     -32,
+     30,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "A north door",
+   "start": [
+    -2,
+    -52,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     0,
+     -37
+    ],
+    [
+     -2.5,
+     -30
+    ],
+    [
+     -2.5,
+     -12
+    ],
+    [
+     -2,
+     0
+    ],
+    [
+     -1,
+     12
+    ],
+    [
+     -8,
+     29
+    ],
+    [
+     -18,
+     30.5
+    ],
+    [
+     -23,
+     31
+    ],
+    [
+     -23,
+     38
+    ],
+    [
+     -23,
+     44
+    ],
+    [
+     -30,
+     44
+    ],
+    [
+     -30,
+     41
+    ],
+    [
+     -30,
+     38,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "B lane",
+   "start": [
+    43,
+    -44,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     43,
+     -36
+    ],
+    [
+     41,
+     -20
+    ],
+    [
+     41,
+     -8
+    ],
+    [
+     46,
+     1
+    ],
+    [
+     45.5,
+     8
+    ],
+    [
+     40,
+     11
+    ],
+    [
+     40,
+     16
+    ],
+    [
+     40,
+     27,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "B connector",
+   "start": [
+    3,
+    -50,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     1,
+     -37
+    ],
+    [
+     3,
+     -28
+    ],
+    [
+     3,
+     -12
+    ],
+    [
+     2,
+     -5
+    ],
+    [
+     15,
+     -4
+    ],
+    [
+     28,
+     -4
+    ],
+    [
+     32,
+     5
+    ],
+    [
+     38,
+     10
+    ],
+    [
+     40,
+     13
+    ],
+    [
+     40,
+     18
+    ],
+    [
+     44,
+     28,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "B alley",
+   "start": [
+    0,
+    -50,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     0,
+     -37
+    ],
+    [
+     -2.5,
+     -30
+    ],
+    [
+     -2.5,
+     -12
+    ],
+    [
+     -1.5,
+     -1
+    ],
+    [
+     6,
+     11
+    ],
+    [
+     14,
+     13
+    ],
+    [
+     24,
+     14
+    ],
+    [
+     24,
+     28
+    ],
+    [
+     28,
+     28
+    ],
+    [
+     33,
+     28,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "B via domes",
+   "start": [
+    43,
+    -46,
+    0.1,
+    0
+   ],
+   "waypoints": [
+    [
+     43,
+     -36
+    ],
+    [
+     43,
+     -22
+    ],
+    [
+     35,
+     -22
+    ],
+    [
+     26.5,
+     -22
+    ],
+    [
+     26.5,
+     -4
+    ],
+    [
+     30,
+     3
+    ],
+    [
+     37,
+     9
+    ],
+    [
+     40,
+     13
+    ],
+    [
+     39,
+     18
+    ],
+    [
+     34,
+     26,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "CT to A",
+   "start": [
+    -2,
+    40,
+    0.1,
+    90
+   ],
+   "waypoints": [
+    [
+     -12,
+     40
+    ],
+    [
+     -19,
+     40
+    ],
+    [
+     -23,
+     40
+    ],
+    [
+     -23,
+     36
+    ],
+    [
+     -23,
+     33
+    ],
+    [
+     -28,
+     33
+    ],
+    [
+     -34,
+     30,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "CT to B",
+   "start": [
+    2,
+    40,
+    0.1,
+    -90
+   ],
+   "waypoints": [
+    [
+     12,
+     40
+    ],
+    [
+     21,
+     40
+    ],
+    [
+     24,
+     40
+    ],
+    [
+     24,
+     30
+    ],
+    [
+     24,
+     28
+    ],
+    [
+     28,
+     28
+    ],
+    [
+     34,
+     28,
+     0.02
+    ]
+   ]
+  },
+  {
+   "name": "CT to B north",
+   "start": [
+    3,
+    41,
+    0.1,
+    -90
+   ],
+   "waypoints": [
+    [
+     16,
+     40.5
+    ],
+    [
+     24,
+     41.5
+    ],
+    [
+     30,
+     42.5
+    ],
+    [
+     46,
+     42.5
+    ],
+    [
+     48,
+     41
+    ],
+    [
+     48,
+     38
+    ],
+    [
+     48,
+     32,
+     0.02
+    ]
+   ]
+  }
+ ],
+ "practice_positions": {
+  "defend": [
+   [
+    -35,
+    24,
+    0.02,
+    200,
+    0
+   ],
+   [
+    -30,
+    38.5,
+    0.02,
+    200,
+    1
+   ],
+   [
+    -48.5,
+    31.5,
+    0.02,
+    170,
+    0
+   ],
+   [
+    -44,
+    38.5,
+    3.57,
+    180,
+    0
+   ],
+   [
+    -28.5,
+    18,
+    0.02,
+    230,
+    1
+   ],
+   [
+    44,
+    30,
+    0.02,
+    180,
+    0
+   ],
+   [
+    32,
+    25,
+    0.02,
+    150,
+    1
+   ],
+   [
+    50.5,
+    22.5,
+    0.02,
+    170,
+    0
+   ],
+   [
+    36.8,
+    34,
+    0.02,
+    180,
+    0
+   ],
+   [
+    45.3,
+    33.4,
+    3.57,
+    180,
+    0
+   ],
+   [
+    1,
+    32,
+    0.02,
+    180,
+    1
+   ],
+   [
+    -12,
+    30,
+    0.02,
+    180,
+    0
+   ],
+   [
+    18,
+    28,
+    0.02,
+    200,
+    0
+   ]
+  ],
+  "attack": [
+   [
+    -43,
+    -10,
+    0.02,
+    0,
+    0
+   ],
+   [
+    -26.5,
+    -12,
+    0.02,
+    0,
+    0
+   ],
+   [
+    0,
+    -10,
+    0.02,
+    0,
+    1
+   ],
+   [
+    -15,
+    -4,
+    0.02,
+    90,
+    0
+   ],
+   [
+    18,
+    -4,
+    0.02,
+    -90,
+    0
+   ],
+   [
+    43,
+    -10,
+    0.02,
+    0,
+    0
+   ],
+   [
+    26.5,
+    -12,
+    0.02,
+    0,
+    1
+   ],
+   [
+    -36,
+    7,
+    0.02,
+    0,
+    0
+   ],
+   [
+    38,
+    7,
+    0.02,
+    0,
+    0
+   ],
+   [
+    -1,
+    2,
+    0.02,
+    0,
+    0
+   ]
+  ]
+ },
+ "modes": {
+  "duel": {
+   "_comment": "1v1 duels: site A only (the qala); a player-clip wall along x = 6.5 closes the east half (bazaar east side, B).",
+   "sites": [
+    "A"
+   ],
+   "spawns": [
+    {
+     "team": "attack",
+     "pos": [
+      -3,
+      -56,
+      0.1
+     ],
+     "heading": 0
+    },
+    {
+     "team": "defend",
+     "pos": [
+      -3,
+      40,
+      0.1
+     ],
+     "heading": 180
+    }
+   ],
+   "clips": [
+    {
+     "center": [
+      6.5,
+      0.0,
+      6.0
+     ],
+     "size": [
+      0.4,
+      128.0,
+      20.0
+     ]
+    }
+   ]
+  }
+ },
+ "environment_rework": "environment-r6"
 }

@@ -1,5 +1,0 @@
-{
-  "extends": "../tsconfig.base.json",
-  "compilerOptions": { "lib": ["ES2022"], "types": ["node"] },
-  "include": ["src/**/*.ts", "../shared/src/env.d.ts"]
-}
