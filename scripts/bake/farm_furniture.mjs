@@ -51,7 +51,7 @@ class K {
       hpr: this.hpr(o.h ?? 0, o.p ?? 0, o.r ?? 0),
       uvScale: this.uv(mat),
       radius,
-      segments: o.segments ?? 3,
+      segments: o.segments ?? 2,
       round: o.round,
       skipFaces: o.skip,
       step: o.step ?? 0,
@@ -208,8 +208,8 @@ function books(k, x0, x1, y, z, maxH = 0.28, lean = true) {
 function picture(k, cx, y, cz, w, h, atlas = "farm_art", cell = 0, frameMat = "farm_walnut") {
   const fw = 0.035;
   for (const s of [-1, 1]) {
-    k.rbox(frameMat, [cx + s * (w / 2 - fw / 2), y, cz], [fw, 0.03, h], 0.006);
-    k.rbox(frameMat, [cx, y, cz + s * (h / 2 - fw / 2)], [w, 0.03, fw], 0.006);
+    k.box(frameMat, [cx + s * (w / 2 - fw / 2), y, cz], [fw, 0.03, h]);
+    k.box(frameMat, [cx, y, cz + s * (h / 2 - fw / 2)], [w - 2 * fw + 0.002, 0.03, fw]);
   }
   const grid = atlas === "farm_art" ? 2 : 3;
   const cu = cell % grid, cv = Math.floor(cell / grid);
@@ -223,7 +223,7 @@ function picture(k, cx, y, cz, w, h, atlas = "farm_art", cell = 0, frameMat = "f
 
 /** A cushion: soft rounded block with a slight crown. */
 function cushion(k, mat, c, size, rad = 0.05, tilt = 0) {
-  k.rbox(mat, c, size, Math.min(rad, size[2] * 0.48), { segments: 4, p: tilt });
+  k.rbox(mat, c, size, Math.min(rad, size[2] * 0.48), { segments: 3, p: tilt });
 }
 
 // ---------------------------------------------------------------------------------------------- prefabs
@@ -846,7 +846,7 @@ export function register(L) {
         const tie = Math.exp(-Math.pow((v - 0.6) / 0.12, 2)) * 0.5;
         const x = x0 + (x1 - x0) * u * (1 - tie);
         return [x, -0.1 + 0.035 * Math.sin(u * 2 * Math.PI * 5) * (1 - 0.6 * tie), top + 0.1 - v * drop];
-      }, 30, 12, 0.9, drop / 0.7);
+      }, 20, 10, 0.9, drop / 0.7);
     }
   });
 
@@ -953,3 +953,6 @@ export function register(L) {
     k0.tube(rail, [[p0[0], p0[1], p0[2] + h + 0.02], [p1[0], p1[1], p1[2] + h + 0.02]], 0.03, 10);
   });
 }
+
+// shared with the other prefab modules (farm_decor.mjs)
+export { K, D, add, cushion, drawer, shakerDoor, books, picture, taperLeg, turnedLeg };

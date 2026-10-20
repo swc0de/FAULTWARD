@@ -4,7 +4,7 @@
     "src": "_settings-DS-a2qq_.css"
   },
   "_settings-DoPMYiQH.js": {
-    "file": "assets/settings-kEyq9tCq.js",
+    "file": "assets/settings-jwNOHdld.js",
     "name": "settings",
     "css": [
       "assets/settings-DS-a2qq_.css"
@@ -22,7 +22,7 @@
     ]
   },
   "src/game/main.ts": {
-    "file": "assets/game-wogFEdl6.js",
+    "file": "assets/game-yPNAM5vc.js",
     "name": "game",
     "src": "src/game/main.ts",
     "isEntry": true,
@@ -32,7 +32,7 @@
     ]
   },
   "src/site/main.ts": {
-    "file": "assets/site-CH3KtZ4R.js",
+    "file": "assets/site-kTF5ZRkO.js",
     "name": "site",
     "src": "src/site/main.ts",
     "isEntry": true,
@@ -44,7 +44,7 @@
     ]
   },
   "src/site/settings.ts": {
-    "file": "assets/settings-qz9CIb3V.js",
+    "file": "assets/settings-U0AyjnZ7.js",
     "name": "settings",
     "src": "src/site/settings.ts",
     "isDynamicEntry": true,

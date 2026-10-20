@@ -1,20 +1,20 @@
 {
  "farm_apple": {
   "surface": "fabric",
-  "uv_scale": 0.2,
+  "uv_scale": 0.15,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_apple/albedo_1024-32ef36ae10.jpg",
-    "normal": "/assets/g/textures/farm_apple/normal_1024-f701ca9f2b.jpg",
-    "orm": "/assets/g/textures/farm_apple/orm_1024-c8d62b513e.jpg"
+    "albedo": "/assets/g/textures/farm_apple/albedo_1024-c047c55148.jpg",
+    "normal": "/assets/g/textures/farm_apple/normal_1024-bc2795562e.jpg",
+    "orm": "/assets/g/textures/farm_apple/orm_1024-d2e8783447.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_apple/albedo_512-5a4d50a57b.jpg",
-    "normal": "/assets/g/textures/farm_apple/normal_512-0b060179a6.jpg",
-    "orm": "/assets/g/textures/farm_apple/orm_512-9a982b0ed5.jpg"
+    "albedo": "/assets/g/textures/farm_apple/albedo_512-2be10d62fb.jpg",
+    "normal": "/assets/g/textures/farm_apple/normal_512-096784e316.jpg",
+    "orm": "/assets/g/textures/farm_apple/orm_512-a49bea85aa.jpg"
    }
   }
  },
@@ -26,14 +26,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_art/albedo_1024-93804db5d0.jpg",
-    "normal": "/assets/g/textures/farm_art/normal_1024-5dc739b66b.jpg",
-    "orm": "/assets/g/textures/farm_art/orm_1024-83273fa982.jpg"
+    "albedo": "/assets/g/textures/farm_art/albedo_1024-0547c56996.jpg",
+    "normal": "/assets/g/textures/farm_art/normal_1024-352bc91c81.jpg",
+    "orm": "/assets/g/textures/farm_art/orm_1024-4e4f73a173.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_art/albedo_512-e990a5835e.jpg",
-    "normal": "/assets/g/textures/farm_art/normal_512-c13176c8be.jpg",
-    "orm": "/assets/g/textures/farm_art/orm_512-05519d1464.jpg"
+    "albedo": "/assets/g/textures/farm_art/albedo_512-e2161be2a7.jpg",
+    "normal": "/assets/g/textures/farm_art/normal_512-00f99fb7a1.jpg",
+    "orm": "/assets/g/textures/farm_art/orm_512-b4b6adbf88.jpg"
    }
   }
  },
@@ -45,14 +45,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_asphalt/albedo_1024-fdfe407060.jpg",
-    "normal": "/assets/g/textures/farm_asphalt/normal_1024-49760743cd.jpg",
-    "orm": "/assets/g/textures/farm_asphalt/orm_1024-3e3b1f93df.jpg"
+    "albedo": "/assets/g/textures/farm_asphalt/albedo_1024-1f9823e4a9.jpg",
+    "normal": "/assets/g/textures/farm_asphalt/normal_1024-f11d16a13d.jpg",
+    "orm": "/assets/g/textures/farm_asphalt/orm_1024-d476833ed1.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_asphalt/albedo_512-1c435e08e8.jpg",
-    "normal": "/assets/g/textures/farm_asphalt/normal_512-2773801be7.jpg",
-    "orm": "/assets/g/textures/farm_asphalt/orm_512-4245ac5050.jpg"
+    "albedo": "/assets/g/textures/farm_asphalt/albedo_512-09f4494e81.jpg",
+    "normal": "/assets/g/textures/farm_asphalt/normal_512-6a91fd4241.jpg",
+    "orm": "/assets/g/textures/farm_asphalt/orm_512-2a3d40d185.jpg"
    }
   }
  },
@@ -64,33 +64,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_barn_red/albedo_1024-4adbe42aa8.jpg",
-    "normal": "/assets/g/textures/farm_barn_red/normal_1024-893c6381c5.jpg",
-    "orm": "/assets/g/textures/farm_barn_red/orm_1024-9c74d18155.jpg"
+    "albedo": "/assets/g/textures/farm_barn_red/albedo_1024-75fe7225db.jpg",
+    "normal": "/assets/g/textures/farm_barn_red/normal_1024-1daa8dff6e.jpg",
+    "orm": "/assets/g/textures/farm_barn_red/orm_1024-ecad13a1dc.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_barn_red/albedo_512-f0a587b6d6.jpg",
-    "normal": "/assets/g/textures/farm_barn_red/normal_512-950704ad60.jpg",
-    "orm": "/assets/g/textures/farm_barn_red/orm_512-b261eedde6.jpg"
+    "albedo": "/assets/g/textures/farm_barn_red/albedo_512-98936c745d.jpg",
+    "normal": "/assets/g/textures/farm_barn_red/normal_512-ed6d84816d.jpg",
+    "orm": "/assets/g/textures/farm_barn_red/orm_512-1c7500f7aa.jpg"
    }
   }
  },
  "farm_bedding": {
   "surface": "fabric",
-  "uv_scale": 0.5,
+  "uv_scale": 0.25,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_bedding/albedo_1024-85f7173e45.jpg",
-    "normal": "/assets/g/textures/farm_bedding/normal_1024-22b37cd62d.jpg",
-    "orm": "/assets/g/textures/farm_bedding/orm_1024-a155677860.jpg"
+    "albedo": "/assets/g/textures/farm_bedding/albedo_1024-1543353707.jpg",
+    "normal": "/assets/g/textures/farm_bedding/normal_1024-87217df1d2.jpg",
+    "orm": "/assets/g/textures/farm_bedding/orm_1024-d1f0f07501.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_bedding/albedo_512-05e7140b80.jpg",
-    "normal": "/assets/g/textures/farm_bedding/normal_512-db31ce3369.jpg",
-    "orm": "/assets/g/textures/farm_bedding/orm_512-290e649aab.jpg"
+    "albedo": "/assets/g/textures/farm_bedding/albedo_512-175ed12fbe.jpg",
+    "normal": "/assets/g/textures/farm_bedding/normal_512-836aff8190.jpg",
+    "orm": "/assets/g/textures/farm_bedding/orm_512-7d9453a316.jpg"
    }
   }
  },
@@ -102,52 +102,52 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_books/albedo_1024-54691e4cf0.jpg",
-    "normal": "/assets/g/textures/farm_books/normal_1024-2d27352c7d.jpg",
-    "orm": "/assets/g/textures/farm_books/orm_1024-139e1e506a.jpg"
+    "albedo": "/assets/g/textures/farm_books/albedo_1024-8b3c5cf3ea.jpg",
+    "normal": "/assets/g/textures/farm_books/normal_1024-0b0d83e567.jpg",
+    "orm": "/assets/g/textures/farm_books/orm_1024-7bd78730fd.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_books/albedo_512-ddc9f321a6.jpg",
-    "normal": "/assets/g/textures/farm_books/normal_512-25d468395d.jpg",
-    "orm": "/assets/g/textures/farm_books/orm_512-df8eb094d9.jpg"
+    "albedo": "/assets/g/textures/farm_books/albedo_512-f299e75940.jpg",
+    "normal": "/assets/g/textures/farm_books/normal_512-e1f717f8f3.jpg",
+    "orm": "/assets/g/textures/farm_books/orm_512-bdcc8b7e97.jpg"
    }
   }
  },
  "farm_brass": {
   "surface": "metal",
-  "uv_scale": 0.5,
+  "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_brass/albedo_1024-06060ace52.jpg",
-    "normal": "/assets/g/textures/farm_brass/normal_1024-18898799c3.jpg",
-    "orm": "/assets/g/textures/farm_brass/orm_1024-486aef5f9d.jpg"
+    "albedo": "/assets/g/textures/farm_brass/albedo_1024-22ddfc3d07.jpg",
+    "normal": "/assets/g/textures/farm_brass/normal_1024-9828b06b3a.jpg",
+    "orm": "/assets/g/textures/farm_brass/orm_1024-594a2affd3.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_brass/albedo_512-92afd21b36.jpg",
-    "normal": "/assets/g/textures/farm_brass/normal_512-a5957dbdb3.jpg",
-    "orm": "/assets/g/textures/farm_brass/orm_512-6d7f3d484c.jpg"
+    "albedo": "/assets/g/textures/farm_brass/albedo_512-29c04f8f75.jpg",
+    "normal": "/assets/g/textures/farm_brass/normal_512-7db73f0e39.jpg",
+    "orm": "/assets/g/textures/farm_brass/orm_512-174e2026e0.jpg"
    }
   }
  },
  "farm_brick": {
   "surface": "brick",
-  "uv_scale": 1.0,
+  "uv_scale": 1.1,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_brick/albedo_1024-d25542ae48.jpg",
-    "normal": "/assets/g/textures/farm_brick/normal_1024-bd94cf5ce9.jpg",
-    "orm": "/assets/g/textures/farm_brick/orm_1024-aae422d178.jpg"
+    "albedo": "/assets/g/textures/farm_brick/albedo_1024-93da305cce.jpg",
+    "normal": "/assets/g/textures/farm_brick/normal_1024-d213b8e845.jpg",
+    "orm": "/assets/g/textures/farm_brick/orm_1024-6a81a1bd09.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_brick/albedo_512-eb5bf5febe.jpg",
-    "normal": "/assets/g/textures/farm_brick/normal_512-17829dca77.jpg",
-    "orm": "/assets/g/textures/farm_brick/orm_512-46aa0bd7ad.jpg"
+    "albedo": "/assets/g/textures/farm_brick/albedo_512-624877540c.jpg",
+    "normal": "/assets/g/textures/farm_brick/normal_512-7945164a3d.jpg",
+    "orm": "/assets/g/textures/farm_brick/orm_512-ff47c7b1b0.jpg"
    }
   }
  },
@@ -178,14 +178,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_butcher_block/albedo_1024-cd135c785f.jpg",
-    "normal": "/assets/g/textures/farm_butcher_block/normal_1024-e84497fec5.jpg",
-    "orm": "/assets/g/textures/farm_butcher_block/orm_1024-085924bb79.jpg"
+    "albedo": "/assets/g/textures/farm_butcher_block/albedo_1024-aac53e5916.jpg",
+    "normal": "/assets/g/textures/farm_butcher_block/normal_1024-efdcd20556.jpg",
+    "orm": "/assets/g/textures/farm_butcher_block/orm_1024-bdbe5b88d0.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_butcher_block/albedo_512-bf507c7bcb.jpg",
-    "normal": "/assets/g/textures/farm_butcher_block/normal_512-00f4e7a5fc.jpg",
-    "orm": "/assets/g/textures/farm_butcher_block/orm_512-4533027959.jpg"
+    "albedo": "/assets/g/textures/farm_butcher_block/albedo_512-6c16603c1b.jpg",
+    "normal": "/assets/g/textures/farm_butcher_block/normal_512-b2a16f34e8.jpg",
+    "orm": "/assets/g/textures/farm_butcher_block/orm_512-0cc63194b0.jpg"
    }
   }
  },
@@ -197,14 +197,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_cabinet_navy/albedo_1024-6387ab3b0c.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_navy/normal_1024-4de2b5d13a.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_navy/orm_1024-5858862f67.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_navy/albedo_1024-8f620ffa85.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_navy/normal_1024-1b83ea9bd4.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_navy/orm_1024-edf7aa3c28.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_cabinet_navy/albedo_512-cef3004c4a.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_navy/normal_512-eb9f578fea.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_navy/orm_512-5631c2a39c.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_navy/albedo_512-19ff4c6f9f.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_navy/normal_512-40570bdb40.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_navy/orm_512-1f091c9ae0.jpg"
    }
   }
  },
@@ -216,14 +216,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_cabinet_sage/albedo_1024-68badd19be.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_sage/normal_1024-dc036244f5.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_sage/orm_1024-4bcbc703c3.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_sage/albedo_1024-53c4840987.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_sage/normal_1024-732184057f.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_sage/orm_1024-aeacdd5f77.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_cabinet_sage/albedo_512-e50d24c91c.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_sage/normal_512-6209ba8d86.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_sage/orm_512-44b3522613.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_sage/albedo_512-24d68bcb89.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_sage/normal_512-d53d712a17.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_sage/orm_512-3b6de5acd5.jpg"
    }
   }
  },
@@ -235,52 +235,52 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_cabinet_white/albedo_1024-4914aded15.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_white/normal_1024-80f7bc3621.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_white/orm_1024-073e908fdd.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_white/albedo_1024-e5fec44ddc.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_white/normal_1024-14e490efe5.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_white/orm_1024-3e09b66cdc.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_cabinet_white/albedo_512-f089bece2a.jpg",
-    "normal": "/assets/g/textures/farm_cabinet_white/normal_512-1a20fbec7d.jpg",
-    "orm": "/assets/g/textures/farm_cabinet_white/orm_512-6178097754.jpg"
+    "albedo": "/assets/g/textures/farm_cabinet_white/albedo_512-b0cbe822f7.jpg",
+    "normal": "/assets/g/textures/farm_cabinet_white/normal_512-58db88b294.jpg",
+    "orm": "/assets/g/textures/farm_cabinet_white/orm_512-187e8f7706.jpg"
    }
   }
  },
  "farm_carpet": {
   "surface": "fabric",
-  "uv_scale": 1.5,
+  "uv_scale": 1.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_carpet/albedo_1024-101d20c775.jpg",
-    "normal": "/assets/g/textures/farm_carpet/normal_1024-b80807314e.jpg",
-    "orm": "/assets/g/textures/farm_carpet/orm_1024-01a3d4d1ad.jpg"
+    "albedo": "/assets/g/textures/farm_carpet/albedo_1024-bf263b17d6.jpg",
+    "normal": "/assets/g/textures/farm_carpet/normal_1024-e400827252.jpg",
+    "orm": "/assets/g/textures/farm_carpet/orm_1024-c7aa9e9e34.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_carpet/albedo_512-f3c3567911.jpg",
-    "normal": "/assets/g/textures/farm_carpet/normal_512-72da52e420.jpg",
-    "orm": "/assets/g/textures/farm_carpet/orm_512-8ea95168ca.jpg"
+    "albedo": "/assets/g/textures/farm_carpet/albedo_512-5160ae9ec7.jpg",
+    "normal": "/assets/g/textures/farm_carpet/normal_512-ac4e0a51fb.jpg",
+    "orm": "/assets/g/textures/farm_carpet/orm_512-23e8a1e4c6.jpg"
    }
   }
  },
  "farm_ceiling": {
   "surface": "plaster",
-  "uv_scale": 3.0,
+  "uv_scale": 2.5,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_ceiling/albedo_1024-311a9bb6c6.jpg",
-    "normal": "/assets/g/textures/farm_ceiling/normal_1024-51e5928259.jpg",
-    "orm": "/assets/g/textures/farm_ceiling/orm_1024-fcc4a6ba29.jpg"
+    "albedo": "/assets/g/textures/farm_ceiling/albedo_1024-d7148ffbf5.jpg",
+    "normal": "/assets/g/textures/farm_ceiling/normal_1024-17f339ad61.jpg",
+    "orm": "/assets/g/textures/farm_ceiling/orm_1024-0ba72c9161.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_ceiling/albedo_512-d647548aee.jpg",
-    "normal": "/assets/g/textures/farm_ceiling/normal_512-34bd6013c8.jpg",
-    "orm": "/assets/g/textures/farm_ceiling/orm_512-e57fbb00fc.jpg"
+    "albedo": "/assets/g/textures/farm_ceiling/albedo_512-0660008a19.jpg",
+    "normal": "/assets/g/textures/farm_ceiling/normal_512-9a8a95bc4d.jpg",
+    "orm": "/assets/g/textures/farm_ceiling/orm_512-125a445d37.jpg"
    }
   }
  },
@@ -292,33 +292,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_ceramic/albedo_1024-db5e10f186.jpg",
+    "albedo": "/assets/g/textures/farm_ceramic/albedo_1024-4cbf9da816.jpg",
     "normal": "/assets/g/textures/farm_ceramic/normal_1024-3db3777375.jpg",
-    "orm": "/assets/g/textures/farm_ceramic/orm_1024-1a8924c769.jpg"
+    "orm": "/assets/g/textures/farm_ceramic/orm_1024-744b0bcfb8.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_ceramic/albedo_512-4e8d5f0931.jpg",
+    "albedo": "/assets/g/textures/farm_ceramic/albedo_512-1f644445fb.jpg",
     "normal": "/assets/g/textures/farm_ceramic/normal_512-5687edd3bf.jpg",
-    "orm": "/assets/g/textures/farm_ceramic/orm_512-8c071da99c.jpg"
+    "orm": "/assets/g/textures/farm_ceramic/orm_512-14a2d7598d.jpg"
    }
   }
  },
  "farm_chrome": {
   "surface": "metal",
-  "uv_scale": 0.5,
+  "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_chrome/albedo_1024-151e3a1a01.jpg",
+    "albedo": "/assets/g/textures/farm_chrome/albedo_1024-3d17f4c0b0.jpg",
     "normal": "/assets/g/textures/farm_chrome/normal_1024-3ce1464b59.jpg",
-    "orm": "/assets/g/textures/farm_chrome/orm_1024-8e19b62ecf.jpg"
+    "orm": "/assets/g/textures/farm_chrome/orm_1024-f0a3ffe215.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_chrome/albedo_512-c17668b5f8.jpg",
+    "albedo": "/assets/g/textures/farm_chrome/albedo_512-89393b33ae.jpg",
     "normal": "/assets/g/textures/farm_chrome/normal_512-2cf3a5c08b.jpg",
-    "orm": "/assets/g/textures/farm_chrome/orm_512-dd316a63b5.jpg"
+    "orm": "/assets/g/textures/farm_chrome/orm_512-1fcb2a6c9d.jpg"
    }
   }
  },
@@ -330,33 +330,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_corn_leaf/albedo_1024-78d6d6d8f2.jpg",
-    "normal": "/assets/g/textures/farm_corn_leaf/normal_1024-1aa248f6d5.jpg",
-    "orm": "/assets/g/textures/farm_corn_leaf/orm_1024-86c9a29cf6.jpg"
+    "albedo": "/assets/g/textures/farm_corn_leaf/albedo_1024-82403f4987.jpg",
+    "normal": "/assets/g/textures/farm_corn_leaf/normal_1024-52094194db.jpg",
+    "orm": "/assets/g/textures/farm_corn_leaf/orm_1024-f61508e8e1.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_corn_leaf/albedo_512-84352802de.jpg",
-    "normal": "/assets/g/textures/farm_corn_leaf/normal_512-f04a14b516.jpg",
-    "orm": "/assets/g/textures/farm_corn_leaf/orm_512-d1a0233878.jpg"
+    "albedo": "/assets/g/textures/farm_corn_leaf/albedo_512-eb9fc4ff97.jpg",
+    "normal": "/assets/g/textures/farm_corn_leaf/normal_512-f8371d612d.jpg",
+    "orm": "/assets/g/textures/farm_corn_leaf/orm_512-d47694fce5.jpg"
    }
   }
  },
  "farm_curtain": {
   "surface": "fabric",
-  "uv_scale": 0.7,
+  "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_curtain/albedo_1024-3a6fde6bd8.jpg",
-    "normal": "/assets/g/textures/farm_curtain/normal_1024-89b16d7688.jpg",
-    "orm": "/assets/g/textures/farm_curtain/orm_1024-9b1ff76790.jpg"
+    "albedo": "/assets/g/textures/farm_curtain/albedo_1024-7b115aba13.jpg",
+    "normal": "/assets/g/textures/farm_curtain/normal_1024-dfc4cc8cb2.jpg",
+    "orm": "/assets/g/textures/farm_curtain/orm_1024-9345ec4fe0.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_curtain/albedo_512-1b09cd632c.jpg",
-    "normal": "/assets/g/textures/farm_curtain/normal_512-205d2b4f7c.jpg",
-    "orm": "/assets/g/textures/farm_curtain/orm_512-8ad96a297a.jpg"
+    "albedo": "/assets/g/textures/farm_curtain/albedo_512-3a1efc1b27.jpg",
+    "normal": "/assets/g/textures/farm_curtain/normal_512-d088fae102.jpg",
+    "orm": "/assets/g/textures/farm_curtain/orm_512-dbe5f54cda.jpg"
    }
   }
  },
@@ -368,14 +368,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_deck/albedo_1024-dd963e1912.jpg",
-    "normal": "/assets/g/textures/farm_deck/normal_1024-afb4a509a0.jpg",
-    "orm": "/assets/g/textures/farm_deck/orm_1024-1e695e7414.jpg"
+    "albedo": "/assets/g/textures/farm_deck/albedo_1024-a8c602e13b.jpg",
+    "normal": "/assets/g/textures/farm_deck/normal_1024-86c53bfeb3.jpg",
+    "orm": "/assets/g/textures/farm_deck/orm_1024-27c908103d.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_deck/albedo_512-491fa78e45.jpg",
-    "normal": "/assets/g/textures/farm_deck/normal_512-5d47f4695b.jpg",
-    "orm": "/assets/g/textures/farm_deck/orm_512-8819598ec7.jpg"
+    "albedo": "/assets/g/textures/farm_deck/albedo_512-6e8db7df28.jpg",
+    "normal": "/assets/g/textures/farm_deck/normal_512-7344c796f9.jpg",
+    "orm": "/assets/g/textures/farm_deck/orm_512-f6dfca93a9.jpg"
    }
   }
  },
@@ -387,52 +387,52 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_door_red/albedo_1024-5832f522f3.jpg",
-    "normal": "/assets/g/textures/farm_door_red/normal_1024-cb646051ed.jpg",
-    "orm": "/assets/g/textures/farm_door_red/orm_1024-b09713188e.jpg"
+    "albedo": "/assets/g/textures/farm_door_red/albedo_1024-f12e56f3b2.jpg",
+    "normal": "/assets/g/textures/farm_door_red/normal_1024-0cf377ffe8.jpg",
+    "orm": "/assets/g/textures/farm_door_red/orm_1024-ae1a6ab0ed.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_door_red/albedo_512-2f2bdf2f3d.jpg",
-    "normal": "/assets/g/textures/farm_door_red/normal_512-db2083ceac.jpg",
-    "orm": "/assets/g/textures/farm_door_red/orm_512-607815d197.jpg"
+    "albedo": "/assets/g/textures/farm_door_red/albedo_512-e3cc71329d.jpg",
+    "normal": "/assets/g/textures/farm_door_red/normal_512-d16bd8d09d.jpg",
+    "orm": "/assets/g/textures/farm_door_red/orm_512-3b50fed4a1.jpg"
    }
   }
  },
  "farm_flagstone": {
   "surface": "brick",
-  "uv_scale": 2.4,
+  "uv_scale": 2.6,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_flagstone/albedo_1024-41be8287cc.jpg",
-    "normal": "/assets/g/textures/farm_flagstone/normal_1024-555856bcc4.jpg",
-    "orm": "/assets/g/textures/farm_flagstone/orm_1024-cc4ad65ed3.jpg"
+    "albedo": "/assets/g/textures/farm_flagstone/albedo_1024-bb0df06a5e.jpg",
+    "normal": "/assets/g/textures/farm_flagstone/normal_1024-7535e75b55.jpg",
+    "orm": "/assets/g/textures/farm_flagstone/orm_1024-7972b4b8fe.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_flagstone/albedo_512-b9cbf87b8c.jpg",
-    "normal": "/assets/g/textures/farm_flagstone/normal_512-da412f9e7a.jpg",
-    "orm": "/assets/g/textures/farm_flagstone/orm_512-05e07ba9f7.jpg"
+    "albedo": "/assets/g/textures/farm_flagstone/albedo_512-32bf2b44cf.jpg",
+    "normal": "/assets/g/textures/farm_flagstone/normal_512-2e9eaa132a.jpg",
+    "orm": "/assets/g/textures/farm_flagstone/orm_512-5be18588d1.jpg"
    }
   }
  },
  "farm_fruit": {
   "surface": "fabric",
-  "uv_scale": 0.2,
+  "uv_scale": 0.15,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_fruit/albedo_1024-063fa105e7.jpg",
-    "normal": "/assets/g/textures/farm_fruit/normal_1024-6a0f4dbdf3.jpg",
-    "orm": "/assets/g/textures/farm_fruit/orm_1024-60c8e21fcb.jpg"
+    "albedo": "/assets/g/textures/farm_fruit/albedo_1024-b42ce38a99.jpg",
+    "normal": "/assets/g/textures/farm_fruit/normal_1024-74f8893eeb.jpg",
+    "orm": "/assets/g/textures/farm_fruit/orm_1024-cf9f53ed86.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_fruit/albedo_512-d0606bd9f0.jpg",
-    "normal": "/assets/g/textures/farm_fruit/normal_512-14dc058f73.jpg",
-    "orm": "/assets/g/textures/farm_fruit/orm_512-50e5491337.jpg"
+    "albedo": "/assets/g/textures/farm_fruit/albedo_512-864a865668.jpg",
+    "normal": "/assets/g/textures/farm_fruit/normal_512-0a1906d212.jpg",
+    "orm": "/assets/g/textures/farm_fruit/orm_512-fdccff7b1a.jpg"
    }
   }
  },
@@ -444,18 +444,94 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_galvanized/albedo_1024-30d91875e5.jpg",
+    "albedo": "/assets/g/textures/farm_galvanized/albedo_1024-817133c2ef.jpg",
     "normal": "/assets/g/textures/farm_galvanized/normal_1024-169adae602.jpg",
-    "orm": "/assets/g/textures/farm_galvanized/orm_1024-36ddb84a88.jpg"
+    "orm": "/assets/g/textures/farm_galvanized/orm_1024-290d85ce0d.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_galvanized/albedo_512-462a332717.jpg",
+    "albedo": "/assets/g/textures/farm_galvanized/albedo_512-60d91ae271.jpg",
     "normal": "/assets/g/textures/farm_galvanized/normal_512-3c3a25e656.jpg",
-    "orm": "/assets/g/textures/farm_galvanized/orm_512-986d5b288d.jpg"
+    "orm": "/assets/g/textures/farm_galvanized/orm_512-97b182b720.jpg"
    }
   }
  },
  "farm_gingham": {
+  "surface": "fabric",
+  "uv_scale": 0.18,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_gingham/albedo_1024-eba5ae29f4.jpg",
+    "normal": "/assets/g/textures/farm_gingham/normal_1024-86fa157be4.jpg",
+    "orm": "/assets/g/textures/farm_gingham/orm_1024-40093096f0.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_gingham/albedo_512-7d5449d80b.jpg",
+    "normal": "/assets/g/textures/farm_gingham/normal_512-f00b59a417.jpg",
+    "orm": "/assets/g/textures/farm_gingham/orm_512-d7d89ed3bd.jpg"
+   }
+  }
+ },
+ "farm_gravel": {
+  "surface": "gravel",
+  "uv_scale": 1.4,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_gravel/albedo_1024-5047bb96fb.jpg",
+    "normal": "/assets/g/textures/farm_gravel/normal_1024-9d4ff868ca.jpg",
+    "orm": "/assets/g/textures/farm_gravel/orm_1024-d26dec940b.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_gravel/albedo_512-3aea96b660.jpg",
+    "normal": "/assets/g/textures/farm_gravel/normal_512-5d8cba08ad.jpg",
+    "orm": "/assets/g/textures/farm_gravel/orm_512-657242b3cb.jpg"
+   }
+  }
+ },
+ "farm_hedge": {
+  "surface": "fabric",
+  "uv_scale": 1.2,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_hedge/albedo_1024-5d5c3bae70.jpg",
+    "normal": "/assets/g/textures/farm_hedge/normal_1024-59a61ffe31.jpg",
+    "orm": "/assets/g/textures/farm_hedge/orm_1024-aa4049f5c7.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_hedge/albedo_512-91c136d54a.jpg",
+    "normal": "/assets/g/textures/farm_hedge/normal_512-0f524c3409.jpg",
+    "orm": "/assets/g/textures/farm_hedge/orm_512-1dd30f083f.jpg"
+   }
+  }
+ },
+ "farm_iron": {
+  "surface": "metal",
+  "uv_scale": 0.4,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_iron/albedo_1024-37042baac2.jpg",
+    "normal": "/assets/g/textures/farm_iron/normal_1024-56c68433cd.jpg",
+    "orm": "/assets/g/textures/farm_iron/orm_1024-b62fef521f.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_iron/albedo_512-0547a0f820.jpg",
+    "normal": "/assets/g/textures/farm_iron/normal_512-fc335f714d.jpg",
+    "orm": "/assets/g/textures/farm_iron/orm_512-04a4487105.jpg"
+   }
+  }
+ },
+ "farm_lampshade": {
   "surface": "fabric",
   "uv_scale": 0.3,
   "normal_strength": 1,
@@ -463,166 +539,90 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_gingham/albedo_1024-5ae6592827.jpg",
-    "normal": "/assets/g/textures/farm_gingham/normal_1024-e48c57f9ac.jpg",
-    "orm": "/assets/g/textures/farm_gingham/orm_1024-3153181b0c.jpg"
+    "albedo": "/assets/g/textures/farm_lampshade/albedo_1024-ec8187e05f.jpg",
+    "normal": "/assets/g/textures/farm_lampshade/normal_1024-5c7b244b86.jpg",
+    "orm": "/assets/g/textures/farm_lampshade/orm_1024-305e1b1e09.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_gingham/albedo_512-85c368f22b.jpg",
-    "normal": "/assets/g/textures/farm_gingham/normal_512-b80b663d87.jpg",
-    "orm": "/assets/g/textures/farm_gingham/orm_512-370a958084.jpg"
+    "albedo": "/assets/g/textures/farm_lampshade/albedo_512-80b03e32ee.jpg",
+    "normal": "/assets/g/textures/farm_lampshade/normal_512-559e0c5c2b.jpg",
+    "orm": "/assets/g/textures/farm_lampshade/orm_512-28ea8b7730.jpg"
    }
   }
  },
- "farm_gravel": {
-  "surface": "gravel",
+ "farm_lawn": {
+  "surface": "dirt",
   "uv_scale": 1.6,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_gravel/albedo_1024-caa1cfbb74.jpg",
-    "normal": "/assets/g/textures/farm_gravel/normal_1024-d35081270f.jpg",
-    "orm": "/assets/g/textures/farm_gravel/orm_1024-4a7b55fca8.jpg"
+    "albedo": "/assets/g/textures/farm_lawn/albedo_1024-3d5de2cb3a.jpg",
+    "normal": "/assets/g/textures/farm_lawn/normal_1024-20d88d1066.jpg",
+    "orm": "/assets/g/textures/farm_lawn/orm_1024-cc87310c1f.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_gravel/albedo_512-067f85bfc3.jpg",
-    "normal": "/assets/g/textures/farm_gravel/normal_512-7def013992.jpg",
-    "orm": "/assets/g/textures/farm_gravel/orm_512-578b63681f.jpg"
-   }
-  }
- },
- "farm_hedge": {
-  "surface": "fabric",
-  "uv_scale": 1.4,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_hedge/albedo_1024-f5acfe4b6d.jpg",
-    "normal": "/assets/g/textures/farm_hedge/normal_1024-011e81e87a.jpg",
-    "orm": "/assets/g/textures/farm_hedge/orm_1024-229d550390.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_hedge/albedo_512-47d7c00671.jpg",
-    "normal": "/assets/g/textures/farm_hedge/normal_512-0725e75587.jpg",
-    "orm": "/assets/g/textures/farm_hedge/orm_512-90639a26f6.jpg"
-   }
-  }
- },
- "farm_iron": {
-  "surface": "metal",
-  "uv_scale": 0.5,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_iron/albedo_1024-1d0b62c849.jpg",
-    "normal": "/assets/g/textures/farm_iron/normal_1024-b3b62669c1.jpg",
-    "orm": "/assets/g/textures/farm_iron/orm_1024-1a15587719.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_iron/albedo_512-ec6918cae2.jpg",
-    "normal": "/assets/g/textures/farm_iron/normal_512-4dbb5888b3.jpg",
-    "orm": "/assets/g/textures/farm_iron/orm_512-ce08d3e5a6.jpg"
-   }
-  }
- },
- "farm_lampshade": {
-  "surface": "fabric",
-  "uv_scale": 0.4,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_lampshade/albedo_1024-7bd4c33ce2.jpg",
-    "normal": "/assets/g/textures/farm_lampshade/normal_1024-eea0f92f0b.jpg",
-    "orm": "/assets/g/textures/farm_lampshade/orm_1024-d1da29d2d0.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_lampshade/albedo_512-46288c2332.jpg",
-    "normal": "/assets/g/textures/farm_lampshade/normal_512-9964a674fb.jpg",
-    "orm": "/assets/g/textures/farm_lampshade/orm_512-e77ea1665a.jpg"
-   }
-  }
- },
- "farm_lawn": {
-  "surface": "dirt",
-  "uv_scale": 2.0,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_lawn/albedo_1024-5f100e70da.jpg",
-    "normal": "/assets/g/textures/farm_lawn/normal_1024-88b2f81c17.jpg",
-    "orm": "/assets/g/textures/farm_lawn/orm_1024-6503aa13c5.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_lawn/albedo_512-c3f9e40364.jpg",
-    "normal": "/assets/g/textures/farm_lawn/normal_512-ea5acc2b08.jpg",
-    "orm": "/assets/g/textures/farm_lawn/orm_512-5c1be8292a.jpg"
+    "albedo": "/assets/g/textures/farm_lawn/albedo_512-a2a3382dd6.jpg",
+    "normal": "/assets/g/textures/farm_lawn/normal_512-bc4f28ca08.jpg",
+    "orm": "/assets/g/textures/farm_lawn/orm_512-87f5b35db3.jpg"
    }
   }
  },
  "farm_leaf": {
   "surface": "fabric",
+  "uv_scale": 0.35,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_leaf/albedo_1024-59aa260a49.jpg",
+    "normal": "/assets/g/textures/farm_leaf/normal_1024-867bb285fd.jpg",
+    "orm": "/assets/g/textures/farm_leaf/orm_1024-5d04975602.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_leaf/albedo_512-520918b304.jpg",
+    "normal": "/assets/g/textures/farm_leaf/normal_512-32a2511350.jpg",
+    "orm": "/assets/g/textures/farm_leaf/orm_512-0d1cf19917.jpg"
+   }
+  }
+ },
+ "farm_leather": {
+  "surface": "fabric",
   "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_leaf/albedo_1024-dbfa8423d5.jpg",
-    "normal": "/assets/g/textures/farm_leaf/normal_1024-47660ef009.jpg",
-    "orm": "/assets/g/textures/farm_leaf/orm_1024-6ce86bda20.jpg"
+    "albedo": "/assets/g/textures/farm_leather/albedo_1024-792c9312d0.jpg",
+    "normal": "/assets/g/textures/farm_leather/normal_1024-a9eacc2eb8.jpg",
+    "orm": "/assets/g/textures/farm_leather/orm_1024-c2606b397a.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_leaf/albedo_512-f8444b55ff.jpg",
-    "normal": "/assets/g/textures/farm_leaf/normal_512-3a1f41cc90.jpg",
-    "orm": "/assets/g/textures/farm_leaf/orm_512-c3bddfaa69.jpg"
-   }
-  }
- },
- "farm_leather": {
-  "surface": "fabric",
-  "uv_scale": 0.6,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_leather/albedo_1024-3b6d6fc7b4.jpg",
-    "normal": "/assets/g/textures/farm_leather/normal_1024-f0280562f3.jpg",
-    "orm": "/assets/g/textures/farm_leather/orm_1024-660bf80d28.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_leather/albedo_512-0b57b6c867.jpg",
-    "normal": "/assets/g/textures/farm_leather/normal_512-0f7fdf8fd9.jpg",
-    "orm": "/assets/g/textures/farm_leather/orm_512-cd92849b21.jpg"
+    "albedo": "/assets/g/textures/farm_leather/albedo_512-6a346339c0.jpg",
+    "normal": "/assets/g/textures/farm_leather/normal_512-0c1f53301d.jpg",
+    "orm": "/assets/g/textures/farm_leather/orm_512-4ef8f68dbc.jpg"
    }
   }
  },
  "farm_linen": {
   "surface": "fabric",
-  "uv_scale": 0.6,
+  "uv_scale": 0.35,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_linen/albedo_1024-bb88214ba8.jpg",
-    "normal": "/assets/g/textures/farm_linen/normal_1024-1b399c081d.jpg",
-    "orm": "/assets/g/textures/farm_linen/orm_1024-7b8302b7e9.jpg"
+    "albedo": "/assets/g/textures/farm_linen/albedo_1024-afaf81eecc.jpg",
+    "normal": "/assets/g/textures/farm_linen/normal_1024-86fa157be4.jpg",
+    "orm": "/assets/g/textures/farm_linen/orm_1024-f192140429.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_linen/albedo_512-7fcff0bf27.jpg",
-    "normal": "/assets/g/textures/farm_linen/normal_512-a5ac62ea0e.jpg",
-    "orm": "/assets/g/textures/farm_linen/orm_512-6e1b938765.jpg"
+    "albedo": "/assets/g/textures/farm_linen/albedo_512-715683dfd7.jpg",
+    "normal": "/assets/g/textures/farm_linen/normal_512-f00b59a417.jpg",
+    "orm": "/assets/g/textures/farm_linen/orm_512-24f452f257.jpg"
    }
   }
  },
@@ -634,12 +634,12 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_mirror/albedo_1024-71f4b3ca1e.jpg",
+    "albedo": "/assets/g/textures/farm_mirror/albedo_1024-ae8f04bf11.jpg",
     "normal": "/assets/g/textures/farm_mirror/normal_1024-3ce1464b59.jpg",
     "orm": "/assets/g/textures/farm_mirror/orm_1024-5ce4a5e094.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_mirror/albedo_512-516622e455.jpg",
+    "albedo": "/assets/g/textures/farm_mirror/albedo_512-c81ae4d3c0.jpg",
     "normal": "/assets/g/textures/farm_mirror/normal_512-2cf3a5c08b.jpg",
     "orm": "/assets/g/textures/farm_mirror/orm_512-8bb3d94d1e.jpg"
    }
@@ -647,39 +647,58 @@
  },
  "farm_mulch": {
   "surface": "dirt",
-  "uv_scale": 1.2,
+  "uv_scale": 1.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_mulch/albedo_1024-76815054bb.jpg",
-    "normal": "/assets/g/textures/farm_mulch/normal_1024-df15648f8d.jpg",
-    "orm": "/assets/g/textures/farm_mulch/orm_1024-cf472d7c86.jpg"
+    "albedo": "/assets/g/textures/farm_mulch/albedo_1024-57406066ce.jpg",
+    "normal": "/assets/g/textures/farm_mulch/normal_1024-c0bc71af82.jpg",
+    "orm": "/assets/g/textures/farm_mulch/orm_1024-0ddae1f83a.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_mulch/albedo_512-322c9b8a92.jpg",
-    "normal": "/assets/g/textures/farm_mulch/normal_512-3fe1cfec8a.jpg",
-    "orm": "/assets/g/textures/farm_mulch/orm_512-fd6392174c.jpg"
+    "albedo": "/assets/g/textures/farm_mulch/albedo_512-645ddb2b6e.jpg",
+    "normal": "/assets/g/textures/farm_mulch/normal_512-5d87104bec.jpg",
+    "orm": "/assets/g/textures/farm_mulch/orm_512-eda8e1bb35.jpg"
    }
   }
  },
  "farm_oak_floor": {
   "surface": "wood",
-  "uv_scale": 2.4,
+  "uv_scale": 2.6,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_oak_floor/albedo_1024-2827ed0e78.jpg",
-    "normal": "/assets/g/textures/farm_oak_floor/normal_1024-c50be0724e.jpg",
-    "orm": "/assets/g/textures/farm_oak_floor/orm_1024-6235805587.jpg"
+    "albedo": "/assets/g/textures/farm_oak_floor/albedo_1024-6a6269afbb.jpg",
+    "normal": "/assets/g/textures/farm_oak_floor/normal_1024-8c5fedeacb.jpg",
+    "orm": "/assets/g/textures/farm_oak_floor/orm_1024-a907bd36cc.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_oak_floor/albedo_512-b666048379.jpg",
-    "normal": "/assets/g/textures/farm_oak_floor/normal_512-1dfc77c491.jpg",
-    "orm": "/assets/g/textures/farm_oak_floor/orm_512-6d8eb3fb8a.jpg"
+    "albedo": "/assets/g/textures/farm_oak_floor/albedo_512-9a6ed8ef9a.jpg",
+    "normal": "/assets/g/textures/farm_oak_floor/normal_512-745dd295ba.jpg",
+    "orm": "/assets/g/textures/farm_oak_floor/orm_512-612faad57e.jpg"
+   }
+  }
+ },
+ "farm_paper": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_paper/albedo_1024-4af311f688.jpg",
+    "normal": "/assets/g/textures/farm_paper/normal_1024-7f6ee97617.jpg",
+    "orm": "/assets/g/textures/farm_paper/orm_1024-d5d6cacb4f.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_paper/albedo_512-9fdd576ba1.jpg",
+    "normal": "/assets/g/textures/farm_paper/normal_512-4f6e25ded2.jpg",
+    "orm": "/assets/g/textures/farm_paper/orm_512-3a281cf058.jpg"
    }
   }
  },
@@ -691,52 +710,52 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_photo/albedo_1024-baebeb5779.jpg",
+    "albedo": "/assets/g/textures/farm_photo/albedo_1024-50685fe249.jpg",
     "normal": "/assets/g/textures/farm_photo/normal_1024-3ce1464b59.jpg",
-    "orm": "/assets/g/textures/farm_photo/orm_1024-473afeb27b.jpg"
+    "orm": "/assets/g/textures/farm_photo/orm_1024-29fb6f5809.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_photo/albedo_512-a44edf5d1e.jpg",
+    "albedo": "/assets/g/textures/farm_photo/albedo_512-f4cb640ac4.jpg",
     "normal": "/assets/g/textures/farm_photo/normal_512-2cf3a5c08b.jpg",
-    "orm": "/assets/g/textures/farm_photo/orm_512-d05c116f52.jpg"
+    "orm": "/assets/g/textures/farm_photo/orm_512-e4107ac065.jpg"
    }
   }
  },
  "farm_pine": {
   "surface": "wood",
-  "uv_scale": 1.0,
+  "uv_scale": 1.2,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_pine/albedo_1024-c0dae2262c.jpg",
-    "normal": "/assets/g/textures/farm_pine/normal_1024-00059b08c9.jpg",
-    "orm": "/assets/g/textures/farm_pine/orm_1024-4f96270763.jpg"
+    "albedo": "/assets/g/textures/farm_pine/albedo_1024-157ce08ea0.jpg",
+    "normal": "/assets/g/textures/farm_pine/normal_1024-ea309938a3.jpg",
+    "orm": "/assets/g/textures/farm_pine/orm_1024-6f9591bc70.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_pine/albedo_512-7ccfc575b5.jpg",
-    "normal": "/assets/g/textures/farm_pine/normal_512-c37209bdda.jpg",
-    "orm": "/assets/g/textures/farm_pine/orm_512-d41c68fd35.jpg"
+    "albedo": "/assets/g/textures/farm_pine/albedo_512-6234358087.jpg",
+    "normal": "/assets/g/textures/farm_pine/normal_512-62ed6ac4b4.jpg",
+    "orm": "/assets/g/textures/farm_pine/orm_512-1b588e8c72.jpg"
    }
   }
  },
  "farm_plastic_black": {
   "surface": "metal",
-  "uv_scale": 0.5,
+  "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_plastic_black/albedo_1024-893bddb28c.jpg",
-    "normal": "/assets/g/textures/farm_plastic_black/normal_1024-ed1de83b67.jpg",
-    "orm": "/assets/g/textures/farm_plastic_black/orm_1024-ce93a45265.jpg"
+    "albedo": "/assets/g/textures/farm_plastic_black/albedo_1024-691c090af5.jpg",
+    "normal": "/assets/g/textures/farm_plastic_black/normal_1024-cc20b0c9b7.jpg",
+    "orm": "/assets/g/textures/farm_plastic_black/orm_1024-d266347d2a.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_plastic_black/albedo_512-93c5bd500c.jpg",
-    "normal": "/assets/g/textures/farm_plastic_black/normal_512-9ec94484a1.jpg",
-    "orm": "/assets/g/textures/farm_plastic_black/orm_512-453fec0ac5.jpg"
+    "albedo": "/assets/g/textures/farm_plastic_black/albedo_512-1e272821a7.jpg",
+    "normal": "/assets/g/textures/farm_plastic_black/normal_512-80fdf548e0.jpg",
+    "orm": "/assets/g/textures/farm_plastic_black/orm_512-8d59e16dd1.jpg"
    }
   }
  },
@@ -748,33 +767,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_quartz/albedo_1024-5f72b7bb4b.jpg",
-    "normal": "/assets/g/textures/farm_quartz/normal_1024-d83569f6b0.jpg",
-    "orm": "/assets/g/textures/farm_quartz/orm_1024-9dd0db479b.jpg"
+    "albedo": "/assets/g/textures/farm_quartz/albedo_1024-f3ff16d7df.jpg",
+    "normal": "/assets/g/textures/farm_quartz/normal_1024-33f5683550.jpg",
+    "orm": "/assets/g/textures/farm_quartz/orm_1024-1a8924c769.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_quartz/albedo_512-6b3d3e5216.jpg",
-    "normal": "/assets/g/textures/farm_quartz/normal_512-0cbb5f9e01.jpg",
-    "orm": "/assets/g/textures/farm_quartz/orm_512-bf339feb13.jpg"
+    "albedo": "/assets/g/textures/farm_quartz/albedo_512-95947c33b6.jpg",
+    "normal": "/assets/g/textures/farm_quartz/normal_512-5c5ac081da.jpg",
+    "orm": "/assets/g/textures/farm_quartz/orm_512-8c071da99c.jpg"
    }
   }
  },
  "farm_quilt": {
   "surface": "fabric",
-  "uv_scale": 1.0,
+  "uv_scale": 0.9,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_quilt/albedo_1024-1332187b8e.jpg",
-    "normal": "/assets/g/textures/farm_quilt/normal_1024-a4a30b037b.jpg",
-    "orm": "/assets/g/textures/farm_quilt/orm_1024-5ef68038d4.jpg"
+    "albedo": "/assets/g/textures/farm_quilt/albedo_1024-989c9e56f2.jpg",
+    "normal": "/assets/g/textures/farm_quilt/normal_1024-ac4e05fafa.jpg",
+    "orm": "/assets/g/textures/farm_quilt/orm_1024-df48347911.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_quilt/albedo_512-ed1d8f7078.jpg",
-    "normal": "/assets/g/textures/farm_quilt/normal_512-521c056854.jpg",
-    "orm": "/assets/g/textures/farm_quilt/orm_512-348efd8284.jpg"
+    "albedo": "/assets/g/textures/farm_quilt/albedo_512-8239ebc000.jpg",
+    "normal": "/assets/g/textures/farm_quilt/normal_512-b3bd2a9e63.jpg",
+    "orm": "/assets/g/textures/farm_quilt/orm_512-7bcc8b4abe.jpg"
    }
   }
  },
@@ -786,14 +805,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_rug_braid/albedo_1024-40052cd89d.jpg",
-    "normal": "/assets/g/textures/farm_rug_braid/normal_1024-32f7382b33.jpg",
-    "orm": "/assets/g/textures/farm_rug_braid/orm_1024-41e221c5bc.jpg"
+    "albedo": "/assets/g/textures/farm_rug_braid/albedo_1024-b8d09df63b.jpg",
+    "normal": "/assets/g/textures/farm_rug_braid/normal_1024-dc89bc9414.jpg",
+    "orm": "/assets/g/textures/farm_rug_braid/orm_1024-c6ba4eda5d.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_rug_braid/albedo_512-f1f5e66dbd.jpg",
-    "normal": "/assets/g/textures/farm_rug_braid/normal_512-2c0f9e9b23.jpg",
-    "orm": "/assets/g/textures/farm_rug_braid/orm_512-6123c55028.jpg"
+    "albedo": "/assets/g/textures/farm_rug_braid/albedo_512-e692f313b1.jpg",
+    "normal": "/assets/g/textures/farm_rug_braid/normal_512-5d0d21eb0b.jpg",
+    "orm": "/assets/g/textures/farm_rug_braid/orm_512-ad14ec531e.jpg"
    }
   }
  },
@@ -805,14 +824,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_rug_red/albedo_1024-d5f556adae.jpg",
-    "normal": "/assets/g/textures/farm_rug_red/normal_1024-fa3ac232a1.jpg",
-    "orm": "/assets/g/textures/farm_rug_red/orm_1024-f4a9e8f4c1.jpg"
+    "albedo": "/assets/g/textures/farm_rug_red/albedo_1024-97ebf068ef.jpg",
+    "normal": "/assets/g/textures/farm_rug_red/normal_1024-8955faef1a.jpg",
+    "orm": "/assets/g/textures/farm_rug_red/orm_1024-0770855dfc.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_rug_red/albedo_512-dd08a14099.jpg",
-    "normal": "/assets/g/textures/farm_rug_red/normal_512-91c40debbf.jpg",
-    "orm": "/assets/g/textures/farm_rug_red/orm_512-5c463ee459.jpg"
+    "albedo": "/assets/g/textures/farm_rug_red/albedo_512-28a5a676e8.jpg",
+    "normal": "/assets/g/textures/farm_rug_red/normal_512-3fd018f5e1.jpg",
+    "orm": "/assets/g/textures/farm_rug_red/orm_512-71c3e60ddf.jpg"
    }
   }
  },
@@ -824,33 +843,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_screen/albedo_1024-c3a40b2e62.jpg",
+    "albedo": "/assets/g/textures/farm_screen/albedo_1024-0797438bc4.jpg",
     "normal": "/assets/g/textures/farm_screen/normal_1024-3ce1464b59.jpg",
-    "orm": "/assets/g/textures/farm_screen/orm_1024-744b0bcfb8.jpg"
+    "orm": "/assets/g/textures/farm_screen/orm_1024-1d9a9ac27a.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_screen/albedo_512-528300c2ed.jpg",
+    "albedo": "/assets/g/textures/farm_screen/albedo_512-aef2825cb6.jpg",
     "normal": "/assets/g/textures/farm_screen/normal_512-2cf3a5c08b.jpg",
-    "orm": "/assets/g/textures/farm_screen/orm_512-14a2d7598d.jpg"
+    "orm": "/assets/g/textures/farm_screen/orm_512-d30432c66e.jpg"
    }
   }
  },
  "farm_shingle": {
-  "surface": "metal",
-  "uv_scale": 2.4,
+  "surface": "wood",
+  "uv_scale": 2.6,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_shingle/albedo_1024-fa208c2fd6.jpg",
-    "normal": "/assets/g/textures/farm_shingle/normal_1024-cbe3a6a1c5.jpg",
-    "orm": "/assets/g/textures/farm_shingle/orm_1024-f07dd16c2c.jpg"
+    "albedo": "/assets/g/textures/farm_shingle/albedo_1024-c2e9efa682.jpg",
+    "normal": "/assets/g/textures/farm_shingle/normal_1024-d002bdc244.jpg",
+    "orm": "/assets/g/textures/farm_shingle/orm_1024-89230334d2.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_shingle/albedo_512-9c13f82360.jpg",
-    "normal": "/assets/g/textures/farm_shingle/normal_512-d88713a864.jpg",
-    "orm": "/assets/g/textures/farm_shingle/orm_512-1e7556561b.jpg"
+    "albedo": "/assets/g/textures/farm_shingle/albedo_512-39a6876f8d.jpg",
+    "normal": "/assets/g/textures/farm_shingle/normal_512-20b2fdded4.jpg",
+    "orm": "/assets/g/textures/farm_shingle/orm_512-20c5dabb8d.jpg"
    }
   }
  },
@@ -862,14 +881,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_shutter/albedo_1024-bd7f1a3011.jpg",
-    "normal": "/assets/g/textures/farm_shutter/normal_1024-1c51c0dab8.jpg",
-    "orm": "/assets/g/textures/farm_shutter/orm_1024-880c26f693.jpg"
+    "albedo": "/assets/g/textures/farm_shutter/albedo_1024-e3a20904f0.jpg",
+    "normal": "/assets/g/textures/farm_shutter/normal_1024-33590f626a.jpg",
+    "orm": "/assets/g/textures/farm_shutter/orm_1024-dd184ec463.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_shutter/albedo_512-992558affa.jpg",
-    "normal": "/assets/g/textures/farm_shutter/normal_512-195c9ccce6.jpg",
-    "orm": "/assets/g/textures/farm_shutter/orm_512-864ebd3517.jpg"
+    "albedo": "/assets/g/textures/farm_shutter/albedo_512-515b815161.jpg",
+    "normal": "/assets/g/textures/farm_shutter/normal_512-4ad412cbd5.jpg",
+    "orm": "/assets/g/textures/farm_shutter/orm_512-bc162c794b.jpg"
    }
   }
  },
@@ -881,71 +900,71 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_siding/albedo_1024-c1a6804def.jpg",
-    "normal": "/assets/g/textures/farm_siding/normal_1024-0c0498a490.jpg",
-    "orm": "/assets/g/textures/farm_siding/orm_1024-258b634615.jpg"
+    "albedo": "/assets/g/textures/farm_siding/albedo_1024-a385b6faf2.jpg",
+    "normal": "/assets/g/textures/farm_siding/normal_1024-ef6a735514.jpg",
+    "orm": "/assets/g/textures/farm_siding/orm_1024-1acb3becaf.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_siding/albedo_512-d9f8879bf4.jpg",
-    "normal": "/assets/g/textures/farm_siding/normal_512-d5c1e49beb.jpg",
-    "orm": "/assets/g/textures/farm_siding/orm_512-1fc65838d2.jpg"
+    "albedo": "/assets/g/textures/farm_siding/albedo_512-5147279f8b.jpg",
+    "normal": "/assets/g/textures/farm_siding/normal_512-7164f15a54.jpg",
+    "orm": "/assets/g/textures/farm_siding/orm_512-3f8c09ddf6.jpg"
    }
   }
  },
  "farm_soil": {
   "surface": "dirt",
-  "uv_scale": 3.0,
+  "uv_scale": 2.5,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_soil/albedo_1024-bb5860d372.jpg",
-    "normal": "/assets/g/textures/farm_soil/normal_1024-7269649ac2.jpg",
-    "orm": "/assets/g/textures/farm_soil/orm_1024-e6dc40b70e.jpg"
+    "albedo": "/assets/g/textures/farm_soil/albedo_1024-ac863255a3.jpg",
+    "normal": "/assets/g/textures/farm_soil/normal_1024-13688f1a31.jpg",
+    "orm": "/assets/g/textures/farm_soil/orm_1024-37078135a1.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_soil/albedo_512-40e7225448.jpg",
-    "normal": "/assets/g/textures/farm_soil/normal_512-1561e33daf.jpg",
-    "orm": "/assets/g/textures/farm_soil/orm_512-ebccbcbe4b.jpg"
+    "albedo": "/assets/g/textures/farm_soil/albedo_512-7611b8d8b3.jpg",
+    "normal": "/assets/g/textures/farm_soil/normal_512-397b09d914.jpg",
+    "orm": "/assets/g/textures/farm_soil/orm_512-1a00d9d2c2.jpg"
    }
   }
  },
  "farm_steel": {
   "surface": "metal",
-  "uv_scale": 0.5,
+  "uv_scale": 0.4,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_steel/albedo_1024-deec30c92b.jpg",
-    "normal": "/assets/g/textures/farm_steel/normal_1024-4014a89882.jpg",
-    "orm": "/assets/g/textures/farm_steel/orm_1024-c62764ee3a.jpg"
+    "albedo": "/assets/g/textures/farm_steel/albedo_1024-2bdedeb274.jpg",
+    "normal": "/assets/g/textures/farm_steel/normal_1024-d8a02aa740.jpg",
+    "orm": "/assets/g/textures/farm_steel/orm_1024-a84c6dc836.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_steel/albedo_512-a5a8523a56.jpg",
-    "normal": "/assets/g/textures/farm_steel/normal_512-1c8f7edb99.jpg",
-    "orm": "/assets/g/textures/farm_steel/orm_512-b58e201683.jpg"
+    "albedo": "/assets/g/textures/farm_steel/albedo_512-7479b10de5.jpg",
+    "normal": "/assets/g/textures/farm_steel/normal_512-04a6145f92.jpg",
+    "orm": "/assets/g/textures/farm_steel/orm_512-520de03782.jpg"
    }
   }
  },
  "farm_stone": {
   "surface": "brick",
-  "uv_scale": 2.0,
+  "uv_scale": 2.2,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_stone/albedo_1024-6689c5641a.jpg",
-    "normal": "/assets/g/textures/farm_stone/normal_1024-c07ba74b95.jpg",
-    "orm": "/assets/g/textures/farm_stone/orm_1024-69fdbc81f4.jpg"
+    "albedo": "/assets/g/textures/farm_stone/albedo_1024-8ce9d90dca.jpg",
+    "normal": "/assets/g/textures/farm_stone/normal_1024-0eafc7545a.jpg",
+    "orm": "/assets/g/textures/farm_stone/orm_1024-04fc8860c6.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_stone/albedo_512-014ebd8e5f.jpg",
-    "normal": "/assets/g/textures/farm_stone/normal_512-ce586e79c0.jpg",
-    "orm": "/assets/g/textures/farm_stone/orm_512-61feae9af8.jpg"
+    "albedo": "/assets/g/textures/farm_stone/albedo_512-2dce872cd3.jpg",
+    "normal": "/assets/g/textures/farm_stone/normal_512-b8dc2d886d.jpg",
+    "orm": "/assets/g/textures/farm_stone/orm_512-aae795aeea.jpg"
    }
   }
  },
@@ -957,14 +976,14 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_terracotta/albedo_1024-651b94e60d.jpg",
-    "normal": "/assets/g/textures/farm_terracotta/normal_1024-32c54d95b5.jpg",
-    "orm": "/assets/g/textures/farm_terracotta/orm_1024-15fbc598c9.jpg"
+    "albedo": "/assets/g/textures/farm_terracotta/albedo_1024-8f04307401.jpg",
+    "normal": "/assets/g/textures/farm_terracotta/normal_1024-373f0323cc.jpg",
+    "orm": "/assets/g/textures/farm_terracotta/orm_1024-237ddf40a2.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_terracotta/albedo_512-1ee042d563.jpg",
-    "normal": "/assets/g/textures/farm_terracotta/normal_512-0680699f26.jpg",
-    "orm": "/assets/g/textures/farm_terracotta/orm_512-59e3b1e16f.jpg"
+    "albedo": "/assets/g/textures/farm_terracotta/albedo_512-60e5d1f67e.jpg",
+    "normal": "/assets/g/textures/farm_terracotta/normal_512-01d6cb47e9.jpg",
+    "orm": "/assets/g/textures/farm_terracotta/orm_512-8008450340.jpg"
    }
   }
  },
@@ -976,33 +995,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_tile_checker/albedo_1024-fd416ec713.jpg",
-    "normal": "/assets/g/textures/farm_tile_checker/normal_1024-83d9198f82.jpg",
-    "orm": "/assets/g/textures/farm_tile_checker/orm_1024-a9d1e2a39c.jpg"
+    "albedo": "/assets/g/textures/farm_tile_checker/albedo_1024-a5285a517f.jpg",
+    "normal": "/assets/g/textures/farm_tile_checker/normal_1024-6600610d3e.jpg",
+    "orm": "/assets/g/textures/farm_tile_checker/orm_1024-7876bce684.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_tile_checker/albedo_512-7851ba1a07.jpg",
-    "normal": "/assets/g/textures/farm_tile_checker/normal_512-66b6d77f82.jpg",
-    "orm": "/assets/g/textures/farm_tile_checker/orm_512-201f93033c.jpg"
+    "albedo": "/assets/g/textures/farm_tile_checker/albedo_512-316c830c54.jpg",
+    "normal": "/assets/g/textures/farm_tile_checker/normal_512-21a31ce6e1.jpg",
+    "orm": "/assets/g/textures/farm_tile_checker/orm_512-338c09dd39.jpg"
    }
   }
  },
  "farm_tile_hex": {
   "surface": "tile",
-  "uv_scale": 0.5,
+  "uv_scale": 0.45,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_tile_hex/albedo_1024-1552ca90c5.jpg",
-    "normal": "/assets/g/textures/farm_tile_hex/normal_1024-efb60ead2d.jpg",
-    "orm": "/assets/g/textures/farm_tile_hex/orm_1024-7057367931.jpg"
+    "albedo": "/assets/g/textures/farm_tile_hex/albedo_1024-fae8e551e0.jpg",
+    "normal": "/assets/g/textures/farm_tile_hex/normal_1024-31fead691d.jpg",
+    "orm": "/assets/g/textures/farm_tile_hex/orm_1024-e9a01edf97.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_tile_hex/albedo_512-2419003aeb.jpg",
-    "normal": "/assets/g/textures/farm_tile_hex/normal_512-58edea43a1.jpg",
-    "orm": "/assets/g/textures/farm_tile_hex/orm_512-3882ea229e.jpg"
+    "albedo": "/assets/g/textures/farm_tile_hex/albedo_512-bade3ad987.jpg",
+    "normal": "/assets/g/textures/farm_tile_hex/normal_512-5fac1eecb3.jpg",
+    "orm": "/assets/g/textures/farm_tile_hex/orm_512-a33157e342.jpg"
    }
   }
  },
@@ -1014,33 +1033,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_tile_subway/albedo_1024-bbd785b992.jpg",
-    "normal": "/assets/g/textures/farm_tile_subway/normal_1024-8dd75ddace.jpg",
-    "orm": "/assets/g/textures/farm_tile_subway/orm_1024-b18ad2060a.jpg"
+    "albedo": "/assets/g/textures/farm_tile_subway/albedo_1024-0caf73eea6.jpg",
+    "normal": "/assets/g/textures/farm_tile_subway/normal_1024-b5c10fe9fd.jpg",
+    "orm": "/assets/g/textures/farm_tile_subway/orm_1024-b723219f68.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_tile_subway/albedo_512-807eb0359a.jpg",
-    "normal": "/assets/g/textures/farm_tile_subway/normal_512-d3f3c18a67.jpg",
-    "orm": "/assets/g/textures/farm_tile_subway/orm_512-6b758a687d.jpg"
+    "albedo": "/assets/g/textures/farm_tile_subway/albedo_512-8dbb604e26.jpg",
+    "normal": "/assets/g/textures/farm_tile_subway/normal_512-c535d419fc.jpg",
+    "orm": "/assets/g/textures/farm_tile_subway/orm_512-0dcba7521b.jpg"
    }
   }
  },
  "farm_towel": {
   "surface": "fabric",
-  "uv_scale": 0.4,
+  "uv_scale": 0.3,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_towel/albedo_1024-44e2e62af0.jpg",
-    "normal": "/assets/g/textures/farm_towel/normal_1024-3eda659031.jpg",
-    "orm": "/assets/g/textures/farm_towel/orm_1024-408ba3c9bb.jpg"
+    "albedo": "/assets/g/textures/farm_towel/albedo_1024-feb52e8e8e.jpg",
+    "normal": "/assets/g/textures/farm_towel/normal_1024-8d6585c3fd.jpg",
+    "orm": "/assets/g/textures/farm_towel/orm_1024-dc30c06418.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_towel/albedo_512-f1889053af.jpg",
-    "normal": "/assets/g/textures/farm_towel/normal_512-c7a412fb8b.jpg",
-    "orm": "/assets/g/textures/farm_towel/orm_512-a78307f76f.jpg"
+    "albedo": "/assets/g/textures/farm_towel/albedo_512-8df9f2a9d3.jpg",
+    "normal": "/assets/g/textures/farm_towel/normal_512-2327f25953.jpg",
+    "orm": "/assets/g/textures/farm_towel/orm_512-cf6899cf18.jpg"
    }
   }
  },
@@ -1052,185 +1071,185 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_trim/albedo_1024-601586d9b4.jpg",
-    "normal": "/assets/g/textures/farm_trim/normal_1024-5729bd074e.jpg",
-    "orm": "/assets/g/textures/farm_trim/orm_1024-7faf710668.jpg"
+    "albedo": "/assets/g/textures/farm_trim/albedo_1024-853990c772.jpg",
+    "normal": "/assets/g/textures/farm_trim/normal_1024-4f34441320.jpg",
+    "orm": "/assets/g/textures/farm_trim/orm_1024-106492dab0.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_trim/albedo_512-32cbbe476d.jpg",
-    "normal": "/assets/g/textures/farm_trim/normal_512-9b43851cd1.jpg",
-    "orm": "/assets/g/textures/farm_trim/orm_512-0c2e9c26d3.jpg"
+    "albedo": "/assets/g/textures/farm_trim/albedo_512-3206aebdaf.jpg",
+    "normal": "/assets/g/textures/farm_trim/normal_512-f6b2d22977.jpg",
+    "orm": "/assets/g/textures/farm_trim/orm_512-e40e93b5de.jpg"
    }
   }
  },
  "farm_tweed": {
   "surface": "fabric",
-  "uv_scale": 0.5,
+  "uv_scale": 0.25,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_tweed/albedo_1024-5a81aed640.jpg",
-    "normal": "/assets/g/textures/farm_tweed/normal_1024-abd65b7aff.jpg",
-    "orm": "/assets/g/textures/farm_tweed/orm_1024-7d3c33cd66.jpg"
+    "albedo": "/assets/g/textures/farm_tweed/albedo_1024-c5f7175534.jpg",
+    "normal": "/assets/g/textures/farm_tweed/normal_1024-b456ded958.jpg",
+    "orm": "/assets/g/textures/farm_tweed/orm_1024-22f738dfb3.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_tweed/albedo_512-8c666792a7.jpg",
-    "normal": "/assets/g/textures/farm_tweed/normal_512-5d4a89c6d7.jpg",
-    "orm": "/assets/g/textures/farm_tweed/orm_512-8626dc67b5.jpg"
+    "albedo": "/assets/g/textures/farm_tweed/albedo_512-1bbb56c6d7.jpg",
+    "normal": "/assets/g/textures/farm_tweed/normal_512-51f3cfcea2.jpg",
+    "orm": "/assets/g/textures/farm_tweed/orm_512-4cedf6be24.jpg"
    }
   }
  },
  "farm_velvet_green": {
   "surface": "fabric",
-  "uv_scale": 0.8,
+  "uv_scale": 0.6,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_velvet_green/albedo_1024-bd7b249ad0.jpg",
-    "normal": "/assets/g/textures/farm_velvet_green/normal_1024-a563eb1a83.jpg",
-    "orm": "/assets/g/textures/farm_velvet_green/orm_1024-01a307d7e9.jpg"
+    "albedo": "/assets/g/textures/farm_velvet_green/albedo_1024-9e3dbabb63.jpg",
+    "normal": "/assets/g/textures/farm_velvet_green/normal_1024-4d76262f16.jpg",
+    "orm": "/assets/g/textures/farm_velvet_green/orm_1024-bfaacda97c.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_velvet_green/albedo_512-d325c2f47c.jpg",
-    "normal": "/assets/g/textures/farm_velvet_green/normal_512-8e0193ec09.jpg",
-    "orm": "/assets/g/textures/farm_velvet_green/orm_512-6f4436d96b.jpg"
+    "albedo": "/assets/g/textures/farm_velvet_green/albedo_512-cc7ba99d7f.jpg",
+    "normal": "/assets/g/textures/farm_velvet_green/normal_512-e92aceee9b.jpg",
+    "orm": "/assets/g/textures/farm_velvet_green/orm_512-ae168c017d.jpg"
    }
   }
  },
  "farm_wall_blue": {
   "surface": "plaster",
-  "uv_scale": 2.5,
+  "uv_scale": 2.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wall_blue/albedo_1024-de674ab8cd.jpg",
-    "normal": "/assets/g/textures/farm_wall_blue/normal_1024-0c5bc04431.jpg",
-    "orm": "/assets/g/textures/farm_wall_blue/orm_1024-b3f937d45b.jpg"
+    "albedo": "/assets/g/textures/farm_wall_blue/albedo_1024-0456cada1a.jpg",
+    "normal": "/assets/g/textures/farm_wall_blue/normal_1024-51e425fb0b.jpg",
+    "orm": "/assets/g/textures/farm_wall_blue/orm_1024-5db72aab1d.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wall_blue/albedo_512-70fbd1918d.jpg",
-    "normal": "/assets/g/textures/farm_wall_blue/normal_512-48a036e328.jpg",
-    "orm": "/assets/g/textures/farm_wall_blue/orm_512-aa81a3af55.jpg"
+    "albedo": "/assets/g/textures/farm_wall_blue/albedo_512-baacd8204a.jpg",
+    "normal": "/assets/g/textures/farm_wall_blue/normal_512-181fe04d51.jpg",
+    "orm": "/assets/g/textures/farm_wall_blue/orm_512-b5eae5b38d.jpg"
    }
   }
  },
  "farm_wall_cream": {
   "surface": "plaster",
-  "uv_scale": 2.5,
+  "uv_scale": 2.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wall_cream/albedo_1024-bdd5bc5c46.jpg",
-    "normal": "/assets/g/textures/farm_wall_cream/normal_1024-bc1fb60e6d.jpg",
-    "orm": "/assets/g/textures/farm_wall_cream/orm_1024-bd8ead1790.jpg"
+    "albedo": "/assets/g/textures/farm_wall_cream/albedo_1024-6251502d4e.jpg",
+    "normal": "/assets/g/textures/farm_wall_cream/normal_1024-465c825517.jpg",
+    "orm": "/assets/g/textures/farm_wall_cream/orm_1024-1b1a72f751.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wall_cream/albedo_512-e0d68fde2b.jpg",
-    "normal": "/assets/g/textures/farm_wall_cream/normal_512-c1d5a0b2e4.jpg",
-    "orm": "/assets/g/textures/farm_wall_cream/orm_512-5ce7b3095d.jpg"
+    "albedo": "/assets/g/textures/farm_wall_cream/albedo_512-b73a25af3b.jpg",
+    "normal": "/assets/g/textures/farm_wall_cream/normal_512-824bcb5ed1.jpg",
+    "orm": "/assets/g/textures/farm_wall_cream/orm_512-abd7af5c8a.jpg"
    }
   }
  },
  "farm_wall_rose": {
   "surface": "plaster",
-  "uv_scale": 2.5,
+  "uv_scale": 2.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wall_rose/albedo_1024-37fa1bb54a.jpg",
-    "normal": "/assets/g/textures/farm_wall_rose/normal_1024-7675108c6a.jpg",
-    "orm": "/assets/g/textures/farm_wall_rose/orm_1024-ced5d92ca4.jpg"
+    "albedo": "/assets/g/textures/farm_wall_rose/albedo_1024-17094d2f69.jpg",
+    "normal": "/assets/g/textures/farm_wall_rose/normal_1024-1e5272a4d7.jpg",
+    "orm": "/assets/g/textures/farm_wall_rose/orm_1024-a01de678ae.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wall_rose/albedo_512-141348fcdc.jpg",
-    "normal": "/assets/g/textures/farm_wall_rose/normal_512-4844a79514.jpg",
-    "orm": "/assets/g/textures/farm_wall_rose/orm_512-941ba4f040.jpg"
+    "albedo": "/assets/g/textures/farm_wall_rose/albedo_512-f96b76a718.jpg",
+    "normal": "/assets/g/textures/farm_wall_rose/normal_512-6ce35a3be6.jpg",
+    "orm": "/assets/g/textures/farm_wall_rose/orm_512-ff25f4c303.jpg"
    }
   }
  },
  "farm_wall_sage": {
   "surface": "plaster",
-  "uv_scale": 2.5,
+  "uv_scale": 2.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wall_sage/albedo_1024-0c4621ae7d.jpg",
-    "normal": "/assets/g/textures/farm_wall_sage/normal_1024-0a55374e30.jpg",
-    "orm": "/assets/g/textures/farm_wall_sage/orm_1024-4bc94c1ae2.jpg"
+    "albedo": "/assets/g/textures/farm_wall_sage/albedo_1024-eb9584a06c.jpg",
+    "normal": "/assets/g/textures/farm_wall_sage/normal_1024-a0232d5f41.jpg",
+    "orm": "/assets/g/textures/farm_wall_sage/orm_1024-5ca463a5b7.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wall_sage/albedo_512-dff0155091.jpg",
-    "normal": "/assets/g/textures/farm_wall_sage/normal_512-cecac77be4.jpg",
-    "orm": "/assets/g/textures/farm_wall_sage/orm_512-e9abe910a6.jpg"
+    "albedo": "/assets/g/textures/farm_wall_sage/albedo_512-76a5d543b6.jpg",
+    "normal": "/assets/g/textures/farm_wall_sage/normal_512-e6911d6e33.jpg",
+    "orm": "/assets/g/textures/farm_wall_sage/orm_512-7ea4bbccdb.jpg"
    }
   }
  },
  "farm_wallpaper_floral": {
   "surface": "plaster",
-  "uv_scale": 0.8,
+  "uv_scale": 0.64,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wallpaper_floral/albedo_1024-ca466a99ec.jpg",
-    "normal": "/assets/g/textures/farm_wallpaper_floral/normal_1024-5724bdd445.jpg",
-    "orm": "/assets/g/textures/farm_wallpaper_floral/orm_1024-3b252d5b0f.jpg"
+    "albedo": "/assets/g/textures/farm_wallpaper_floral/albedo_1024-e20501f1c6.jpg",
+    "normal": "/assets/g/textures/farm_wallpaper_floral/normal_1024-0d4abdf768.jpg",
+    "orm": "/assets/g/textures/farm_wallpaper_floral/orm_1024-ee7fb32aab.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wallpaper_floral/albedo_512-64c6761400.jpg",
-    "normal": "/assets/g/textures/farm_wallpaper_floral/normal_512-dae791e0f9.jpg",
-    "orm": "/assets/g/textures/farm_wallpaper_floral/orm_512-d45883dd72.jpg"
+    "albedo": "/assets/g/textures/farm_wallpaper_floral/albedo_512-f376428bf2.jpg",
+    "normal": "/assets/g/textures/farm_wallpaper_floral/normal_512-45f555d06b.jpg",
+    "orm": "/assets/g/textures/farm_wallpaper_floral/orm_512-29cef4ac4e.jpg"
    }
   }
  },
  "farm_wallpaper_stripe": {
   "surface": "plaster",
-  "uv_scale": 1.2,
-  "normal_strength": 1,
-  "roughness_scale": 1,
-  "metallic_scale": 1,
-  "maps": {
-   "1024": {
-    "albedo": "/assets/g/textures/farm_wallpaper_stripe/albedo_1024-8b42248f25.jpg",
-    "normal": "/assets/g/textures/farm_wallpaper_stripe/normal_1024-2c8b1f59be.jpg",
-    "orm": "/assets/g/textures/farm_wallpaper_stripe/orm_1024-6b1ef65a21.jpg"
-   },
-   "512": {
-    "albedo": "/assets/g/textures/farm_wallpaper_stripe/albedo_512-b10a19d573.jpg",
-    "normal": "/assets/g/textures/farm_wallpaper_stripe/normal_512-f87b2504f6.jpg",
-    "orm": "/assets/g/textures/farm_wallpaper_stripe/orm_512-77645baa70.jpg"
-   }
-  }
- },
- "farm_walnut": {
-  "surface": "wood",
   "uv_scale": 1.0,
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_walnut/albedo_1024-e1eb8940b0.jpg",
-    "normal": "/assets/g/textures/farm_walnut/normal_1024-6393d10936.jpg",
-    "orm": "/assets/g/textures/farm_walnut/orm_1024-077daee105.jpg"
+    "albedo": "/assets/g/textures/farm_wallpaper_stripe/albedo_1024-6558d5f96d.jpg",
+    "normal": "/assets/g/textures/farm_wallpaper_stripe/normal_1024-3c4291b3d3.jpg",
+    "orm": "/assets/g/textures/farm_wallpaper_stripe/orm_1024-ac93f55f57.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_walnut/albedo_512-d0a2b5c252.jpg",
-    "normal": "/assets/g/textures/farm_walnut/normal_512-d8e1f1bc1c.jpg",
-    "orm": "/assets/g/textures/farm_walnut/orm_512-502bd522fa.jpg"
+    "albedo": "/assets/g/textures/farm_wallpaper_stripe/albedo_512-43e9767c76.jpg",
+    "normal": "/assets/g/textures/farm_wallpaper_stripe/normal_512-c3e78ad0b2.jpg",
+    "orm": "/assets/g/textures/farm_wallpaper_stripe/orm_512-117eb55722.jpg"
+   }
+  }
+ },
+ "farm_walnut": {
+  "surface": "wood",
+  "uv_scale": 1.2,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_walnut/albedo_1024-a2b38dbfb9.jpg",
+    "normal": "/assets/g/textures/farm_walnut/normal_1024-28b630601d.jpg",
+    "orm": "/assets/g/textures/farm_walnut/orm_1024-1bd2d6f713.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_walnut/albedo_512-dd114796fd.jpg",
+    "normal": "/assets/g/textures/farm_walnut/normal_512-d5e364843d.jpg",
+    "orm": "/assets/g/textures/farm_walnut/orm_512-0790685c97.jpg"
    }
   }
  },
@@ -1242,14 +1261,33 @@
   "metallic_scale": 1,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_wheat/albedo_1024-4e25040418.jpg",
-    "normal": "/assets/g/textures/farm_wheat/normal_1024-85d979a916.jpg",
-    "orm": "/assets/g/textures/farm_wheat/orm_1024-5c5c62e85f.jpg"
+    "albedo": "/assets/g/textures/farm_wheat/albedo_1024-f47d49b474.jpg",
+    "normal": "/assets/g/textures/farm_wheat/normal_1024-889d5e19d9.jpg",
+    "orm": "/assets/g/textures/farm_wheat/orm_1024-a3b61b1ef7.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_wheat/albedo_512-d9a688b781.jpg",
-    "normal": "/assets/g/textures/farm_wheat/normal_512-9bee835a53.jpg",
-    "orm": "/assets/g/textures/farm_wheat/orm_512-759a573be5.jpg"
+    "albedo": "/assets/g/textures/farm_wheat/albedo_512-fc90320e4e.jpg",
+    "normal": "/assets/g/textures/farm_wheat/normal_512-f26a25a6d2.jpg",
+    "orm": "/assets/g/textures/farm_wheat/orm_512-3fd882877d.jpg"
+   }
+  }
+ },
+ "farm_wicker": {
+  "surface": "wood",
+  "uv_scale": 0.3,
+  "normal_strength": 1,
+  "roughness_scale": 1,
+  "metallic_scale": 1,
+  "maps": {
+   "1024": {
+    "albedo": "/assets/g/textures/farm_wicker/albedo_1024-35f6e7b0b9.jpg",
+    "normal": "/assets/g/textures/farm_wicker/normal_1024-9d22cd1c26.jpg",
+    "orm": "/assets/g/textures/farm_wicker/orm_1024-58b36066e6.jpg"
+   },
+   "512": {
+    "albedo": "/assets/g/textures/farm_wicker/albedo_512-d3a3167311.jpg",
+    "normal": "/assets/g/textures/farm_wicker/normal_512-26a3a46bd2.jpg",
+    "orm": "/assets/g/textures/farm_wicker/orm_512-56c031fa3e.jpg"
    }
   }
  },
@@ -1259,17 +1297,17 @@
   "normal_strength": 1,
   "roughness_scale": 1,
   "metallic_scale": 1,
-  "opacity": 0.18,
+  "opacity": 0.16,
   "maps": {
    "1024": {
-    "albedo": "/assets/g/textures/farm_window_glass/albedo_1024-9ad23d3e1d.jpg",
+    "albedo": "/assets/g/textures/farm_window_glass/albedo_1024-4639e47a39.jpg",
     "normal": "/assets/g/textures/farm_window_glass/normal_1024-cf23e6e7c6.jpg",
-    "orm": "/assets/g/textures/farm_window_glass/orm_1024-1d9a9ac27a.jpg"
+    "orm": "/assets/g/textures/farm_window_glass/orm_1024-532d96bd61.jpg"
    },
    "512": {
-    "albedo": "/assets/g/textures/farm_window_glass/albedo_512-c04049a061.jpg",
+    "albedo": "/assets/g/textures/farm_window_glass/albedo_512-d97d596c14.jpg",
     "normal": "/assets/g/textures/farm_window_glass/normal_512-7e1771c3ee.jpg",
-    "orm": "/assets/g/textures/farm_window_glass/orm_512-d30432c66e.jpg"
+    "orm": "/assets/g/textures/farm_window_glass/orm_512-1a14661d2f.jpg"
    }
   }
  }

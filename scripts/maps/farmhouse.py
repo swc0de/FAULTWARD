@@ -531,7 +531,19 @@ def furnish(t, base, heading, colliders=(), surface="wood", **kw):
         solid([base[0] + wx, base[1] + wy, base[2] + lz], [sx, sy, sz], heading, surface)
 
 
+WALL_X = (-17, -7, -6, -2, 0, 2, 5, 6, 8.5, 11, 17)
+WALL_Y = (-8, -2, 3.5, 5.5, 7.5, 9, 10, 15)
+
+
 def wall_picture(x, y, z, heading, size=(0.6, 0.45), atlas="farm_art", cell=0, frame="farm_walnut"):
+    # the heading only says which way the wall runs (0/180: an east-west wall, +-90: north-south); the picture
+    # always faces away from the nearest wall line, into the room it hangs in
+    if abs(heading) % 180 < 45:
+        wy = min(WALL_Y, key=lambda w: abs(w - y))
+        heading = 0 if wy > y else 180
+    else:
+        wx = min(WALL_X, key=lambda w: abs(w - x))
+        heading = -90 if wx > x else 90
     piece("farm_picture", [x, y, z], heading, size=list(size), atlas=atlas, cell=cell, frame=frame)
 
 
@@ -545,21 +557,21 @@ furnish("farm_armchair", [-13.6, -5.3, G], 20, [(0, 0, 0, 0.95, 0.95, 0.8)], "fa
 furnish("farm_armchair", [-13.6, 0.8, G], 160, [(0, 0, 0, 0.95, 0.95, 0.8)], "fabric", mat="farm_tweed", pillow="farm_gingham")
 furnish("farm_coffee_table", [-12.9, -2.25, G], 90, [(0, 0, 0, 1.2, 0.6, 0.45)], length=1.2, width=0.6)
 furnish("farm_side_table", [-10.6, -3.75, G], -90, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
-furnish("farm_piano", [-9.5, 2.9, G], 0, [(0, 0.1, 0, 1.5, 0.55, 1.3)], mat="farm_walnut")
+furnish("farm_piano", [-9.1, 2.9, G], 0, [(0, 0.1, 0, 1.5, 0.55, 1.3)], mat="farm_walnut")
 furnish("farm_bookcase", [-6.33, -6.5, G], -90, [(0, 0, 0, 1.0, 0.34, 2.0)], length=1.0, decor=True)
 furnish("farm_bookcase", [-6.33, 1.6, G], -90, [(0, 0, 0, 1.0, 0.34, 2.0)], length=1.0, mat="farm_walnut")
 piece("farm_floor_lamp", [-15.8, -6.9, G])
 piece("farm_plant", [-16.3, 2.9, G], 0, kind="tall", size=1.2)
 wall_picture(-7.5, -7.74, G + 1.7, 0, (0.9, 0.6), "farm_art", 2)
 wall_picture(-12.6, 3.42, G + 1.8, 180, (0.5, 0.4), "farm_photo", 3)
-piece("farm_ceiling_light", [-11.5, -2.25, UF - SLAB], 0)
+piece("farm_ceiling_fan", [-11.5, -2.25, UF - SLAB], 0, drop=0.35)
 light([-11.5, -2.25, UF - 0.5], 2700, 7, 9)
 light([-15.0, -2.25, G + 1.1], 2400, 3, 4)
 # --- foyer: console, mirror, coat tree, runner
 furnish("farm_rug", [-3.0, -6.4, G], 0, size=[1.4, 2.2], mat="farm_rug_braid", round=False)
 furnish("farm_side_table", [-5.6, -6.6, G], 90, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
 piece("farm_coat_hooks", [-5.88, -4.0, G], 90, length=1.2)
-piece("farm_boots", [-5.6, -4.6, G], 90, count=2)
+piece("farm_boots", [-5.55, -5.0, G], 90, count=2)
 wall_picture(-5.9, 0.5, G + 1.6, 90, (0.7, 0.5), "farm_photo", 0, "farm_brass")
 wall_picture(-3.0, 3.42, G + 1.6, 180, (0.5, 0.65), "farm_art", 1)
 piece("farm_chandelier", [-3.0, -3.5, UF - SLAB], 0, drop=0.9, arms=5, radius=0.32)
@@ -567,7 +579,7 @@ light([-3.0, -3.5, UF - 1.2], 2700, 6, 9)
 piece("farm_clock", [-5.92, -1.5, G + 1.9], 90)
 # --- study: desk at the window, bookcases, armchair
 furnish("farm_desk", [3.0, -6.9, G], 180, [(0, 0, 0.72, 1.5, 0.7, 0.06), (0.53, 0.02, 0, 0.42, 0.68, 0.74)], length=1.5)
-piece("farm_office_chair", [3.0, -6.1, G], 160)
+piece("farm_office_chair", [3.0, -6.1, G], -20)
 furnish("farm_bookcase", [5.7, -5.0, G], -90, [(0, 0, 0, 1.6, 0.34, 2.1)], length=1.6, height=2.1, mat="farm_walnut")
 furnish("farm_bookcase", [0.33, -4.4, G], 90, [(0, 0, 0, 1.2, 0.34, 2.1)], length=1.2, height=2.1, mat="farm_walnut")
 furnish("farm_armchair", [4.6, -2.9, G], 210, [(0, 0, 0, 0.95, 0.95, 0.8)], "fabric", mat="farm_leather", pillow="farm_tweed")
@@ -596,7 +608,7 @@ for sx, hd in ((-1, -90), (1, 90)):
 piece("farm_vase", [11.5, -2.25, G + 0.785], 0)
 for cx in (10.4, 12.6):
     piece("farm_lamp", [cx, -2.25, G + 0.785], 0, size=0.55, mat="farm_brass")
-furnish("farm_dresser", [16.48, -3.25, G], 90, [(0, 0, 0, 1.6, 0.5, 0.9)], length=1.6, height=0.9, mat="farm_walnut", decor=True)
+furnish("farm_dresser", [16.48, -3.25, G], -90, [(0, 0, 0, 1.6, 0.5, 0.9)], length=1.6, height=0.9, mat="farm_walnut", decor=True)
 furnish("farm_bookcase", [6.33, -5.6, G], 90, [(0, 0, 0, 1.4, 0.34, 2.1)], length=1.4, height=2.1, books=False, decor=True)
 piece("farm_chandelier", [11.5, -2.25, UF - SLAB], 0, drop=0.85, arms=8, radius=0.45)
 light([11.5, -2.25, UF - 1.1], 2700, 8, 10)
@@ -608,18 +620,19 @@ furnish("farm_island", [11.6, 8.6, G], 0, [(0, 0, 0, 3.0, 1.1, 0.94)], length=3.
 for sx in (10.6, 11.6, 12.6):
     piece("farm_stool", [sx, 7.75, G], 0)
 furnish("farm_fridge", [6.47, 13.6, G], 90, [(0, 0, 0, 0.8, 0.72, 1.85)], width=0.8)
-furnish("farm_open_shelf", [16.85, 12.0, G], -90, length=1.2, count=2)
+furnish("farm_open_shelf", [16.61, 12.0, G], -90, length=1.2, count=2)
 furnish("farm_table", [14.9, 5.6, G], 0, [(0, 0, 0.71, 1.4, 0.9, 0.07)], length=1.4, width=0.9, mat="farm_pine")
 for (cx, cy, hd) in [(14.4, 4.9, 0), (15.4, 4.9, 0), (14.4, 6.3, 180), (15.4, 6.3, 180)]:
     piece("farm_chair", [cx, cy, G], hd, mat="farm_trim")
 piece("farm_fruit_bowl", [14.9, 5.6, G + 0.785], 0)
-for px in (10.6, 11.6, 12.6):
+for px in (10.4, 12.8):
     piece("farm_pendant", [px, 8.6, UF - SLAB], 0, drop=0.95)
+piece("farm_pot_rack", [11.6, 8.6, UF - SLAB], 0, length=1.3, drop=0.75)
 light([11.6, 8.6, UF - 1.3], 2900, 8, 10)
 light([11.7, 12.5, UF - 0.5], 3000, 6, 8)
 light([14.9, 5.6, UF - 0.5], 2900, 4, 7)
 piece("farm_ceiling_light", [14.9, 5.6, UF - SLAB], 0)
-piece("farm_clock", [6.1, 9.0, G + 2.1], -90)
+piece("farm_clock", [6.1, 9.0, G + 2.1], 90)
 furnish("farm_rug", [14.9, 5.6, G], 0, size=[2.2, 1.6], mat="farm_rug_braid", round=True)
 # --- family room (B): sectional, TV, toys, round rug
 furnish("farm_rug", [-12.0, 9.25, G], 0, size=[3.4, 3.4], mat="farm_rug_braid", round=True)
@@ -627,37 +640,37 @@ furnish("farm_tv_unit", [-16.5, 9.25, G], 90, [(0, 0, 0, 1.8, 0.45, 0.55)], leng
 furnish("farm_sofa", [-10.0, 9.25, G], -90, [(0, 0.02, 0, 2.6, 0.95, 0.8)], "fabric", length=2.6, mat="farm_tweed", pillows=["farm_gingham", "farm_linen"], throw="farm_gingham")
 furnish("farm_sofa", [-12.6, 12.9, G], 180, [(0, 0.02, 0, 2.2, 0.95, 0.8)], "fabric", length=2.2, mat="farm_tweed", pillows=["farm_velvet_green", "farm_quilt"])
 furnish("farm_coffee_table", [-12.6, 9.25, G], 0, [(0, 0, 0, 1.2, 0.7, 0.45)], length=1.2, width=0.7, mat="farm_pine")
-furnish("farm_crib_toys", [-7.0, 14.3, G], 180, [(0, 0, 0, 0.84, 0.48, 0.55)])
+furnish("farm_crib_toys", [-7.0, 14.3, G], 0, [(0, 0, 0, 0.84, 0.48, 0.55)])
 furnish("farm_bookcase", [-6.33, 12.5, G], -90, [(0, 0, 0, 1.2, 0.34, 2.0)], length=1.2)
 furnish("farm_armchair", [-14.8, 5.0, G], 200, [(0, 0, 0, 0.95, 0.95, 0.8)], "fabric", mat="farm_velvet_green", pillow="farm_quilt")
 piece("farm_floor_lamp", [-16.3, 4.3, G])
 piece("farm_plant", [-16.2, 14.2, G], 0, kind="tall", size=1.3)
 for i in range(4):
     wall_picture(-15.8 + i * 1.0, 3.58, G + 1.55 + (i % 2) * 0.3, 0, (0.4, 0.5), "farm_photo", i, "farm_trim")
-piece("farm_ceiling_light", [-11.5, 9.25, UF - SLAB], 0)
+piece("farm_ceiling_fan", [-11.5, 9.25, UF - SLAB], 0, drop=0.35, phase=30)
 light([-11.5, 9.25, UF - 0.5], 2800, 7, 9)
 # --- back hall, laundry, powder room, pantry, mudroom
-furnish("farm_bench", [-2.4, 5.5, G], 90, [(0, 0, 0, 1.2, 0.36, 0.47)], length=1.2, cushion="farm_linen")
+furnish("farm_bench", [-5.62, 4.75, G], 90, [(0, 0, 0, 1.2, 0.36, 0.47)], length=1.2, cushion="farm_linen")
 wall_picture(-5.9, 5.5, G + 1.6, 90, (0.5, 0.4), "farm_art", 2)
 light([-4.0, 6.2, UF - 0.5], 2800, 4, 6)
 piece("farm_ceiling_light", [-4.0, 6.2, UF - SLAB], 0)
 furnish("farm_washer", [-5.4, 14.4, G], 180, [(0, 0, 0, 0.6, 0.62, 0.86)])
 furnish("farm_washer", [-4.7, 14.4, G], 180, [(0, 0, 0, 0.6, 0.62, 0.86)], mat="farm_ceramic")
 furnish("farm_kitchen_run", [-3.0, 14.44, G], 0, [(0, 0, 0, 1.2, 0.62, 0.92)], length=1.2, mat="farm_cabinet_sage", top_mat="farm_quartz")
-piece("farm_open_shelf", [-4.4, 14.85, G + 0.2], 0, length=1.6, count=1)
+piece("farm_open_shelf", [-4.4, 14.61, G + 0.2], 0, length=1.6, count=1)
 furnish("farm_table", [-5.5, 11.2, G], 90, [(0, 0, 0.71, 1.2, 0.7, 0.07)], length=1.2, width=0.7, mat="farm_pine")
 piece("farm_ceiling_light", [-4.0, 12.0, UF - SLAB], 0)
 light([-4.0, 12.0, UF - 0.5], 3200, 5, 6)
-furnish("farm_toilet", [-1.6, 6.9, G], 180, [(0, 0, 0, 0.45, 0.7, 0.55)], "tile")
+furnish("farm_toilet", [-1.6, 6.9, G], 0, [(0, 0, 0, 0.45, 0.7, 0.55)], "tile")
 furnish("farm_vanity", [1.62, 5.5, G], -90, [(0, 0, 0, 0.8, 0.55, 0.84)], "tile", length=0.8)
 piece("farm_towel_rail", [-1.85, 4.6, G], 90, length=0.6)
 light([0.0, 5.5, UF - 0.5], 3000, 3, 5)
 piece("farm_ceiling_light", [0.0, 5.5, UF - SLAB], 0)
-for (sx, sy, hd) in [(2.15, 5.5, 90), (4.0, 7.35, 180), (5.85, 5.5, -90)]:
+for (sx, sy, hd) in [(2.15, 5.5, 90), (4.0, 7.35, 0), (5.85, 5.5, -90)]:
     piece("farm_open_shelf", [sx, sy, G - 1.1], hd, length=1.6, count=3)
 P.append({"type": "prop", "kind": "sacks", "base": [4.0, 4.0, G], "heading": 0, "count": 3})
 light([4.0, 5.5, UF - 0.5], 3200, 3, 5)
-piece("farm_coat_hooks", [4.6, 14.85, G], 180, length=2.4, full=True)
+piece("farm_coat_hooks", [4.6, 14.74, G], 0, length=2.4, full=True)
 furnish("farm_bench", [4.6, 14.4, G], 180, [(0, 0, 0, 1.6, 0.36, 0.47)], length=1.6, cushion="farm_gingham")
 piece("farm_boots", [3.8, 13.9, G], 180, count=3)
 furnish("farm_rug", [3.0, 11.0, G], 90, size=[2.6, 1.0], mat="farm_rug_braid")
@@ -682,8 +695,8 @@ furnish("farm_rug", [-11.0, 4.5, U], 90, size=[1.3, 6.0], mat="farm_rug_red")
 # twins' room
 for bx in (-11.75, -7.6):
     furnish("farm_bed", [bx, -6.7, U], 180, [(0, 0, 0, 1.06, 2.1, 0.6)], "fabric", width=1.0, length=2.0, quilt="farm_quilt", accent="farm_gingham")
-furnish("farm_side_table", [-9.65, -7.4, U], 0, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
-furnish("farm_dresser", [-15.5, -2.38, U], 180, [(0, 0, 0, 1.2, 0.5, 0.9)], length=1.2, decor=True)
+furnish("farm_side_table", [-9.65, -7.4, U], 180, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
+furnish("farm_dresser", [-15.5, -2.38, U], 0, [(0, 0, 0, 1.2, 0.5, 0.9)], length=1.2, decor=True)
 furnish("farm_crib_toys", [-16.4, -5.5, U], 90, [(0, 0, 0, 0.84, 0.48, 0.55)])
 furnish("farm_rug", [-11.0, -4.4, U], 0, size=[3.0, 1.8], mat="farm_rug_braid", round=True)
 piece("farm_ceiling_light", [-11.5, -5.0, TOP], 0)
@@ -700,32 +713,32 @@ light([-11.5, 0.75, TOP - 0.4], 2800, 5, 8)
 furnish("farm_bed", [5.0, -3.1, U], 0, [(0, 0, 0, 1.06, 2.1, 0.6)], "fabric", width=1.0, length=2.0, mat="farm_cabinet_white", quilt="farm_quilt")
 furnish("farm_crib_toys", [7.9, -6.4, U], -90, [(0, 0, 0, 0.84, 0.48, 0.55)])
 piece("farm_rocking_chair", [1.6, -6.7, U], 30, mat="farm_cabinet_white")
-furnish("farm_dresser", [1.0, -2.38, U], 180, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0, mat="farm_cabinet_sage")
+furnish("farm_dresser", [1.0, -2.38, U], 0, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0, mat="farm_cabinet_sage")
 furnish("farm_rug", [4.2, -5.2, U], 0, size=[2.6, 1.8], mat="farm_rug_red")
 piece("farm_ceiling_light", [4.25, -5.0, TOP], 0)
 light([4.25, -5.0, TOP - 0.4], 2800, 4, 7)
 # office
-furnish("farm_desk", [4.2, 3.1, U], 180, [(0, 0, 0.72, 1.6, 0.7, 0.06), (0.58, 0.02, 0, 0.42, 0.68, 0.74)], length=1.6)
-piece("farm_office_chair", [4.2, 2.3, U], 0)
+furnish("farm_desk", [4.2, 3.1, U], 0, [(0, 0, 0.72, 1.6, 0.7, 0.06), (0.58, 0.02, 0, 0.42, 0.68, 0.74)], length=1.6)
+piece("farm_office_chair", [4.2, 2.3, U], 180)
 furnish("farm_bookcase", [8.17, 0.75, U], -90, [(0, 0, 0, 1.6, 0.34, 2.0)], length=1.6, mat="farm_walnut")
 furnish("farm_sofa", [1.2, 0.6, U], 90, [(0, 0.02, 0, 1.8, 0.95, 0.8)], "fabric", length=1.8, mat="farm_linen", pillows=["farm_tweed"])
 piece("farm_ceiling_light", [4.25, 0.75, TOP], 0)
 light([4.25, 0.75, TOP - 0.4], 3000, 5, 7)
 # guest room (deck door on the east wall)
-furnish("farm_bed", [12.75, 2.4, U], 0, [(0, 0, 0, 1.66, 2.1, 0.6)], "fabric", width=1.6, length=2.0, accent="farm_velvet_green")
-for nx in (11.5, 14.0):
-    furnish("farm_side_table", [nx, 3.0, U], 0, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
-furnish("farm_dresser", [12.75, -7.48, U], 0, [(0, 0, 0, 1.4, 0.5, 0.9)], length=1.4, mat="farm_cabinet_white", mirror=True, decor=True)
+furnish("farm_bed", [9.6, -2.25, U], 90, [(0, 0, 0, 1.66, 2.1, 0.6)], "fabric", width=1.6, length=2.0, accent="farm_velvet_green")
+for ny in (-3.6, -0.9):
+    furnish("farm_side_table", [8.85, ny, U], 90, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
+furnish("farm_dresser", [12.75, -7.48, U], 180, [(0, 0, 0, 1.4, 0.5, 0.9)], length=1.4, mat="farm_cabinet_white", mirror=True, decor=True)
 furnish("farm_armchair", [9.6, -6.6, U], 30, [(0, 0, 0, 0.95, 0.95, 0.8)], "fabric", mat="farm_linen", pillow="farm_gingham")
-furnish("farm_rug", [12.75, -1.0, U], 0, size=[3.0, 2.2], mat="farm_rug_red")
-piece("farm_ceiling_light", [12.75, -2.25, TOP], 0)
+furnish("farm_rug", [11.3, -2.25, U], 90, size=[3.0, 2.2], mat="farm_rug_red")
+piece("farm_ceiling_fan", [12.75, -2.25, TOP], 0, drop=0.2, phase=20)
 light([12.75, -2.25, TOP - 0.4], 2800, 5, 8)
 # main bedroom: king bed on the west wall, bench, dresser, reading chair
 furnish("farm_bed", [-15.7, 10.25, U], 90, [(0, 0, 0, 1.86, 2.1, 0.6)], "fabric", width=1.8, length=2.05, accent="farm_velvet_green")
 for ny in (8.85, 11.65):
     furnish("farm_side_table", [-16.5, ny, U], 90, [(0, 0, 0, 0.45, 0.45, 0.62)], lamp=True)
 furnish("farm_bench", [-13.9, 10.25, U], 90, [(0, 0, 0, 1.4, 0.36, 0.5)], length=1.4, cushion="farm_velvet_green")
-furnish("farm_dresser", [-12.25, 14.52, U], 180, [(0, 0, 0, 1.6, 0.5, 0.95)], length=1.6, height=0.95, mirror=True, decor=True)
+furnish("farm_dresser", [-12.25, 14.52, U], 0, [(0, 0, 0, 1.6, 0.5, 0.95)], length=1.6, height=0.95, mirror=True, decor=True)
 furnish("farm_armchair", [-8.3, 13.8, U], 225, [(0, 0, 0, 0.95, 0.95, 0.8)], "fabric", mat="farm_linen", pillow="farm_quilt")
 piece("farm_floor_lamp", [-7.6, 14.5, U])
 furnish("farm_wardrobe", [-16.4, 6.5, U], 90, [(0, 0, 0, 1.2, 0.58, 2.05)], length=1.2, mat="farm_cabinet_white")
@@ -734,12 +747,12 @@ furnish("farm_side_table", [-9.2, 14.4, U], 0, [(0, 0, 0, 0.45, 0.45, 0.62)], la
 wall_picture(-12.25, 14.72, U + 1.9, 180, (0.5, 0.65), "farm_photo", 1, "farm_brass")
 furnish("farm_rug", [-12.6, 10.25, U], 90, size=[3.4, 2.6], mat="farm_rug_red", fringe=True)
 wall_picture(-16.72, 10.25, U + 1.85, 90, (0.9, 0.6), "farm_art", 3, "farm_brass")
-piece("farm_ceiling_light", [-12.0, 10.25, TOP], 0)
+piece("farm_ceiling_fan", [-12.0, 10.25, TOP], 0, drop=0.2, blade_mat="farm_cabinet_white")
 light([-12.0, 10.25, TOP - 0.4], 2700, 6, 9)
 # walk-in closet
-furnish("farm_wardrobe", [-4.5, 8.67, U], 180, [(0, 0, 0, 1.2, 0.58, 2.05)], length=1.2)
+furnish("farm_wardrobe", [-4.5, 8.67, U], 0, [(0, 0, 0, 1.2, 0.58, 2.05)], length=1.2)
 piece("farm_coat_hooks", [-2.15, 7.25, U - 0.2], -90, length=2.4, full=True)
-furnish("farm_dresser", [-6.6, 7.25, U], -90, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0)
+furnish("farm_dresser", [-6.0, 8.67, U], 0, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0)
 light([-4.5, 7.25, TOP - 0.4], 3000, 3, 5)
 piece("farm_ceiling_light", [-4.5, 7.25, TOP], 0)
 # main bath
@@ -758,7 +771,7 @@ piece("farm_towel_rail", [0.15, 8.6, U], 90, length=0.6)
 light([2.5, 7.75, TOP - 0.4], 3200, 4, 6)
 piece("farm_ceiling_light", [2.5, 7.75, TOP], 0)
 # playroom
-furnish("farm_crib_toys", [2.5, 14.4, U], 180, [(0, 0, 0, 0.84, 0.48, 0.55)])
+furnish("farm_crib_toys", [2.5, 14.4, U], 0, [(0, 0, 0, 0.84, 0.48, 0.55)])
 furnish("farm_table", [2.5, 12.2, U], 0, [(0, 0, 0.48, 1.0, 0.7, 0.06)], length=1.0, width=0.7, height=0.52, mat="farm_cabinet_sage")
 furnish("farm_bookcase", [0.33, 12.5, U], 90, [(0, 0, 0, 1.2, 0.34, 1.4)], length=1.2, height=1.4)
 furnish("farm_rug", [2.5, 12.2, U], 0, size=[2.4, 2.4], mat="farm_rug_braid", round=True)
@@ -766,18 +779,295 @@ light([2.5, 12.5, TOP - 0.4], 2800, 4, 6)
 piece("farm_ceiling_light", [2.5, 12.5, TOP], 0)
 # boy's room
 furnish("farm_bed", [9.88, 12.3, U], -90, [(0, 0, 0, 1.06, 2.1, 0.6)], "fabric", width=1.0, length=2.0, quilt="farm_quilt", accent="farm_cabinet_navy")
-furnish("farm_desk", [6.0, 14.4, U], 180, [(0, 0, 0.72, 1.2, 0.7, 0.06), (0.38, 0.02, 0, 0.42, 0.68, 0.74)], length=1.2, mat="farm_pine")
-piece("farm_chair", [6.0, 13.6, U], 0, mat="farm_pine")
+furnish("farm_desk", [6.0, 14.4, U], 0, [(0, 0, 0.72, 1.2, 0.7, 0.06), (0.38, 0.02, 0, 0.42, 0.68, 0.74)], length=1.2, mat="farm_pine")
+piece("farm_chair", [6.0, 13.6, U], 180, mat="farm_pine")
 furnish("farm_dresser", [10.5, 7.0, U], -90, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0, mat="farm_cabinet_navy", decor=True)
-furnish("farm_rug", [8.0, 10.3, U], 0, size=[2.4, 1.8], mat="farm_rug_red")
+furnish("farm_rug", [8.0, 10.3, U], 0, size=[3.2, 2.4], mat="farm_rug_red")
 light([8.0, 10.25, TOP - 0.4], 2800, 4, 7)
 piece("farm_ceiling_light", [8.0, 10.25, TOP], 0)
 # bedroom four
 furnish("farm_bed", [15.7, 10.25, U], -90, [(0, 0, 0, 1.46, 2.1, 0.6)], "fabric", width=1.4, length=2.0, quilt="farm_quilt", mat="farm_pine")
-furnish("farm_dresser", [12.0, 14.52, U], 180, [(0, 0, 0, 1.2, 0.5, 0.9)], length=1.2, mat="farm_pine", mirror=True)
+furnish("farm_dresser", [12.0, 14.52, U], 0, [(0, 0, 0, 1.2, 0.5, 0.9)], length=1.2, mat="farm_pine", mirror=True)
 furnish("farm_wardrobe", [11.6, 7.3, U], 90, [(0, 0, 0, 1.0, 0.58, 2.05)], length=1.0, mat="farm_pine")
 light([14.0, 10.25, TOP - 0.4], 2800, 4, 7)
 piece("farm_ceiling_light", [14.0, 10.25, TOP], 0)
+
+# ======================================================================== lived-in: the second furnishing pass
+def on(base, hd, lx, ly, lz=0.0):
+    """A point in a placed piece's own frame (for things set on top of furniture)."""
+    wx, wy = rot(lx, ly, hd)
+    return [base[0] + wx, base[1] + wy, base[2] + lz]
+
+
+def teddy_on_bed(base, hd, lg=2.0, **kw):
+    piece("farm_teddy", on(base, hd, 0.25, lg / 2 - 0.45, 0.62), hd + 180, **kw)
+
+
+SEAT = [(0, 0, 0, 0.95, 0.95, 0.8)]
+TABLE45 = [(0, 0, 0, 0.45, 0.45, 0.62)]
+# --- living room: a second seating group by the south windows, bookcases flanking the fireplace, a clock
+for (bx, by) in ((-9.4, -6.8), (-7.4, -6.8)):
+    furnish("farm_wingback", [bx, by, G], 160 if bx < -8 else 200, [(0, 0, 0, 0.84, 0.82, 0.8), (0, 0.33, 0, 0.78, 0.2, 1.22)], "fabric",
+            mat="farm_velvet_green" if bx < -8 else "farm_tweed", pillow="farm_gingham")
+furnish("farm_side_table", [-8.4, -7.35, G], 180, TABLE45, lamp=True)
+furnish("farm_ottoman", [-8.4, -5.7, G], 0, [(0, 0, 0, 0.8, 0.55, 0.44)], "fabric", size=[0.8, 0.55, 0.44], tray=True)
+furnish("farm_rug", [-8.4, -6.3, G], 0, size=[2.8, 2.0], mat="farm_rug_braid")
+for by in (-4.6, 0.1):
+    furnish("farm_bookcase", [-16.58, by, G], 90, [(0, 0, 0, 1.2, 0.34, 2.0)], length=1.2, height=2.0, mat="farm_walnut", decor=by > 0)
+piece("farm_fire_tools", [-16.1, -3.5, G], -90)
+furnish("farm_grandfather_clock", [-14.5, 3.22, G], 0, [(0, 0, 0, 0.56, 0.32, 2.3)])
+furnish("farm_console", [-9.75, -2.25, G], 90, [(0, 0, 0, 1.6, 0.36, 0.8)], length=1.6)
+furnish("farm_basket", [-10.5, -0.45, G], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], "fabric", size=[0.44, 0.44, 0.4], round=True, contents="blanket")
+piece("farm_book_stack", [-12.75, -2.0, G + 0.45], 20, count=3)
+piece("farm_vase", [-13.05, -2.55, G + 0.45], 0, mat="farm_ceramic")
+piece("farm_plant", [-6.5, -7.45, G], 0, kind="bushy", size=1.1)
+piece("farm_floor_lamp", [-14.6, -7.3, G])
+wall_picture(-11.75, -7.74, G + 1.75, 0, (1.0, 0.7), "farm_art", 0, "farm_brass")
+# --- foyer: shoe cubby under the hooks, umbrellas by the door, console and mirror at the stair's end
+furnish("farm_shoe_cubby", [-5.72, -4.05, G], 90, [(0, 0, 0, 0.9, 0.34, 0.55)], length=0.9, cushion="farm_tweed")
+piece("farm_umbrella_stand", [-4.2, -7.45, G], 0)
+furnish("farm_console", [-1.2, 3.22, G], 0, [(0, 0, 0, 1.2, 0.36, 0.8)], length=1.2)
+piece("farm_wall_mirror", [-1.2, 3.42, G + 1.6], 0, size=[0.75, 0.75], round=True)
+piece("farm_plant", [-5.55, 3.0, G], 0, kind="tall", size=1.1)
+# --- study: filing cabinet, globe, the desk set, a footstool and a side table by the armchair
+furnish("farm_filing_cabinet", [5.66, -7.4, G], -90, [(0, 0, 0, 0.46, 0.62, 1.03)])
+furnish("farm_globe", [1.1, -7.45, G], 30, [(0, 0, 0, 0.5, 0.5, 1.1)])
+piece("farm_laptop", [3.05, -6.75, G + 0.78], 180)
+piece("farm_desk_lamp", [2.45, -7.1, G + 0.78], 200)
+piece("farm_paper_stack", [3.55, -6.95, G + 0.78], 170, count=3)
+furnish("farm_ottoman", [3.8, -3.9, G], 20, [(0, 0, 0, 0.5, 0.42, 0.42)], "fabric", size=[0.5, 0.42, 0.42], mat="farm_tweed")
+furnish("farm_side_table", [3.65, -2.45, G], 180, TABLE45)
+piece("farm_book_stack", [3.65, -2.45, G + 0.62], 0, count=2)
+piece("farm_mug", [3.75, -2.35, G + 0.62 + 0.06], 0)
+furnish("farm_basket", [0.45, -2.6, G], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], round=True, size=[0.44, 0.44, 0.4], contents="logs")
+# --- hall: a console and mirror on the study wall, a runner
+furnish("farm_console", [3.0, -1.75, G], 180, [(0, 0, 0, 1.4, 0.36, 0.8)], length=1.4)
+piece("farm_wall_mirror", [3.0, -1.93, G + 1.6], 180, size=[0.9, 0.7])
+furnish("farm_rug", [3.0, 0.65, G], 0, size=[4.6, 1.0], mat="farm_rug_red", fringe=True)
+# --- dining: a sideboard between the south windows, plants, art
+furnish("farm_console", [11.75, -7.55, G], 180, [(0, 0, 0, 1.8, 0.4, 0.8)], length=1.8, depth=0.4, baskets=False)
+wall_picture(11.75, -7.74, G + 1.8, 0, (1.1, 0.7), "farm_art", 3, "farm_walnut")
+piece("farm_plant", [16.35, 2.95, G], 0, kind="tall", size=1.3)
+piece("farm_plant", [6.6, -7.35, G], 0, kind="bushy", size=1.0)
+piece("farm_plant", [6.6, 2.95, G], 0, kind="tall", size=1.1)
+# --- kitchen: appliances and counter clutter on the north run, a dog bed, a bin, a rug at the sink
+KZ = G + 0.92
+piece("farm_microwave", [8.65, 14.38, KZ], 0)
+piece("farm_utensil_crock", [9.05 + 1.2, 14.45, KZ], 0)
+piece("farm_kettle", [9.75, 14.3, KZ + 0.02], 20)
+piece("farm_coffee_maker", [10.75, 14.42, KZ], 0)
+piece("farm_toaster", [11.3, 14.4, KZ], 0)
+piece("farm_dish_rack", [11.85, 14.4, KZ], 0)
+piece("farm_cutting_board", [13.65, 14.5, KZ], 0)
+piece("farm_knife_block", [14.1, 14.5, KZ], 0)
+piece("farm_canisters", [14.75, 14.45, KZ], 0)
+piece("farm_fruit_bowl", [12.2, 8.75, G + 0.94], 0)
+piece("farm_book_stack", [10.9, 8.5, G + 0.94], 10, count=2)
+furnish("farm_dog_bed", [16.25, 7.4, G], -90, [(0, 0, 0, 0.9, 0.68, 0.2)], "fabric")
+furnish("farm_trash_can", [6.42, 10.3, G], 90, [(0, 0, 0, 0.36, 0.3, 0.66)], "metal")
+furnish("farm_rug", [12.6, 13.55, G], 0, size=[1.7, 0.75], mat="farm_rug_braid")
+piece("farm_wall_shelf", [6.08, 7.2, G + 1.55], 90, length=1.2, items=["jar", "mugs", "plant"])
+# --- family room: a game table, bean bags at the TV, toys, a blanket ladder, a side table by the sofa
+furnish("farm_table", [-8.6, 5.0, G], 0, [(0, 0, 0.71, 0.9, 0.9, 0.07)], length=0.9, width=0.9, mat="farm_walnut")
+for (cy, hd) in ((4.25, 180), (5.75, 0)):
+    piece("farm_chair", [-8.6, cy, G], hd, cushion="farm_tweed")
+piece("farm_chess", [-8.6, 5.0, G + 0.785], 10)
+for (bx, by, m) in ((-15.0, 7.7, "farm_velvet_green"), (-15.0, 10.8, "farm_tweed")):
+    furnish("farm_bean_bag", [bx, by, G], 90, [(0, 0, 0, 0.8, 0.7, 0.5)], "fabric", mat=m)
+piece("farm_floor_toys", [-9.0, 12.0, G], 15)
+piece("farm_blanket_ladder", [-8.9, 14.55, G], 0)
+furnish("farm_basket", [-8.1, 14.4, G], 0, [(0, 0, 0, 0.5, 0.5, 0.35)], round=True, size=[0.5, 0.5, 0.35], contents="toys")
+furnish("farm_side_table", [-10.0, 10.95, G], -90, TABLE45, lamp=True)
+piece("farm_book_stack", [-12.4, 9.45, G + 0.45], 40, count=2)
+piece("farm_mug", [-12.85, 9.0, G + 0.45], 0)
+furnish("farm_pouf", [-13.2, 6.9, G], 0, [(0, 0, 0, 0.56, 0.56, 0.4)], "fabric")
+# --- back hall, laundry, mudroom
+piece("farm_plant", [-2.4, 3.9, G], 0, kind="bushy", size=0.9)
+furnish("farm_ironing_board", [-3.4, 11.4, G], 0, [(0, 0, 0, 1.3, 0.4, 0.9)], "metal")
+furnish("farm_drying_rack", [-2.55, 12.9, G], 90, [(0, 0, 0, 0.84, 0.6, 1.1)])
+furnish("farm_basket", [-4.1, 13.5, G], 0, [(0, 0, 0, 0.55, 0.4, 0.34)], "fabric", size=[0.55, 0.4, 0.32], contents="laundry")
+furnish("farm_basket", [-5.5, 11.6, G + 0.785], 90, size=[0.5, 0.36, 0.28], contents="laundry")
+piece("farm_wall_shelf", [-5.92, 13.0, G + 1.5], 90, length=1.0, items=["towels", "jar"])
+furnish("farm_shoe_cubby", [0.6, 7.75, G], 180, [(0, 0, 0, 1.2, 0.34, 0.55)], length=1.2, cushion="farm_gingham")
+piece("farm_umbrella_stand", [5.65, 14.45, G], 0)
+furnish("farm_basket", [1.8, 14.4, G], 0, [(0, 0, 0, 0.5, 0.4, 0.4)], size=[0.5, 0.4, 0.3], contents="logs")
+
+# --- upstairs landing and the long hall: a reading chair, consoles, plants
+furnish("farm_armchair", [-5.0, 0.2, U], 120, SEAT, "fabric", mat="farm_linen", pillow="farm_quilt")
+piece("farm_floor_lamp", [-5.55, 1.1, U])
+piece("farm_plant", [-0.55, -7.4, U], 0, kind="tall", size=1.0)
+for (cx, ln) in ((-15.0, 1.2), (4.0, 1.4), (15.6, 1.2)):
+    furnish("farm_console", [cx, 3.78, U], 180, [(0, 0, 0, ln, 0.36, 0.8)], length=ln, baskets=cx < 0)
+for px in (-16.55, 16.55):
+    piece("farm_plant", [px, 5.1, U], 0, kind="bushy", size=0.9)
+# --- twins' room: a shared desk, bean bag, toys, teddies on the beds
+furnish("farm_desk", [-11.0, -2.42, U], 0, [(0, 0, 0.72, 1.4, 0.7, 0.06), (0.48, 0.02, 0, 0.42, 0.68, 0.74)], length=1.4, mat="farm_cabinet_white")
+piece("farm_chair", [-11.0, -3.15, U], 180, mat="farm_cabinet_white", cushion="farm_gingham")
+piece("farm_desk_lamp", [-11.45, -2.3, U + 0.78], 0)
+piece("farm_book_stack", [-10.6, -2.35, U + 0.78], 0, count=3)
+furnish("farm_bean_bag", [-13.7, -3.5, U], 30, [(0, 0, 0, 0.8, 0.7, 0.5)], "fabric", mat="farm_wall_blue")
+piece("farm_floor_toys", [-9.6, -4.5, U], 70)
+furnish("farm_basket", [-6.55, -7.45, U], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], round=True, size=[0.44, 0.44, 0.38], contents="toys")
+for bx in (-11.75, -7.6):
+    teddy_on_bed([bx, -6.7, U], 180, mat="farm_tweed" if bx < -9 else "farm_linen")
+# --- girl's room: dollhouse, side table, bean bag, low bookcase, a toy shelf over the desk
+piece("farm_dollhouse", [-13.0, -1.75, U], 180)
+furnish("farm_side_table", [-16.5, 2.2, U], 90, TABLE45, lamp=True)
+furnish("farm_bean_bag", [-9.8, -0.9, U], 200, [(0, 0, 0, 0.8, 0.7, 0.5)], "fabric", mat="farm_gingham")
+furnish("farm_bookcase", [-6.33, 1.4, U], -90, [(0, 0, 0, 1.0, 0.34, 1.4)], length=1.0, height=1.4, mat="farm_cabinet_white")
+piece("farm_wall_shelf", [-8.5, 3.42, U + 1.45], 0, length=1.1, items=["toys", "books", "frame"], cell=6)
+teddy_on_bed([-15.72, 0.75, U], 90, mat="farm_wall_rose", bow="farm_cabinet_navy")
+furnish("farm_pouf", [-12.0, 0.8, U], 0, [(0, 0, 0, 0.56, 0.56, 0.4)], "fabric", mat="farm_quilt")
+# --- nursery: a crib, toys on the rug, a basket
+furnish("farm_crib", [6.0, -7.35, U], 0, [(0, 0, 0, 1.32, 0.72, 1.0)])
+piece("farm_floor_toys", [3.6, -5.1, U], 200)
+furnish("farm_basket", [7.95, -2.6, U], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], round=True, size=[0.44, 0.44, 0.38], contents="toys")
+teddy_on_bed([5.0, -3.1, U], 0)
+piece("farm_lamp", [1.3, -2.4, U + 0.9], 0, size=0.8)
+# --- office: laptop and lamp on the desk, filing cabinet and printer, an ottoman at the sofa, a globe
+piece("farm_laptop", [4.1, 3.0, U + 0.78], 0)
+piece("farm_desk_lamp", [4.75, 3.25, U + 0.78], -20)
+piece("farm_paper_stack", [3.5, 3.2, U + 0.78], 0, count=2)
+furnish("farm_filing_cabinet", [7.95, -1.5, U], -90, [(0, 0, 0, 0.46, 0.62, 1.03)], decor=False)
+piece("farm_printer", [7.95, -1.5, U + 1.03], -90)
+furnish("farm_ottoman", [2.45, 0.6, U], 90, [(0, 0, 0, 0.9, 0.55, 0.44)], "fabric", size=[0.9, 0.55, 0.44], tray=True, mat="farm_tweed")
+furnish("farm_globe", [2.0, -1.4, U], 0, [(0, 0, 0, 0.5, 0.5, 1.1)])
+piece("farm_floor_lamp", [0.5, -1.55, U])
+piece("farm_plant", [7.9, 3.0, U], 0, kind="tall", size=1.1)
+wall_picture(4.2, 3.42, U + 1.65, 180, (0.9, 0.6), "farm_art", 1, "farm_walnut")
+# --- guest room: luggage rack, plant, a blanket ladder
+furnish("farm_luggage_rack", [15.8, 2.95, U], 0, [(0, 0, 0, 0.7, 0.45, 0.75)])
+piece("farm_plant", [16.4, 2.9, U], 0, kind="tall", size=1.1)
+piece("farm_blanket_ladder", [16.68, -2.75, U], -90, throws=["farm_quilt"])
+wall_picture(8.58, -2.25, U + 1.75, 90, (0.9, 0.6), "farm_art", 2, "farm_walnut")
+# --- main bedroom: a writing desk, ottoman by the reading chair, hamper
+furnish("farm_desk", [-14.4, 5.95, U], 180, [(0, 0, 0.72, 1.2, 0.7, 0.06), (0.38, 0.02, 0, 0.42, 0.68, 0.74)], length=1.2, mat="farm_walnut")
+piece("farm_chair", [-14.4, 6.7, U], 0, cushion="farm_velvet_green")
+piece("farm_desk_lamp", [-14.85, 5.85, U + 0.78], 180)
+piece("farm_paper_stack", [-14.1, 5.9, U + 0.78], 180, count=1)
+furnish("farm_ottoman", [-9.2, 12.8, U], 225, [(0, 0, 0, 0.55, 0.45, 0.42)], "fabric", size=[0.55, 0.45, 0.42], mat="farm_linen")
+furnish("farm_basket", [-8.4, 6.0, U], 0, [(0, 0, 0, 0.48, 0.48, 0.6)], "fabric", round=True, size=[0.48, 0.48, 0.55], lid=True)
+# --- walk-in closet, main bath, family bath
+furnish("farm_shoe_cubby", [-4.5, 5.85, U], 180, [(0, 0, 0, 1.4, 0.34, 0.55)], length=1.4)
+furnish("farm_basket", [-3.2, 8.55, U], 0, [(0, 0, 0, 0.46, 0.46, 0.6)], "fabric", round=True, size=[0.46, 0.46, 0.55], lid=True)
+furnish("farm_luggage_rack", [-6.55, 5.95, U], 90, [(0, 0, 0, 0.7, 0.45, 0.75)])
+furnish("farm_rug", [-4.5, 13.4, U], 0, size=[0.9, 0.55], mat="farm_towel")
+furnish("farm_stool", [-5.95, 14.35, U], 0, [(0, 0, 0, 0.36, 0.36, 0.5)], height=0.5, mat="farm_trim")
+piece("farm_towel_stack", [-5.95, 14.35, U + 0.5], 10, count=3)
+piece("farm_wall_shelf", [-2.08, 10.0, U + 1.4], -90, length=0.9, items=["towels", "bath", "plant"])
+furnish("farm_basket", [-6.5, 9.5, U], 0, [(0, 0, 0, 0.44, 0.44, 0.6)], "fabric", round=True, size=[0.44, 0.44, 0.55], lid=True)
+furnish("farm_rug", [2.5, 8.6, U], 0, size=[0.9, 0.55], mat="farm_towel")
+furnish("farm_stool", [4.5, 9.55, U], 0, [(0, 0, 0, 0.36, 0.36, 0.5)], height=0.5, mat="farm_trim")
+piece("farm_towel_stack", [4.5, 9.55, U + 0.5], -10, count=2, mat="farm_bedding")
+piece("farm_wall_shelf", [0.08, 7.2, U + 1.4], 90, length=0.9, items=["bath", "towels"])
+furnish("farm_basket", [0.45, 5.95, U], 0, [(0, 0, 0, 0.44, 0.44, 0.6)], "fabric", round=True, size=[0.44, 0.44, 0.55], lid=True)
+# --- playroom: easel, bean bag, pouf, toys, small stools at the kids' table
+piece("farm_easel", [1.3, 10.62, U], 180, cell=2)
+furnish("farm_bean_bag", [4.3, 14.15, U], 200, [(0, 0, 0, 0.8, 0.7, 0.5)], "fabric", mat="farm_door_red")
+furnish("farm_pouf", [4.2, 11.0, U], 0, [(0, 0, 0, 0.56, 0.56, 0.4)], "fabric")
+piece("farm_floor_toys", [1.4, 13.7, U], 120)
+for cy in (11.6, 12.8):
+    piece("farm_stool", [2.5, cy, U], 0, height=0.32, mat="farm_cabinet_sage")
+furnish("farm_basket", [0.45, 14.5, U], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], round=True, size=[0.44, 0.44, 0.38], contents="toys")
+piece("farm_wall_shelf", [2.5, 10.08, U + 1.5], 180, length=1.2, items=["toys", "jar", "books"])
+# --- boy's room: bean bag, toys, a low bookcase, desk things, a teddy
+furnish("farm_bean_bag", [6.0, 8.8, U], 150, [(0, 0, 0, 0.8, 0.7, 0.5)], "fabric", mat="farm_cabinet_navy")
+piece("farm_floor_toys", [7.7, 10.1, U], 300)
+furnish("farm_bookcase", [5.33, 7.0, U], 90, [(0, 0, 0, 1.0, 0.34, 1.4)], length=1.0, height=1.4, mat="farm_pine")
+furnish("farm_basket", [10.55, 8.1, U], 0, [(0, 0, 0, 0.44, 0.44, 0.4)], round=True, size=[0.44, 0.44, 0.38], contents="toys")
+piece("farm_desk_lamp", [5.6, 14.5, U + 0.78], 0)
+piece("farm_book_stack", [6.4, 14.45, U + 0.78], 0, count=3)
+teddy_on_bed([9.88, 12.3, U], -90)
+# --- bedroom four: bedside tables, a reading chair and lamp, a bench at the foot, rug, blanket ladder
+for ny in (8.95, 11.55):
+    furnish("farm_side_table", [16.45, ny, U], -90, TABLE45, lamp=True)
+furnish("farm_wingback", [12.2, 12.7, U], 120, [(0, 0, 0, 0.84, 0.82, 0.8), (0, 0.33, 0, 0.78, 0.2, 1.22)], "fabric", mat="farm_linen", pillow="farm_quilt")
+piece("farm_floor_lamp", [11.5, 13.6, U])
+furnish("farm_bench", [14.25, 10.25, U], 90, [(0, 0, 0, 1.2, 0.36, 0.5)], length=1.2, cushion="farm_tweed")
+furnish("farm_rug", [14.0, 10.25, U], 90, size=[2.6, 2.0], mat="farm_rug_braid")
+piece("farm_blanket_ladder", [16.3, 14.55, U], 0)
+
+# --- third pass: the big rooms still had open floor
+# dining: china hutches either side of the kitchen opening, a sideboard on the west wall, a reading nook
+for hx in (8.5, 14.5):
+    furnish("farm_bookcase", [hx, 3.2, G], 0, [(0, 0, 0, 1.4, 0.34, 2.1)], length=1.4, height=2.1, books=False, decor=True, mat="farm_cabinet_white")
+furnish("farm_console", [6.25, -2.6, G], 90, [(0, 0, 0, 1.6, 0.36, 0.8)], length=1.6, baskets=False)
+furnish("farm_wingback", [15.2, -6.7, G], 210, [(0, 0, 0, 0.84, 0.82, 0.8), (0, 0.33, 0, 0.78, 0.2, 1.22)], "fabric", mat="farm_tweed", pillow="farm_gingham")
+furnish("farm_side_table", [16.4, -7.4, G], 180, TABLE45, lamp=True)
+piece("farm_floor_lamp", [14.2, -7.45, G])
+# kitchen: a painted hutch and a dresser on the dining wall, a rocking chair by the back door
+furnish("farm_bookcase", [8.3, 3.75, G], 180, [(0, 0, 0, 1.4, 0.34, 2.1)], length=1.4, height=2.1, books=False, decor=True, mat="farm_cabinet_sage")
+furnish("farm_dresser", [16.2, 3.82, G], 180, [(0, 0, 0, 1.0, 0.5, 0.9)], length=1.0, mat="farm_cabinet_sage", decor=True)
+piece("farm_rocking_chair", [15.6, 11.0, G], -110, mat="farm_walnut")
+# mudroom: a tall cupboard and a mat at the back door
+furnish("farm_wardrobe", [5.67, 9.0, G], -90, [(0, 0, 0, 1.0, 0.58, 2.05)], length=1.0, mat="farm_cabinet_sage")
+furnish("farm_rug", [3.0, 14.1, G], 0, size=[1.4, 0.9], mat="farm_rug_braid")
+# powder room: a shelf over the toilet and a basket of towels
+piece("farm_wall_shelf", [-1.6, 7.42, G + 1.5], 0, length=0.8, items=["towels", "plant"])
+furnish("farm_basket", [-1.6, 4.0, G], 0, [(0, 0, 0, 0.42, 0.32, 0.3)], size=[0.42, 0.32, 0.3], contents="laundry")
+# guest room: a bench at the bed's foot, a loveseat and ottoman, a writing desk
+furnish("farm_bench", [10.95, -2.25, U], 90, [(0, 0, 0, 1.2, 0.36, 0.5)], length=1.2, cushion="farm_velvet_green")
+furnish("farm_sofa", [13.85, -2.25, U], -90, [(0, 0.02, 0, 1.8, 0.95, 0.8)], "fabric", length=1.8, mat="farm_linen", pillows=["farm_gingham"])
+furnish("farm_ottoman", [12.75, -2.25, U], 90, [(0, 0, 0, 0.8, 0.5, 0.42)], "fabric", size=[0.8, 0.5, 0.42], tray=True)
+furnish("farm_desk", [16.42, -6.6, U], -90, [(0, 0, 0.72, 1.2, 0.7, 0.06), (0.38, 0.02, 0, 0.42, 0.68, 0.74)], length=1.2, mat="farm_cabinet_white")
+piece("farm_chair", [15.65, -6.6, U], 90, mat="farm_cabinet_white", cushion="farm_linen")
+piece("farm_desk_lamp", [16.5, -7.0, U + 0.78], -90)
+# main bedroom: a second dresser on the south wall, a loveseat at the foot of the room facing the bed
+furnish("farm_dresser", [-9.6, 5.82, U], 180, [(0, 0, 0, 1.4, 0.5, 0.9)], length=1.4, mat="farm_walnut", decor=True)
+furnish("farm_sofa", [-9.6, 10.25, U], -90, [(0, 0.02, 0, 1.7, 0.95, 0.8)], "fabric", length=1.7, mat="farm_velvet_green", pillows=["farm_linen"])
+# boy's room: a wardrobe, a toy chest, art over the bed
+furnish("farm_wardrobe", [10.67, 14.3, U], -90, [(0, 0, 0, 1.0, 0.58, 2.05)], length=1.0, mat="farm_pine")
+furnish("farm_crib_toys", [9.0, 14.5, U], 0, [(0, 0, 0, 0.84, 0.48, 0.55)])
+wall_picture(10.92, 12.3, U + 1.6, -90, (0.7, 0.5), "farm_art", 0, "farm_pine")
+piece("farm_floor_lamp", [5.5, 9.9, U])
+furnish("farm_table", [7.0, 12.3, U], 0, [(0, 0, 0.48, 1.0, 0.7, 0.06)], length=1.0, width=0.7, height=0.52, mat="farm_pine")
+for cy in (11.7, 12.9):
+    piece("farm_stool", [7.0, cy, U], 0, height=0.32, mat="farm_cabinet_navy")
+piece("farm_chess", [7.0, 12.3, U + 0.545], 30)
+# bedroom four: a desk on the west wall, a plant
+furnish("farm_desk", [11.35, 10.2, U], 90, [(0, 0, 0.72, 1.2, 0.7, 0.06), (0.38, 0.02, 0, 0.42, 0.68, 0.74)], length=1.2, mat="farm_pine")
+piece("farm_chair", [12.1, 10.2, U], -90, mat="farm_pine", cushion="farm_gingham")
+piece("farm_desk_lamp", [11.3, 10.65, U + 0.78], 90)
+piece("farm_plant", [13.0, 14.45, U], 0, kind="tall", size=1.1)
+# nursery: a low bookcase and a pouf
+furnish("farm_bookcase", [0.33, -4.2, U], 90, [(0, 0, 0, 1.0, 0.34, 1.4)], length=1.0, height=1.4, mat="farm_cabinet_white")
+furnish("farm_pouf", [3.0, -3.6, U], 0, [(0, 0, 0, 0.56, 0.56, 0.4)], "fabric", mat="farm_quilt")
+
+# --- cast-iron radiators under the windows, where nothing already stands
+SOLIDS = [e for e in P if e.get("mat") == INV and e["type"] == "box" and "base" in e]
+
+
+def blocked(x0, y0, x1, y1, z0, z1):
+    for e in SOLIDS:
+        (bx, by, bz), (sx, sy, sz) = e["base"], e["size"]
+        h = math.radians(e.get("heading", 0))
+        hx = abs(math.cos(h)) * sx / 2 + abs(math.sin(h)) * sy / 2
+        hy = abs(math.sin(h)) * sx / 2 + abs(math.cos(h)) * sy / 2
+        if bx + hx > x0 and bx - hx < x1 and by + hy > y0 and by - hy < y1 and bz + sz > z0 and bz < z1:
+            return True
+    return False
+
+
+for st, (z, _h) in STOREY.items():
+    for side, lst in EXT[st].items():
+        for o in lst:
+            if o["bottom"] < 0.7 or (st, side) == ("G", "n") and 8 < o["at"] < 15.3:
+                continue
+            ln = o["width"] - 0.15
+            face = {"s": Y0 + EXT_T, "n": Y1 - EXT_T, "w": X0 + EXT_T, "e": X1 - EXT_T}[side]
+            hd = {"s": 180, "n": 0, "w": 90, "e": -90}[side]
+            if side in "sn":
+                x0, x1 = o["at"] - ln / 2, o["at"] + ln / 2
+                y0, y1 = sorted((face, face + (0.24 if side == "s" else -0.24)))
+                base = [o["at"], face, z]
+            else:
+                y0, y1 = o["at"] - ln / 2, o["at"] + ln / 2
+                x0, x1 = sorted((face, face + (0.24 if side == "w" else -0.24)))
+                base = [face, o["at"], z]
+            if blocked(x0 - 0.12, y0 - 0.05, x1 + 0.05, y1 + 0.05, z, z + 0.7):
+                continue
+            furnish("farm_radiator", base, hd, [(0, -0.1, 0, ln, 0.2, 0.64)], "metal", length=ln)
+
 
 # ============================================================================================== the yard
 BX = BY = 35.0

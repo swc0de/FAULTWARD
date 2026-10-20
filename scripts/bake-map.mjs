@@ -450,7 +450,14 @@ const data = JSON.parse(fs.readFileSync(dataFile, "utf8"));
 const t0 = Date.now();
 const level = new L.Level(key, data, true);
 const ctx = level.ctx;
-for (const piece of data.visual_pieces ?? []) ctx.buildPiece(piece);
+const vcount = () => [...ctx.builders.values()].reduce((n, b) => n + b.vertexCount, 0);
+const perType = new Map();
+for (const piece of data.visual_pieces ?? []) {
+  const before = process.env.BAKE_STATS ? vcount() : 0;
+  ctx.buildPiece(piece);
+  if (process.env.BAKE_STATS) perType.set(piece.type, (perType.get(piece.type) ?? 0) + vcount() - before);
+}
+if (process.env.BAKE_STATS) for (const [t, n] of [...perType].sort((x, y) => y[1] - x[1]).slice(0, 40)) say(`[bake]   ${t.padEnd(24)} ${n} vertices`);
 say(`[bake] ${key}: level built in ${Date.now() - t0} ms (${ctx.colliders.length} colliders, ${ctx.panels.length} panels, ${ctx.instances.length} instances, ${ctx.lights.length} lights)`);
 
 const [bmin, bmax] = data.bounds;

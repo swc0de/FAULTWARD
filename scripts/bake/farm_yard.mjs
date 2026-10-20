@@ -78,7 +78,7 @@ export function register(L) {
       ctx.builder("farm_stone").addBox(ctx.xf([cx, cy, 0.06])[0], [a[1] === bb[1] ? L2 + 0.12 : 0.12, a[1] === bb[1] ? 0.12 : L2, 0.12], [0, 0, 0], ctx.uvScale("farm_stone"), [], "world");
     }
     const area = (x1 - x0) * (y1 - y0);
-    for (let i = 0; i < area * 5; i++) {
+    for (let i = 0; i < area * 3; i++) {
       const x = f.rng.uniform(x0 + 0.15, x1 - 0.15), y = f.rng.uniform(y0 + 0.15, y1 - 0.15);
       const h = f.rng.uniform(0.25, 0.55), col = cols[Math.floor(f.rng.uniform(0, cols.length))];
       const stem = [x, y, 0.04];
@@ -87,7 +87,7 @@ export function register(L) {
         const a = f.rng.uniform(0, 2 * Math.PI);
         ctx.builder("farm_leaf").addBox(ctx.xf([x + Math.cos(a) * 0.05, y + Math.sin(a) * 0.05, 0.04 + h * 0.4])[0], [0.1, 0.03, 0.006], [a / D, 0, 25], 0.4, [], "world");
       }
-      ctx.builder(col).addSphere(ctx.xf([x, y, 0.04 + h])[0], f.rng.uniform(0.035, 0.06), 6, 10, 0.2);
+      ctx.builder(col).addSphere(ctx.xf([x, y, 0.04 + h])[0], f.rng.uniform(0.035, 0.06), 5, 8, 0.2);
       void stem;
     }
   });
@@ -102,10 +102,10 @@ export function register(L) {
     for (let i = 0; i < Math.floor(W / 0.35); i++)
       for (let j = 0; j < 2; j++) {
         const x = -W / 2 + 0.25 + i * 0.35, y = (j - 0.5) * (Dp * 0.45);
-        if (kind === "lettuce") for (let k = 0; k < 4; k++) blob(ctx, f, "farm_corn_leaf", [x, y, H + 0.05 + k * 0.01], 0.11 - k * 0.015, [1, 1, 0.6], i * 7 + j * 3 + k, 0.5);
+        if (kind === "lettuce") for (let k = 0; k < 2; k++) blob(ctx, f, "farm_corn_leaf", [x, y, H + 0.05 + k * 0.01], 0.11 - k * 0.015, [1, 1, 0.6], i * 7 + j * 3 + k, 0.5);
         else {
           ctx.builder("farm_pine").addCylinder(f.p(x, y, H + 0.6), 0.01, 1.2, 4, 0.4, false, [0, 0, 0]);
-          for (let k = 0; k < 5; k++) blob(ctx, f, "farm_leaf", [x + f.rng.uniform(-0.12, 0.12), y + f.rng.uniform(-0.12, 0.12), H + 0.3 + k * 0.18], 0.12, [1, 1, 1], i * 5 + k, 0.5);
+          for (let k = 0; k < 3; k++) blob(ctx, f, "farm_leaf", [x + f.rng.uniform(-0.12, 0.12), y + f.rng.uniform(-0.12, 0.12), H + 0.3 + k * 0.28], 0.12, [1, 1, 1], i * 5 + k, 0.5);
           for (let k = 0; k < 3; k++) ctx.builder("farm_apple").addSphere(f.p(x + f.rng.uniform(-0.1, 0.1), y + f.rng.uniform(-0.1, 0.1), H + 0.35 + k * 0.2), 0.04, 6, 10, 0.2);
         }
       }
