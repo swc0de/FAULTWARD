@@ -110,4 +110,4 @@ Third-party notices and licenses are retained in **`THIRD_PARTY_NOTICES.txt`**, 
 
 ## Release
 
-**V03.0** is the portable, cleaned runtime distribution of FAULTWARD. The branch contains only what is needed to launch and play the game, plus the documentation and license files needed for distribution on GitHub.
+**V03.10** is the portable, cleaned runtime distribution of FAULTWARD. The branch contains only what is needed to launch and play the game, plus the documentation and license files needed for distribution on GitHub.
