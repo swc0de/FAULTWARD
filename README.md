@@ -40,11 +40,13 @@ FAULTWARD is a round-based tactical shooter with an authoritative 64 Hz server a
     <td align="center"><img src="client/dist/assets/brand/qalat.webp" alt="Qalat Village" width="300"></td>
     <td align="center"><img src="client/dist/assets/brand/bazaar.webp" alt="Sarai Bazaar" width="300"></td>
     <td align="center"><img src="client/dist/assets/brand/oilcamp.webp" alt="Oil Camp" width="300"></td>
+    <td align="center"><img src="client/dist/assets/brand/farmhouse.webp" alt="Hollister Farm" width="300"></td>
   </tr>
   <tr>
     <td align="center"><strong>Qalat Village</strong><br>A mountain village built around a fortified qala and caravanserai.</td>
     <td align="center"><strong>Sarai Bazaar</strong><br>A dense market district with a fuel station and hotel compound.</td>
     <td align="center"><strong>Oil Camp</strong><br>An industrial desert site of rigs, pipe racks, and processing equipment.</td>
+    <td align="center"><strong>Hollister Farm</strong><br>A two-storey farmhouse among corn and wheat fields, with a barn, grain silos, and a machine shed.</td>
   </tr>
 </table>
 
@@ -99,6 +101,7 @@ This branch is the ready-to-run **V03.0 Windows release**. It intentionally excl
 | `server/dist/` | Compiled game and web server |
 | `data/` | Runtime maps and server data |
 | `node_modules/` | Runtime server dependencies |
+| `scripts/bake-map.mjs` | Bakes a map's client assets (geometry, lighting, radar) from its file in `data/maps/` |
 | `runtime/` | Bundled Node.js Windows runtime |
 
 Third-party notices and licenses are retained in **`THIRD_PARTY_NOTICES.txt`**, **`runtime/LICENSE.txt`**, and the relevant runtime dependency folders.

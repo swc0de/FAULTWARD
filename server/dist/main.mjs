@@ -31,7 +31,7 @@ var STATIC_DIR = path.join(ROOT, "server", "static");
 function mapPath(name) {
   return path.join(MAPS_DIR, `${name === "border" ? "qalat" : name}.json`);
 }
-var MAP_ORDER = ["qalat", "bazaar", "oilcamp"];
+var MAP_ORDER = ["qalat", "bazaar", "oilcamp", "farmhouse"];
 function availableMaps() {
   try {
     const keys = fs.readdirSync(MAPS_DIR).filter((f) => f.endsWith(".json") && f !== "border.json").map((f) => f.slice(0, -5));

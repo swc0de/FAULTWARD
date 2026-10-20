@@ -2,7 +2,7 @@
  "_comment": [
   "Public servers the gateway starts at boot (server/src/web/servers.ts). Each runs one match",
   "process that never ends: continuous rounds, the next map of 'rotation' after every match (the",
-  "maps: qalat = Qalat Village, bazaar = Sarai Bazaar, oilcamp = Oil Camp), players dropping in and out, bots",
+  "maps: qalat = Qalat Village, bazaar = Sarai Bazaar, oilcamp = Oil Camp, farmhouse = Hollister Farm), players dropping in and out, bots",
   "keeping each side at 'fill'. preset: full (MR24) or short (MR12). pause_when_empty: stop at the next",
   "round boundary while nobody plays (decision Q6 c); otherwise an empty server keeps running its bots",
   "without building snapshots (Q6 a). SERVERS_FILE points at another file; an empty 'servers' list runs none."
@@ -48,10 +48,11 @@
   },
   {
    "id": "frontier-1",
-   "name": "Oil Field #1 - Oil Camp / Village / Bazaar",
+   "name": "Oil Field #1 - Oil Camp / Farm / Village / Bazaar",
    "region": "EU",
    "rotation": [
     "oilcamp",
+    "farmhouse",
     "qalat",
     "bazaar"
    ],

@@ -36,7 +36,7 @@ The map should play as well as the existing three maps, so build it in the same 
 - **Region:** rural Midwest USA (fictional county, e.g. Nebraska/Kansas), late summer, golden-hour light.
   Choose a warm, clear HDRI from the existing `hdri_candidates`; low fog with a warm dust colour; green-gold
   ground. Flat land with a gentle rolling `terrain` ring at the edge, no mountains.
-- **Size:** about the same as the other maps (`bounds` around `[[-63, -67, -1], [63, 67, 16]]`).
+- **Size:** slightly smaller than the other maps (`bounds` around `[[-54, -58, -1], [54, 58, 16]]`), with a full-size farmhouse.
 - **Fields:** tall corn rows on one side and golden wheat on the other, filling the open ground around the
   farm. The corn should be tall enough to hide a standing player and give soft cover (it blocks sight, not
   bullets); wheat should be waist high. Leave mown dirt tracks through the fields as attack lanes. If no
