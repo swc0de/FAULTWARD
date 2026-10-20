@@ -854,9 +854,9 @@ var match_default = {
     }
   },
   timers: {
-    freeze_time: 8,
+    freeze_time: 0,
     prep_time: 20,
-    buy_time: 20,
+    buy_time: 30,
     round_time: 115,
     round_end_delay: 6,
     halftime_delay: 8,
@@ -4409,9 +4409,9 @@ var duel_default = {
     "walls closing the rest."
   ],
   timers: {
-    freeze_time: 5,
+    freeze_time: 0,
     prep_time: 0,
-    buy_time: 15,
+    buy_time: 30,
     round_time: 75,
     bomb_timer: 35,
     round_end_delay: 4,
@@ -8822,20 +8822,22 @@ var Match = class {
   }
   /** Set by the director while only bots defend and a player attacks: no preparation phase this round. */
   skipPrep = false;
+  /** Seconds since the round began (freeze, prep and live): the buy window is the first buy_time of them. */
+  buyClock = 0;
   get isLive() {
     return this.phase === "live" || this.phase === "planted";
   }
   get prepTime() {
     return Number(this.timers.prep_time ?? 0);
   }
+  get inRound() {
+    return this.phase === "freeze" || this.phase === "prep" || this.isLive;
+  }
   canBuy() {
-    if (this.phase === "freeze" || this.phase === "prep") return true;
-    return this.isLive && this.roundClock < Number(this.timers.buy_time);
+    return this.inRound && this.buyClock < Number(this.timers.buy_time);
   }
   buyTimeLeft() {
-    if (this.phase === "freeze" || this.phase === "prep") return Number(this.timers.buy_time);
-    if (this.isLive) return Math.max(Number(this.timers.buy_time) - this.roundClock, 0);
-    return 0;
+    return this.inRound ? Math.max(Number(this.timers.buy_time) - this.buyClock, 0) : 0;
   }
   clock() {
     const t = this.timers;
@@ -8891,6 +8893,7 @@ var Match = class {
   beginRound(swapped, fresh = false) {
     this.round += 1;
     this.roundClock = 0;
+    this.buyClock = 0;
     this.bombClock = 0;
     this.planter = null;
     this.defuser = null;
@@ -8904,6 +8907,7 @@ var Match = class {
   update(dt) {
     this.phaseTime += dt;
     if (this.phase === "waiting" || this.phase === "match_end") return;
+    if (this.inRound) this.buyClock += dt;
     const t = this.timers;
     if (this.phase === "freeze") {
       if (this.phaseTime >= Number(t.freeze_time)) {
@@ -22759,9 +22763,11 @@ var GadgetAI = class _GadgetAI {
   update(now) {
     this.look();
     const m = this.director.match;
-    if (m.phase === "freeze") {
+    // a new round resets the plan (there may be no freeze phase for us to see)
+    if (m.phase === "freeze" || m.round !== this.seenRound) {
+      this.seenRound = m.round;
       this.prepDone = this.liveDone = false;
-      return;
+      if (m.phase === "freeze") return;
     }
     if (m.phase === "prep" && !this.prepDone) {
       this.prepDone = true;
@@ -26024,8 +26030,9 @@ var MatchDirector = class {
     this.hookDamage(agent);
     this.humansList.push(agent);
     const phase = this.match.phase;
-    if (phase === "freeze" || phase === "prep") {
-      this.rebalanceBots(false);
+    // joining during the buy window: straight into this round at a free spawn
+    if (phase === "freeze" || phase === "prep" || this.match.canBuy()) {
+      if (phase === "freeze" || phase === "prep") this.rebalanceBots(false);    // live: the bot makes way next round
       const spots = this.game.level.spawns.filter((s) => s.team === agent.side);
       const taken = [...this.humans.filter((h) => h !== agent).map((h) => h.motor.char.pos), ...this.bots.filter((b) => b.active).map((b) => b.char.pos)];
       const free = spots.filter((s) => taken.every((p) => Math.hypot(s.pos[0] - p[0], s.pos[1] - p[1], s.pos[2] - p[2]) > 1));
@@ -26088,7 +26095,7 @@ var MatchDirector = class {
       h.hint = "";
       h.progress = null;
     }
-    if (this.botsBuy && m.phase === "freeze") {
+    if (this.botsBuy && m.inRound) {
       this.botsBuy = false;
       for (const tb of this.teamBrains.values()) {
         tb.buy();
@@ -27110,7 +27117,7 @@ function buildRules(cfg2) {
   const rules = loadPreset(cfg2.preset);
   if (cfg2.friendlyFire !== null) rules.friendly_fire = cfg2.friendlyFire;
   if (cfg2.shortTimers) {
-    rules.timers.freeze_time = 2;
+    rules.timers.freeze_time = 0;
     rules.timers.prep_time = 0;
   }
   if (cfg2.fastRounds) Object.assign(rules.timers, FAST_TIMERS);
@@ -27131,7 +27138,11 @@ var Client = class {
   connected = true;
   disconnectedAt = 0;
   delayed = [];
+  /** Loaded the map and clicked in ("Click to play" / "Click to watch"). */
+  ready = false;
 };
+/** Seconds a match waits for its players to click in before it starts anyway. */
+var READY_TIMEOUT = 120;
 var MatchServer = class {
   cfg;
   out;
@@ -27315,6 +27326,15 @@ var MatchServer = class {
       case "join":
         this.join(msg.uid, msg.name, msg.mode, msg.team);
         break;
+      case "ready": {
+        const c = this.clients.get(msg.uid);
+        if (c && !c.ready) {
+          c.ready = true;
+          this.log(`[match ${this.cfg.matchId}] ${c.name} is ready`);
+          if (!this.started && this.mayStart()) this.start();
+        }
+        break;
+      }
       case "disconnect": {
         const c = this.clients.get(msg.uid);
         if (c) {
@@ -27432,10 +27452,14 @@ var MatchServer = class {
     this.sendRoster();
     this.log(`[match ${this.cfg.matchId}] ${name} joined (${mode}, team ${c.view.team})`);
   }
+  /** Start only once the players have loaded in and clicked: everyone on the roster, else anyone at all. */
   mayStart() {
     const roster = Object.keys(this.cfg.roster);
-    if (roster.length) return roster.every((u) => this.clients.get(Number(u))?.agent);
-    return this.cfg.startOnFirstJoin;
+    if (roster.length) return roster.every((u) => {
+      const c = this.clients.get(Number(u));
+      return !!(c && c.agent && c.ready);
+    });
+    return this.cfg.startOnFirstJoin && [...this.clients.values()].some((c) => c.ready);
   }
   remove(uid) {
     const c = this.clients.get(uid);
@@ -27589,7 +27613,10 @@ var MatchServer = class {
     const t0 = performance.now();
     let advance = this.started;
     if (this.duel) advance = this.duelTick(g4.loop.dt) && advance;
-    else if (!this.started && Object.keys(this.cfg.roster).length && this.firstJoin !== null && this.now() - this.firstJoin > this.cfg.joinTimeout) {
+    else if (!this.started && Object.keys(this.cfg.roster).length && this.firstJoin !== null && this.now() - this.firstJoin > Math.max(this.cfg.joinTimeout, READY_TIMEOUT)) {
+      this.start();
+      advance = true;
+    } else if (!this.started && this.cfg.startOnFirstJoin && this.firstJoin !== null && this.now() - this.firstJoin > READY_TIMEOUT) {
       this.start();
       advance = true;
     }

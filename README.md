@@ -88,7 +88,7 @@ Local play works without configuration. To change the server defaults, copy **`.
 | --- | ---: | --- |
 | `HOST` | `127.0.0.1` | Address the server listens on |
 | `PORT` | `5000` | Preferred local port |
-| `MAX_MATCHES` | `4` | Maximum simultaneous matches |
+| `MAX_MATCHES` | `10` | Maximum simultaneous matches |
 
 ## Repository contents
 
@@ -104,6 +104,7 @@ This branch is the ready-to-run **V03.0 Windows release**. It intentionally excl
 | `scripts/bake-map.mjs` | Bakes a map's client assets (geometry, lighting, radar) from its file in `data/maps/`; `scripts/bake/` holds its furniture and yard models |
 | `scripts/maps/farmhouse.py` | Generates `data/maps/farmhouse.json` (Hollister Farm) |
 | `scripts/textures/` | Generates the Hollister Farm textures and registers its materials in the game |
+| `scripts/rehash_client.py` | Gives edited client chunks new content-hashed names (and updates their importers and the manifest) |
 | `runtime/` | Bundled Node.js Windows runtime |
 
 Third-party notices and licenses are retained in **`THIRD_PARTY_NOTICES.txt`**, **`runtime/LICENSE.txt`**, and the relevant runtime dependency folders.

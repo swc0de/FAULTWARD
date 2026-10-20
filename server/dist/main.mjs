@@ -130,7 +130,7 @@ function loadConfig() {
     tickRate: int("TICK_RATE", 64),
     snapshotRate: int("SNAPSHOT_RATE", 32),
     interpMs: int("INTERP_MS", 100),
-    maxMatches: int("MAX_MATCHES", 4),
+    maxMatches: int("MAX_MATCHES", 10),
     loginAttempts: int("LOGIN_ATTEMPTS", 5),
     serversFile: process.env.SERVERS_FILE !== void 0 ? env("SERVERS_FILE") : path2.join(ROOT, "data", "servers.json"),
     duelSpectatorDelay: Number.parseFloat(env("DUEL_SPECTATOR_DELAY", "10")) || 10,
@@ -905,7 +905,7 @@ function checkSettings(changes, current = SETTINGS, maps = ["qalat"]) {
   for (const [k, v] of Object.entries(changes ?? {})) {
     if (!(k in SETTINGS)) throw new LobbyError(`unknown setting ${k}`);
     if (k === "map" && !maps.includes(v) || k === "difficulty" && !DIFFICULTIES.includes(v) || k === "preset" && !PRESETS.includes(v)) throw new LobbyError(`${k}: not allowed`);
-    if ((k === "size_attack" || k === "size_defend") && (typeof v !== "number" || !Number.isInteger(v) || v < 1 || v > 5)) throw new LobbyError(`${k}: 1-5`);
+    if ((k === "size_attack" || k === "size_defend") && (typeof v !== "number" || !Number.isInteger(v) || v < 1 || v > 8)) throw new LobbyError(`${k}: 1-8`);
     if ((k === "humans_vs_bots" || k === "friendly_fire") && typeof v !== "boolean") throw new LobbyError(`${k}: true or false`);
     out[k] = v;
   }
@@ -7821,7 +7821,7 @@ function workerFile() {
   return { url: new URL("./worker.mjs", import.meta.url), execArgv: [] };
 }
 var MatchManager = class {
-  constructor(deliver, maxMatches = 4, tickRate = 64, snapshotRate = 32, log2 = console.log) {
+  constructor(deliver, maxMatches = 10, tickRate = 64, snapshotRate = 32, log2 = console.log) {
     this.deliver = deliver;
     this.maxMatches = maxMatches;
     this.tickRate = tickRate;
@@ -7873,6 +7873,11 @@ var MatchManager = class {
   command(id, uid, kind, item) {
     const h = this.matches.get(id);
     if (h && h.status === "running" && h.users.has(uid)) h.post({ t: "cmd", uid, kind, item });
+  }
+  /** The player has loaded the map and clicked in ("Click to play"): a waiting match may start. */
+  ready(id, uid) {
+    const h = this.matches.get(id);
+    if (h && h.status === "running" && h.users.has(uid)) h.post({ t: "ready", uid });
   }
   chat(id, uid, scope, text2) {
     const h = this.matches.get(id);
@@ -7974,6 +7979,7 @@ var EVENTS2 = {
     team: S("integer", { required: false, choices: [0, 1], nullable: true })
   },
   "match:leave": {},
+  "match:ready": {},
   "match:stop": { match_id: S("string", { pattern: MATCH_ID_RE }) },
   ping: { t: S("number", { min: 0, max: 2 ** 53 }) },
   buy: { item: S("string", { maxLen: 32, pattern: ITEM_RE }) },
@@ -8295,8 +8301,8 @@ function loadSpecs(file, maps) {
     if (seen.has(s.id)) throw new Error(`servers: duplicate id ${s.id}`);
     if (!/^[a-z0-9-]{1,32}$/.test(s.id)) throw new Error(`servers: ${s.id}: id must be 1-32 of a-z, 0-9 and -`);
     if (!PRESETS2.includes(s.preset) || !DIFFICULTIES2.includes(s.difficulty)) throw new Error(`servers: ${s.id}: bad preset or difficulty`);
-    if (!(s.maxPlayers >= 1 && s.maxPlayers <= 10 && s.fill.length === 2 && s.fill.every((v) => v >= 0 && v <= 5))) {
-      throw new Error(`servers: ${s.id}: max_players 1-10, fill two sizes 0-5`);
+    if (!(s.maxPlayers >= 1 && s.maxPlayers <= 16 && s.fill.length === 2 && s.fill.every((v) => v >= 0 && v <= 8))) {
+      throw new Error(`servers: ${s.id}: max_players 1-16, fill two sizes 0-8`);
     }
     const missing = s.rotation.filter((m) => !maps.includes(m));
     if (missing.length) throw new Error(`servers: ${s.id}: unknown map ${missing[0]}`);
@@ -9060,6 +9066,10 @@ Content-Length: 0\r
       case "match:leave":
         this.leave(c);
         return { ok: true };
+      case "match:ready":
+        if (!c.matchId) return fail("state", "not in a match");
+        this.matches.ready(c.matchId, c.userId);
+        return { ok: true };
       case "buy":
       case "sell":
       case "specialist":
@@ -9776,12 +9786,12 @@ function playPage(ctx, d) {
               <label><span>Map</span><select name="map">${mapOptions(d.maps)}</select></label>
               <label><span>Difficulty</span>
                 <select name="difficulty"><option>easy</option><option selected>normal</option><option>hard</option><option>expert</option></select></label>
-              <label><span>Bots, attackers</span><input name="bots_team0" type="number" min="0" max="5" value="0"></label>
-              <label><span>Bots, defenders</span><input name="bots_team1" type="number" min="0" max="5" value="2"></label>
+              <label><span>Bots, attackers</span><input name="bots_team0" type="number" min="0" max="8" value="0"></label>
+              <label><span>Bots, defenders</span><input name="bots_team1" type="number" min="0" max="8" value="2"></label>
             </div>
             <details class="match-details"><summary>Match title (optional)</summary><label><span>Title</span><input name="title" maxlength="40" placeholder="Name your match"></label></details>
             <label class="check"><input type="checkbox" name="short_timers" value="1" checked>
-              <span>Short timers (2 s freeze, no preparation)</span></label>
+              <span>Short timers (no preparation phase)</span></label>
             <label class="check"><input type="checkbox" name="watch" value="1">
               <span>Just watch: bots on both sides (5 v 5 when both counts are 0), you spectate</span></label>
             <button type="submit" class="button primary">Start a match</button>
@@ -9910,8 +9920,8 @@ function lobbyPage(ctx, d) {
       <label><span>Map</span><select name="map">${mapOptions(d.maps)}</select></label>
       <label><span>Rules</span><select name="preset">${d.presets.map((p) => html`<option value="${p}">${presetName[p] ?? p}</option>`)}</select></label>
       <label><span>Bot difficulty</span><select name="difficulty">${d.difficulties.map((x) => html`<option>${x}</option>`)}</select></label>
-      <label><span>Team 1 size</span><input type="number" name="size_attack" min="1" max="5"></label>
-      <label><span>Team 2 size</span><input type="number" name="size_defend" min="1" max="5"></label>
+      <label><span>Team 1 size</span><input type="number" name="size_attack" min="1" max="8"></label>
+      <label><span>Team 2 size</span><input type="number" name="size_defend" min="1" max="8"></label>
       <label class="check"><input type="checkbox" name="humans_vs_bots"><span>Humans vs bots (every player on team 1, no bot teammates)</span></label>
       <label class="check"><input type="checkbox" name="friendly_fire"><span>Friendly fire</span></label>
     </form>
@@ -10303,7 +10313,7 @@ async function registerViews(app, d) {
       const map = str(b.map) || "qalat";
       if (!gateway.lobbies.maps.includes(map)) throw new Error("map: unknown");
       const watch = ["1", "on", "true"].includes(str(b.watch));
-      let bots = [num("bots_team0", 0, 5, 0), num("bots_team1", 0, 5, 2)];
+      let bots = [num("bots_team0", 0, 8, 0), num("bots_team1", 0, 8, 2)];
       if (watch && bots[0] === 0) bots = [5, bots[1] || 5];
       opts = {
         map,
