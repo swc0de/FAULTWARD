@@ -343,6 +343,21 @@ function writeGLB(nodesSpec) {
           if (v[o + a] < min[a]) min[a] = v[o + a];
           if (v[o + a] > max[a]) max[a] = v[o + a];
         }
+        // a zero normal or tangent turns into NaN in the shader (and the bloom spreads it over the screen)
+        let nl = Math.hypot(nor[i * 3], nor[i * 3 + 1], nor[i * 3 + 2]);
+        if (!(nl > 1e-6)) {
+          nor[i * 3] = 0;
+          nor[i * 3 + 1] = 0;
+          nor[i * 3 + 2] = 1;
+          nl = 1;
+        }
+        const tl = Math.hypot(tan[i * 4], tan[i * 4 + 1], tan[i * 4 + 2]);
+        if (!(tl > 1e-6)) {
+          const nz = Math.abs(nor[i * 3 + 2]) < 0.9;
+          const tt = nz ? [-nor[i * 3 + 1], nor[i * 3], 0] : [0, -nor[i * 3 + 2], nor[i * 3 + 1]];
+          const l = Math.hypot(...tt) || 1;
+          for (let a = 0; a < 3; a++) tan[i * 4 + a] = tt[a] / l;
+        }
         // handedness: is the stored binormal along cross(n, t)?
         const cx = v[o + 4] * v[o + 8] - v[o + 5] * v[o + 7], cy = v[o + 5] * v[o + 6] - v[o + 3] * v[o + 8], cz = v[o + 3] * v[o + 7] - v[o + 4] * v[o + 6];
         tan[i * 4 + 3] = cx * v[o + 9] + cy * v[o + 10] + cz * v[o + 11] < 0 ? -1 : 1;
@@ -426,6 +441,10 @@ function writePNG(w, h, rgb) {
 // ============================================================================================== main
 const L = await loadLevelCode();
 registerVisualPrefabs(L);
+for (const f of fs.readdirSync(path.join(ROOT, "scripts", "bake")).filter((f) => f.endsWith(".mjs")).sort()) {
+  // more visual-only prefabs (furniture, fittings): each module exports register(L)
+  (await import(pathToFileURL(path.join(ROOT, "scripts", "bake", f)).href)).register(L);
+}
 const dataFile = path.join(ROOT, "data", "maps", `${key}.json`);
 const data = JSON.parse(fs.readFileSync(dataFile, "utf8"));
 const t0 = Date.now();
@@ -605,8 +624,10 @@ for (let c = 0; c < nCells; c++) {
 const t3 = Date.now();
 const aoDirs = sphereDirs(24);
 const groups = new Map();
+const OUTDOOR_DUST = new Set(["farm_siding", "farm_stone", "farm_brick", "farm_deck", "farm_barn_red", "farm_galvanized", "farm_shingle", "farm_gravel", "farm_soil"]);
 for (const [bkey, b] of ctx.builders) {
-  if (!b.indices.length) continue;
+  // farm_invisible (and any other "collision only" material): colliders without a mesh
+  if (!b.indices.length || b.name === "farm_invisible") continue;
   const suffix = bkey.includes("@") ? bkey.slice(bkey.indexOf("@") + 1) : "";
   const node = suffix ? `level:${suffix}` : "level";
   if (!groups.has(node)) groups.set(node, { name: node, extras: suffix ? { layer: suffix } : null, prims: [] });
@@ -629,7 +650,11 @@ for (const [bkey, b] of ctx.builders) {
       v[o + 14] = tot ? 0.3 + 0.7 * Math.min(1, free / tot) : 1;
     }
   }
-  const emission = { flame: [40, 13, 3], flame_hot: [70, 45, 16], lamp_lens: [16, 15, 12] }[b.name];
+  if (b.name.startsWith("farm_") && !OUTDOOR_DUST.has(b.name)) {
+    // clean interiors: no ground-dust gradient on furniture and finishes (the shader's dust follows detail.y)
+    for (let i = 0; i < n; i++) v[i * 18 + 15] = -1;
+  }
+  const emission = { flame: [40, 13, 3], flame_hot: [70, 45, 16], lamp_lens: [16, 15, 12], farm_bulb: [12, 10.4, 7.6], farm_lampshade: [2.4, 2.0, 1.5] }[b.name];
   groups.get(node).prims.push({ material: emission ? { name: b.name, extras: { emission } } : { name: b.name }, verts: v, count: n, indices: b.indices });
 }
 // fixtures: a bulb and its cord for every bulb light
@@ -737,6 +762,11 @@ const currentFile = path.join(CLIENT, current.replace(/^\//, ""));
 const manifest = JSON.parse(fs.readFileSync(currentFile, "utf8"));
 const previousWasBaked = !!manifest.baked_maps;
 manifest.maps[key] = entry;
+if (data.material_pack) {
+  // the map's own generated materials (scripts/textures/*.py writes the pack next to its textures)
+  const pack = JSON.parse(fs.readFileSync(path.join(CLIENT, data.material_pack.replace(/^\//, "")), "utf8"));
+  Object.assign(manifest.materials, pack);
+}
 manifest.baked_maps = [...new Set([...(manifest.baked_maps ?? []), key])].sort();
 const mbuf = Buffer.from(JSON.stringify(manifest));
 const mname = `manifest-${hash(mbuf)}.json`;
