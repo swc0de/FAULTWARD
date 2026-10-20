@@ -163,15 +163,17 @@ function registerVisualPrefabs(L) {
       for (let j = 0; j < ny; j++) {
         const a = P(i, j), bb = P(i + 1, j), c = P(i + 1, j + 1), d = P(i, j + 1);
         const n = norm([-(bb[2] - a[2]) / ((x1 - x0) / nx), -(d[2] - a[2]) / ((y1 - y0) / ny), 1]);
-        b.addQuad([a, bb, c, d], n, [1, 0, 0], [0, 1, 0], [[a[0] / uv, a[1] / uv], [bb[0] / uv, bb[1] / uv], [c[0] / uv, c[1] / uv], [d[0] / uv, d[1] / uv]]);
+        const ou = rng.uniform(0, 1), ov = rng.uniform(0, 1);              // per-cell offset: no visible tiling grid
+        b.addQuad([a, bb, c, d], n, [1, 0, 0], [0, 1, 0], [[a[0] / uv + ou, a[1] / uv + ov], [bb[0] / uv + ou, bb[1] / uv + ov], [c[0] / uv + ou, c[1] / uv + ov], [d[0] / uv + ou, d[1] / uv + ov]]);
       }
-    // sides
+    // sides (their own material when given: the edge of a field seen from beside it; v runs down from the top)
+    const sb = ctx.builder(e.side_mat ?? e.mat ?? "sack"), suv = ctx.uvScale(e.side_mat ?? e.mat ?? "sack");
     const side = (p0, p1, out) => {
       const w = [p1[0] - p0[0], p1[1] - p0[1], 0];
       const L = Math.hypot(w[0], w[1]);
       const t = [w[0] / L, w[1] / L, 0];
       const c = [[p0[0], p0[1], 0], [p1[0], p1[1], 0], [p1[0], p1[1], h - 0.05], [p0[0], p0[1], h - 0.05]];
-      b.addQuad(c, norm([out[0], out[1], 0.6]), t, [0, 0, 1], [[0, 0], [L / uv, 0], [L / uv, h / uv], [0, h / uv]]);
+      sb.addQuad(c, norm([out[0], out[1], 0.6]), t, [0, 0, 1], [[0, h / suv], [L / suv, h / suv], [L / suv, 0.04], [0, 0.04]]);
     };
     side([x0, y0], [x1, y0], [0, -1]);
     side([x1, y1], [x0, y1], [0, 1]);

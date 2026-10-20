@@ -1072,7 +1072,7 @@ for st, (z, _h) in STOREY.items():
 # ============================================================================================== the yard
 BX = BY = 35.0
 P.append({"type": "floor", "min": [-BX, -BY], "max": [BX, BY], "z": 0.0, "thickness": 0.5, "mat": "farm_lawn"})
-P.append({"type": "terrain", "inner": [[-BX, -BY], [BX, BY]], "extent": 640, "step": 12, "start": 80, "ramp": 260, "height": 8, "seed": 81, "mat": "farm_soil"})
+P.append({"type": "terrain", "inner": [[-BX, -BY], [BX, BY]], "extent": 640, "step": 12, "start": 80, "ramp": 260, "height": 8, "seed": 81, "mat": "farm_stubble"})
 # boundary: a clipped hedge all round, two gates in the south hedge (closed)
 HEDGE_T, HEDGE_H = 1.1, 2.6
 SOUTH = -33.8
@@ -1145,10 +1145,11 @@ vbox([0, -42.0, -0.03], [400, 8.0, 0.06], "farm_asphalt")
 for x in range(-120, 121, 8):
     vbox([x, -42.0, 0.004], [3.5, 0.15, 0.01], "farm_trim")
 vbox([0, -37.0, -0.02], [400, 2.2, 0.05], "farm_gravel")
-V.append({"type": "crop_surface", "min": [-140, -110], "max": [140, -46.5], "height": 0.85, "mat": "farm_wheat", "seed": 3})
-V.append({"type": "crop_surface", "min": [-140, -35.5], "max": [-37.5, 120], "height": 2.3, "mat": "farm_corn_leaf", "seed": 5})
-V.append({"type": "crop_surface", "min": [37.5, -35.5], "max": [140, 120], "height": 0.85, "mat": "farm_wheat", "seed": 7})
-V.append({"type": "crop_surface", "min": [-37.5, 37.5], "max": [37.5, 120], "height": 2.3, "mat": "farm_corn_leaf", "seed": 9})
+vbox([0, -47.25, -0.03], [400, 2.5, 0.06], "farm_lawn")
+V.append({"type": "crop_surface", "min": [-140, -110], "max": [140, -48.5], "height": 0.85, "mat": "farm_wheat_field", "side_mat": "farm_wheat", "seed": 3})
+V.append({"type": "crop_surface", "min": [-140, -35.5], "max": [-37.5, 112], "height": 2.3, "mat": "farm_corn_canopy", "side_mat": "farm_corn_wall", "seed": 5})
+V.append({"type": "crop_surface", "min": [37.5, -35.5], "max": [140, 112], "height": 0.85, "mat": "farm_wheat_field", "side_mat": "farm_wheat", "seed": 7})
+V.append({"type": "crop_surface", "min": [-37.5, 37.5], "max": [37.5, 112], "height": 2.3, "mat": "farm_corn_canopy", "side_mat": "farm_corn_wall", "seed": 9})
 # rows of real plants along the near edge of each field, so it reads as a crop over the hedge
 V.append({"type": "crop_field", "kind": "corn", "rows": "y", "min": [-39.2, -34.0], "max": [-37.6, 36.0], "mat": "farm_corn_leaf", "top_mat": "farm_wheat", "step": 0.55, "seed": 11})
 V.append({"type": "crop_field", "kind": "corn", "rows": "x", "min": [-36.0, 37.6], "max": [36.0, 39.2], "mat": "farm_corn_leaf", "top_mat": "farm_wheat", "step": 0.55, "seed": 13})
@@ -1157,7 +1158,71 @@ piece("farm_silo_scenery", [-44.0, 82.0, 2.25], 0, radius=3.6, height=13)
 piece("farm_silo_scenery", [-36.0, 84.0, 2.25], 0, radius=3.2, height=11.5)
 piece("farm_silo_scenery", [-40.0, 92.0, 2.25], 0, radius=4.0, height=15)
 for (tx, ty) in [(-80, 40), (-70, 50), (60, 70), (75, 55), (50, -70), (-60, -80)]:
-    piece("farm_tree", [tx, ty, 0], 0, height=12, spread=5.0)
+    piece("farm_tree", [tx, ty, 0], 0, height=12, spread=5.0, detail=0)
+
+# ---- the outside, made real: gutters and downspouts, shutters, porch baskets, services, grass, power, windbreaks
+GUT_Z = eave_z - OVER * t - 0.26
+piece("farm_gutter", [0, Y0 - OVER - 0.07, GUT_Z], 0, length=X1 - X0 + 1.15)
+piece("farm_gutter", [0, Y1 + OVER + 0.07, GUT_Z], 180, length=X1 - X0 + 1.15)
+piece("farm_gutter", [0, -11.42, GF + 2.6], 0, length=28.9)
+for gx in (X0 + 0.3, X1 - 0.3):
+    piece("farm_downspout", [gx, Y0, 0], 0, top=GUT_Z + 0.05, reach=OVER + 0.07)
+    piece("farm_downspout", [gx, Y1, 0], 180, top=GUT_Z + 0.05, reach=OVER + 0.07)
+for gx in (-14.3, 14.3):
+    piece("farm_downspout", [gx, -11.1, 0], 0, top=GF + 2.65, reach=0.32)
+# shutters on every full-size window
+for st, (z, _h) in STOREY.items():
+    for side, lst in EXT[st].items():
+        for o in lst:
+            if o["bottom"] < 0.3 or o["width"] < 0.95:
+                continue
+            base = {"s": [o["at"], Y0, z + o["bottom"]], "n": [o["at"], Y1, z + o["bottom"]], "w": [X0, o["at"], z + o["bottom"]], "e": [X1, o["at"], z + o["bottom"]]}[side]
+            piece("farm_shutters", base, {"s": 0, "n": 180, "w": -90, "e": 90}[side], window=o["width"], height=o["top"] - o["bottom"])
+# porch: hanging baskets between the posts, a mat at the front door is already there
+for bx in (-7.0, 1.5, 6.5, 11.4):
+    piece("farm_hanging_basket", [bx, -10.8, GF + 2.86], 0, drop=0.55, flowers="farm_wall_rose" if bx < 3 else "farm_door_red")
+# services: AC condenser on the east side, the meter on the west wall, a hose reel at the back, roof vents
+piece("farm_ac_unit", [X1 + 0.65, 12.6, 0], 90)
+solid([X1 + 0.65, 12.6, 0], [0.95, 0.95, 0.85], surface="metal")
+piece("farm_meter", [X0, 10.5, 1.5], -90)
+piece("farm_hose_reel", [-3.5, Y1 + 0.45, 0], 180)
+solid([-3.5, Y1 + 0.45, 0], [0.6, 0.5, 0.8], surface="metal")
+for (vx, vy) in ((-4.0, 12.0), (2.0, 11.5), (-12.0, 12.5)):
+    piece("farm_vent_stack", [vx, vy, eave_z + (Y1 - vy) * t], 0)
+# yard: a bird bath and a woodpile against the west hedge
+piece("farm_bird_bath", [8.0, 22.0, 0], 0)
+solid([8.0, 22.0, 0], [0.6, 0.6, 0.8], surface="concrete")
+piece("farm_woodpile", [-32.95, -2.0, 0], 90, length=2.4)
+solid([-32.95, -2.0, 0], [0.6, 2.5, 1.5], surface="wood")
+# longer grass and weeds where the mower doesn't reach: hedge feet, the house walls, bed and path edges, fences
+HI = 33.8 - HEDGE_T / 2 - 0.05
+piece("farm_grass_tufts", [0, 0, 0], 0, per_m=1.3, offset=0.12, lines=[[[-HI, -HI], [-25.8, -HI]], [[-22.2, -HI], [21.4, -HI]], [[26.6, -HI], [HI, HI * -1]],
+      [[-HI, HI], [HI, HI]], [[-HI, -HI], [-HI, HI]], [[HI, -HI], [HI, HI]]])
+piece("farm_grass_tufts", [0, 0, 0], 0, per_m=1.6, offset=0.06, lines=[[[X1 + 0.08, -8.0], [X1 + 0.08, 1.2]], [[X1 + 0.08, 7.8], [X1 + 0.08, 15.0]], [[-7.5, Y1 + 0.08], [1.5, Y1 + 0.08]],
+      [[4.5, Y1 + 0.08], [6.0, Y1 + 0.08]], [[X0 - 0.08, -4.0], [X0 - 0.08, 3.0]], [[-17.0, Y1 + 0.08], [-15.5, Y1 + 0.08]]])
+piece("farm_grass_tufts", [0, 0, 0], 0, per_m=1.0, offset=0.05, lines=[
+    [[-14.06, -12.66], [-4.34, -12.66]], [[-1.66, -12.66], [14.06, -12.66]], [[-18.46, -8.0], [-18.46, -4.0]], [[-18.46, 3.0], [-18.46, 15.0]],
+    [[18.46, 1.2], [18.46, 7.8]], [[6.0, 16.46], [16.0, 16.46]],
+    [[-31.0, 7.4], [-31.0, 19.6]], [[-31.0, 19.6], [-20.0, 19.6]], [[-20.0, 19.6], [-20.0, 7.4]], [[-31.1, 7.5], [-27.0, 7.5]], [[-24.0, 7.5], [-20.0, 7.5]],
+    [[-25.06, -33.2], [-25.06, -21.0]], [[-22.94, -33.2], [-22.94, -21.0]], [[-25.0, -18.94], [-4.06, -18.94]], [[-22.94, -21.06], [-4.0, -21.06]],
+    [[21.74, -34.0], [21.74, -18.5]], [[26.26, -34.0], [26.26, -18.5]], [[1.44, 16.0], [1.44, 24.0]], [[4.56, 16.0], [4.56, 24.0]]])
+for (tx, ty, h, sp) in [(-26.0, -8.0, 10.0, 4.2), (-14.0, -24.0, 8.5, 3.6), (-27.0, 26.0, 11.0, 4.5), (27.0, 22.0, 9.5, 4.0), (10.0, 27.0, 8.0, 3.4), (28.0, -2.0, 9.0, 3.8)]:
+    piece("farm_grass_tufts", [0, 0, 0], 0, per_m=4.0, offset=0.15, scale=1.2, lines=[[[tx - 0.6, ty - 0.3], [tx + 0.6, ty + 0.3]], [[tx - 0.3, ty + 0.6], [tx + 0.3, ty - 0.6]]])
+# power: poles along the county road, a service drop over the hedge to a yard pole and on to the east gable
+POLE_Y, PH = -37.0, 9.5
+pole_xs = [-126, -90, -54, -18, 18, 31, 54, 90, 126]
+for px in pole_xs:
+    piece("farm_power_pole", [px, POLE_Y, 0], 90, height=PH, transformer=(px == 31))
+for off in (-0.95, 0.0, 0.95):
+    piece("farm_wires", [0, 0, 0], 0, points=[[px, POLE_Y + off, PH - 0.24] for px in pole_xs], sag=0.025)
+piece("farm_power_pole", [31.0, -14.0, 0], 0, height=8.0)
+solid([31.0, -14.0, 0], [0.3, 0.3, 8.0], surface="wood")
+piece("farm_wires", [0, 0, 0], 0, points=[[31.0, POLE_Y, PH - 2.2], [31.0, -14.0, 7.6], [X1 + 0.05, 6.0, 5.7]], sag=0.02)
+# windbreaks: rows of big trees along the far field edges
+for i, wx in enumerate(range(-130, 131, 13)):
+    piece("farm_tree", [wx + (i % 3) * 1.7, 118.0 + (i % 2) * 3.0, 0], 0, height=13 + (i % 4), spread=5.2, detail=0, leaf="farm_foliage_dark" if i % 3 else "farm_foliage")
+for i, wy in enumerate(range(-96, 111, 15)):
+    piece("farm_tree", [-128.0 + (i % 2) * 2.5, wy, 0], 0, height=12 + (i % 3), spread=5.0, detail=0, leaf="farm_foliage_dark" if i % 2 else "farm_foliage")
 
 # ======================================================================================== gameplay data
 for (x, y) in [(22.2, -31.6), (24.0, -31.2), (25.8, -31.6), (-24.8, -31.4), (-23.2, -31.0)]:

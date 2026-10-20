@@ -1180,6 +1180,222 @@ def _(n):
     return np.asarray(img) / 255.0 * (0.96 + 0.06 * grain_[..., None]), np.zeros((n, n)), 0.18
 
 
+# ---- outdoor: tree foliage and bark, grass blades, the crops seen from above and from their edges ---------------
+def leaf_layers(n, seed, base, tones, count, size, layers=4, sun=(1.12, 1.1, 0.86)):
+    """Overlapping leaves drawn in depth layers: the deep ones dark, the outer ones lit (and a little warmer)."""
+    r = np.random.default_rng(seed)
+    img = Image.new("RGB", (n, n), base)
+    d = ImageDraw.Draw(img)
+    for layer in range(layers):
+        k = layer / max(1, layers - 1)
+        shade = 0.42 + 0.58 * k
+        for _ in range(count):
+            x, y = r.uniform(0, n), r.uniform(0, n)
+            a = r.uniform(0, 2 * math.pi)
+            L = size * r.uniform(0.7, 1.3)
+            W = L * r.uniform(0.38, 0.55)
+            t = tones[r.integers(0, len(tones))]
+            g = r.uniform(0.85, 1.12) * shade
+            c = tuple(int(min(255, t[i] * g * (1 + (sun[i] - 1) * k * r.uniform(0, 1)))) for i in range(3))
+            vein = tuple(int(min(255, v * 1.18)) for v in c)
+            ca, sa = math.cos(a), math.sin(a)
+
+            def leaf(dx, dy, x=x, y=y, ca=ca, sa=sa, L=L, W=W, c=c, vein=vein):
+                pts = []
+                for i in range(12):
+                    u = i / 11
+                    w = W / 2 * math.sin(u * math.pi) ** 0.8
+                    pts.append((u * L, w))
+                for i in range(11, -1, -1):
+                    u = i / 11
+                    w = W / 2 * math.sin(u * math.pi) ** 0.8
+                    pts.append((u * L, -w))
+                d.polygon([(x + dx + px * ca - py * sa, y + dy + px * sa + py * ca) for px, py in pts], fill=c)
+                d.line([x + dx, y + dy, x + dx + L * 0.92 * ca, y + dy + L * 0.92 * sa], fill=vein, width=1)
+            wrap_draw(n, int(L) + 2, x, y, leaf)
+    alb = np.asarray(img.filter(ImageFilter.GaussianBlur(0.5))) / 255.0
+    h = luminance(alb)
+    return alb, (h - h.min()) / (h.max() - h.min() + 1e-9)
+
+
+@mat("farm_foliage", surface="fabric", uv_scale=1.1, height_strength=9.0)
+def _(n):
+    alb, h = leaf_layers(n, 901, (14, 22, 10), [(74, 104, 46), (88, 116, 50), (66, 96, 42), (102, 124, 56)], 2600, n * 0.045)
+    return alb * macro(n, 902, 0.1)[..., None], h, 0.72
+
+
+@mat("farm_foliage_dark", surface="fabric", uv_scale=1.1, height_strength=9.0)
+def _(n):
+    alb, h = leaf_layers(n, 911, (10, 18, 10), [(52, 82, 44), (60, 90, 48), (46, 74, 40), (70, 98, 52)], 2800, n * 0.04)
+    return alb * macro(n, 912, 0.1)[..., None], h, 0.7
+
+
+@mat("farm_bark", surface="wood", uv_scale=1.0, height_strength=10.0)
+def _(n):
+    # furrowed bark: plates between deep vertical fissures that wander and merge, lichen here and there
+    yy, xx = np.mgrid[0:n, 0:n] / n
+    wob = spectral(n, 3.0, 921, sx=1.0, sy=6.0)
+    wob2 = spectral(n, 2.4, 926, sx=1.0, sy=3.0)
+    ridges = np.abs(np.sin((xx * 17 + (wob - 0.5) * 3.0 + (wob2 - 0.5) * 1.2) * math.pi))
+    plates = band(n, 20, 70, 922)
+    cracks = smooth(band(n, 30, 90, 927), 0.8, 0.95) * smooth(1 - ridges, 0.3, 0.7)
+    fiss = np.clip(smooth(1 - ridges, 0.5, 0.92) * (0.5 + 0.6 * plates) + cracks, 0, 1)
+    fine = spectral(n, 1.6, 923, sx=1.0, sy=10.0)
+    alb = lerp(rgb("6d6255"), rgb("8a7f70"), 0.6 * fine + 0.4 * plates)
+    alb = lerp(alb, rgb("2d261f"), fiss[..., None] * 0.85)
+    lichen = smooth(spectral(n, 2.8, 924), 0.78, 0.9) * (1 - fiss)
+    alb = lerp(alb, rgb("8d9466"), lichen[..., None] * 0.45)
+    return alb * macro(n, 925, 0.08)[..., None], 1 - fiss + 0.15 * fine, 0.9
+
+
+@mat("farm_grass", surface="fabric", uv_scale=1.0)
+def _(n):
+    # blade texture (u across, v up the blade): darker at the base, lighter and drier toward the tip, fine veins
+    yy, xx = np.mgrid[0:n, 0:n] / n
+    streak = spectral(n, 1.6, 931, sx=1.0, sy=24.0)
+    up = 1 - yy
+    alb = lerp(rgb("2e4220"), rgb("6f8a3c"), np.clip(0.25 + 0.6 * up + 0.3 * (streak - 0.5), 0, 1))
+    alb = lerp(alb, rgb("a29a62"), smooth(up, 0.82, 1.0)[..., None] * 0.55)
+    return alb, 0.3 * streak, 0.8
+
+
+@mat("farm_wheat_field", surface="fabric", uv_scale=1.4, height_strength=8.0)
+def _(n):
+    # a ripe wheat stand from above: heads with awns leaning with the wind, stalks and shade between them
+    r = np.random.default_rng(941)
+    img = Image.new("RGB", (n, n), (70, 54, 30))
+    d = ImageDraw.Draw(img)
+    for layer in range(3):
+        shade = 0.45 + 0.28 * layer
+        for _ in range(2600):
+            x, y = r.uniform(0, n), r.uniform(0, n)
+            a = r.normal(0.6, 0.5)
+            L = n * r.uniform(0.032, 0.05)
+            W = L * 0.3
+            g = r.uniform(0.85, 1.12) * shade
+            c = tuple(int(min(255, v * g)) for v in (214, 178, 104))
+            aw = tuple(int(min(255, v * g * 1.05)) for v in (226, 198, 130))
+            ca, sa = math.cos(a), math.sin(a)
+
+            def head(dx, dy, x=x, y=y, ca=ca, sa=sa, L=L, W=W, c=c, aw=aw):
+                cx, cy = x + dx, y + dy
+                d.ellipse([cx - W / 2, cy - W / 2, cx + W / 2, cy + W / 2], fill=c)
+                for i in range(5):
+                    u = i / 4
+                    px, py = cx + ca * L * u, cy + sa * L * u
+                    ww = W * (0.55 - 0.15 * u)
+                    d.ellipse([px - ww, py - ww, px + ww, py + ww], fill=c)
+                    for s in (-1, 1):
+                        d.line([px, py, px + (ca * 0.9 - s * sa * 0.45) * L * 0.5, py + (sa * 0.9 + s * ca * 0.45) * L * 0.5], fill=aw, width=1)
+            wrap_draw(n, int(L * 1.6) + 2, x, y, head)
+    alb = np.asarray(img.filter(ImageFilter.GaussianBlur(0.55))) / 255.0
+    alb = alb * macro(n, 942, 0.08)[..., None]
+    h = luminance(alb)
+    return alb, (h - h.min()) / (h.max() - h.min() + 1e-9), 0.85
+
+
+@mat("farm_corn_canopy", surface="fabric", uv_scale=3.0, height_strength=8.0)
+def _(n):
+    # a corn field from above in late summer: long arching leaves with pale midribs over deep shade, in rows
+    r = np.random.default_rng(951)
+    img = Image.new("RGB", (n, n), (16, 26, 12))
+    d = ImageDraw.Draw(img)
+    rows = 4
+    for layer in range(4):
+        shade = 0.5 + 0.17 * layer
+        for row in range(rows):
+            ry = (row + 0.5) * n / rows
+            for _ in range(160):
+                x, y = r.uniform(0, n), ry + r.normal(0, n * 0.02)
+                a = r.uniform(0, 2 * math.pi)
+                L = n * r.uniform(0.14, 0.26)
+                W = n * r.uniform(0.018, 0.026)
+                g = r.uniform(0.85, 1.12) * shade
+                dry = r.random() < 0.08
+                base = (150, 138, 84) if dry else (78, 112, 50)
+                c = tuple(int(min(255, v * g)) for v in base)
+                rib = tuple(int(min(255, v * 1.3)) for v in c)
+                ca, sa = math.cos(a), math.sin(a)
+                bend = r.uniform(-0.6, 0.6)
+
+                def leaf(dx, dy, x=x, y=y, ca=ca, sa=sa, L=L, W=W, c=c, rib=rib, bend=bend):
+                    top, bot, mid = [], [], []
+                    for i in range(14):
+                        u = i / 13
+                        px, py = u * L, bend * L * 0.25 * u * u
+                        w = W / 2 * (1 - u ** 1.6) * (0.6 + 0.4 * math.sin(min(1, u * 4) * math.pi / 2))
+                        top.append((px, py + w))
+                        bot.append((px, py - w))
+                        mid.append((px, py))
+                    tr = lambda p: (x + dx + p[0] * ca - p[1] * sa, y + dy + p[0] * sa + p[1] * ca)
+                    d.polygon([tr(p) for p in top + bot[::-1]], fill=c)
+                    d.line([tr(p) for p in mid], fill=rib, width=1)
+                wrap_draw(n, int(L) + 4, x, y, leaf)
+    alb = np.asarray(img.filter(ImageFilter.GaussianBlur(0.6))) / 255.0
+    alb = alb * macro(n, 952, 0.1)[..., None]
+    h = luminance(alb)
+    return alb, (h - h.min()) / (h.max() - h.min() + 1e-9), 0.7
+
+
+@mat("farm_corn_wall", surface="fabric", uv_scale=2.5, height_strength=7.0)
+def _(n):
+    # the edge of a corn field seen from the side (one tile = 2.5 m of row, the full height): stalks, arching leaves,
+    # ears, tassels at the top; v = 0 at the top of the texture is the top of the plants
+    r = np.random.default_rng(961)
+    img = Image.new("RGB", (n, n), (14, 22, 11))
+    d = ImageDraw.Draw(img)
+    for layer in range(3):
+        shade = 0.5 + 0.25 * layer
+        for _ in range(26 + layer * 8):
+            x = r.uniform(0, n)
+            g = r.uniform(0.85, 1.1) * shade
+            stalk = tuple(int(v * g) for v in (92, 118, 56))
+            def plant(dx, dy, x=x, g=g, stalk=stalk):
+                X = x + dx
+                top = n * r.uniform(0.08, 0.16)
+                d.line([X, n, X + r.uniform(-6, 6), top], fill=stalk, width=int(n * 0.008) + 1)
+                # tassel
+                for k in range(5):
+                    d.line([X, top, X + r.uniform(-n * 0.03, n * 0.03), top - n * r.uniform(0.04, 0.08)], fill=tuple(int(v * g) for v in (190, 168, 104)), width=1)
+                for k in range(7):
+                    y0 = top + (n - top) * (0.1 + 0.11 * k) + r.uniform(-10, 10)
+                    side = 1 if (k + int(x)) % 2 else -1
+                    L = n * r.uniform(0.18, 0.3)
+                    pts_t, pts_b = [], []
+                    for i in range(12):
+                        u = i / 11
+                        px = X + side * u * L
+                        py = y0 - L * 0.55 * u + L * 0.75 * u * u
+                        w = n * 0.012 * (1 - u ** 1.5)
+                        pts_t.append((px, py - w))
+                        pts_b.append((px, py + w))
+                    c = tuple(int(min(255, v * g * r.uniform(0.9, 1.1))) for v in ((150, 140, 86) if r.random() < 0.08 else (80, 114, 50)))
+                    d.polygon(pts_t + pts_b[::-1], fill=c)
+                if r.random() < 0.6:
+                    ey = top + (n - top) * r.uniform(0.4, 0.55)
+                    d.ellipse([X + 2, ey - n * 0.05, X + n * 0.025, ey + n * 0.05], fill=tuple(int(v * g) for v in (112, 132, 66)))
+            for dx in (-n, 0, n):
+                plant(dx, 0)
+    alb = np.asarray(img.filter(ImageFilter.GaussianBlur(0.6))) / 255.0
+    h = luminance(alb)
+    return alb, (h - h.min()) / (h.max() - h.min() + 1e-9), 0.72
+
+
+@mat("farm_stubble", surface="dirt", uv_scale=6.0, height_strength=6.0)
+def _(n):
+    # a harvested field: rows of short pale stubble and straw over dry brown soil
+    yy, xx = np.mgrid[0:n, 0:n] / n
+    rows = 8
+    rowline = np.abs(np.sin(yy * rows * math.pi))
+    soil = lerp(rgb("5a4733"), rgb("7d6448"), spectral(n, 2.0, 971))
+    straw = band(n, 200, 480, 972) * spectral(n, 1.0, 973, sx=6.0, sy=1.0)
+    stub = smooth(rowline, 0.35, 0.95) * (0.4 + 0.6 * band(n, 120, 300, 974))
+    alb = lerp(soil, rgb("b39c6c"), np.clip(stub * 0.55 + straw * 0.6 + 0.15, 0, 1)[..., None])
+    alb = alb * macro(n, 975, 0.12)[..., None]
+    return alb, 0.6 * stub + 0.3 * straw, 0.95
+
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main():
     only = None
