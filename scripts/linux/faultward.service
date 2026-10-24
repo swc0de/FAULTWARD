@@ -1,0 +1,47 @@
+# systemd unit for the FAULTWARD game server on Linux. Install:
+#   sudo cp /opt/faultward/scripts/linux/faultward.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now faultward
+# The game files in /opt/faultward stay read-only; accounts, the secret key and caches live in /var/lib/faultward.
+[Unit]
+Description=FAULTWARD game server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=faultward
+Group=faultward
+WorkingDirectory=/opt/faultward
+Environment=NODE_ENV=production
+Environment=USER_DIR=/var/lib/faultward
+StateDirectory=faultward
+StateDirectoryMode=0750
+ExecStart=/usr/bin/node /opt/faultward/server/dist/main.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+LimitNOFILE=65536
+
+# Hardening: no privileges, a read-only system, writes only to /var/lib/faultward
+NoNewPrivileges=true
+CapabilityBoundingSet=
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallArchitectures=native
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

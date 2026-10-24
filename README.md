@@ -104,6 +104,7 @@ This branch is the ready-to-run **V03.0 Windows release**. It intentionally excl
 | `scripts/bake-map.mjs` | Bakes a map's client assets (geometry, lighting, radar) from its file in `data/maps/`; `scripts/bake/` holds its furniture and yard models |
 | `scripts/maps/farmhouse.py` | Generates `data/maps/farmhouse.json` (Hollister Farm) |
 | `scripts/textures/` | Generates the Hollister Farm textures and registers its materials in the game |
+| `scripts/linux/` | Running the server on Linux: `setup.sh` (Linux native modules), `update.sh`, and a hardened systemd unit |
 | `scripts/rehash_client.py` | Gives edited client chunks new content-hashed names (and updates their importers and the manifest) |
 | `runtime/` | Bundled Node.js Windows runtime |
 
