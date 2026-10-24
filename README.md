@@ -12,7 +12,7 @@
 
 ## Play now
 
-1. [Download the V03.0 ZIP](https://github.com/swc0de/FPS-V2/archive/refs/heads/V03.0.zip).
+1. [Download the V03.10 ZIP](https://github.com/swc0de/FAULTWARD/archive/refs/heads/V3.10.zip).
 2. Extract the complete ZIP to a new folder.
 3. Double-click **`START_GAME.cmd`**.
 4. Create a local account in the browser, then select **Play**.
@@ -92,7 +92,7 @@ Local play works without configuration. To change the server defaults, copy **`.
 
 ## Repository contents
 
-This branch is the ready-to-run **V03.0 Windows release**. It intentionally excludes source code, tests, visual test captures, asset generators, and build tooling.
+This branch is the ready-to-run **V03.10 Windows release**. It intentionally excludes source code, tests, visual test captures, asset generators, and build tooling.
 
 | Path | Contents |
 | --- | --- |
