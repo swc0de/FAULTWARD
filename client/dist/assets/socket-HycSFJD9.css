@@ -3,13 +3,13 @@
 /* Desert Vanguard theme: charcoal and desert amber, stencil headlines, condensed labels, softly rounded buttons.
    Appended to the site stylesheet by scripts/brand/apply.py (between the dv-theme markers). */
 
-@font-face{font-family:"Big Shoulders Stencil Display";font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/big-shoulders-stencil-display-800.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:900;font-style:normal;font-display:swap;src:url(/assets/fonts/big-shoulders-display-900.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url(/assets/fonts/barlow-condensed-600.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/barlow-condensed-700.woff2) format("woff2")}
 
 :root{
   --bg:#101216;--panel:#14171c;--line:#2a2f37;--text:#ece7dc;--muted:#8d95a0;--accent:#eda93c;--accent-ink:#1a1306;
-  --sand:#f5c879;--dv-stencil:"Big Shoulders Stencil Display","Bahnschrift Condensed",Impact,"Arial Narrow",sans-serif;
+  --sand:#f5c879;--dv-stencil:"Big Shoulders Display","Bahnschrift Condensed",Impact,"Arial Narrow",sans-serif;
   --dv-label:"Barlow Condensed","Bahnschrift Condensed","Arial Narrow","Segoe UI",sans-serif;
   --dv-radius:10px;--dv-soft:0 6px 18px #00000047;
 }
@@ -21,9 +21,9 @@ a{color:var(--accent)}
 /* brand: chevron mark and the stacked wordmark */
 .brand{gap:12px;letter-spacing:0;font-family:var(--dv-stencil)}
 .brand img{width:36px;height:36px}
-.wm{display:inline-flex;flex-direction:column;line-height:.86;font-size:26px}
+.wm{display:inline-flex;flex-direction:column;line-height:.86;font-size:31px}
 .wm .w1,h1 .w1{font:600 .36em/1 var(--dv-label);letter-spacing:.62em;color:var(--sand);margin-left:.1em}
-.wm .w2,h1 .w2{font:800 1em/.9 var(--dv-stencil);letter-spacing:.03em;color:var(--accent)}
+.wm .w2,h1 .w2{font:900 1em/.9 var(--dv-stencil);letter-spacing:.03em;color:var(--accent)}
 header.top{background:#0c0e11;border:0;border-top:3px solid var(--accent);border-bottom:1px solid var(--line);margin:0 auto;max-width:none;padding:14px 28px}
 body:not(.hub-page):not(.game) header.top{max-width:1240px;margin:28px auto 0;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px}
 header.top nav{gap:22px;font:600 14px/1 var(--dv-label);letter-spacing:.14em;text-transform:uppercase}
@@ -32,7 +32,7 @@ header.top nav a:hover,header.top nav a.who{color:var(--text)}
 header.top nav a.button,header.top nav a.button:hover{color:var(--accent-ink);font:700 13px/1 var(--dv-label);letter-spacing:.12em;padding:9px 16px}
 body.game header.top{padding:6px 14px;border-top-width:3px}
 body.game header.top .brand img{width:28px;height:28px}
-body.game header.top .wm{font-size:20px}
+body.game header.top .wm{font-size:23px}
 
 /* buttons: softly rounded, a little depth, a quick lift on hover */
 .button,button.button,body .button{border-radius:var(--dv-radius);padding:9px 18px;font-weight:700;letter-spacing:.02em;
@@ -51,7 +51,7 @@ label>span{font:600 12px/1 var(--dv-label);letter-spacing:.2em;text-transform:up
 
 /* home page */
 .hero{max-width:820px}
-.hero h1{display:inline-flex;flex-direction:column;line-height:.86;font-size:clamp(64px,11vw,132px);letter-spacing:0;margin:6px 0 20px}
+.hero h1{display:inline-flex;flex-direction:column;line-height:.86;font-size:clamp(84px,14vw,176px);letter-spacing:0;margin:6px 0 20px}
 .hero h1 .w1{margin-bottom:.06em}
 .hero .eyebrow{font:600 15px var(--dv-label);letter-spacing:.42em;color:var(--sand)}
 .hero h2{font:600 30px var(--dv-label);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
@@ -64,7 +64,7 @@ body.hub-page{--acc:#eda93c;--acc-ink:#1a1306;--page:#101216;--glass:#0c0e11;--h
 body.hub-page header.top{background:#0c0e11}
 .hub-rail{background:#0c0e11;border-right-color:var(--line)}
 .hub-brand .eyebrow{font:600 12px var(--dv-label);letter-spacing:.32em;color:var(--sand)}
-.hub-brand h2{font:800 30px/1 var(--dv-stencil);white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;margin:6px 0 10px}
+.hub-brand h2{font:900 32px/1 var(--dv-stencil);white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;margin:6px 0 10px}
 .hub-brand .who{font:700 18px var(--dv-label);letter-spacing:.06em;text-transform:uppercase}
 .hub-brand .sub{font-size:12px}
 .hub-nav button{font:600 16px/1 var(--dv-label);letter-spacing:.1em;text-transform:uppercase;border-radius:0 8px 8px 0;padding:13px 12px;transition:background .15s,color .15s}
@@ -72,13 +72,13 @@ body.hub-page header.top{background:#0c0e11}
 .hub-nav em{font-family:var(--dv-label);font-size:12px;border-radius:99px}
 .hub-links .button{font:700 13px var(--dv-label);letter-spacing:.16em;text-transform:uppercase}
 .hub-main{background:#12151a}
-.hub-head h3{font:800 44px/1 var(--dv-stencil);letter-spacing:.03em;text-transform:uppercase}
+.hub-head h3{font:900 60px/1 var(--dv-stencil);letter-spacing:.03em;text-transform:uppercase}
 .hub-head p{color:var(--muted)}
 .hub-card{position:relative;background:#14171c;border-color:var(--line);border-radius:12px;padding:20px 22px}
 .hub-card:before{content:"";position:absolute;left:18px;top:-1px;width:30px;height:3px;border-radius:0 0 3px 3px;background:var(--accent)}
 .hub-card h4{font:700 17px var(--dv-label);letter-spacing:.2em;color:var(--text);margin-bottom:12px}
 .hub-card p{font-size:13px;line-height:1.6}
-.hub .rating-big strong{font-family:var(--dv-stencil);font-size:58px}
+.hub .rating-big strong{font-family:var(--dv-stencil);font-size:72px}
 .squad-slots i{border-radius:9px;background:#0e1115;border-color:#3a424d}
 .hub-card #lobby-create{width:100%;font:700 16px var(--dv-label);letter-spacing:.16em;text-transform:uppercase;padding:12px}
 .hub-footer{background:#0c0e11;font:600 12px var(--dv-label);letter-spacing:.24em}
@@ -86,13 +86,13 @@ body.hub-page header.top{background:#0c0e11}
 .servers-mini li strong{font:700 17px var(--dv-label);letter-spacing:.08em;text-transform:uppercase}
 
 /* the selected-map banner */
-.dv-hero{position:relative;height:310px;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
+.dv-hero{position:relative;height:360px;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
 .dv-hero .feature-map{position:absolute;inset:0;height:auto;margin:0;clip-path:none;background:#000}
 .dv-hero .feature-map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.05);transition:opacity .25s}
 .dv-hero .feature-map:after{background:linear-gradient(90deg,#101216f5 0%,#101216b8 36%,#10121626 74%),linear-gradient(0deg,#12151a 0%,transparent 48%)}
 .dv-hero figcaption{left:36px;right:32px;bottom:26px}
 .dv-hero figcaption span{font:600 13px var(--dv-label);letter-spacing:.36em;color:var(--sand)}
-.dv-hero figcaption strong{font:800 clamp(52px,7vw,92px)/.9 var(--dv-stencil);letter-spacing:.02em;margin:6px 0 10px;color:#f6f1e5;text-transform:uppercase}
+.dv-hero figcaption strong{font:900 clamp(72px,9.5vw,128px)/.88 var(--dv-stencil);letter-spacing:.02em;margin:6px 0 10px;color:#f6f1e5;text-transform:uppercase}
 .dv-hero figcaption small{display:block;max-width:480px;font:400 15px/1.5 Inter,"Segoe UI",sans-serif;letter-spacing:0;color:#b9bfc7;text-transform:none}
 .dv-tags{position:absolute;z-index:2;right:24px;top:20px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .dv-tags b{font:600 12px var(--dv-label);letter-spacing:.18em;text-transform:uppercase;border:1px solid #ffffff40;border-radius:7px;padding:5px 11px;background:#0a0c0fa6;color:#ece7dc}
@@ -117,7 +117,7 @@ body.hub-page header.top{background:#0c0e11}
 .dv-step button{width:40px;height:100%;border:0;background:transparent;color:var(--muted);font:600 20px/1 Inter,sans-serif;cursor:pointer;transition:background .15s,color .15s}
 .dv-step button:hover{background:#ffffff0f;color:var(--text)}
 .dv-step output{flex:1;text-align:center;font:700 20px/1 var(--dv-label)}
-.hub .button.primary{border-radius:12px;min-height:56px;margin-top:6px;font:800 25px/1 var(--dv-stencil);letter-spacing:.16em;text-transform:uppercase;
+.hub .button.primary{border-radius:12px;min-height:56px;margin-top:6px;font:900 30px/1 var(--dv-stencil);letter-spacing:.14em;text-transform:uppercase;
   box-shadow:inset 0 1px 0 #ffffff40,0 10px 28px #eda93c40}
 .hub .button.primary:hover{box-shadow:inset 0 1px 0 #ffffff40,0 12px 32px #eda93c5c}
 label.check,.hub label.check{font-size:13.5px}

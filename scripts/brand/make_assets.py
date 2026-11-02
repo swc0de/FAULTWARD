@@ -55,10 +55,10 @@ def main():
         f.write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>Desert Vanguard</title><rect width="100" height="100" rx="22" fill="{INK}"/>'
                 f'<g transform="translate(14 14) scale(.72)">{symbol_paths()}</g></svg>\n')
     # full logo: symbol, then DESERT (spaced) over VANGUARD (stencil)
-    stencil = os.path.join(SRC, "big-shoulders-stencil-display-latin-800-normal.woff")
+    heavy = os.path.join(SRC, "big-shoulders-display-latin-900-normal.woff")
     label = os.path.join(SRC, "barlow-condensed-latin-600-normal.woff")
     v_size = 170
-    d1, w_v, cap_v = text_outline(stencil, "VANGUARD", v_size, 0.03, 0, 0)
+    d1, w_v, cap_v = text_outline(heavy, "VANGUARD", v_size, 0.03, 0, 0)
     d_size = 62
     _, w_d, cap_d = text_outline(label, "DESERT", d_size, 0.62, 0, 0)
     sym = 200                                    # symbol height
@@ -66,7 +66,7 @@ def main():
     top = 6
     base_d = top + cap_d
     base_v = base_d + 20 + cap_v
-    d1, w_v, _ = text_outline(stencil, "VANGUARD", v_size, 0.03, x0, base_v)
+    d1, w_v, _ = text_outline(heavy, "VANGUARD", v_size, 0.03, x0, base_v)
     d2, w_d, _ = text_outline(label, "DESERT", d_size, 0.62, x0 + 6, base_d)
     width = int(x0 + max(w_v, w_d) + 6)
     height = int(max(sym, base_v + 8))
@@ -85,7 +85,7 @@ def main():
         f.write(banner)
     print("logo", width, "x", height)
     # web fonts for the site and the in-game start screen
-    for name in ("big-shoulders-stencil-display-latin-800-normal", "barlow-condensed-latin-600-normal", "barlow-condensed-latin-700-normal"):
+    for name in ("big-shoulders-display-latin-900-normal", "barlow-condensed-latin-600-normal", "barlow-condensed-latin-700-normal"):
         src = os.path.join(SRC, name + ".woff2")
         if os.path.exists(src):
             dst = os.path.join(FONTS_OUT, name.replace("-latin", "").replace("-normal", "") + ".woff2")

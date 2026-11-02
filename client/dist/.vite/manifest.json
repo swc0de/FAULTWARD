@@ -11,14 +11,14 @@
     ]
   },
   "_socket-BGKucvMv.css": {
-    "file": "assets/socket-xBboMxKU.css",
+    "file": "assets/socket-HycSFJD9.css",
     "src": "_socket-BGKucvMv.css"
   },
   "_socket-BKus8Xzf.js": {
     "file": "assets/socket-BKus8Xzf.js",
     "name": "socket",
     "css": [
-      "assets/socket-xBboMxKU.css"
+      "assets/socket-HycSFJD9.css"
     ]
   },
   "src/game/main.ts": {
