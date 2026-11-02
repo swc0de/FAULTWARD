@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 branch=$(git rev-parse --abbrev-ref HEAD)
-echo "Updating FAULTWARD ($branch) from $(git rev-parse --short HEAD)"
+echo "Updating Desert Vanguard ($branch) from $(git rev-parse --short HEAD)"
 git fetch --depth 1 origin "$branch"
 git reset --hard "origin/$branch"          # also restores the Windows binary setup.sh replaces
 ./scripts/linux/setup.sh

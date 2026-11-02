@@ -4,25 +4,25 @@
     "src": "_settings-DS-a2qq_.css"
   },
   "_settings-DoPMYiQH.js": {
-    "file": "assets/settings-7BWses9Y.js",
+    "file": "assets/settings-6j27QRhR.js",
     "name": "settings",
     "css": [
       "assets/settings-DS-a2qq_.css"
     ]
   },
   "_socket-BGKucvMv.css": {
-    "file": "assets/socket-BGKucvMv.css",
+    "file": "assets/socket-xBboMxKU.css",
     "src": "_socket-BGKucvMv.css"
   },
   "_socket-BKus8Xzf.js": {
     "file": "assets/socket-BKus8Xzf.js",
     "name": "socket",
     "css": [
-      "assets/socket-BGKucvMv.css"
+      "assets/socket-xBboMxKU.css"
     ]
   },
   "src/game/main.ts": {
-    "file": "assets/game-IV8dRVZR.js",
+    "file": "assets/game-xaBRMVE0.js",
     "name": "game",
     "src": "src/game/main.ts",
     "isEntry": true,
@@ -32,7 +32,7 @@
     ]
   },
   "src/site/main.ts": {
-    "file": "assets/site-HHC7GbkZ.js",
+    "file": "assets/site-B643TJci.js",
     "name": "site",
     "src": "src/site/main.ts",
     "isEntry": true,
@@ -44,7 +44,7 @@
     ]
   },
   "src/site/settings.ts": {
-    "file": "assets/settings-ykZUYTUE.js",
+    "file": "assets/settings-7SIyg2b6.js",
     "name": "settings",
     "src": "src/site/settings.ts",
     "isDynamicEntry": true,

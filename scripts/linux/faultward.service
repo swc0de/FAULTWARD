@@ -1,9 +1,9 @@
-# systemd unit for the FAULTWARD game server on Linux. Install:
+# systemd unit for the Desert Vanguard game server on Linux (the service keeps its old name, faultward, so existing installs keep working). Install:
 #   sudo cp /opt/faultward/scripts/linux/faultward.service /etc/systemd/system/
 #   sudo systemctl daemon-reload && sudo systemctl enable --now faultward
 # The game files in /opt/faultward stay read-only; accounts, the secret key and caches live in /var/lib/faultward.
 [Unit]
-Description=FAULTWARD game server
+Description=Desert Vanguard game server
 After=network-online.target
 Wants=network-online.target
 

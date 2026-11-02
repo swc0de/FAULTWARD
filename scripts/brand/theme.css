@@ -1,0 +1,133 @@
+/* Desert Vanguard theme: charcoal and desert amber, stencil headlines, condensed labels, softly rounded buttons.
+   Appended to the site stylesheet by scripts/brand/apply.py (between the dv-theme markers). */
+
+@font-face{font-family:"Big Shoulders Stencil Display";font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/big-shoulders-stencil-display-800.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;src:url(/assets/fonts/barlow-condensed-600.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/barlow-condensed-700.woff2) format("woff2")}
+
+:root{
+  --bg:#101216;--panel:#14171c;--line:#2a2f37;--text:#ece7dc;--muted:#8d95a0;--accent:#eda93c;--accent-ink:#1a1306;
+  --sand:#f5c879;--dv-stencil:"Big Shoulders Stencil Display","Bahnschrift Condensed",Impact,"Arial Narrow",sans-serif;
+  --dv-label:"Barlow Condensed","Bahnschrift Condensed","Arial Narrow","Segoe UI",sans-serif;
+  --dv-radius:10px;--dv-soft:0 6px 18px #00000047;
+}
+html,body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif}
+body:not(.game){background:radial-gradient(ellipse at 72% -8%,#2a2417 0%,transparent 58%),#101216}
+h1,h2,h3,h4{font-family:var(--dv-label);letter-spacing:.04em}
+a{color:var(--accent)}
+
+/* brand: chevron mark and the stacked wordmark */
+.brand{gap:12px;letter-spacing:0;font-family:var(--dv-stencil)}
+.brand img{width:36px;height:36px}
+.wm{display:inline-flex;flex-direction:column;line-height:.86;font-size:26px}
+.wm .w1,h1 .w1{font:600 .36em/1 var(--dv-label);letter-spacing:.62em;color:var(--sand);margin-left:.1em}
+.wm .w2,h1 .w2{font:800 1em/.9 var(--dv-stencil);letter-spacing:.03em;color:var(--accent)}
+header.top{background:#0c0e11;border:0;border-top:3px solid var(--accent);border-bottom:1px solid var(--line);margin:0 auto;max-width:none;padding:14px 28px}
+body:not(.hub-page):not(.game) header.top{max-width:1240px;margin:28px auto 0;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px}
+header.top nav{gap:22px;font:600 14px/1 var(--dv-label);letter-spacing:.14em;text-transform:uppercase}
+header.top nav a{color:var(--muted);transition:color .15s}
+header.top nav a:hover,header.top nav a.who{color:var(--text)}
+header.top nav a.button,header.top nav a.button:hover{color:var(--accent-ink);font:700 13px/1 var(--dv-label);letter-spacing:.12em;padding:9px 16px}
+body.game header.top{padding:6px 14px;border-top-width:3px}
+body.game header.top .brand img{width:28px;height:28px}
+body.game header.top .wm{font-size:20px}
+
+/* buttons: softly rounded, a little depth, a quick lift on hover */
+.button,button.button,body .button{border-radius:var(--dv-radius);padding:9px 18px;font-weight:700;letter-spacing:.02em;
+  box-shadow:inset 0 1px 0 #ffffff38,var(--dv-soft);transition:filter .15s,transform .15s,box-shadow .15s,background .15s,border-color .15s}
+.button:hover,button.button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.button:active,button.button:active{transform:none;filter:brightness(.95)}
+.button.ghost,body .button.ghost{background:#ffffff08;border-color:#ffffff2e;color:var(--text);box-shadow:none}
+.button.ghost:hover{background:#ffffff12;border-color:#ffffff4d}
+.button.small{padding:5px 12px;border-radius:8px}
+.button.danger{border-radius:8px}
+input,select,.hub input,.hub select{border-radius:8px;background:#0e1115;border-color:#ffffff1f}
+input:focus,select:focus{border-color:var(--accent)}
+.card,.card.narrow,.map-card,.hub .map-card{border-radius:12px;background:var(--panel);border-color:var(--line)}
+label>span{font:600 12px/1 var(--dv-label);letter-spacing:.2em;text-transform:uppercase}
+.flash{border-radius:10px}
+
+/* home page */
+.hero{max-width:820px}
+.hero h1{display:inline-flex;flex-direction:column;line-height:.86;font-size:clamp(64px,11vw,132px);letter-spacing:0;margin:6px 0 20px}
+.hero h1 .w1{margin-bottom:.06em}
+.hero .eyebrow{font:600 15px var(--dv-label);letter-spacing:.42em;color:var(--sand)}
+.hero h2{font:600 30px var(--dv-label);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.hero-symbol{width:96px;height:96px;margin-bottom:12px}
+.eyebrow{font:600 12px var(--dv-label);letter-spacing:.32em;color:var(--sand)}
+
+/* play hub */
+body.hub-page{--acc:#eda93c;--acc-ink:#1a1306;--page:#101216;--glass:#0c0e11;--hline:#2a2f37;--dim:#8d95a0;
+  background:radial-gradient(ellipse at 72% -8%,#2a2417 0%,transparent 58%),#101216}
+body.hub-page header.top{background:#0c0e11}
+.hub-rail{background:#0c0e11;border-right-color:var(--line)}
+.hub-brand .eyebrow{font:600 12px var(--dv-label);letter-spacing:.32em;color:var(--sand)}
+.hub-brand h2{font:800 30px/1 var(--dv-stencil);white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;margin:6px 0 10px}
+.hub-brand .who{font:700 18px var(--dv-label);letter-spacing:.06em;text-transform:uppercase}
+.hub-brand .sub{font-size:12px}
+.hub-nav button{font:600 16px/1 var(--dv-label);letter-spacing:.1em;text-transform:uppercase;border-radius:0 8px 8px 0;padding:13px 12px;transition:background .15s,color .15s}
+.hub-nav button.on{background:linear-gradient(90deg,#eda93c26,transparent);color:var(--accent);border-left-color:var(--accent)}
+.hub-nav em{font-family:var(--dv-label);font-size:12px;border-radius:99px}
+.hub-links .button{font:700 13px var(--dv-label);letter-spacing:.16em;text-transform:uppercase}
+.hub-main{background:#12151a}
+.hub-head h3{font:800 44px/1 var(--dv-stencil);letter-spacing:.03em;text-transform:uppercase}
+.hub-head p{color:var(--muted)}
+.hub-card{position:relative;background:#14171c;border-color:var(--line);border-radius:12px;padding:20px 22px}
+.hub-card:before{content:"";position:absolute;left:18px;top:-1px;width:30px;height:3px;border-radius:0 0 3px 3px;background:var(--accent)}
+.hub-card h4{font:700 17px var(--dv-label);letter-spacing:.2em;color:var(--text);margin-bottom:12px}
+.hub-card p{font-size:13px;line-height:1.6}
+.hub .rating-big strong{font-family:var(--dv-stencil);font-size:58px}
+.squad-slots i{border-radius:9px;background:#0e1115;border-color:#3a424d}
+.hub-card #lobby-create{width:100%;font:700 16px var(--dv-label);letter-spacing:.16em;text-transform:uppercase;padding:12px}
+.hub-footer{background:#0c0e11;font:600 12px var(--dv-label);letter-spacing:.24em}
+.hub table.list th{font:600 12px var(--dv-label);letter-spacing:.16em;text-transform:uppercase}
+.servers-mini li strong{font:700 17px var(--dv-label);letter-spacing:.08em;text-transform:uppercase}
+
+/* the selected-map banner */
+.dv-hero{position:relative;height:310px;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
+.dv-hero .feature-map{position:absolute;inset:0;height:auto;margin:0;clip-path:none;background:#000}
+.dv-hero .feature-map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.05);transition:opacity .25s}
+.dv-hero .feature-map:after{background:linear-gradient(90deg,#101216f5 0%,#101216b8 36%,#10121626 74%),linear-gradient(0deg,#12151a 0%,transparent 48%)}
+.dv-hero figcaption{left:36px;right:32px;bottom:26px}
+.dv-hero figcaption span{font:600 13px var(--dv-label);letter-spacing:.36em;color:var(--sand)}
+.dv-hero figcaption strong{font:800 clamp(52px,7vw,92px)/.9 var(--dv-stencil);letter-spacing:.02em;margin:6px 0 10px;color:#f6f1e5;text-transform:uppercase}
+.dv-hero figcaption small{display:block;max-width:480px;font:400 15px/1.5 Inter,"Segoe UI",sans-serif;letter-spacing:0;color:#b9bfc7;text-transform:none}
+.dv-tags{position:absolute;z-index:2;right:24px;top:20px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.dv-tags b{font:600 12px var(--dv-label);letter-spacing:.18em;text-transform:uppercase;border:1px solid #ffffff40;border-radius:7px;padding:5px 11px;background:#0a0c0fa6;color:#ece7dc}
+
+/* quick match: map picker, difficulty control and bot steppers (built by the menu script) */
+.dv-hide{display:none!important}
+.dv-maps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:4px 0 16px}
+.dv-map{position:relative;height:84px;padding:0;border:1px solid #ffffff22;border-radius:9px;overflow:hidden;background:#000;cursor:pointer;opacity:.62;transition:opacity .15s,border-color .15s,transform .15s,box-shadow .15s}
+.dv-map img{width:100%;height:100%;object-fit:cover;display:block}
+.dv-map span{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 6px;background:linear-gradient(0deg,#000d,transparent);font:600 13px/1 var(--dv-label);letter-spacing:.1em;text-transform:uppercase;color:#fff;text-align:left}
+.dv-map:hover{opacity:.9;transform:translateY(-1px)}
+.dv-map.on{opacity:1;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 6px 18px #eda93c33}
+.dv-map:focus-visible,.dv-seg button:focus-visible,.dv-step button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dv-row{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:12px;margin:0 0 14px}
+.dv-field>b{display:block;font:600 12px/1 var(--dv-label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:600}
+.dv-seg{display:flex;border:1px solid #ffffff26;border-radius:9px;overflow:hidden}
+.dv-seg button{flex:1;padding:10px 0;border:0;border-right:1px solid #ffffff1a;background:transparent;color:var(--muted);font:600 14px/1 var(--dv-label);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .15s,color .15s}
+.dv-seg button:last-child{border-right:0}
+.dv-seg button:hover{color:var(--text);background:#ffffff0c}
+.dv-seg button.on{background:var(--accent);color:var(--accent-ink)}
+.dv-step{display:flex;align-items:center;height:40px;border:1px solid #ffffff26;border-radius:9px;overflow:hidden}
+.dv-step button{width:40px;height:100%;border:0;background:transparent;color:var(--muted);font:600 20px/1 Inter,sans-serif;cursor:pointer;transition:background .15s,color .15s}
+.dv-step button:hover{background:#ffffff0f;color:var(--text)}
+.dv-step output{flex:1;text-align:center;font:700 20px/1 var(--dv-label)}
+.hub .button.primary{border-radius:12px;min-height:56px;margin-top:6px;font:800 25px/1 var(--dv-stencil);letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:inset 0 1px 0 #ffffff40,0 10px 28px #eda93c40}
+.hub .button.primary:hover{box-shadow:inset 0 1px 0 #ffffff40,0 12px 32px #eda93c5c}
+label.check,.hub label.check{font-size:13.5px}
+label.check>span,.hub label.check>span{font:400 13.5px/1.45 Inter,"Segoe UI",sans-serif;letter-spacing:0;text-transform:none;color:#c4c9d0}
+
+/* in-game start screen */
+#game3d .overlay.ready .text{font:700 18px/1 var(--dv-label);letter-spacing:.24em;padding:13px 30px;border-radius:99px;background:var(--accent);color:var(--accent-ink);
+  box-shadow:0 8px 28px #00000080,0 0 0 0 #eda93c88;animation:dv-pulse 2.2s ease-out infinite}
+@keyframes dv-pulse{0%{box-shadow:0 8px 28px #00000080,0 0 0 0 #eda93c88}70%{box-shadow:0 8px 28px #00000080,0 0 0 14px #eda93c00}100%{box-shadow:0 8px 28px #00000080,0 0 0 0 #eda93c00}}
+#game3d .overlay .text{font-family:var(--dv-label)}
+
+@media (max-width:900px){.dv-hero{height:240px}.dv-maps{grid-template-columns:repeat(2,minmax(0,1fr))}.dv-row{grid-template-columns:1fr}.dv-tags{display:none}}
+@media (prefers-reduced-motion:reduce){#game3d .overlay.ready .text{animation:none}.button:hover{transform:none}}
+.dv-step button:disabled{opacity:.3;cursor:default;background:transparent}
+#featured-map-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}

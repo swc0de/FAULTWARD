@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Re-hash client chunks after editing them in place.
+"""Re-hash client chunks and stylesheets after editing them in place.
 
-    python3 scripts/rehash_client.py assets/game-XXXXXXXX.js [more chunks...]
+    python3 scripts/rehash_client.py assets/game-XXXXXXXX.js assets/socket-XXXXXXXX.css [more...]
 
-Each named chunk (and every chunk that imports a renamed one) gets a new content-hashed file name, the old files
+Each named file (and every chunk that names a renamed one) gets a new content-hashed file name, the old files
 are removed and client/dist/.vite/manifest.json is updated, so browsers holding the old immutable-cached files
-load the new ones. Same naming as the build: <stem>-<8 url-safe sha256 chars>.js.
+load the new ones. Same naming as the build: <stem>-<8 url-safe sha256 chars>.js or .css.
 """
 import base64, hashlib, json, os, sys
 
@@ -16,13 +16,13 @@ DIST = os.path.join(ROOT, "client", "dist")
 def new_name(path, content):
     stem = os.path.basename(path).split("-")[0]
     h = base64.urlsafe_b64encode(hashlib.sha256(content.encode()).digest())[:8].decode().replace("-", "x").replace("_", "y")
-    return f"assets/{stem}-{h}.js"
+    return f"assets/{stem}-{h}{os.path.splitext(path)[1]}"
 
 
 def rehash(edited):
     man_path = os.path.join(DIST, ".vite", "manifest.json")
     man = json.load(open(man_path))
-    files = {f"assets/{n}": open(os.path.join(DIST, "assets", n)).read() for n in os.listdir(os.path.join(DIST, "assets")) if n.endswith(".js")}
+    files = {f"assets/{n}": open(os.path.join(DIST, "assets", n)).read() for n in os.listdir(os.path.join(DIST, "assets")) if n.endswith((".js", ".css"))}
     final = {f: f for f in files}          # original name -> current name
     pending = list(edited)
     while pending:
@@ -49,6 +49,8 @@ def rehash(edited):
             open(path, "w").write(content)
     for v in man.values():
         v["file"] = final.get(v["file"], v["file"])
+        if "css" in v:
+            v["css"] = [final.get(c, c) for c in v["css"]]
     open(man_path, "w").write(json.dumps(man, indent=2) + "\n")
     return {k: v for k, v in final.items() if k != v}
 

@@ -9644,17 +9644,17 @@ function layout(ctx, p) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11171c">
+  <meta name="theme-color" content="#101216">
   <meta name="csrf-token" content="${ctx.csrf}">
-  <meta name="description" content="FAULTWARD. Hold your angle. A tactical shooter with bot matches, ranked duels and public servers.">
-  <title>${p.title ?? "FAULTWARD"}</title>
+  <meta name="description" content="Desert Vanguard. First in, last out. A tactical shooter with bot matches, ranked duels and public servers.">
+  <title>${p.title ?? "Desert Vanguard"}</title>
   ${styles(e2)}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   ${p.head ?? ""}
 </head>
 <body class="${p.bodyClass ?? ""}">
   <header class="top">
-    <a class="brand" href="/"><img src="/assets/brand/faultward-symbol.svg" alt="" width="32" height="32"><span>FAULTWARD<small>HOLD YOUR ANGLE.</small></span></a>
+    <a class="brand" href="/" aria-label="Desert Vanguard"><img src="/assets/brand/desert-vanguard-symbol.svg" alt="" width="36" height="36"><span class="wm"><span class="w1">DESERT</span><span class="w2">VANGUARD</span></span></a>
     <nav>${nav}
     </nav>
   </header>
@@ -9681,9 +9681,9 @@ function homePage(ctx) {
     <p class="muted">An account is needed to play or watch.</p>`;
   return layout(ctx, { entry: null, main: html`
 <section class="hero">
-  <img class="hero-symbol" src="/assets/brand/faultward-symbol.svg" alt="" width="90" height="90">
-  <p class="eyebrow">HOLD YOUR ANGLE.</p>
-  <h1>FAULTWARD</h1>
+  <img class="hero-symbol" src="/assets/brand/desert-vanguard-symbol.svg" alt="" width="96" height="96">
+  <p class="eyebrow">FIRST IN. LAST OUT.</p>
+  <h1 aria-label="Desert Vanguard"><span class="w1">DESERT</span><span class="w2">VANGUARD</span></h1>
   <h2>Every angle matters.</h2>
   <p class="lede">A tactical shooter: one life per round, a charge to plant or stop, walls that come apart.
     Play against bots, duel another player, or drop into a public server.</p>
@@ -9699,7 +9699,7 @@ function field(f) {
   </label>`;
 }
 function loginPage(ctx, form) {
-  return layout(ctx, { title: "Log in \xB7 FAULTWARD", entry: null, main: html`
+  return layout(ctx, { title: "Log in \xB7 Desert Vanguard", entry: null, main: html`
 <section class="card narrow">
   <h1>Log in</h1>
   <form method="post" novalidate${raw(form.next ? ` action="/login?next=${encodeURIComponent(form.next)}"` : "")}>
@@ -9713,7 +9713,7 @@ function loginPage(ctx, form) {
 </section>` });
 }
 function signupPage(ctx, form) {
-  return layout(ctx, { title: "Sign up \xB7 FAULTWARD", entry: null, main: html`
+  return layout(ctx, { title: "Sign up \xB7 Desert Vanguard", entry: null, main: html`
 <section class="card narrow">
   <h1>Sign up</h1>
   <form method="post" novalidate>
@@ -9744,7 +9744,7 @@ function playPage(ctx, d) {
       <button type="button" data-tab-btn="${id}">${hubIcon(id)}<span>${label}</span>${badge ? html`<em>${badge}</em>` : ""}</button>`;
   const head = (title, blurb) => html`
       <header class="hub-head"><h3>${title}</h3><p>${blurb}</p></header>`;
-  return layout(ctx, { title: "Play \xB7 FAULTWARD", bodyClass: "hub-page", main: html`
+  return layout(ctx, { title: "Play \xB7 Desert Vanguard", bodyClass: "hub-page", main: html`
 <div id="site" class="hub" data-page="play" data-csrf="${ctx.csrf}">
   <aside class="hub-rail">
     <div class="hub-brand">
@@ -9770,11 +9770,10 @@ function playPage(ctx, d) {
 
   <section class="hub-main">
     <div class="hub-panel" data-tab="play">
-      <div class="faultward-intro">
-        <div class="intro-copy"><p class="eyebrow">READY WHEN YOU ARE</p><h3>Every angle<br> matters.</h3>
-          <p>Build your team. Read the ground.<br>Commit together.</p><span class="micro-label">BOT MATCHES / RANKED DUELS / PUBLIC SERVERS</span></div>
-        <figure class="feature-map"><img id="featured-map-image" src="/assets/brand/qalat.webp" alt="Qalat Village map preview" width="1000" height="625">
-          <figcaption><span>SELECTED MAP</span><strong id="featured-map-name">Qalat Village</strong><small>TWO SITES / ONE LIFE PER ROUND</small></figcaption></figure>
+      <div class="dv-hero">
+        <figure class="feature-map"><img id="featured-map-image" src="/assets/brand/hero-qalat.webp" alt="Qalat Village map preview" width="1600" height="1000">
+          <figcaption><span>SELECTED MAP</span><strong id="featured-map-name">Qalat Village</strong><small id="featured-map-desc"></small></figcaption></figure>
+        <div class="dv-tags"><b>Two sites</b><b>One life per round</b><b>Attack / defend</b></div>
       </div>
       <div class="hub-body hub-split">
         <article class="hub-card">
@@ -9875,13 +9874,13 @@ function playPage(ctx, d) {
       <div class="hub-body"><div class="map-grid">${mapCards(d.maps)}</div></div>
     </div>
   </section>
-  <footer class="hub-footer"><span>HOLD YOUR ANGLE.</span><span>FAULTWARD / TACTICAL MULTIPLAYER</span><a href="/leaderboard">Leaderboard ↗</a></footer>
+  <footer class="hub-footer"><span>FIRST IN. LAST OUT.</span><span>DESERT VANGUARD / TACTICAL MULTIPLAYER</span><a href="/leaderboard">Leaderboard ↗</a></footer>
 </div>
 ${readyDialog}` });
 }
 function lobbyPage(ctx, d) {
   const presetName = { full: "Full (first to 13, 24 rounds)", short: "Short (first to 7, 12 rounds)" };
-  return layout(ctx, { title: `Lobby ${d.code} \xB7 FAULTWARD`, main: html`
+  return layout(ctx, { title: `Lobby ${d.code} \xB7 Desert Vanguard`, main: html`
 <div id="site" data-page="lobby" data-code="${d.code}" data-user="${ctx.user?.id ?? ""}">
 <section class="lobby-head card">
   <div>
@@ -9942,7 +9941,7 @@ function lobbyPage(ctx, d) {
 </div>` });
 }
 function serversPage(ctx, servers) {
-  return layout(ctx, { title: "Servers \xB7 FAULTWARD", main: html`
+  return layout(ctx, { title: "Servers \xB7 Desert Vanguard", main: html`
 <div id="site" data-page="servers">
 <article class="card wide">
   <h2>Public servers <span class="muted" id="browser-note">live</span></h2>
@@ -9959,7 +9958,7 @@ function serversPage(ctx, servers) {
 </div>` });
 }
 function duelPage(ctx, ch, mine) {
-  return layout(ctx, { title: "Duel \xB7 FAULTWARD", main: html`
+  return layout(ctx, { title: "Duel \xB7 Desert Vanguard", main: html`
 <div id="site" data-page="duel" data-token="${ch.token}" data-mine="${mine ? 1 : 0}">
 <article class="card narrow">
   ${mine ? html`
@@ -9993,7 +9992,7 @@ function profilePage(ctx, user, s) {
   </svg>
   <p class="muted">${s.history[0].before} → ${s.history[n - 1].after} over ${n} ranked duels</p>`;
   }
-  return layout(ctx, { title: `${user.username} \xB7 FAULTWARD`, entry: null, main: html`
+  return layout(ctx, { title: `${user.username} \xB7 Desert Vanguard`, entry: null, main: html`
 <section class="card wide">
   <h1>${user.username}</h1>
   <div class="stats">
@@ -10022,7 +10021,7 @@ function profilePage(ctx, user, s) {
 </section>` });
 }
 function leaderboardPage(ctx, rows) {
-  return layout(ctx, { title: "Leaderboard \xB7 FAULTWARD", entry: null, main: html`
+  return layout(ctx, { title: "Leaderboard \xB7 Desert Vanguard", entry: null, main: html`
 <section class="card wide">
   <h1>Ranked duels</h1>
   <p class="muted">Glicko-2 rating; Â± is twice the rating deviation (how sure the rating is).</p>
@@ -10038,7 +10037,7 @@ function leaderboardPage(ctx, rows) {
 }
 function gamePage(ctx, match, mode, assetManifest) {
   return layout(ctx, {
-    title: `${match.title} \xB7 FAULTWARD`,
+    title: `${match.title} \xB7 Desert Vanguard`,
     bodyClass: "game",
     entry: "game",
     head: html`<meta name="csrf-token" content="${ctx.csrf}">`,
@@ -10057,7 +10056,7 @@ function gamePage(ctx, match, mode, assetManifest) {
   });
 }
 function errorPage(ctx, code, text2) {
-  return layout(ctx, { title: `${code} \xB7 FAULTWARD`, entry: null, main: html`
+  return layout(ctx, { title: `${code} \xB7 Desert Vanguard`, entry: null, main: html`
 <section class="card narrow">
   <h1>${code}</h1>
   <p>${text2}</p>
@@ -10414,7 +10413,7 @@ async function main() {
   await app.listen({ host: cfg.host, port: cfg.port });
   gateway.start();
   const shown = cfg.host === "0.0.0.0" || cfg.host === "::" ? "127.0.0.1" : cfg.host;
-  log(`FAULTWARD is running: http://${shown.includes(":") ? `[${shown}]` : shown}:${cfg.port}/`);
+  log(`Desert Vanguard is running: http://${shown.includes(":") ? `[${shown}]` : shown}:${cfg.port}/`);
   if (cfg.siteUrl) log(`public address: ${cfg.siteUrl} (TRUSTED_PROXY=${cfg.trustedProxy})`);
   let stopping = false;
   const shutdown = async (sig) => {

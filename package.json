@@ -1,8 +1,8 @@
 {
-  "name": "faultward",
+  "name": "desert-vanguard",
   "version": "1.0.0",
   "private": true,
-  "description": "FAULTWARD portable Windows game",
+  "description": "Desert Vanguard portable Windows game",
   "type": "module",
   "scripts": {
     "start": "runtime\\node.exe server/dist/main.mjs"

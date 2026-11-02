@@ -1,4 +1,4 @@
-FAULTWARD includes third-party software.
+Desert Vanguard includes third-party software.
 Node.js notices: runtime/LICENSE.txt
 Server dependency notices: LICENSE files in node_modules.
 
@@ -25,3 +25,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+Fonts (SIL Open Font License 1.1, licence texts in client/dist/assets/fonts/): Big Shoulders Stencil Display (Copyright Big Shoulders Project Authors, github.com/xotypeco/big_shoulders), Barlow Condensed (Copyright 2017 The Barlow Project Authors, github.com/jpt/barlow).

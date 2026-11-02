@@ -1,9 +1,10 @@
 <p align="center">
-  <img src="client/dist/assets/brand/faultward-logo.svg" alt="FAULTWARD" width="520">
+  <img src="client/dist/assets/brand/desert-vanguard-banner.svg" alt="Desert Vanguard" width="520">
 </p>
 
 <p align="center">
-  A tactical 5v5 browser FPS built around teamwork, information, and destruction.
+  A tactical 5v5 browser FPS built around teamwork, information, and destruction.<br>
+  <em>First in. Last out.</em>
 </p>
 
 <p align="center">
@@ -21,9 +22,9 @@ The package includes the game, server, assets, dependencies, and Node.js runtime
 
 If the browser does not open automatically, use the local address printed in the launcher window. It normally starts at **http://127.0.0.1:5000/** and selects another free port when necessary.
 
-## What is FAULTWARD?
+## What is Desert Vanguard?
 
-FAULTWARD is a round-based tactical shooter with an authoritative 64 Hz server and a Three.js browser client. Attackers plant a charge; defenders protect the sites or defuse it. Each round gives every decision weight through one-life combat and a persistent match economy.
+Desert Vanguard (previously called FAULTWARD) is a round-based tactical shooter with an authoritative 64 Hz server and a Three.js browser client. Attackers plant a charge; defenders protect the sites or defuse it. Each round gives every decision weight through one-life combat and a persistent match economy.
 
 - 5v5 matches with human players, bots, or a mixture of both
 - Quick bot matches, private lobby codes, public servers, and ranked 1v1 duels
@@ -78,7 +79,7 @@ To move an existing account to a new copy:
 
 1. Close both game servers.
 2. Back up the destination `user/` folder if it exists.
-3. Copy the old `user/` folder into the new FAULTWARD folder.
+3. Copy the old `user/` folder into the new Desert Vanguard folder.
 
 ## Optional configuration
 
@@ -105,6 +106,7 @@ This branch is the ready-to-run **V03.10 Windows release**. It intentionally exc
 | `scripts/maps/farmhouse.py` | Generates `data/maps/farmhouse.json` (Hollister Farm) |
 | `scripts/textures/` | Generates the Hollister Farm textures and registers its materials in the game |
 | `scripts/linux/` | Running the server on Linux: `setup.sh` (Linux native modules), `update.sh`, and a hardened systemd unit |
+| `scripts/brand/` | The Desert Vanguard branding: logo and font generator, theme stylesheet, menu script and the script that applies them |
 | `scripts/rehash_client.py` | Gives edited client chunks new content-hashed names (and updates their importers and the manifest) |
 | `runtime/` | Bundled Node.js Windows runtime |
 
@@ -112,4 +114,4 @@ Third-party notices and licenses are retained in **`THIRD_PARTY_NOTICES.txt`**, 
 
 ## Release
 
-**V03.10** is the portable, cleaned runtime distribution of FAULTWARD. The branch contains only what is needed to launch and play the game, plus the documentation and license files needed for distribution on GitHub.
+**V03.10** is the portable, cleaned runtime distribution of Desert Vanguard. The branch contains only what is needed to launch and play the game, plus the documentation and license files needed for distribution on GitHub.
