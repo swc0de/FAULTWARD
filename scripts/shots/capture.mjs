@@ -349,10 +349,11 @@ async function run() {
         // the bot followed so far while it lives, else the first living one (attackers first)
         const want = s.follow === "attack" ? 0 : 1;
         let bot = window.__shotBot !== undefined ? g.remotes.get(window.__shotBot) : null;
-        if (!bot || !bot.alive || g.frameNo - bot.seen >= 30) {
+        if (!bot || !bot.alive || g.frameNo - bot.seen >= 30 || window.__shotBot === g.spectating) {
           bot = null;
+          // never the bot the spectator view is attached to: the client may hide that body
           const live = [...g.remotes].filter(([, r]) => r.alive && r.pos && g.frameNo - r.seen < 30);
-          live.sort((a, b) => (a[1].f.team === want ? 0 : 1) - (b[1].f.team === want ? 0 : 1));
+          live.sort((a, b) => (a[0] === g.spectating ? 1 : 0) - (b[0] === g.spectating ? 1 : 0) || (a[1].f.team === want ? 0 : 1) - (b[1].f.team === want ? 0 : 1));
           if (live.length) [window.__shotBot, bot] = live[0];
         }
         window.__shotHasBot = !!bot;
