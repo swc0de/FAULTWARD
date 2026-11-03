@@ -367,6 +367,8 @@ async function run() {
       if (s.follow) window.__shotFollow = setInterval(place, 30);
     }, shot);
     await page.waitForTimeout(settle * 1000);
+    // the first snapshots can take a while to arrive at software-rendering frame rates: give the bots 30 s
+    if (shot.follow) await page.waitForFunction(() => window.__shotHasBot, null, { timeout: 30000, polling: 1000 }).catch(() => {});
     if (shot.follow && !(await page.evaluate(() => window.__shotHasBot))) {
       const n = await page.evaluate(() => [...window.__game.remotes.values()].filter((r) => r.alive).length);
       throw new Error(`no living bot to follow (${n} alive)`);
