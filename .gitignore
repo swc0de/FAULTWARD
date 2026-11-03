@@ -2,3 +2,8 @@ user/
 .env
 *.log
 __pycache__/
+# graphics overhaul: raw downloads and paid assets stay local (scripts and manifests are committed)
+assets-src/downloads/
+assets-src/cache/
+incoming/
+shots/*/*.png

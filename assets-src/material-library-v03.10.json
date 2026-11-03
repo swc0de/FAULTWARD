@@ -1,0 +1,1358 @@
+{
+ "concrete_wall": {
+  "surface": "concrete",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [
+    "concrete_wall_008",
+    "concrete_wall_004",
+    "concrete_wall_003"
+   ],
+   "ambientcg": [
+    "Concrete034",
+    "Concrete031",
+    "Concrete026"
+   ]
+  }
+ },
+ "concrete_floor": {
+  "surface": "concrete",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [
+    "concrete_floor_worn_001",
+    "concrete_floor_02",
+    "concrete_floor_01"
+   ],
+   "ambientcg": [
+    "Concrete042A",
+    "Concrete032",
+    "Concrete040"
+   ]
+  }
+ },
+ "concrete_dark": {
+  "surface": "concrete",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [
+    "concrete_wall_006",
+    "rough_concrete"
+   ],
+   "ambientcg": [
+    "Concrete035",
+    "Concrete020"
+   ]
+  }
+ },
+ "asphalt": {
+  "surface": "concrete",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [
+    "asphalt_02",
+    "asphalt_01",
+    "aerial_asphalt_01"
+   ],
+   "ambientcg": [
+    "Asphalt012",
+    "Asphalt025A",
+    "Asphalt010"
+   ]
+  }
+ },
+ "gravel": {
+  "surface": "gravel",
+  "uv_scale": 2.5,
+  "sources": {
+   "polyhaven": [
+    "gravel_floor_02",
+    "gravel_floor",
+    "gravelly_sand"
+   ],
+   "ambientcg": [
+    "Gravel022",
+    "Gravel026",
+    "Gravel040"
+   ]
+  }
+ },
+ "dirt": {
+  "surface": "dirt",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [
+    "dry_ground_01",
+    "brown_mud_leaves_01",
+    "forrest_ground_01",
+    "aerial_ground_rock"
+   ],
+   "ambientcg": [
+    "Ground037",
+    "Ground054",
+    "Ground048"
+   ]
+  }
+ },
+ "brick": {
+  "surface": "brick",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [
+    "red_brick_03",
+    "brick_wall_001",
+    "red_brick"
+   ],
+   "ambientcg": [
+    "Bricks059",
+    "Bricks076A",
+    "Bricks066"
+   ]
+  }
+ },
+ "wood_planks": {
+  "surface": "wood",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [
+    "wood_planks",
+    "weathered_planks",
+    "old_planks_02",
+    "wood_planks_grey"
+   ],
+   "ambientcg": [
+    "Planks021",
+    "WoodFloor041",
+    "Planks023A"
+   ]
+  }
+ },
+ "plywood": {
+  "surface": "wood",
+  "uv_scale": 2.44,
+  "sources": {
+   "polyhaven": [
+    "plywood",
+    "wood_table_001"
+   ],
+   "ambientcg": [
+    "Plywood001",
+    "Wood049"
+   ]
+  }
+ },
+ "metal_olive": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [
+    "green_metal_rust",
+    "painted_metal_02"
+   ],
+   "ambientcg": [
+    "PaintedMetal006",
+    "PaintedMetal017"
+   ]
+  }
+ },
+ "metal_tan": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [
+    "painted_metal_shutter"
+   ],
+   "ambientcg": [
+    "PaintedMetal009",
+    "PaintedMetal004"
+   ]
+  }
+ },
+ "container_red": {
+  "surface": "metal",
+  "uv_scale": 2.4,
+  "sources": {
+   "polyhaven": [
+    "corrugated_iron_02",
+    "corrugated_iron"
+   ],
+   "ambientcg": [
+    "CorrugatedSteel005",
+    "CorrugatedSteel007A"
+   ]
+  }
+ },
+ "container_green": {
+  "surface": "metal",
+  "uv_scale": 2.4,
+  "sources": {
+   "polyhaven": [
+    "corrugated_iron"
+   ],
+   "ambientcg": [
+    "CorrugatedSteel007A",
+    "CorrugatedSteel005"
+   ]
+  }
+ },
+ "diamond_plate": {
+  "surface": "metal_grate",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [
+    "metal_plate",
+    "metal_plate_02"
+   ],
+   "ambientcg": [
+    "DiamondPlate001",
+    "DiamondPlate008A"
+   ]
+  }
+ },
+ "steel": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [
+    "metal_plate_02",
+    "rusty_metal_02"
+   ],
+   "ambientcg": [
+    "Metal032",
+    "Metal046A"
+   ]
+  }
+ },
+ "plaster": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [
+    "painted_plaster_wall",
+    "white_plaster_02",
+    "beige_wall_001"
+   ],
+   "ambientcg": [
+    "Plaster001",
+    "Plaster003"
+   ]
+  }
+ },
+ "sandbag": {
+  "surface": "fabric",
+  "uv_scale": 0.8,
+  "sources": {
+   "polyhaven": [
+    "hessian_230",
+    "jute"
+   ],
+   "ambientcg": [
+    "Fabric026",
+    "Fabric045"
+   ]
+  }
+ },
+ "canvas": {
+  "surface": "fabric",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [
+    "denim_fabric"
+   ],
+   "ambientcg": [
+    "Fabric030",
+    "Fabric004"
+   ]
+  }
+ },
+ "floor_tiles": {
+  "surface": "tile",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [
+    "floor_tiles_06",
+    "concrete_tiles"
+   ],
+   "ambientcg": [
+    "Tiles074",
+    "Tiles101"
+   ]
+  }
+ },
+ "hazard": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "gun_metal": {
+  "surface": "metal",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "gun_metal_light": {
+  "surface": "metal",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "gun_polymer": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "gun_polymer_tan": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "gun_polymer_od": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "gun_wood": {
+  "surface": "wood",
+  "uv_scale": 0.6,
+  "sources": {}
+ },
+ "brass": {
+  "surface": "metal",
+  "uv_scale": 0.1,
+  "sources": {}
+ },
+ "glove": {
+  "surface": "fabric",
+  "uv_scale": 0.15,
+  "sources": {}
+ },
+ "sleeve_camo": {
+  "surface": "fabric",
+  "uv_scale": 0.5,
+  "sources": {}
+ },
+ "dummy_polymer": {
+  "surface": "fabric",
+  "uv_scale": 0.6,
+  "sources": {}
+ },
+ "target_white": {
+  "surface": "wood",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_white_rough": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_white_glossy": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_red_plastic": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_gold": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_chrome": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pbr_copper_rough": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "plaster_tan": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [
+    "beige_wall_001",
+    "painted_plaster_wall"
+   ],
+   "ambientcg": [
+    "Plaster001"
+   ]
+  }
+ },
+ "plaster_green": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": [
+    "Plaster003"
+   ]
+  }
+ },
+ "cmu_block": {
+  "surface": "concrete",
+  "uv_scale": 1.6,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "concrete_barrier": {
+  "surface": "concrete",
+  "uv_scale": 3.5,
+  "sources": {
+   "polyhaven": [
+    "concrete_wall_006",
+    "concrete_wall_004"
+   ],
+   "ambientcg": [
+    "Concrete032"
+   ]
+  }
+ },
+ "corrugated_grey": {
+  "surface": "metal",
+  "uv_scale": 2.4,
+  "sources": {
+   "polyhaven": [
+    "corrugated_iron",
+    "corrugated_iron_02"
+   ],
+   "ambientcg": [
+    "CorrugatedSteel005"
+   ]
+  }
+ },
+ "roof_membrane": {
+  "surface": "concrete",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "sand": {
+  "surface": "dirt",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [
+    "aerial_beach_01",
+    "coast_sand_01"
+   ],
+   "ambientcg": [
+    "Ground054"
+   ]
+  }
+ },
+ "lino_green": {
+  "surface": "tile",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "vehicle_od": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "vehicle_tan": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "rubber": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "glass_dark": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "steel_painted": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mattress": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "paint_white": {
+  "surface": "concrete",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "paint_red": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "tank_white": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "uniform_tan": {
+  "surface": "flesh",
+  "uv_scale": 0.6,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "uniform_slate": {
+  "surface": "flesh",
+  "uv_scale": 0.6,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_wall": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_wall_light": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_plinth": {
+  "surface": "plaster",
+  "uv_scale": 2.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_stain": {
+  "surface": "plaster",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_brick": {
+  "surface": "brick",
+  "uv_scale": 1.4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "stone_wall": {
+  "surface": "brick",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "mud_roof": {
+  "surface": "dirt",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "reed_ceiling": {
+  "surface": "wood",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "wood_dark": {
+  "surface": "wood",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "wood_old": {
+  "surface": "wood",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "bark": {
+  "surface": "wood",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "door_blue": {
+  "surface": "wood",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "door_green": {
+  "surface": "wood",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "metal_blue": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "metal_green": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "rust_metal": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "burnt_metal": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "vehicle_white": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "vehicle_yellow": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "jingle_red": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "jingle_yellow": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "jingle_green": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "jingle_blue": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "container_blue": {
+  "surface": "metal",
+  "uv_scale": 2.4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "corrugated_rust": {
+  "surface": "metal",
+  "uv_scale": 2.4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "headlight": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "shadow": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "soot": {
+  "surface": "dirt",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "tank_black": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "fruit_orange": {
+  "surface": "fabric",
+  "uv_scale": 0.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "fruit_green": {
+  "surface": "fabric",
+  "uv_scale": 0.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "clay": {
+  "surface": "plaster",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "carpet_red": {
+  "surface": "fabric",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "carpet_blue": {
+  "surface": "fabric",
+  "uv_scale": 1.2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "tarp_blue": {
+  "surface": "fabric",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "cloth_white": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "cloth_green": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "awning_stripe": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "sack": {
+  "surface": "fabric",
+  "uv_scale": 0.8,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "rope": {
+  "surface": "fabric",
+  "uv_scale": 0.4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "hay": {
+  "surface": "fabric",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "foliage": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "foliage_dark": {
+  "surface": "fabric",
+  "uv_scale": 1,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "rock": {
+  "surface": "concrete",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "dust": {
+  "surface": "dirt",
+  "uv_scale": 4,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "plaster_white": {
+  "surface": "plaster",
+  "uv_scale": 3,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "water": {
+  "surface": "glass",
+  "uv_scale": 2,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "tile_turquoise": {
+  "surface": "tile",
+  "uv_scale": 0.6,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "hedge": {
+  "surface": "fabric",
+  "uv_scale": 1.5,
+  "sources": {
+   "polyhaven": [],
+   "ambientcg": []
+  }
+ },
+ "camo_arid": {
+  "surface": "flesh",
+  "uv_scale": 0.5,
+  "sources": {}
+ },
+ "camo_olive": {
+  "surface": "flesh",
+  "uv_scale": 0.5,
+  "sources": {}
+ },
+ "cordura_coyote": {
+  "surface": "fabric",
+  "uv_scale": 0.4,
+  "sources": {}
+ },
+ "cordura_ranger": {
+  "surface": "fabric",
+  "uv_scale": 0.4,
+  "sources": {}
+ },
+ "helmet_coyote": {
+  "surface": "metal",
+  "uv_scale": 0.5,
+  "sources": {}
+ },
+ "boot_tan": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "boot_brown": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "skin_1": {
+  "surface": "flesh",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "skin_2": {
+  "surface": "flesh",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "skin_3": {
+  "surface": "flesh",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "skin_4": {
+  "surface": "flesh",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "hair": {
+  "surface": "fabric",
+  "uv_scale": 0.15,
+  "sources": {}
+ },
+ "eye": {
+  "surface": "flesh",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "lens": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "wool": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "shemagh_tan": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "shemagh_grey": {
+  "surface": "fabric",
+  "uv_scale": 0.3,
+  "sources": {}
+ },
+ "gun_parkerized": {
+  "surface": "metal",
+  "uv_scale": 0.18,
+  "sources": {}
+ },
+ "gun_parkerized_dark": {
+  "surface": "metal",
+  "uv_scale": 0.18,
+  "sources": {}
+ },
+ "gun_blued": {
+  "surface": "metal",
+  "uv_scale": 0.2,
+  "sources": {}
+ },
+ "gun_anodized": {
+  "surface": "metal",
+  "uv_scale": 0.2,
+  "sources": {}
+ },
+ "gun_anodized_fde": {
+  "surface": "metal",
+  "uv_scale": 0.2,
+  "sources": {}
+ },
+ "gun_cerakote_od": {
+  "surface": "metal",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "gun_cerakote_black": {
+  "surface": "metal",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "gun_steel_bare": {
+  "surface": "metal",
+  "uv_scale": 0.15,
+  "sources": {}
+ },
+ "gun_alu_bare": {
+  "surface": "metal",
+  "uv_scale": 0.15,
+  "sources": {}
+ },
+ "gun_knurl": {
+  "surface": "metal",
+  "uv_scale": 0.04,
+  "sources": {}
+ },
+ "gun_brass": {
+  "surface": "metal",
+  "uv_scale": 0.1,
+  "sources": {}
+ },
+ "poly_black": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "poly_black_grip": {
+  "surface": "fabric",
+  "uv_scale": 0.08,
+  "sources": {}
+ },
+ "poly_fde": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "poly_fde_grip": {
+  "surface": "fabric",
+  "uv_scale": 0.08,
+  "sources": {}
+ },
+ "poly_od": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "poly_od_grip": {
+  "surface": "fabric",
+  "uv_scale": 0.08,
+  "sources": {}
+ },
+ "poly_follower": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "gun_rubber_pad": {
+  "surface": "fabric",
+  "uv_scale": 0.06,
+  "sources": {}
+ },
+ "gun_wood_walnut": {
+  "surface": "wood",
+  "uv_scale": 0.35,
+  "sources": {}
+ },
+ "gun_wood_red": {
+  "surface": "wood",
+  "uv_scale": 0.35,
+  "sources": {}
+ },
+ "gun_wood_edge": {
+  "surface": "wood",
+  "uv_scale": 0.35,
+  "sources": {}
+ },
+ "gun_glass": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "poly_red": {
+  "surface": "fabric",
+  "uv_scale": 0.2,
+  "sources": {}
+ },
+ "concrete_weathered": {
+  "surface": "concrete",
+  "uv_scale": 3,
+  "sources": {}
+ },
+ "concrete_panel": {
+  "surface": "concrete",
+  "uv_scale": 3.5,
+  "sources": {}
+ },
+ "steel_rusty": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "steel_galv": {
+  "surface": "metal",
+  "uv_scale": 1.2,
+  "sources": {}
+ },
+ "rail_steel": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "tank_silver": {
+  "surface": "metal",
+  "uv_scale": 3,
+  "sources": {}
+ },
+ "paint_green": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "paint_yellow": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "pipe_yellow": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "valve_red": {
+  "surface": "metal",
+  "uv_scale": 0.6,
+  "sources": {}
+ },
+ "rig_red": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "pump_green": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "wagon_brown": {
+  "surface": "metal",
+  "uv_scale": 2,
+  "sources": {}
+ },
+ "crane_yellow": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "vehicle_blue": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "vehicle_red": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "coach_cream": {
+  "surface": "metal",
+  "uv_scale": 1.5,
+  "sources": {}
+ },
+ "cabin_white": {
+  "surface": "metal",
+  "uv_scale": 1.2,
+  "sources": {}
+ },
+ "cabin_blue": {
+  "surface": "metal",
+  "uv_scale": 1.2,
+  "sources": {}
+ },
+ "cabin_orange": {
+  "surface": "metal",
+  "uv_scale": 1.2,
+  "sources": {}
+ },
+ "stripe_redwhite": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "asphalt_wet": {
+  "surface": "concrete",
+  "uv_scale": 4,
+  "sources": {}
+ },
+ "oil_stain": {
+  "surface": "dirt",
+  "uv_scale": 3,
+  "sources": {}
+ },
+ "grass_dead": {
+  "surface": "dirt",
+  "uv_scale": 3,
+  "sources": {}
+ },
+ "chainlink": {
+  "surface": "metal_grate",
+  "uv_scale": 0.5,
+  "sources": {}
+ },
+ "flame": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "flame_hot": {
+  "surface": "default",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "lamp_lens": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": {}
+ },
+ "bark_poplar": {
+  "surface": "wood",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "bark_mulberry": {
+  "surface": "wood",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "bark_apricot": {
+  "surface": "wood",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "bark_bare": {
+  "surface": "wood",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "car_paint": {
+  "surface": "metal",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "rubber_tyre": {
+  "surface": "rubber",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "vehicle_glass": {
+  "surface": "glass",
+  "uv_scale": 1,
+  "sources": null
+ },
+ "character_olive": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_tunic": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_trousers": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_waistcoat": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_sash": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_turban": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_beard": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ },
+ "character_trim": {
+  "surface": "fabric",
+  "uv_scale": 0.25,
+  "sources": {}
+ }
+}
