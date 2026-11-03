@@ -38,7 +38,9 @@ const PICK = {
   qalat: { wide: "overview", street: "bazaar", interior: "a_site", site: "b_site" },
   bazaar: { wide: "overview", street: "carpet_lane", interior: "a_site", site: "b_site" },
   oilcamp: { wide: "overview", street: "gate", interior: "a_floor", site: "b_separators" },
-  farmhouse: { wide: "overview", street: "front", interior: "kitchen", site: "family" }
+  // the farmhouse wall ray starts on the driveway, looking west at the east siding: from "front" it lands under the
+  // porch, a view that SwiftShader could not render without running out of memory (12 crashes out of 12)
+  farmhouse: { wide: "overview", street: "front", interior: "kitchen", site: "family", wall: { name: "driveway", pos: [24, 2, 1.75], hpr: [90, 0, 0] } }
 };
 
 // ------------------------------------------------------------------------------------------------ plan
@@ -119,7 +121,8 @@ async function plan() {
     // wall: walk along the street shot's heading to the first wall and stand 1 m in front of it (from the
     // street, not inside: furniture is visual only, so a ray indoors can stop inside a cupboard)
     {
-      const s = named[pick.street];
+      const s = pick.wall ?? named[pick.street];
+      const sname = pick.wall?.name ?? pick.street;
       let found = null;
       for (let dh = 0; dh < 360 && !found; dh += 15) {
         for (const sgn of dh ? [1, -1] : [1]) {
@@ -128,12 +131,12 @@ async function plan() {
           const o = [s.pos[0], s.pos[1], s.pos[2] - 0.15];
           const d = rayBoxes(walls, o, f);
           if (d > 1.6 && d < 25) {
-            found = { kind: "wall", from: `${pick.street} +${sgn * dh}deg`, pos: [o[0] + f[0] * (d - 1), o[1] + f[1] * (d - 1), o[2]].map((v) => Math.round(v * 100) / 100), yaw, pitch: -4 };
+            found = { kind: "wall", from: `${sname} +${sgn * dh}deg`, pos: [o[0] + f[0] * (d - 1), o[1] + f[1] * (d - 1), o[2]].map((v) => Math.round(v * 100) / 100), yaw, pitch: -4 };
             break;
           }
         }
       }
-      if (!found) throw new Error(`${key}: no wall found from ${pick.street}`);
+      if (!found) throw new Error(`${key}: no wall found from ${sname}`);
       shots.push(found);
     }
     // vehicle: the first parked vehicle inside the bounds, from the first side with a clear 5 m line of sight
