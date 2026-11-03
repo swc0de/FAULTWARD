@@ -15,7 +15,7 @@
 // compare them only with other SwiftShader runs. Draw calls, triangles and texture memory are the same either way.
 //
 // Shot kinds (8 per map): wide (overview), street (eye level outside), interior, wall (a wall at 1 m),
-// vehicle (a parked vehicle at 5 m), char3 / char10 (an attacker bot at 3 m and 10 m), site (a bomb site).
+// vehicle (a parked vehicle at 5 m), char3 / char10 (a bot at 3 m and 10 m, from the front), site (a bomb site).
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
@@ -161,7 +161,7 @@ async function plan() {
       if (!found) say(`[plan] ${key}: no vehicle shot`);
       else shots.push(found);
     }
-    // characters: an attacker bot, followed live from the attackers' side of the map (looking back at it)
+    // characters: a living bot (attackers first), followed live from in front of it
     shots.push({ kind: "char3", follow: "attack", distance: 3, height: 1.6, pitch: -4 });
     shots.push({ kind: "char10", follow: "attack", distance: 10, height: 2.2, pitch: -6 });
     fromNamed("site", pick.site);
@@ -357,10 +357,12 @@ async function run() {
         }
         window.__shotHasBot = !!bot;
         if (!bot) return;
-        // stand on the attackers' side (south), looking back north at the bot's chest
+        // stand in front of the bot along its heading, looking back at its face and chest (yaw in degrees, 0 = +Y)
         const p = bot.f.drawPos ?? bot.pos;
-        g.camPos.set(p[0], p[1] - s.distance, p[2] + s.height);
-        g.yaw = 0;
+        const yaw = Number(bot.f.yaw) || 0;
+        const f = [-Math.sin((yaw * Math.PI) / 180), Math.cos((yaw * Math.PI) / 180)];
+        g.camPos.set(p[0] + f[0] * s.distance, p[1] + f[1] * s.distance, p[2] + s.height);
+        g.yaw = yaw + 180;
         g.pitch = s.pitch;
       };
       place();
