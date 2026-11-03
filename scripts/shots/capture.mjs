@@ -278,8 +278,8 @@ async function run() {
     page.on("crash", () => say("[run] the page crashed"));
     // At SwiftShader frame rates the page allocates too little JS garbage to trigger collections, and native
     // buffers owned by dead JS objects pile up (Bazaar: +30 MB/s until the kernel kills the renderer). A collection
-    // every 5 s keeps it flat. Not needed with --gpu, where the browser is launched without --expose-gc.
-    await page.addInitScript(() => setInterval(() => window.gc && window.gc(), 5000));
+    // every 2 s keeps it flat. Not needed with --gpu, where the browser is launched without --expose-gc.
+    await page.addInitScript(() => setInterval(() => window.gc && window.gc(), 2000));
     const user = "shotbot", pass = "shotbot-pass1";
     await page.goto(`${base}/login`);
     await page.fill("#username", user);
