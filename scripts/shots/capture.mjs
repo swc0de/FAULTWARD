@@ -399,7 +399,7 @@ async function run() {
     // Every shot gets a fresh browser and a fresh match: under SwiftShader the renderer's native memory can grow by
     // ~30 MB/s on the big maps (seen on Bazaar) until the kernel kills it, so nothing is carried from shot to shot.
     for (const shot of shots) {
-      for (let attempt = 0; attempt < 3 && !done.has(shot.kind); attempt++) {
+      for (let attempt = 0; attempt < 4 && !done.has(shot.kind); attempt++) {
         try {
           await start();
           const loadMs = await openMap(key);
