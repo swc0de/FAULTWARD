@@ -390,23 +390,24 @@ async function run() {
     fs.mkdirSync(mapOut, { recursive: true });
     const m = (metrics.maps[key] = { ...(metrics.maps[key] ?? {}), shots: { ...(metrics.maps[key]?.shots ?? {}) }, restarts: 0 });
     const done = new Set();
-    for (let attempt = 0; done.size < shots.length && attempt < shots.length + 2; attempt++) {
-      try {
-        if (!page || page.isClosed() || attempt > 0) await start();
-        const loadMs = await openMap(key);
-        if (m.load_ms === undefined) m.load_ms = loadMs;
-        for (const shot of shots) {
-          if (done.has(shot.kind)) continue;
+    // Every shot gets a fresh browser and a fresh match: under SwiftShader the renderer's native memory can grow by
+    // ~30 MB/s on the big maps (seen on Bazaar) until the kernel kills it, so nothing is carried from shot to shot.
+    for (const shot of shots) {
+      for (let attempt = 0; attempt < 3 && !done.has(shot.kind); attempt++) {
+        try {
+          await start();
+          const loadMs = await openMap(key);
+          if (m.load_ms === undefined) m.load_ms = loadMs;
           if (shot.follow) await page.evaluate(() => (window.__shotHasBot = false));
           await takeShot(key, shot, mapOut, m);
           done.add(shot.kind);
+        } catch (e) {
+          m.restarts++;
+          say(`[run] ${key}/${shot.kind}: ${String(e.message ?? e).split("\n")[0]}; retrying in a new browser`);
+          page = null;
         }
-      } catch (e) {
-        m.restarts++;
-        say(`[run] ${key}: ${String(e.message ?? e).split("\n")[0]}; restarting the browser`);
-        page = null;
+        await stopAll();
       }
-      await stopAll();
     }
     m.missing = shots.map((s) => s.kind).filter((k) => !done.has(k));
     m.console_errors = [...new Set(errors)];
