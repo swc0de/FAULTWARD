@@ -115,6 +115,13 @@ penetration and soft-wall panels.
 7. **2048 textures:** need a three-place patch in the settings chunk (clamp, validation, menu). `Ty` already falls
    back to the first size a material has, so materials without 2048 keep working.
 
+8. **Possible client memory issue (check on a real GPU).** Under SwiftShader the renderer's native memory grows
+   by about 30 MB/s on Bazaar while the JS heap stays flat at ~215 MB, and drops back as soon as a garbage collection
+   runs. Something allocates native buffers every frame (typed arrays, render-target readbacks such as auto exposure,
+   or per-frame texture uploads are the usual suspects) and only GC frees them. At 60 fps there is enough JS garbage
+   for V8 to collect often, so players may never notice, but it is worth a look in Chrome's task manager on a real
+   GPU before Phase 1 adds more streaming. The capture forces a GC every 5 s under SwiftShader to stay stable.
+
 ## Baseline (Phase 0)
 
 Shots: `shots/phase0-baseline/<map>/<kind>.jpg`, contact sheets `shots/phase0-baseline/sheet-<map>.jpg`,
