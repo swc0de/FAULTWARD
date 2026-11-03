@@ -7,7 +7,7 @@ The working log of the realistic-graphics overhaul (brief: the "graphics overhau
 
 | Phase | State | Notes |
 | --- | --- | --- |
-| 0 Baseline and test harness | in progress: baseline capture running | shots in `shots/phase0-baseline/`, metrics below |
+| 0 Baseline and test harness | **done, waiting for review** ⏸ | 31 of 32 shots in `shots/phase0-baseline/` (farmhouse wall missing), metrics below |
 | 1 Compression and loading | not started | plan revised: see "What the code says" |
 | 2 Real materials | blocked on asset access | Poly Haven / ambientCG are not reachable from the cloud session |
 | 3 Model import and props | not started | |
@@ -46,6 +46,12 @@ node scripts/shots/capture.mjs run --phase phase1 --base http://127.0.0.1:5000 -
 python3 scripts/shots/contact_sheet.py phase1 --vs phase0-baseline
 node scripts/textures/material_usage.mjs                  # material area ranking (Phase 2 order)
 ```
+
+Under SwiftShader use `--width 1280 --height 720 --seconds 0 --settle 3` (each shot takes 1–3 minutes, about
+1.5 hours for all 32; a few shots need several attempts). Each shot gets a fresh browser and a fresh match, and the
+capture stops all of `shotbot`'s matches before each one, so a crash never leaves bot matches running. Shots that fail
+every attempt are listed under `missing` in `metrics.json`. Never run two captures at once: each one runs its own
+5 v 5 match and browser, and two together exceed the cloud session's memory.
 
 The capture logs in as a local account `shotbot` (created on first use), starts a 5 v 5 bot watch match per map,
 clicks in as spectator, and uses `window.__game.freeFly` / `camPos` / `yaw` / `pitch`. Shots are the game canvas
@@ -125,9 +131,63 @@ penetration and soft-wall panels.
 ## Baseline (Phase 0)
 
 Shots: `shots/phase0-baseline/<map>/<kind>.jpg`, contact sheets `shots/phase0-baseline/sheet-<map>.jpg`,
-numbers in `shots/phase0-baseline/metrics.json`. SwiftShader, 1280×720, medium preset, 10 s timing window.
+numbers in `shots/phase0-baseline/metrics.json`. SwiftShader, 1280×720, medium preset. Each shot ran in a fresh
+browser and a fresh bot match. Frame times are software rendering (Qalat's static shots over a 10 s window, the rest
+over one frame) and **must not be read as GPU performance**; the draw calls, triangles and texture memory are real.
 
-BASELINE_TABLE
+Renderer: swiftshader, viewport [1280, 720], timing window 0 s.
+
+| Map | Shot | Draw calls | Triangles | Frame ms | Texture MB (est.) |
+| --- | --- | ---: | ---: | ---: | ---: |
+| qalat | wide | 561 | 0.80M | 1923 | 27.7 |
+| qalat | street | 463 | 0.86M | 2091 | 27.7 |
+| qalat | interior | 224 | 0.64M | 3370 | 27.7 |
+| qalat | wall | 369 | 0.89M | 5435 | 27.7 |
+| qalat | vehicle | 269 | 0.83M | 2552 | 27.7 |
+| qalat | char3 | 823 | 0.96M | 9056 | 36.5 |
+| qalat | char10 | 422 | 0.72M | 11653 | 37.1 |
+| qalat | site | 260 | 0.75M | 2248 | 27.7 |
+| bazaar | wide | 1006 | 1.07M | 8590 | 41.4 |
+| bazaar | street | 849 | 1.06M | 9025 | 42.9 |
+| bazaar | interior | 527 | 0.91M | 11843 | 42.9 |
+| bazaar | wall | 823 | 1.22M | 7310 | 42.6 |
+| bazaar | vehicle | 526 | 1.00M | 11150 | 42.9 |
+| bazaar | char3 | 463 | 1.13M | 10142 | 42.9 |
+| bazaar | char10 | 604 | 0.91M | 8029 | 42 |
+| bazaar | site | 624 | 0.92M | 12369 | 42.9 |
+| oilcamp | wide | 766 | 0.46M | 9226 | 32.6 |
+| oilcamp | street | 682 | 0.56M | 8594 | 33.2 |
+| oilcamp | interior | 628 | 0.60M | 7874 | 32.9 |
+| oilcamp | wall | 572 | 0.57M | 8151 | 31.8 |
+| oilcamp | vehicle | 325 | 0.48M | 7057 | 32.6 |
+| oilcamp | char3 | 347 | 0.51M | 7151 | 31.8 |
+| oilcamp | char10 | 401 | 0.47M | 6829 | 31.8 |
+| oilcamp | site | 423 | 0.44M | 7110 | 32.3 |
+| farmhouse | wide | 596 | 2.95M | 2481 | 321.8 |
+| farmhouse | street | 585 | 3.15M | 5420 | 322.4 |
+| farmhouse | interior | 449 | 3.15M | 3889 | 323 |
+| farmhouse | wall | missing | | | |
+| farmhouse | vehicle | 382 | 2.28M | 3011 | 323 |
+| farmhouse | char3 | 326 | 1.75M | 2307 | 323 |
+| farmhouse | char10 | 345 | 1.90M | 5850 | 322.4 |
+| farmhouse | site | 439 | 3.27M | 1825 | 323 |
+
+| Map | Load (ms) | Console errors |
+| --- | ---: | --- |
+| qalat | 19688 | 0 |
+| bazaar | 24085 | 0 |
+| oilcamp | 16313 | 0 |
+| farmhouse | 10751 | 0 |
+
+What the numbers already say, before any change:
+
+- **Hollister Farm is the heaviest map by far:** 2.3–3.3 M triangles in every shot (the others 0.45–1.2 M) and
+  ~323 MB of textures, against 28–43 MB on the other maps. Its materials are JPEG only (no `ctex`), so they sit in
+  VRAM uncompressed, and its furniture is dense geometry drawn whether a room is visible or not (no LOD or culling
+  cells for the interior). That is the first thing to fix for frame rate, and it costs nothing visually.
+- **Draw calls** run 220–1,000 per shot, highest on Bazaar's wide view. Fine for WebGL2 at this scale, but Phase 3's
+  props must be instanced or merged per material, not added as separate meshes.
+- **No console errors** on any map.
 
 **Disk:** map GLBs: farmhouse 91.4 MB, bazaar 79.4 MB, qalat 72.8 MB, oil camp 11.8 MB. Textures folder 529 MB
 (311.7 MB JPEG + 237.4 MB ctex; the farm's own materials 50.7 MB, JPEG only). Library `vehicles_trees` 14.4 MB.
@@ -139,7 +199,46 @@ Phase 2 order.
 
 ### Critique of the baseline (honest)
 
-BASELINE_CRITIQUE
+Looked at every shot, at the medium preset a new player gets. What looks fake, and why:
+
+**All maps**
+- **Textures are noise, and they are blurry up close.** The 1 m wall shots (Qalat corrugated container, Bazaar mud
+  wall, Oil Camp corrugated wall) are smears: a 512 px texture spread over 2–4 m (medium preset) is 128–256 px per
+  metre, a quarter of the 512 px/m target, and the noise-generated albedo has no real structure to resolve anyway.
+  Rust is evenly scattered splotches; stains are large soft blobs repeated across walls.
+- **Ground** is uniform high-frequency noise (gravel, dirt, asphalt). At eye level it reads like sandpaper. There are
+  no transitions (gravel into dirt, asphalt edges), no ruts, puddles, litter or debris.
+- **Rocks and terrain** are faceted low-poly shapes with a flat texture: the biggest single giveaway on Qalat and Bazaar.
+- **Vehicles** are boxy with no panel gaps, trims or interiors; the paint is flat, and wear is the same splotch noise.
+- **Characters** are flat-coloured with no textures: uniform greens and tans, no fabric, no skin detail, stiff poses.
+  The 3 m shots on Qalat, Oil Camp and the farm show it clearly.
+- **What already works:** sun direction and colour, sky and haze, soft shadows, and the overall composition of the
+  places. The lighting model is a good base; the assets on top of it are the problem.
+
+**Qalat Village.** Mud walls are flat boxes with sharp corners. No rounded hand-built edges, no layered plaster, almost
+no rain streaks or base erosion, even though the art direction calls for heavy wear. Timber beam ends sticking out of
+walls are present and help. The wide shot reads as a diorama: every roof is the same flat slab.
+
+**Sarai Bazaar.** The alleys are bare walls with nothing on them: no cables, signs, AC units or goods, although the
+brief's realism depends on clutter. The fuel-station canopy and the hotel courtyard are the best shots; the carpet
+lane awnings are flat colour with a noisy weave.
+
+**Oil Camp.** Sparse and toy-like from above. Berms are smooth blobs; the separator tanks are good shapes with no
+detail (no welds, valves, labels); the corrugated cabin walls are streaky.
+
+**Hollister Farm.** The exterior reads best of the four from a distance (white siding, porch, shutters), but the trees
+are cotton-ball canopies, the lawn is one flat green, and the hedges are green boxes. Indoors, the oak floor is
+over-saturated and visibly repeats; corners have no contact shadow or AO; the walls are blank and evenly lit; the
+family room feels empty and large. The lamps help.
+
+**Harness limitations in these shots** (fixed or noted for the next run):
+- The 10 m character shots stand 10 m in front of a bot along its heading, which often lands behind a wall (Bazaar,
+  Oil Camp) or makes the bot tiny. Bazaar's 3 m shot also missed. For judging characters, Phase 6 needs a controlled
+  turntable scene; these follow shots only show characters in context.
+- The farmhouse wall shot is missing: every view of the farmhouse exterior at 1 m made SwiftShader's renderer exceed
+  the session's memory limit (16 attempts, two different walls). It should work with `--gpu`.
+- Qalat's static shots were taken with a 10 s timing window, the other shots with one frame. Under SwiftShader this
+  only changes the meaningless frame time.
 
 ## Plan (adapted to what the code says)
 
@@ -185,7 +284,7 @@ which do not need a rebake.
 - [x] `scripts/shots/capture.mjs` (plan + run), `scripts/shots/shots.json` (8 shots per map)
 - [x] `scripts/shots/contact_sheet.py`
 - [x] `scripts/textures/material_usage.mjs` and the material ranking
-- [x] Baseline shots and metrics for all four maps
+- [x] Baseline shots and metrics for all four maps (31 of 32: farmhouse wall missing under SwiftShader)
 - [x] `docs/art-direction.md` (reference photos still to come)
 - [x] Original material sources extracted to `assets-src/material-library-v03.10.json`
 - [ ] ⏸ Review of the baseline
