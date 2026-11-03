@@ -264,7 +264,7 @@ async function run() {
 
   const launchArgs = flag("gpu") ? ["--ignore-gpu-blocklist", "--enable-gpu-rasterization"] : ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"];
   const errors = [];
-  let browser = null, page = null, matchId = null;
+  let browser = null, page = null;
   // A fresh browser, logged in (the account is created on first use). SwiftShader sometimes loses the page on the
   // heavy maps, so a map is retried in a new browser from the first shot it has not saved yet.
   const start = async () => {
@@ -300,7 +300,6 @@ async function run() {
       f.submit();
     }, key);
     await page.waitForURL(/\/game\//, { timeout: 60000 });
-    matchId = /\/game\/([^/?]+)/.exec(page.url())?.[1] ?? null;
     const t0 = Date.now();
     await page.waitForFunction(() => window.__game && window.__game.loaded, null, { timeout: 600000, polling: 500 });
     const loadMs = Date.now() - t0;
@@ -310,25 +309,24 @@ async function run() {
     say(`[run] ${key}: loaded in ${loadMs} ms`);
     return loadMs;
   };
-  // Stop the bot match this page started (a crashed or abandoned page would leave it running: the server only
-  // runs MAX_MATCHES at once, and every live match eats CPU).
-  const stopMatch = async (id) => {
-    if (!id) return;
+  // Stop every live match this account may stop (a crashed or abandoned page leaves its bot match running: the
+  // server only runs MAX_MATCHES at once, and every live match eats CPU). Run before each map and at the end.
+  const stopAll = async () => {
     try {
       if (!page || page.isClosed()) await start();
       await page.goto(`${base}/play`);
-      await page.evaluate((mid) => {
+      const stopped = await page.evaluate(async () => {
         const token = document.querySelector("input[name=csrf_token]").value;
-        const f = document.createElement("form");
-        f.method = "post";
-        f.action = `/matches/${mid}/stop`;
-        f.innerHTML = `<input type="hidden" name="csrf_token" value="${token}">`;
-        document.body.append(f);
-        f.submit();
-      }, id);
-      await page.waitForLoadState("load");
+        const live = await (await fetch("/api/matches", { credentials: "same-origin" })).json();
+        for (const mt of live) {
+          await fetch(`/matches/${mt.id}/stop`, { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ csrf_token: token }) });
+        }
+        const left = await (await fetch("/api/matches", { credentials: "same-origin" })).json();
+        return [live.length, left.length];
+      });
+      if (stopped[0]) say(`[run] stopped ${stopped[0] - stopped[1]} of ${stopped[0]} live matches`);
     } catch (e) {
-      say(`[run] could not stop match ${id}: ${String(e.message ?? e).split("\n")[0]}`);
+      say(`[run] could not stop matches: ${String(e.message ?? e).split("\n")[0]}`);
     }
   };
   const takeShot = async (key, shot, mapOut, m) => {
@@ -383,6 +381,8 @@ async function run() {
     say(`[run] ${key}/${shot.kind}: ${timing.avg_ms} ms avg, ${timing.low1_fps} fps 1% low, ${stats.draw_calls} calls, ${stats.triangles} tris, ~${stats.texture_mb_est} MB textures`);
   };
 
+  await start();
+  await stopAll();
   for (const key of maps) {
     errors.length = 0;
     const shots = shotPlan[key].filter((s) => !only || only.includes(s.kind)).sort((a, b) => (b.follow ? 1 : 0) - (a.follow ? 1 : 0));
@@ -406,8 +406,7 @@ async function run() {
         say(`[run] ${key}: ${String(e.message ?? e).split("\n")[0]}; restarting the browser`);
         page = null;
       }
-      await stopMatch(matchId);
-      matchId = null;
+      await stopAll();
     }
     m.missing = shots.map((s) => s.kind).filter((k) => !done.has(k));
     m.console_errors = [...new Set(errors)];
