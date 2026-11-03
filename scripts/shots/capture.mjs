@@ -347,12 +347,13 @@ async function run() {
         // the bot followed so far while it lives, else the first living one (attackers first)
         const want = s.follow === "attack" ? 0 : 1;
         let bot = window.__shotBot !== undefined ? g.remotes.get(window.__shotBot) : null;
-        if (!bot || !bot.alive || bot.seen !== g.frameNo) {
+        if (!bot || !bot.alive || g.frameNo - bot.seen >= 30) {
           bot = null;
-          const live = [...g.remotes].filter(([, r]) => r.alive && r.seen === g.frameNo && r.pos);
+          const live = [...g.remotes].filter(([, r]) => r.alive && r.pos && g.frameNo - r.seen < 30);
           live.sort((a, b) => (a[1].f.team === want ? 0 : 1) - (b[1].f.team === want ? 0 : 1));
           if (live.length) [window.__shotBot, bot] = live[0];
         }
+        window.__shotHasBot = !!bot;
         if (!bot) return;
         // stand on the attackers' side (south), looking back north at the bot's chest
         const p = bot.f.drawPos ?? bot.pos;
@@ -364,6 +365,10 @@ async function run() {
       if (s.follow) window.__shotFollow = setInterval(place, 30);
     }, shot);
     await page.waitForTimeout(settle * 1000);
+    if (shot.follow && !(await page.evaluate(() => window.__shotHasBot))) {
+      const n = await page.evaluate(() => [...window.__game.remotes.values()].filter((r) => r.alive).length);
+      throw new Error(`no living bot to follow (${n} alive)`);
+    }
     const timing = await page.evaluate(pageMeasure, seconds);
     const stats = await page.evaluate(pageStats);
     const jpg = await page.evaluate(() => {
@@ -380,7 +385,7 @@ async function run() {
 
   for (const key of maps) {
     errors.length = 0;
-    const shots = shotPlan[key].filter((s) => !only || only.includes(s.kind));
+    const shots = shotPlan[key].filter((s) => !only || only.includes(s.kind)).sort((a, b) => (b.follow ? 1 : 0) - (a.follow ? 1 : 0));
     const mapOut = path.join(outDir, key);
     fs.mkdirSync(mapOut, { recursive: true });
     const m = (metrics.maps[key] = { ...(metrics.maps[key] ?? {}), shots: { ...(metrics.maps[key]?.shots ?? {}) }, restarts: 0 });
@@ -392,6 +397,7 @@ async function run() {
         if (m.load_ms === undefined) m.load_ms = loadMs;
         for (const shot of shots) {
           if (done.has(shot.kind)) continue;
+          if (shot.follow) await page.evaluate(() => (window.__shotHasBot = false));
           await takeShot(key, shot, mapOut, m);
           done.add(shot.kind);
         }
