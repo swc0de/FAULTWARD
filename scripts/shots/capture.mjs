@@ -263,33 +263,33 @@ async function run() {
   metrics.date = new Date().toISOString();
 
   const launchArgs = flag("gpu") ? ["--ignore-gpu-blocklist", "--enable-gpu-rasterization"] : ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"];
-  const browser = await chromium.launch({ args: launchArgs, headless: !flag("gpu") });
-  const page = await browser.newPage({ viewport: { width, height: height + 49 } }); // the site header is 49 px
   const errors = [];
-  page.on("console", (m) => {
-    if (m.type() === "error") errors.push(m.text().slice(0, 300));
-  });
-  page.on("pageerror", (e) => errors.push(`pageerror: ${String(e).slice(0, 300)}`));
-
-  // account (created on first use)
-  const user = "shotbot", pass = "shotbot-pass1";
-  await page.goto(`${base}/login`);
-  await page.fill("#username", user);
-  await page.fill("#password", pass);
-  await Promise.all([page.waitForNavigation(), page.click("button[type=submit]")]);
-  if (page.url().includes("/login")) {
-    await page.goto(`${base}/signup`);
+  let browser = null, page = null;
+  // A fresh browser, logged in (the account is created on first use). SwiftShader sometimes loses the page on the
+  // heavy maps, so a map is retried in a new browser from the first shot it has not saved yet.
+  const start = async () => {
+    if (browser) await browser.close().catch(() => {});
+    browser = await chromium.launch({ args: launchArgs, headless: !flag("gpu") });
+    page = await browser.newPage({ viewport: { width, height: height + 49 } }); // the site header is 49 px
+    page.on("console", (m) => {
+      if (m.type() === "error") errors.push(m.text().slice(0, 300));
+    });
+    page.on("pageerror", (e) => errors.push(`pageerror: ${String(e).slice(0, 300)}`));
+    page.on("crash", () => say("[run] the page crashed"));
+    const user = "shotbot", pass = "shotbot-pass1";
+    await page.goto(`${base}/login`);
     await page.fill("#username", user);
     await page.fill("#password", pass);
-    await page.fill("#confirm", pass);
     await Promise.all([page.waitForNavigation(), page.click("button[type=submit]")]);
-  }
-
-  for (const key of maps) {
-    errors.length = 0;
-    const shots = shotPlan[key].filter((s) => !only || only.includes(s.kind));
-    const mapOut = path.join(outDir, key);
-    fs.mkdirSync(mapOut, { recursive: true });
+    if (page.url().includes("/login")) {
+      await page.goto(`${base}/signup`);
+      await page.fill("#username", user);
+      await page.fill("#password", pass);
+      await page.fill("#confirm", pass);
+      await Promise.all([page.waitForNavigation(), page.click("button[type=submit]")]);
+    }
+  };
+  const openMap = async (key) => {
     await page.goto(`${base}/play`);
     await page.evaluate((map) => {
       const f = document.querySelector("#quick-match");
@@ -307,57 +307,83 @@ async function run() {
     await page.evaluate(() => window.__game.overlay.click());
     await page.waitForTimeout(1500);
     say(`[run] ${key}: loaded in ${loadMs} ms`);
-    const m = (metrics.maps[key] = { ...(metrics.maps[key] ?? {}), load_ms: loadMs, shots: { ...(metrics.maps[key]?.shots ?? {}) } });
-    for (const shot of shots) {
-      // place the camera (followed shots keep tracking their bot until the frame is grabbed)
-      await page.evaluate((s) => {
-        const g = window.__game;
-        g.freeFly = true;
-        clearInterval(window.__shotFollow);
-        const place = () => {
-          if (!s.follow) {
-            g.camPos.set(s.pos[0], s.pos[1], s.pos[2]);
-            g.yaw = s.yaw;
-            g.pitch = s.pitch;
-            return;
-          }
-          // the bot followed so far while it lives, else the first living one (attackers first)
-          const want = s.follow === "attack" ? 0 : 1;
-          let bot = window.__shotBot !== undefined ? g.remotes.get(window.__shotBot) : null;
-          if (!bot || !bot.alive || bot.seen !== g.frameNo) {
-            bot = null;
-            const live = [...g.remotes].filter(([, r]) => r.alive && r.seen === g.frameNo && r.pos);
-            live.sort((a, b) => (a[1].f.team === want ? 0 : 1) - (b[1].f.team === want ? 0 : 1));
-            if (live.length) [window.__shotBot, bot] = live[0];
-          }
-          if (!bot) return;
-          // stand on the attackers' side (south), looking back north at the bot's chest
-          const p = bot.f.drawPos ?? bot.pos;
-          g.camPos.set(p[0], p[1] - s.distance, p[2] + s.height);
-          g.yaw = 0;
+    return loadMs;
+  };
+  const takeShot = async (key, shot, mapOut, m) => {
+    // place the camera (followed shots keep tracking their bot until the frame is grabbed)
+    await page.evaluate((s) => {
+      const g = window.__game;
+      g.freeFly = true;
+      clearInterval(window.__shotFollow);
+      const place = () => {
+        if (!s.follow) {
+          g.camPos.set(s.pos[0], s.pos[1], s.pos[2]);
+          g.yaw = s.yaw;
           g.pitch = s.pitch;
-        };
-        place();
-        if (s.follow) window.__shotFollow = setInterval(place, 30);
-      }, shot);
-      await page.waitForTimeout(settle * 1000);
-      const timing = await page.evaluate(pageMeasure, seconds);
-      const stats = await page.evaluate(pageStats);
-      const jpg = await page.evaluate(() => {
-        const g = window.__game;
-        g.world.render();
-        return g.canvas.toDataURL("image/jpeg", 0.92);
-      });
-      await page.evaluate(() => clearInterval(window.__shotFollow));
-      fs.writeFileSync(path.join(mapOut, `${shot.kind}.jpg`), Buffer.from(jpg.split(",")[1], "base64"));
-      m.shots[shot.kind] = { ...timing, ...stats };
-      say(`[run] ${key}/${shot.kind}: ${timing.avg_ms} ms avg, ${timing.low1_fps} fps 1% low, ${stats.draw_calls} calls, ${stats.triangles} tris, ~${stats.texture_mb_est} MB textures`);
+          return;
+        }
+        // the bot followed so far while it lives, else the first living one (attackers first)
+        const want = s.follow === "attack" ? 0 : 1;
+        let bot = window.__shotBot !== undefined ? g.remotes.get(window.__shotBot) : null;
+        if (!bot || !bot.alive || bot.seen !== g.frameNo) {
+          bot = null;
+          const live = [...g.remotes].filter(([, r]) => r.alive && r.seen === g.frameNo && r.pos);
+          live.sort((a, b) => (a[1].f.team === want ? 0 : 1) - (b[1].f.team === want ? 0 : 1));
+          if (live.length) [window.__shotBot, bot] = live[0];
+        }
+        if (!bot) return;
+        // stand on the attackers' side (south), looking back north at the bot's chest
+        const p = bot.f.drawPos ?? bot.pos;
+        g.camPos.set(p[0], p[1] - s.distance, p[2] + s.height);
+        g.yaw = 0;
+        g.pitch = s.pitch;
+      };
+      place();
+      if (s.follow) window.__shotFollow = setInterval(place, 30);
+    }, shot);
+    await page.waitForTimeout(settle * 1000);
+    const timing = await page.evaluate(pageMeasure, seconds);
+    const stats = await page.evaluate(pageStats);
+    const jpg = await page.evaluate(() => {
+      const g = window.__game;
+      g.world.render();
+      return g.canvas.toDataURL("image/jpeg", 0.92);
+    });
+    await page.evaluate(() => clearInterval(window.__shotFollow));
+    fs.writeFileSync(path.join(mapOut, `${shot.kind}.jpg`), Buffer.from(jpg.split(",")[1], "base64"));
+    m.shots[shot.kind] = { ...timing, ...stats };
+    fs.writeFileSync(metricsFile, `${JSON.stringify(metrics, null, 1)}\n`);
+    say(`[run] ${key}/${shot.kind}: ${timing.avg_ms} ms avg, ${timing.low1_fps} fps 1% low, ${stats.draw_calls} calls, ${stats.triangles} tris, ~${stats.texture_mb_est} MB textures`);
+  };
+
+  for (const key of maps) {
+    errors.length = 0;
+    const shots = shotPlan[key].filter((s) => !only || only.includes(s.kind));
+    const mapOut = path.join(outDir, key);
+    fs.mkdirSync(mapOut, { recursive: true });
+    const m = (metrics.maps[key] = { ...(metrics.maps[key] ?? {}), shots: { ...(metrics.maps[key]?.shots ?? {}) }, restarts: 0 });
+    const done = new Set();
+    for (let attempt = 0; done.size < shots.length && attempt < shots.length + 2; attempt++) {
+      try {
+        if (!page || page.isClosed() || attempt > 0) await start();
+        const loadMs = await openMap(key);
+        if (m.load_ms === undefined) m.load_ms = loadMs;
+        for (const shot of shots) {
+          if (done.has(shot.kind)) continue;
+          await takeShot(key, shot, mapOut, m);
+          done.add(shot.kind);
+        }
+      } catch (e) {
+        m.restarts++;
+        say(`[run] ${key}: ${String(e.message ?? e).split("\n")[0]}; restarting the browser`);
+        page = null;
+      }
     }
+    m.missing = shots.map((s) => s.kind).filter((k) => !done.has(k));
     m.console_errors = [...new Set(errors)];
-    // geometry and texture bytes on disk for this map
     fs.writeFileSync(metricsFile, `${JSON.stringify(metrics, null, 1)}\n`);
   }
-  await browser.close();
+  await browser?.close();
   say(`[run] wrote ${path.relative(ROOT, metricsFile)}`);
 }
 
